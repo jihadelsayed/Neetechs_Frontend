@@ -1,4 +1,4 @@
 [submodule "Authentication"]
-	path = src\app\authentication
+	path = src/app/authentication
 	url = https://github.com/davidpales1/Authentication.git
 
