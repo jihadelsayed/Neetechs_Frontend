@@ -13,14 +13,19 @@ import { environment } from '../environments/environment';
 import { UserService } from './authentication/services/user.service';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './authentication/services/auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { JwtInterceptor } from './authentication/Jwt-interceptor.interceptor';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    NotFoundComponent,
+    AuthorizationComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService,NotAuthGuard,AuthGuard],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },UserService,NotAuthGuard,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

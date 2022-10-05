@@ -7,15 +7,40 @@
       "i18n": {
         "sourceLocale":"en-US",
         "locales": {
-          "ar": "src/locale/messages.ar.xlf",
-          "es": "src/locale/messages.es.xlf",
-          "pt": "src/locale/messages.pt.xlf",
-          "de": "src/locale/messages.de.xlf",
-          "ru": "src/locale/messages.ru.xlf",
-          "sv": "src/locale/messages.sv.xlf",
-          "zh": "src/locale/messages.zh.xlf",
-          "fr": "src/locale/messages.fr.xlf",
-          "en": "src/locale/messages.xlf"
+          "es-ES": "src/local/messages.es.xlf",
+          "pt-BR": "src/local/messages.pt.xlf",
+          "ar-AE": "src/local/messages.ar.xlf",
+          "ar-AR": "src/local/messages.ar.xlf",
+          "ar-BH": "src/local/messages.ar.xlf",
+          "ar-DJ": "src/local/messages.ar.xlf",
+          "ar-DZ": "src/local/messages.ar.xlf",
+          "ar-EG": "src/local/messages.ar.xlf",
+          "ar-EH": "src/local/messages.ar.xlf",
+          "ar-ER": "src/local/messages.ar.xlf",
+          "ar-PS": "src/local/messages.ar.xlf",
+          "ar-IQ": "src/local/messages.ar.xlf",
+          "ar-JO": "src/local/messages.ar.xlf",
+          "ar-KM": "src/local/messages.ar.xlf",
+          "ar-KW": "src/local/messages.ar.xlf",
+          "ar-LB": "src/local/messages.ar.xlf",
+          "ar-LY": "src/local/messages.ar.xlf",
+          "ar-MA": "src/local/messages.ar.xlf",
+          "ar-MR": "src/local/messages.ar.xlf",
+          "ar-OM": "src/local/messages.ar.xlf",
+          "ar-QA": "src/local/messages.ar.xlf",
+          "ar-SA": "src/local/messages.ar.xlf",
+          "ar-SD": "src/local/messages.ar.xlf",
+          "ar-SO": "src/local/messages.ar.xlf",
+          "ar-SY": "src/local/messages.ar.xlf",
+          "ar-TD": "src/local/messages.ar.xlf",
+          "ar-TN": "src/local/messages.ar.xlf",
+          "ar-YE": "src/local/messages.ar.xlf",
+          "de-DE": "src/local/messages.de.xlf",
+          "ru-RU": "src/local/messages.ru.xlf",
+          "sv-SE": "src/local/messages.sv.xlf",
+          "zh-CN": "src/local/messages.zh.xlf",
+          "fr-FR": "src/local/messages.fr.xlf"
+
         }
       },
       "projectType": "application",
@@ -27,23 +52,44 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            // for build multiply localization
             "localize":[
-              "ar",
-              "es",
-              "pt",
-              "ar",
-              "de",
-              "ru",
-              "sv",
-              "zh",
-              "fr",
-              "en"
+              "es-ES",
+              "pt-BR",
+              "ar-AE",
+              "ar-AR",
+              "ar-BH",
+              "ar-DJ",
+              "ar-DZ",
+              "ar-EG",
+              "ar-EH",
+              "ar-ER",
+              "ar-PS",
+              "ar-IQ",
+              "ar-JO",
+              "ar-KM",
+              "ar-KW",
+              "ar-LB",
+              "ar-LY",
+              "ar-MA",
+              "ar-MR",
+              "ar-OM",
+              "ar-QA",
+              "ar-SA",
+              "ar-SD",
+              "ar-SO",
+              "ar-SY",
+              "ar-TD",
+              "ar-TN",
+              "ar-YE",
+              "de-DE",
+              "ru-RU",
+              "sv-SE",
+              "zh-CN",
+              "fr-FR"
             ],
             "outputPath": "dist/nee-techs",
             "index": "src/index.html",
@@ -65,51 +111,6 @@
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
-            "es":{
-              "localize":[
-                "es"
-            ]
-            },
-            "en":{
-              "localize":[
-                "en"
-            ]
-            },
-            "pt":{
-              "localize":[
-                "pt"
-            ]
-            },
-            "ar":{
-              "localize":[
-                "ar"
-            ]
-            },
-            "de":{
-              "localize":[
-                "de"
-            ]
-            },
-            "ru":{
-              "localize":[
-                "ru"
-            ]
-            },
-            "sv":{
-              "localize":[
-                "sv"
-            ]
-            },
-            "zh":{
-              "localize":[
-                "zh"
-            ]
-            },
-            "fr":{
-              "localize":[
-                "fr"
-            ]
-            },
             "production": {
               "budgets": [
                 {
@@ -131,7 +132,6 @@
               ],
               "outputHashing": "all"
             },
-
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -151,34 +151,6 @@
             },
             "development": {
               "browserTarget": "NeeTechs:build:development"
-            },
-            "ar": {
-              "browserTarget": "NeeTechs:build:ar"
-            },
-            "en": {
-              "browserTarget": "NeeTechs:build:en"
-            },
-            "es": {
-              "browserTarget": "NeeTechs:build:es"
-            },
-            "pt": {
-              "browserTarget": "NeeTechs:build:pt"
-            },
-
-            "de": {
-              "browserTarget": "NeeTechs:build:de"
-            },
-            "ru": {
-              "browserTarget": "NeeTechs:build:ru"
-            },
-            "sv": {
-              "browserTarget": "NeeTechs:build:sv"
-            },
-            "zh": {
-              "browserTarget": "NeeTechs:build:zh"
-            },
-            "fr": {
-              "browserTarget": "NeeTechs:build:fr"
             }
           },
           "defaultConfiguration": "development"
@@ -208,15 +180,7 @@
             ],
             "scripts": []
           }
-        },
-        // adding folder
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
-          }
         }
-
       }
     }
   }
