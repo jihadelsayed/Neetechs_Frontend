@@ -14,8 +14,8 @@ const routes: Routes = [
   //{ path:'', pathMatch:'full', redirectTo:'home' ,component: AppComponent,canActivate:[AuthGuard] },
   { path:'home' ,component: AppComponent,canActivate:[NotAuthGuard] },
 
-  { path:'signup',component: SignUpComponent,canActivate:[NotAuthGuard] },
-  { path:'signin',component: SignInComponent,canActivate:[NotAuthGuard] },
+  { path:'signUp',component: SignUpComponent,canActivate:[NotAuthGuard] },
+  { path:'signIn',component: SignInComponent,canActivate:[NotAuthGuard] },
   { path:'**',component: NotFoundComponent,canActivate:[NotAuthGuard] },
 
 ];
