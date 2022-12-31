@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,8 +10,8 @@ const routes: Routes = [
   // authentication component
   { path:'', pathMatch:'full', redirectTo:'home'},
   //{ path:'', pathMatch:'full', redirectTo:'home' ,component: AppComponent,canActivate:[AuthGuard] },
-  { path:'home' ,component: AppComponent,canActivate:[NotAuthGuard] },
-  { path:'**',component: NotFoundComponent,canActivate:[NotAuthGuard] },
+  { path:'home' ,component: HomeComponent,canActivate:[NotAuthGuard] },
+  { path:'**',component: AppComponent,canActivate:[NotAuthGuard] },
 
 ];
 

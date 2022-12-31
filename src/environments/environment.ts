@@ -13,6 +13,9 @@ export const environment = {
   SERVER_URL_WITH_OUT_SLASH: "",
   CHAT_URL: "wss://server.neetechs.com/ws/chat/",
   FrontEnd_URL: "https://neetechs.com",
+    // LoginURL: "http://localhost:4442/",
+    LoginURL: "https://accounts.neetechs.com/",
+    //LoginURL: "https://accounts.theislamicnation.com/",
 };
 
 /*

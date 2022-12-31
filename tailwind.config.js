@@ -2,9 +2,18 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
+    //"./nuxt.config.{js,ts}",
+
   ],
-  theme: {
-    extend: {},
-  },
+  mode: "jit",
+  darkMode: "media",// class  --  media
+    theme: {
+        extend: {
+            fontFamily: {
+                roboto: ["Roboto", "sans-serif"],
+                inter: ["Inter", "sans-serif"],
+            },
+        },
+    },
   plugins: [],
 }

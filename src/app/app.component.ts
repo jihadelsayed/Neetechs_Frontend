@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'NeeTechs';
+  LoginURL = environment.LoginURL;
+
   constructor(private titleService: Title){
     this.titleService.setTitle($localize`${this.title}`);
   }

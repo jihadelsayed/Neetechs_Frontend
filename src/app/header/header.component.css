@@ -1,0 +1,12 @@
+.scroll-hidden::-webkit-scrollbar {
+  height: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+.websiteName2{
+  color: rgb(0, 253, 253);
+}
+.websiteName{
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 4px #000000;
+}
