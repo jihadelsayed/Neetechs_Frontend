@@ -15,11 +15,11 @@ export const environment = {
   //CHAT_URL: "wss://server."+ window.location.hostname.replace(/^[^.]+./, '') +"/ws/chat/",
   CHAT_URL: "wss://server."+ window.location.hostname +"/ws/chat/",
   FrontEnd_URL: window.location.origin,
-    // LoginURL: "http://localhost:4442/",
-    MainDomain: window.location.hostname,
-    //MainDomain: window.location.hostname.replace(/^[^.]+./, ''),
-    LoginURL: "https://accounts." + window.location.hostname +"/",
-    //LoginURL: "https://accounts.theislamicnation.com/",
+  // LoginURL: "http://localhost:4442/",
+  MainDomain: window.location.hostname,
+  //MainDomain: window.location.hostname.replace(/^[^.]+./, ''),
+  LoginURL: "https://accounts." + window.location.hostname +"/",
+  //LoginURL: "https://accounts.theislamicnation.com/",
 };
 
 /*

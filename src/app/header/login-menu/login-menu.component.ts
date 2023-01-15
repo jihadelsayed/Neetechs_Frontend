@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-menu',
@@ -12,9 +14,9 @@ export class LoginMenuComponent implements OnInit {
   ngOnInit(): void {
   }
   logIn() {
-    window.location.href = 'https://accounts.neetechs.com/ar/#/signin/' + "?" + "host=" + window.location.host + "&" + "language=" + window.navigator.language + "&" + "pathname=" + window.location.pathname;
+    window.location.href = environment.LoginURL + 'ar/#/signin/' + "?" + "host=" + window.location.host + "&" + "language=" + window.navigator.language + "&" + "pathname=" + window.location.pathname;
   }
   SignUp() {
-    window.location.href = 'https://accounts.neetechs.com/ar/#/signup/' + "?" + "host=" + window.location.host + "&" + "language=" + window.navigator.language + "&" + "pathname=" + window.location.pathname;
+    window.location.href = environment.LoginURL + 'ar/#/signup/' + "?" + "host=" + window.location.host + "&" + "language=" + window.navigator.language + "&" + "pathname=" + window.location.pathname;
   }
 }
