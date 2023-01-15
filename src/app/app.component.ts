@@ -10,8 +10,11 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'NeeTechs';
   LoginURL = environment.LoginURL;
-
   constructor(private titleService: Title){
     this.titleService.setTitle($localize`${this.title}`);
   }
+  ngOnInit(): void {
+    console.log(environment)
+  }
 }
+
