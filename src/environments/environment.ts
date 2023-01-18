@@ -13,7 +13,7 @@ export const environment = {
   SERVER_URL: "https://server.neetechs.com/",
   CHAT_URL: "wss://server.neetechs.com/ws/chat/",
   FrontEnd_URL: "https://neetechs.com",
-  LoginURL: "https://account.neetechs.com/",
+  LoginURL: "https://accounts.neetechs.com/",
 };
 
 /*

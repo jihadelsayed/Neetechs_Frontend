@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
       return this.userExist = true;
     }
     else {
-      return this.userExist = false;
+     return this.userExist = false;
     }
   }
 

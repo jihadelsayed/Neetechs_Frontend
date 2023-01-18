@@ -8,10 +8,10 @@ import { NotAuthGuard } from './authorization/services/not-auth.guard';
 
 const routes: Routes = [
   // authentication component
-  { path:'', pathMatch:'full', redirectTo:'home'},
+  //{ path:'',component: HomeComponent,canActivate:[NotAuthGuard] },
   //{ path:'', pathMatch:'full', redirectTo:'home' ,component: AppComponent,canActivate:[AuthGuard] },
-  { path:'home' ,component: HomeComponent,canActivate:[NotAuthGuard] },
-  { path:'**',component: AppComponent,canActivate:[NotAuthGuard] },
+  { path:'home' ,component: HomeComponent },
+  { path:'**',component: HomeComponent },
 
 ];
 
