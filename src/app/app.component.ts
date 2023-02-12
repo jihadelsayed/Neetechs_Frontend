@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+
+import { Component, Inject, LOCALE_ID } from '@angular/core';
+import { StyleModeService } from './header/style-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,8 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'NeeTechs';
   LoginURL = environment.LoginURL;
-  constructor(private titleService: Title){
-    this.titleService.setTitle($localize`${this.title}`);
+  constructor(@Inject(LOCALE_ID) public localeId: string, public styleModeService: StyleModeService,private titleService: Title){
+    this.titleService.setTitle($localize`${this.title}`,);
   }
   ngOnInit(): void {
     console.log(environment)
