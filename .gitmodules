@@ -1,9 +1,9 @@
 [submodule "src/app/authorization"]
 	path = src/app/authorization
-	url = https://github.com/davidpales1/authorization.git
+	url = https://github.com/jihadelsayed/authorization.git
 [submodule "src/app/not-found"]
 	path = src/app/not-found
-	url = https://github.com/davidpales1/not-found.git
+	url = https://github.com/jihadelsayed/not-found.git
 [submodule "src/app/header"]
 	path = src/app/header
-	url = https://github.com/davidpales1/header.git
+	url = https://github.com/jihadelsayed/header.git
