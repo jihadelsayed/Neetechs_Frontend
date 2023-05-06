@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //LoginURL: "https://accounts.neetechs.com/",
+
     // SERVER_URL: "http://127.0.0.1:8000/",
   // FrontEnd_URL: "http://localhost:4200/",
   // CHAT_URL: "ws://localhost:8000/ws/chat/",
@@ -14,6 +14,7 @@ export const environment = {
   CHAT_URL: "wss://server.neetechs.com/ws/chat/",
   FrontEnd_URL: "https://neetechs.com",
   LoginURL: "https://accounts.neetechs.com/",
+  JSON_URL: 'https://raw.githubusercontent.com/jihadelsayed/neetechs/main/json/',
 };
 
 /*
