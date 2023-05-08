@@ -16,6 +16,7 @@ export const environment = {
   FrontEnd_URL: "https://neetechs.com",
   LoginURL: "https://accounts.neetechs.com/",
   JSON_URL: 'https://raw.githubusercontent.com/jihadelsayed/neetechs/main/json/',
+  
 };
 
 /*
