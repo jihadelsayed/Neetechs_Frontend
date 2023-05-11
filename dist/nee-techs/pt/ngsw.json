@@ -1,0 +1,71 @@
+{
+  "configVersion": 1,
+  "timestamp": 1683773015157,
+  "index": "/pt/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pt/favicon.ico",
+        "/pt/index.html",
+        "/pt/main.7df0e358991a3df1.js",
+        "/pt/manifest.webmanifest",
+        "/pt/polyfills.c152d6e796fb0278.js",
+        "/pt/runtime.82388aa19bdf31f5.js",
+        "/pt/styles.48a9af28b64734bd.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pt/assets/logo.png",
+        "/pt/assets/logo1.png",
+        "/pt/assets/logo2.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/pt/assets/logo.png": "5d45801c1cabb5991ac716d1bce62ae2fd680fc1",
+    "/pt/assets/logo1.png": "68865fdc91849e4c117a6b0deecc00aa1599fa9c",
+    "/pt/assets/logo2.png": "ba4ecbd343cdcf687e5aac40a781b87c2e94c1ea",
+    "/pt/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/pt/index.html": "ce253329ccf5e7ed05bc05c61d5ac4a3df9f97a5",
+    "/pt/main.7df0e358991a3df1.js": "63ec69e287b4c587ba992ba6a7569de41c7a51f6",
+    "/pt/manifest.webmanifest": "d598aff612a5e371aca6af87b87c95e1530d0b78",
+    "/pt/polyfills.c152d6e796fb0278.js": "1dc83d2c550ba4a576664ff6251b69a0a23fe03c",
+    "/pt/runtime.82388aa19bdf31f5.js": "68ce2c0410e53bb1235b90641f6f570c5389f711",
+    "/pt/styles.48a9af28b64734bd.css": "a10cd79e57d36ed38254a5ad46c9849109a875f4"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
