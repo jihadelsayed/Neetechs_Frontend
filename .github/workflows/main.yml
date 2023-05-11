@@ -2,50 +2,23 @@ name: CI
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Set up Git
-        run: |
-          git config --global user.name "jihad al sayed"
-          git config --global user.email "david.pales1@gmail.com"
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          persist-credentials: false  # Required for private submodules
 
       - name: Initialize and update submodules
         run: |
           git submodule init
           git submodule update
-          cd src/app/header
-          git config credential.helper store
-          git config user.name "jihad al sayed"
-          git config user.email "david.pales1@gmail.com"
-          git remote set-url origin https://github.com/jihadelsayed/header.git
-          git remote set-url --push origin https://jihadelsayed:${{ secrets.PRIVATE_TOKEN }}@github.com/jihadelsayed/header.git
-          cd ../..
 
-      - name: Build and deploy authorization submodule
-        working-directory: src/app/authorization
+      - name: Build and deploy
         run: |
-          npm install
+          npm install --force
           npm run build
-          # Add deployment commands specific to the authorization submodule
-
-      - name: Build and deploy not-found submodule
-        working-directory: src/app/not-found
-        run: |
-          npm install
-          npm run build
-          # Add deployment commands specific to the not-found submodule
-
-      - name: Build and deploy header submodule
-        working-directory: src/app/header
-        run: |
-          git pull
-          npm install
-          npm run build
-          # Add deployment commands specific to the header submodule
-          
