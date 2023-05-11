@@ -5,13 +5,18 @@ on:
     branches:
       - main
 
-jobs: 
+jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          persist-credentials: false
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh/
@@ -19,11 +24,17 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-
       - name: Initialize and update submodules
         run: |
-          git submodule init
-          git submodule update
+          git config submodule.src/app/authorization.url git@github.com:jihadelsayed/authorization.git
+          git config submodule.src/app/header.url git@github.com:jihadelsayed/header.git
+          git config submodule.src/app/not-found.url git@github.com:jihadelsayed/not-found.git
+          git submodule update --init --recursive
+
+      #- name: Initialize and update submodules
+       # run: |
+ #         git submodule init
+#          git submodule update
 
       - name: Build and deploy
         run: |
