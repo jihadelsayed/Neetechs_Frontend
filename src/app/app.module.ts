@@ -1,4 +1,3 @@
-import { HeaderComponent } from './header/header.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -15,18 +14,19 @@ import { JwtInterceptor } from './authorization/Jwt-interceptor.interceptor';
 import { NotAuthGuard } from './authorization/services/not-auth.guard';
 import { AuthGuard } from './authorization/services/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { MaterialModule } from './material';
 
 import { LoginMenuComponent } from './header/login-menu/login-menu.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { UserNotificationsMenuComponent } from './header/user-notifications-menu/user-notifications-menu.component';
 import { MenuComponent } from './header/menu/menu.component';
 import { SearchMenuComponent } from './header/search-menu/search-menu.component';
-import { MaterialModule } from './material';
 import { MenuContentComponent } from './header/menu/menu-content/menu-content.component';
 import { AsideContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside-content/aside-content.component';
 import { AsideComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside.component';
 import { SubMenuContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/sub-menu-content.component';
 import { SubMenuComponent } from './header/menu/menu-content/sub-menu/sub-menu.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
