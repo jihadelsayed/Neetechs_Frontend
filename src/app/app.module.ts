@@ -21,17 +21,17 @@ import { AuthGuard } from './authorization/services/auth.guard';
 
 
 // header
-import { LoginMenuComponent } from './header/login-menu/login-menu.component';
-import { UserMenuComponent } from './header/user-menu/user-menu.component';
-import { UserNotificationsMenuComponent } from './header/user-notifications-menu/user-notifications-menu.component';
-import { MenuComponent } from './header/menu/menu.component';
-import { SearchMenuComponent } from './header/search-menu/search-menu.component';
-import { MenuContentComponent } from './header/menu/menu-content/menu-content.component';
-import { AsideContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside-content/aside-content.component';
-import { AsideComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside.component';
-import { SubMenuContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/sub-menu-content.component';
-import { SubMenuComponent } from './header/menu/menu-content/sub-menu/sub-menu.component';
-import { HeaderComponent } from './header/header.component';
+// import { LoginMenuComponent } from './header/login-menu/login-menu.component';
+// import { UserMenuComponent } from './header/user-menu/user-menu.component';
+// import { UserNotificationsMenuComponent } from './header/user-notifications-menu/user-notifications-menu.component';
+// import { MenuComponent } from './header/menu/menu.component';
+// import { SearchMenuComponent } from './header/search-menu/search-menu.component';
+// import { MenuContentComponent } from './header/menu/menu-content/menu-content.component';
+// import { AsideContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside-content/aside-content.component';
+// import { AsideComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/aside/aside.component';
+// import { SubMenuContentComponent } from './header/menu/menu-content/sub-menu/sub-menu-content/sub-menu-content.component';
+// import { SubMenuComponent } from './header/menu/menu-content/sub-menu/sub-menu.component';
+// import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -41,17 +41,17 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
 
     // header component
-    HeaderComponent,
-    LoginMenuComponent,
-    UserMenuComponent,
-    UserNotificationsMenuComponent,
-    MenuComponent,
-    SearchMenuComponent,
-    AsideComponent,
-    AsideContentComponent,
-    MenuContentComponent,
-    SubMenuComponent,
-    SubMenuContentComponent,
+    // HeaderComponent,
+    // LoginMenuComponent,
+    // UserMenuComponent,
+    // UserNotificationsMenuComponent,
+    // MenuComponent,
+    // SearchMenuComponent,
+    // AsideComponent,
+    // AsideContentComponent,
+    // MenuContentComponent,
+    // SubMenuComponent,
+    // SubMenuContentComponent,
 
   ],
   imports: [
