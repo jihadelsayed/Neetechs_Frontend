@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NotAuthGuard } from './authorization/services/not-auth.guard';
+import { headerRoutes } from './header/header-routing.module';
 
 const routes: Routes = [
   // authentication component
@@ -16,7 +17,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy',useHash: true })],
+  imports: [
+ RouterModule.forChild(headerRoutes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy',useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
