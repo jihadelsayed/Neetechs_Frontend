@@ -10,7 +10,7 @@ import { MaterialModule } from './material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NotFoundComponent } from './not-found/not-found.component';
+//import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { JwtInterceptor } from './authorization/Jwt-interceptor.interceptor';
@@ -36,9 +36,7 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    AuthorizationComponent,
-    HomeComponent,
+
 
     // header component
     HeaderComponent,
@@ -53,6 +51,9 @@ import { HeaderComponent } from './header/header.component';
     SubMenuComponent,
     SubMenuContentComponent,
 
+    //NotFoundComponent,
+    AuthorizationComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
