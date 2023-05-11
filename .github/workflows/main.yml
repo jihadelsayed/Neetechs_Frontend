@@ -10,10 +10,22 @@ jobs:
       - name: Checkout main repository
         uses: actions/checkout@v2
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "jihad al sayed"
+          git config --global user.email "david.pales1@gmail.com"
+
       - name: Initialize and update submodules
         run: |
           git submodule init
           git submodule update
+          cd src/app/header
+          git config credential.helper store
+          git config user.name "jihad al sayed"
+          git config user.email "david.pales1@gmail.com"
+          git remote set-url origin https://github.com/jihadelsayed/header.git
+          git remote set-url --push origin https://jihadelsayed:${{ secrets.PRIVATE_TOKEN }}@github.com/jihadelsayed/header.git
+          cd ../..
 
       - name: Build and deploy authorization submodule
         working-directory: src/app/authorization
@@ -32,6 +44,8 @@ jobs:
       - name: Build and deploy header submodule
         working-directory: src/app/header
         run: |
+          git pull
           npm install
           npm run build
           # Add deployment commands specific to the header submodule
+          
