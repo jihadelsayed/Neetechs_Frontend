@@ -1,17 +1,21 @@
 name: CI
+
 on:
   push:
     branches:
       - main
+
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
+          submodules: recursive
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          persist-credentials: false  # Required for private submodules
+          persist-credentials: false
 
       - name: Initialize and update submodules
         run: |
