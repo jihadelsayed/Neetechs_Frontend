@@ -62,7 +62,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },NotAuthGuard,AuthGuard],
+ // providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },NotAuthGuard,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
