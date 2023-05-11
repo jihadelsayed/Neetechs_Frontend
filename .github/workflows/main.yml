@@ -1,25 +1,37 @@
 name: CI
-
 on:
   push:
     branches:
     - main
-
 jobs:
   firebase-deploy:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: '18.x'
-    #- run: npm install --force
-    #- run: npm run build
-    - uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        projectId: neetechs
+      - name: Checkout main repository
+        uses: actions/checkout@v2
+
+      - name: Initialize and update submodules
+        run: |
+          git submodule init
+          git submodule update
+
+      - name: Build and deploy authorization submodule
+        working-directory: src/app/authorization
+        run: |
+          npm install
+          npm run build
+          # Add deployment commands specific to the authorization submodule
+
+      - name: Build and deploy not-found submodule
+        working-directory: src/app/not-found
+        run: |
+          npm install
+          npm run build
+          # Add deployment commands specific to the not-found submodule
+
+      - name: Build and deploy header submodule
+        working-directory: src/app/header
+        run: |
+          npm install
+          npm run build
+          # Add deployment commands specific to the header submodule
