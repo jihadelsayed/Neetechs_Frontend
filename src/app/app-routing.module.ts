@@ -3,8 +3,8 @@ import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { NotFoundComponent } from './not-found/not-found.component';
-import { NotAuthGuard } from './authorization/services/not-auth.guard';
+// import { NotFoundComponent } from './not-found/not-found.component';
+// import { NotAuthGuard } from './authorization/services/not-auth.guard';
 //import { headerRoutes } from './header/header-routing.module';
 
 const routes: Routes = [
