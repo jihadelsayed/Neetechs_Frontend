@@ -16,7 +16,7 @@ jobs:
         
       - name: Initialize submodules
         env:
-          GIT_TOKEN: ${{ secrets.SSH_PRIVATE_KEY }}
+          GIT_TOKEN: ${{ secrets.PRIVATE_TOKEN }}
         run: |
           git config --global user.name "jihadelsayed
           git config --global user.email "david.pales1@gmail.com"
