@@ -11,16 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up SSH
+      - name: Set up SSH And Initilize And Updated Submodule 
       - run: |
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          - name: Initilize And Updated Submodule 
-            run: |        
-              git submodule init
-              git submodule update
+          run: |        
+            git submodule init
+            git submodule update
       - name: Install Packages
         run: npm install --force
       - run: |
