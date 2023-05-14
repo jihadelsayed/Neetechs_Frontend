@@ -6,5 +6,5 @@
 	url = git@github.com:jihadelsayed/not-found.git
 [submodule "src/app/header"]
 	path = src/app/header
-  url = git@github.com:jihadelsayed/header.git
+  	url = git@github.com:jihadelsayed/header.git
   #url = https://jihadelsayed:`${{secrets.PRIVATE_TOKEN}}`@github.com/jihadelsayed/header.git
