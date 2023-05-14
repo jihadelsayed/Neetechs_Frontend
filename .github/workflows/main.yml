@@ -12,14 +12,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
-
-          
       - name: Set up SSH and Initialize and Update Submodule
         run: |
           mkdir -p ~/.ssh/
           echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_rsa
-          echo '${{ secrets.SSH_PRIVATE_KEY }}'
           cat ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -36,6 +32,6 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEETECHS_DATA }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEETECHS }}'
           channelId: live
           projectId: neetechs
