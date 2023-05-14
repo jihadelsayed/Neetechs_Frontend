@@ -1,10 +1,10 @@
 [submodule "src/app/authorization"]
 	path = src/app/authorization
-	url = git@github.com:authorization.git
+	url = https://github.com/authorization.git
 [submodule "src/app/not-found"]
 	path = src/app/not-found
-	url = git@github.com:not-found.git
+	url = https://github.com/not-found.git
 [submodule "src/app/header"]
 	path = src/app/header
-  url = git@github.com:header.git
+  url = https://github.com/header.git
   #url = https://jihadelsayed:`${{secrets.PRIVATE_TOKEN}}`@github.com/jihadelsayed/header.git
