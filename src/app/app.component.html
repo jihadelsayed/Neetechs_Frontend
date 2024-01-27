@@ -7,7 +7,106 @@
   <div class="max-w-7xl mx-auto text-center mainRoute">
     <section>
       <!-- <app-spinner></app-spinner> -->
+      <header class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex items-center justify-between">
+          <!-- Logo -->
+          <a href="#" class="text-2xl font-bold">Your Logo</a>
+    
+          <!-- Navigation -->
+          <nav>
+            <ul class="flex space-x-4">
+              <li><a href="#" class="hover:text-gray-300">Home</a></li>
+              <li><a href="#" class="hover:text-gray-300">About</a></li>
+              <li><a href="#" class="hover:text-gray-300">Services</a></li>
+              <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <section class="bg-blue-600 text-white h-screen flex items-center">
+        <div class="container mx-auto text-center">
+          <h1 class="text-5xl font-bold mb-4">Welcome to Your Website</h1>
+          <p class="text-lg mb-8">Explore our amazing services and products</p>
+          <a href="#" class="bg-white text-blue-600 py-2 px-4 rounded-full hover:bg-blue-300">Get Started</a>
+        </div>
+      </section>
+      <section class="bg-gray-100 py-16">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-8">Our Key Features</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="p-6 bg-white rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Feature 1</h3>
+              <p>Description of the first feature.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="p-6 bg-white rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Feature 2</h3>
+              <p>Description of the second feature.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="p-6 bg-white rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Feature 3</h3>
+              <p>Description of the third feature.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-8">What Our Customers Say</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="p-6 bg-gray-700 rounded-lg shadow-md">
+              <p class="text-lg mb-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio."</p>
+              <p class="font-semibold">- Customer Name</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="p-6 bg-gray-700 rounded-lg shadow-md">
+              <p class="text-lg mb-4">"Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui."</p>
+              <p class="font-semibold">- Customer Name</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="p-6 bg-gray-700 rounded-lg shadow-md">
+              <p class="text-lg mb-4">"Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit."</p>
+              <p class="font-semibold">- Customer Name</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-blue-500 text-white py-16">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p class="text-lg mb-8">Join us today and experience the future of technology!</p>
+          <a href="#" class="bg-white text-blue-500 py-2 px-4 rounded-full hover:bg-blue-300">Sign Up Now</a>
+        </div>
+      </section>
+                  
       <router-outlet></router-outlet>
+      <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Left side of the footer - Company Info -->
+          <div class="text-left">
+            <h3 class="text-2xl font-bold mb-2">Your Company Name</h3>
+            <p class="text-gray-400">123 Tech Street, City, Country</p>
+            <p class="text-gray-400">Email: info@example.com</p>
+            <p class="text-gray-400">Phone: +123 456 7890</p>
+          </div>
+    
+          <!-- Right side of the footer - Social Media Links -->
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-14h4v8h-4z"></path></svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.39 7.15c-.6-.6-1.39-.93-2.23-.93-.83 0-1.62.33-2.21.93l-1.18 1.18-1.18-1.18c-.58-.58-1.37-.93-2.21-.93-.84 0-1.63.33-2.23.93s-.93 1.39-.93 2.23c0 .84.33 1.62.93 2.21l1.18 1.18-1.18 1.18c-.6.6-.93 1.39-.93 2.23s.33 1.62.93 2.22c.6.6 1.39.93 2.23.93s1.62-.33 2.22-.93l1.18-1.18 1.18 1.18c.6.6 1.39.93 2.22.93s1.62-.33 2.22-.93c.6-.6.93-1.39.93-2.23s-.33-1.63-.93-2.23l-1.18-1.18 1.18-1.18c.6-.6.93-1.38.93-2.22 0-.84-.33-1.62-.93-2.22zm-5.96 8.43c-.06.44-.49.79-.97.79s-.91-.35-.97-.79c-.07-.54.4-1.05.97-1.05s.91.51.97 1.05zm1.92-5.17l-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94-.94-.94c-.39-.39-1.02-.39-1.41 0l-.94.94c-.46.46-.46 1.2 0 1.66l.94.94-.94.94c-.46.46-.46 1.2 0 1.66l.94.94-.94.94c-.46.46-.46 1.2 0 1.66l.94.94-.94.94c-.46.46-.46 1.2 0 1.66l.94.94-.94.94c-.46.46-.46 1.2 0 1.66l.94.94c.46.46 1.2.46 1.66 0l.94-.94.94.94c.46.46 1.2.46 1.66 0l.94-.94.94.94c.46.46 1.2.46 1.66 0l.94-.94.94.94c.46.46 1.2.46 1.66 0l.94-.94.94.94c.46.46 1.2.46 1.66 0l.94-.94c.46-.46.46-1.2 0-1.66l-.94-.94.94-.94c.46-.46.46-1.2 0-1.66zm1.92 5.17c.06-.44.49-.79.97-.79s.91.35.97.79c.07.54-.4 1.05-.97 1.05s-.91-.51-.97-1.05z"></path></svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </footer>
     </section>
   </div>
   <!-- Footer -->
