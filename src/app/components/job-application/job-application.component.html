@@ -1,1 +1,41 @@
-<p>job-application works!</p>
+<div class="container">
+    <h1>Job Application</h1>
+    <p>We are always looking for talented individuals to join our team. Please browse our current job listings and apply using the form below.</p>
+
+    <div class="job-listing">
+        <h2>Web Developer</h2>
+        <p>Responsibilities include developing and maintaining web applications, collaborating with designers, and ensuring the technical feasibility of UI/UX designs.</p>
+    </div>
+
+    <div class="job-listing">
+        <h2>Mobile App Developer</h2>
+        <p>Responsibilities include developing mobile applications, collaborating with cross-functional teams, and delivering high-quality code and applications.</p>
+    </div>
+
+    <div class="job-listing">
+        <h2>Technical Support Specialist</h2>
+        <p>Responsibilities include providing technical support to clients, troubleshooting hardware and software issues, and ensuring customer satisfaction.</p>
+    </div>
+
+    <div class="application-form">
+        <h2>Apply Now</h2>
+        <form action="submit_application.php" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" required>
+
+            <label for="resume">Resume</label>
+            <input type="file" id="resume" name="resume" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</div>
