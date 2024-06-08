@@ -1,0 +1,105 @@
+import { Routes } from '@angular/router';
+import { IntroductionComponent } from './components/homepage/introduction/introduction.component';
+import { ServicesOverviewComponent } from './components/homepage/services-overview/services-overview.component';
+import { NewsUpdatesComponent } from './components/homepage/news-updates/news-updates.component';
+import { GraphicDesignComponent } from './components/services/design-services/graphic-design/graphic-design.component';
+import { UiUxDesignComponent } from './components/services/design-services/ui-ux-design/ui-ux-design.component';
+import { WebDevelopmentComponent } from './components/services/programming-services/web-development/web-development.component';
+import { MobileAppDevelopmentComponent } from './components/services/programming-services/mobile-app-development/mobile-app-development.component';
+import { BackendDevelopmentComponent } from './components/services/programming-services/backend-development/backend-development.component';
+import { MobileDeviceRepairComponent } from './components/services/technical-repair-services/mobile-device-repair/mobile-device-repair.component';
+import { ComputerLaptopRepairComponent } from './components/services/technical-repair-services/computer-laptop-repair/computer-laptop-repair.component';
+import { MaintenanceUpgradesComponent } from './components/services/technical-repair-services/maintenance-upgrades/maintenance-upgrades.component';
+import { JobListingsComponent } from './components/job-application/job-listings/job-listings.component';
+import { ApplicationFormComponent } from './components/job-application/application-form/application-form.component';
+import { ApplicationStatusComponent } from './components/job-application/application-status/application-status.component';
+import { AutomatedTroubleshootingComponent } from './components/openapi-tools/automated-troubleshooting/automated-troubleshooting.component';
+import { DiagnosticToolsComponent } from './components/openapi-tools/diagnostic-tools/diagnostic-tools.component';
+import { ApiIntegrationComponent } from './components/openapi-tools/api-integration/api-integration.component';
+import { CompanyInfoComponent } from './components/about-us/company-info/company-info.component';
+import { TeamMembersComponent } from './components/about-us/team-members/team-members.component';
+import { MissionVisionComponent } from './components/about-us/mission-vision/mission-vision.component';
+import { ContactFormComponent } from './components/contact-us/contact-form/contact-form.component';
+import { ContactInfoComponent } from './components/contact-us/contact-info/contact-info.component';
+import { OfficeLocationsComponent } from './components/contact-us/office-locations/office-locations.component';
+import { FaqListComponent } from './components/faq/faq-list/faq-list.component';
+import { HelpSupportComponent } from './components/faq/help-support/help-support.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { DesignServicesComponent } from './components/services/design-services/design-services.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { TechnicalRepairServicesComponent } from './components/services/technical-repair-services/technical-repair-services.component';
+import { ProgrammingServicesComponent } from './components/services/programming-services/programming-services.component';
+import { ServicesComponent } from './components/services/services.component';
+import { JobApplicationComponent } from './components/job-application/job-application.component';
+import { OpenapiToolsComponent } from './components/openapi-tools/openapi-tools.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { BlogNewsComponent } from './components/blog-news/blog-news.component';
+import { CookiesPolicyComponent } from './components/cookies-policy/cookies-policy.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { CaseStudiesComponent } from './components/case-studies/case-studies.component';
+import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
+import { EventsComponent } from './components/events/events.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { NewsletterSignUpComponent } from './components/newsletter-sign-up/newsletter-sign-up.component';
+import { PressReleasesComponent } from './components/press-releases/press-releases.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { UserGuidesComponent } from './components/user-guides/user-guides.component';
+
+export const routes: Routes = [
+  { path: '', component: IntroductionComponent },
+  { path: 'sitemap', component: SitemapComponent },
+  { path: 'services-overview', component: ServicesOverviewComponent },
+  { path: 'news-updates', component: NewsUpdatesComponent },
+  { path: 'services/graphic-design', component: GraphicDesignComponent },
+  { path: 'services/ui-ux-design', component: UiUxDesignComponent },
+  { path: 'services/web-development', component: WebDevelopmentComponent },
+  { path: 'services/mobile-app-development', component: MobileAppDevelopmentComponent },
+  { path: 'services/backend-development', component: BackendDevelopmentComponent },
+  { path: 'services/mobile-device-repair', component: MobileDeviceRepairComponent },
+  { path: 'services/computer-laptop-repair', component: ComputerLaptopRepairComponent },
+  { path: 'services/maintenance-upgrades', component: MaintenanceUpgradesComponent },
+  { path: 'job-application/job-listings', component: JobListingsComponent },
+  { path: 'job-application/application-form', component: ApplicationFormComponent },
+  { path: 'job-application/application-status', component: ApplicationStatusComponent },
+  { path: 'openapi-tools/automated-troubleshooting', component: AutomatedTroubleshootingComponent },
+  { path: 'openapi-tools/diagnostic-tools', component: DiagnosticToolsComponent },
+  { path: 'openapi-tools/api-integration', component: ApiIntegrationComponent },
+  { path: 'about-us/company-info', component: CompanyInfoComponent },
+  { path: 'about-us/team-members', component: TeamMembersComponent },
+  { path: 'about-us/mission-vision', component: MissionVisionComponent },
+  { path: 'contact-us/contact-form', component: ContactFormComponent },
+  { path: 'contact-us/contact-info', component: ContactInfoComponent },
+  { path: 'contact-us/office-locations', component: OfficeLocationsComponent },
+  { path: 'faq/faq-list', component: FaqListComponent },
+  { path: 'faq/help-support', component: HelpSupportComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'design-services', component: DesignServicesComponent },
+  { path: 'technical-repair-services', component: TechnicalRepairServicesComponent },
+  { path: 'programming-services', component: ProgrammingServicesComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'job-application', component: JobApplicationComponent },
+  { path: 'openapi-tools', component: OpenapiToolsComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'pricing', component: PricingComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
+  { path: 'terms-of-service', component: TermsOfServiceComponent },
+  { path: 'cookies-policy', component: CookiesPolicyComponent },
+  { path: 'blog-news', component: BlogNewsComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'customer-support', component: CustomerSupportComponent },
+  { path: 'case-studies', component: CaseStudiesComponent },
+  { path: 'events', component: EventsComponent },
+  { path: 'press-releases', component: PressReleasesComponent },
+  { path: 'newsletter-sign-up', component: NewsletterSignUpComponent },
+  { path: 'careers', component: CareersComponent },
+  { path: 'user-guides', component: UserGuidesComponent },
+  { path: 'forum', component: ForumComponent }
+];
