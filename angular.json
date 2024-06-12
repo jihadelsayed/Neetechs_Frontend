@@ -51,9 +51,14 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "public"
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public",
+            "output": "/"
+          }
             ],
+           
             "styles": [
               "src/styles.scss"
             ],
@@ -197,10 +202,18 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src",
+                "output": "/"
+              }
             ],
+          
             "styles": [
               "src/styles.scss"
             ],
