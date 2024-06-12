@@ -4,6 +4,20 @@
   "newProjectRoot": "projects",
   "projects": {
     "neetechs": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ar": "src/locale/messages.ar.xlf",
+          "es": "src/locale/messages.es.xlf",
+          "pt": "src/locale/messages.pt.xlf",
+          "de": "src/locale/messages.de.xlf",
+          "ru": "src/locale/messages.ru.xlf",
+          "sv": "src/locale/messages.sv.xlf",
+          "zh": "src/locale/messages.zh.xlf",
+          "fr": "src/locale/messages.fr.xlf",
+          "en": "src/locale/messages.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,19 +31,29 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": [
+              "ar",
+              "es",
+              "pt",
+              "ar",
+              "de",
+              "ru",
+              "sv",
+              "zh",
+              "fr",
+              "en"
+            ],
             "outputPath": "dist/neetechs",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "browser": "src/main.ts",  // Use "browser" for universal builds
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -42,25 +66,80 @@
             }
           },
           "configurations": {
+            "es":{
+              "localize":[
+                "es"
+            ]
+            },
+            "en":{
+              "localize":[
+                "en"
+            ]
+            },
+            "pt":{
+              "localize":[
+                "pt"
+            ]
+            },
+            "ar":{
+              "localize":[
+                "ar"
+            ]
+            },
+            "de":{
+              "localize":[
+                "de"
+            ]
+            },
+            "ru":{
+              "localize":[
+                "ru"
+            ]
+            },
+            "sv":{
+              "localize":[
+                "sv"
+            ]
+            },
+            "zh":{
+              "localize":[
+                "zh"
+            ]
+            },
+            "fr":{
+              "localize":[
+                "fr"
+            ]
+            },
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "500kb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
             },
+
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -69,39 +148,77 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "neetechs:build:production"
+              "browserTarget": "neetechs:build:production"
             },
             "development": {
-              "buildTarget": "neetechs:build:development"
+              "browserTarget": "neetechs:build:development"
+            },
+            "ar": {
+              "browserTarget": "neetechs:build:ar"
+            },
+            "en": {
+              "browserTarget": "neetechs:build:en"
+            },
+            "es": {
+              "browserTarget": "neetechs:build:es"
+            },
+            "pt": {
+              "browserTarget": "neetechs:build:pt"
+            },
+
+            "de": {
+              "browserTarget": "neetechs:build:de"
+            },
+            "ru": {
+              "browserTarget": "neetechs:build:ru"
+            },
+            "sv": {
+              "browserTarget": "neetechs:build:sv"
+            },
+            "zh": {
+              "browserTarget": "neetechs:build:zh"
+            },
+            "fr": {
+              "browserTarget": "neetechs:build:fr"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "neetechs:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "main": "src/test.ts",
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
+
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
