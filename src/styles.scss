@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "Noto Naskh Arabic", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #a8d4ea;
+    padding: 0px;
+    margin: 0px;
+    // background-color: hsl(208, 90%, 4%);
+
+}
+li a{
+    text-decoration: none!important;
+    color: aliceblue;
+    &:hover {
+      text-decoration: underline;
+    }
+}

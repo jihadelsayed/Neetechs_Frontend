@@ -49,6 +49,7 @@ import { NewsletterSignUpComponent } from './components/newsletter-sign-up/newsl
 import { PressReleasesComponent } from './components/press-releases/press-releases.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { UserGuidesComponent } from './components/user-guides/user-guides.component';
+import { ColorplateComponent } from './components/colorplate/colorplate.component';
 
 export const routes: Routes = [
   { path: '', component: IntroductionComponent },
@@ -101,5 +102,6 @@ export const routes: Routes = [
   { path: 'newsletter-sign-up', component: NewsletterSignUpComponent },
   { path: 'careers', component: CareersComponent },
   { path: 'user-guides', component: UserGuidesComponent },
+  { path: 'colorplate', component: ColorplateComponent },
   { path: 'forum', component: ForumComponent }
 ];
