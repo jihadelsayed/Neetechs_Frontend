@@ -28,6 +28,12 @@
   
         },
         {
+          "source": "/en{,/**}",
+          "destination": "/en/index.html",
+          "dynamicLinks": true
+  
+        },
+        {
           "source": "/es{,/**}",
           "destination": "/es/index.html",
           "dynamicLinks": true
@@ -64,8 +70,13 @@
   
         },
         {
-          "source": "/{**}",
-          "destination": "/",
+          "source": "/{,/**}",
+          "destination": "/en/ads.txt",
+          "dynamicLinks": true 
+        },
+        {
+          "source": "/{,/**}",
+          "destination": "/en/",
           "dynamicLinks": true 
         }
       ]
@@ -73,7 +84,7 @@
       "redirects": [
         {
           "source": "/",
-          "destination": "/",
+          "destination": "/en",
           "type": 301
         }
       ]

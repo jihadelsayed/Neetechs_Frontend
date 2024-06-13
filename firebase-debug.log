@@ -22,3 +22,53 @@ You're about to initialize a Firebase project in this directory:
 
 [debug] [2024-06-12T18:06:33.089Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
 [debug] [2024-06-12T18:06:33.090Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-06-13T00:56:50.265Z] ----------------------------------------------------------------------
+[debug] [2024-06-13T00:56:50.267Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jihad\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-06-13T00:56:50.267Z] CLI Version:   13.0.2
+[debug] [2024-06-13T00:56:50.267Z] Platform:      win32
+[debug] [2024-06-13T00:56:50.267Z] Node Version:  v20.11.1
+[debug] [2024-06-13T00:56:50.267Z] Time:          Thu Jun 13 2024 02:56:50 GMT+0200 (Central European Summer Time)
+[debug] [2024-06-13T00:56:50.267Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-13T00:56:50.319Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.319Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"dynamicLinks"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2024-06-13T00:56:50.320Z] Field ".hosting.rewrites[0]" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2024-06-13T00:56:50.324Z] Field ".hosting" in "firebase.json" is possibly invalid: should be array
+[debug] [2024-06-13T00:56:50.324Z] Field ".hosting" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2024-06-13T00:56:50.328Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-13T00:56:50.328Z] > authorizing via signed-in user (jihad.sayed.1996@gmail.com)
+[debug] [2024-06-13T00:56:50.328Z] [iam] checking project neetechs for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-06-13T00:56:50.329Z] > refreshing access token with scopes: []
+[debug] [2024-06-13T00:56:50.330Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-06-13T00:56:50.330Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-13T00:56:51.555Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-06-13T00:56:51.555Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-13T00:56:51.560Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/neetechs:testIamPermissions [none]
+[debug] [2024-06-13T00:56:51.560Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/neetechs:testIamPermissions x-goog-quota-user=projects/neetechs
+[debug] [2024-06-13T00:56:51.560Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/neetechs:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-13T00:56:53.477Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/neetechs:testIamPermissions 200
+[debug] [2024-06-13T00:56:53.477Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/neetechs:testIamPermissions {}
+[debug] [2024-06-13T00:56:53.477Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project neetechs:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2024-06-13T00:56:53.479Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/neetechs [none]
+[debug] [2024-06-13T00:56:54.967Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/neetechs 403
+[debug] [2024-06-13T00:56:54.967Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/neetechs {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-06-13T00:56:54.968Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-06-13T00:56:54.969Z] Specified "public" directory "dist/neetechs/browser" does not exist; Deploy to Hosting site "" may fail or be empty.
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
