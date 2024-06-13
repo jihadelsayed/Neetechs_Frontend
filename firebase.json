@@ -71,8 +71,9 @@
         },
         {
           "source": "{,/**}",
-          "destination": "/en/",
-          "dynamicLinks": true }
+          "destination": "/en/ads.txt",
+          "dynamicLinks": true 
+        }
       ]
       ,
       "redirects": [
