@@ -29,7 +29,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "localize": [
               "ar",
@@ -45,69 +45,80 @@
             ],
             "outputPath": "dist/neetechs",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",  // Use "browser" for universal builds
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public",
-                "output": "/"
-              }
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public",
+            "output": "/"
+          },
+          {
+            "glob": "manifest.webmanifest",
+            "input": "src",
+            "output": "/"
+          }
             ],
+           
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
-            "es": {
-              "localize": [
+            "es":{
+              "localize":[
                 "es"
-              ]
+            ]
             },
-            "en": {
-              "localize": [
+            "en":{
+              "localize":[
                 "en"
-              ]
+            ]
             },
-            "pt": {
-              "localize": [
+            "pt":{
+              "localize":[
                 "pt"
-              ]
+            ]
             },
-            "ar": {
-              "localize": [
+            "ar":{
+              "localize":[
                 "ar"
-              ]
+            ]
             },
-            "de": {
-              "localize": [
+            "de":{
+              "localize":[
                 "de"
-              ]
+            ]
             },
-            "ru": {
-              "localize": [
+            "ru":{
+              "localize":[
                 "ru"
-              ]
+            ]
             },
-            "sv": {
-              "localize": [
+            "sv":{
+              "localize":[
                 "sv"
-              ]
+            ]
             },
-            "zh": {
-              "localize": [
+            "zh":{
+              "localize":[
                 "zh"
-              ]
+            ]
             },
-            "fr": {
-              "localize": [
+            "fr":{
+              "localize":[
                 "fr"
-              ]
+            ]
             },
             "production": {
               "budgets": [
@@ -130,6 +141,7 @@
               ],
               "outputHashing": "all"
             },
+
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -162,6 +174,7 @@
             "pt": {
               "browserTarget": "neetechs:build:pt"
             },
+
             "de": {
               "browserTarget": "neetechs:build:de"
             },
@@ -205,6 +218,7 @@
                 "output": "/"
               }
             ],
+          
             "styles": [
               "src/styles.scss"
             ],
@@ -217,6 +231,7 @@
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
+
       }
     }
   },
