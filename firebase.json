@@ -71,7 +71,7 @@
         },
         {
           "source": "{,/**}",
-          "destination": "/en/index.html",
+          "destination": "/en/",
           "dynamicLinks": true }
       ]
       ,
