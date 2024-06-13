@@ -45,25 +45,24 @@
             ],
             "outputPath": "dist/neetechs",
             "index": "src/index.html",
-            "browser": "src/main.ts",  // Use "browser" for universal builds
+            "browser": "src/main.ts", // Use "browser" for universal builds
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "public",
-            "output": "/"
-          },
-          {
-            "glob": "manifest.webmanifest",
-            "input": "src",
-            "output": "/"
-          }
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src",
+                "output": "/"
+              }
             ],
-           
             "styles": [
               "src/styles.scss"
             ],
@@ -75,50 +74,53 @@
             }
           },
           "configurations": {
-            "es":{
-              "localize":[
+            "es": {
+              "localize": [
                 "es"
-            ]
+              ]
             },
-            "en":{
-              "localize":[
+            "en": {
+              "localize": [
                 "en"
-            ]
+              ]
             },
-            "pt":{
-              "localize":[
+            "pt": {
+              "localize": [
                 "pt"
-            ]
+              ]
             },
-            "ar":{
-              "localize":[
+            "ar": {
+              "localize": [
                 "ar"
-            ]
+              ]
             },
-            "de":{
-              "localize":[
+            "de": {
+              "localize": [
                 "de"
-            ]
+              ]
             },
-            "ru":{
-              "localize":[
+            "ru": {
+              "localize": [
                 "ru"
-            ]
+              ]
             },
-            "sv":{
-              "localize":[
+            "sv": {
+              "localize": [
                 "sv"
-            ]
+              ]
             },
-            "zh":{
-              "localize":[
+            "zh": {
+              "localize": [
                 "zh"
-            ]
+              ]
             },
-            "fr":{
-              "localize":[
+            "fr": {
+              "localize": [
                 "fr"
-            ]
+              ]
+            },
+            "public": {
+              //add the public folder
             },
             "production": {
               "budgets": [
@@ -141,7 +143,6 @@
               ],
               "outputHashing": "all"
             },
-
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -174,7 +175,6 @@
             "pt": {
               "browserTarget": "neetechs:build:pt"
             },
-
             "de": {
               "browserTarget": "neetechs:build:de"
             },
@@ -189,6 +189,9 @@
             },
             "fr": {
               "browserTarget": "neetechs:build:fr"
+            },
+            "public": {
+              //add public the folder 
             }
           },
           "defaultConfiguration": "production"
@@ -218,7 +221,6 @@
                 "output": "/"
               }
             ],
-          
             "styles": [
               "src/styles.scss"
             ],
@@ -228,10 +230,12 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
-
       }
     }
   },
