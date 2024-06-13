@@ -189,9 +189,6 @@
             },
             "fr": {
               "browserTarget": "neetechs:build:fr"
-            },
-            "public": {
-              //add public the folder 
             }
           },
           "defaultConfiguration": "production"
