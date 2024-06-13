@@ -70,13 +70,8 @@
   
         },
         {
-          "source": "/{,/**}",
-          "destination": "/en/ads.txt",
-          "dynamicLinks": true 
-        },
-        {
-          "source": "/{,/**}",
-          "destination": "/en/",
+          "source": "/{**}",
+          "destination": "/",
           "dynamicLinks": true 
         }
       ]
@@ -84,7 +79,7 @@
       "redirects": [
         {
           "source": "/",
-          "destination": "/en",
+          "destination": "/",
           "type": 301
         }
       ]
