@@ -34,12 +34,6 @@
   
         },
         {
-          "source": "{,/**}",
-          "destination": "/en/index.html",
-          "dynamicLinks": true
-  
-        },
-        {
           "source": "/es{,/**}",
           "destination": "/es/index.html",
           "dynamicLinks": true
@@ -74,7 +68,11 @@
           "destination": "/zh/index.html",
           "dynamicLinks": true
   
-        }
+        },
+        {
+          "source": "{,/**}",
+          "destination": "/en/index.html",
+          "dynamicLinks": true }
       ]
       ,
       "redirects": [
