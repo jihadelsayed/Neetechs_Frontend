@@ -70,8 +70,13 @@
   
         },
         {
-          "source": "{,/**}",
+          "source": "/{,/**}",
           "destination": "/en/ads.txt",
+          "dynamicLinks": true 
+        },
+        {
+          "source": "/{,/**}",
+          "destination": "/en/",
           "dynamicLinks": true 
         }
       ]
