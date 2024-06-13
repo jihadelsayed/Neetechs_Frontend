@@ -28,12 +28,6 @@
   
         },
         {
-          "source": "/en{,/**}",
-          "destination": "/en/index.html",
-          "dynamicLinks": true
-  
-        },
-        {
           "source": "/es{,/**}",
           "destination": "/es/index.html",
           "dynamicLinks": true
