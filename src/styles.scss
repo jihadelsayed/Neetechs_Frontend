@@ -22,11 +22,14 @@ li a{
 li{
 }
 .container {
-  max-width: 800px;
+  //max-width: 800px;
   margin: 50px auto;
   padding: 20px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+  width: 80%;
 
 }
 /* Global Button Style */
@@ -54,10 +57,6 @@ form {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: #fff;
 }
 
 form input[type="text"],
@@ -94,3 +93,6 @@ form label {
   display: block;
   font-weight: bold;
 }
+
+
+//* Global random *//
