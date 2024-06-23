@@ -4,8 +4,8 @@
       <h2>{{ section.title }}</h2>
       <p>{{ section.content }}</p>
       <pre *ngIf="section.code">
-        <code>{{ section.code }}</code>
+        <code><br><br><hr>{{ section.code }}<hr></code>
+        <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
       </pre>
     </div>
   </div>
-  

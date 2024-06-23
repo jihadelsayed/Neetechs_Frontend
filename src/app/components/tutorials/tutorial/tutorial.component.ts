@@ -42,4 +42,9 @@ export class TutorialComponent {
   navigateTo(url: string): void {
     this.router.navigate([url]);
   }
+  copyToClipboard(text: string): void {
+    navigator.clipboard.writeText(text).then(function() {
+      alert('Code copied to clipboard!');
+    });
+  }
 }
