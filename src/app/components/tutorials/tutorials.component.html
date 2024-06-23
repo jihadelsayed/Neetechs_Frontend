@@ -1,0 +1,13 @@
+<div class="container" *ngIf="tutorialData">
+    <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner">
+    <h1>{{ tutorialData.title }}</h1>
+    <p class="description">{{ tutorialData.description }}</p>
+  
+    <div class="category" *ngFor="let category of tutorialData.categories">
+      <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
+      <h2>
+        <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
+      </h2>
+      <p class="date">{{ category.date }}</p>
+    </div>
+  </div>

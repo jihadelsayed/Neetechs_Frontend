@@ -1,0 +1,7 @@
+<div *ngIf="category">
+    <app-category [category]="category"></app-category>
+    <div *ngFor="let lesson of lessons">
+      <app-lesson [lesson]="lesson"></app-lesson>
+    </div>
+  </div>
+  

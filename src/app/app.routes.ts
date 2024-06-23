@@ -50,6 +50,11 @@ import { PressReleasesComponent } from './components/press-releases/press-releas
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { UserGuidesComponent } from './components/user-guides/user-guides.component';
 import { ColorplateComponent } from './components/colorplate/colorplate.component';
+import { TutorialsComponent } from './components/tutorials/tutorials.component';
+import { TutorialsCategoriesComponent } from './components/tutorials/tutorials-categories/tutorials-categories.component';
+import { TutorialComponent } from './components/tutorials/tutorial/tutorial.component';
+import { BlogNewsCategoriesComponent } from './components/blog-news/blog-news-categories/blog-news-categories.component';
+import { BlogComponent } from './components/blog-news/blog/blog.component';
 
 export const routes: Routes = [
   { path: '', component: IntroductionComponent },
@@ -93,7 +98,15 @@ export const routes: Routes = [
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'terms-of-service', component: TermsOfServiceComponent },
   { path: 'cookies-policy', component: CookiesPolicyComponent },
+
   { path: 'blog-news', component: BlogNewsComponent },
+  { path: 'blog-news/:categoriesId', component: BlogNewsCategoriesComponent },
+  { path: 'blog-news/:categoriesId/:blogId', component: BlogComponent },
+
+  { path: 'tutorials', component: TutorialsComponent },
+  { path: 'tutorials/:categoriesId', component: TutorialsCategoriesComponent },
+  { path: 'tutorials/:categoriesId/:lessonId', component: TutorialComponent },
+
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'customer-support', component: CustomerSupportComponent },
   { path: 'case-studies', component: CaseStudiesComponent },
