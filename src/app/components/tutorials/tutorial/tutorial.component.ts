@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from './tutorial.service';
 
 @Component({
@@ -14,35 +14,32 @@ import { TutorialService } from './tutorial.service';
 
 })
 export class TutorialComponent {
-  lesson: any;
-
-  constructor(private route: ActivatedRoute) { }
-
+  tutorial: any;
+  categoriesId: string | null = null;
+  tutorialId: string | null = null;
+  constructor(private route: ActivatedRoute,private router: Router, private TutorialService: TutorialService) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const categoryId = params.get('categoriesId');
-      const lessonId = params.get('lessonId');
-      // Fetch lesson data based on the categoryId and lessonId
-      // This is where you'd typically make a service call
-      // For demo purposes, we use static data
+      this.categoriesId = params.get('categoriesId');
+      this.tutorialId = params.get('tutorialId');
 
-      const categories = [
-        {
-          id: "1",
-          name: "Python",
-          date: "June 23, 2024",
-          href: "/tutorials/1",
-          image: "https://i.imgur.com/6NOQqPd.png",
-          lessons: [
-            { id: "1", title: "Lesson 1", description: "Introduction to Python" },
-            { id: "2", title: "Lesson 2", description: "Advanced Python" }
-          ]
-        },
-        // Add other categories here
-      ];
-
-      const category = categories.find(cat => cat.id === categoryId);
-      this.lesson = category ? category.lessons.find(les => les.id === lessonId) : null;
+      if (this.categoriesId && this.tutorialId) {
+        this.fetchData(this.categoriesId,this.tutorialId);
+      }else if(this.categoriesId){
+        this.router.navigate(['/tutorials/'+this.categoriesId]);
+      }else{
+        this.router.navigate(['/tutorials/']);
+      }
     });
+  }
+
+  private fetchData(categoriesId: string, tutorialId: string): void {
+    this.TutorialService.getCategoryData(categoriesId, tutorialId).subscribe(data => {
+      this.tutorial = data;
+      console.log(this.tutorial)
+    });
+  }
+  navigateTo(url: string): void {
+    this.router.navigate([url]);
   }
 }

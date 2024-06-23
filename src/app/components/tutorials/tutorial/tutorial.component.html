@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>{{ tutorial.title }}</h1>
+    <div *ngFor="let section of tutorial.sections" class="section">
+      <h2>{{ section.title }}</h2>
+      <p>{{ section.content }}</p>
+      <pre *ngIf="section.code">
+        <code>{{ section.code }}</code>
+      </pre>
+    </div>
+  </div>
+  

@@ -1,13 +1,19 @@
 <div *ngIf="category">
-    <img [src]="category.image" alt="{{ category.name }}">
-    <h2>{{ category.name }}</h2>
-    <p>{{ category.date }}</p>
-    <a [href]="category.href">Go to Tutorials</a>
-    <ul>
-        <li *ngFor="let tutorial of category.tutorials">
+    <div class="tutorial-hero-category">
+        <img [src]="category.image" alt="{{ category.name }}">
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+        <p>{{ category.date }}</p>
+    </div>
+   
+    <div class="container">
+        <div *ngFor="let tutorial of category.tutorials" 
+             class="card" 
+             [class.disabled]="tutorial.disable" 
+             (click)="!tutorial.disable && navigateTo(tutorial.href)">
             <h3>{{ tutorial.title }}</h3>
             <p>{{ tutorial.description }}</p>
             <span>Duration: {{ tutorial.duration }}</span>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialsCategoriesService } from './tutorials-categories.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { TutorialsCategoriesService } from './tutorials-categories.service';
 export class TutorialsCategoriesComponent {
   category: any;
 
-  constructor(private route: ActivatedRoute, private TutorialsCategoriesService: TutorialsCategoriesService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private TutorialsCategoriesService: TutorialsCategoriesService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -31,5 +31,8 @@ export class TutorialsCategoriesComponent {
     this.TutorialsCategoriesService.getCategoryData(categoriesId).subscribe(data => {
       this.category = data;
     });
+  }
+  navigateTo(url: string): void {
+    this.router.navigate([url]);
   }
 }

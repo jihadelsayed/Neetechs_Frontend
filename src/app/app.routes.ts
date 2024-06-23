@@ -99,13 +99,13 @@ export const routes: Routes = [
   { path: 'terms-of-service', component: TermsOfServiceComponent },
   { path: 'cookies-policy', component: CookiesPolicyComponent },
 
-  { path: 'blog-news', component: BlogNewsComponent },
-  { path: 'blog-news/:categoriesId', component: BlogNewsCategoriesComponent },
   { path: 'blog-news/:categoriesId/:blogId', component: BlogComponent },
+  { path: 'blog-news/:categoriesId', component: BlogNewsCategoriesComponent },
+  { path: 'blog-news', component: BlogNewsComponent },
 
-  { path: 'tutorials', component: TutorialsComponent },
+  { path: 'tutorials/:categoriesId/:tutorialId', component: TutorialComponent },
   { path: 'tutorials/:categoriesId', component: TutorialsCategoriesComponent },
-  { path: 'tutorials/:categoriesId/:lessonId', component: TutorialComponent },
+  { path: 'tutorials', component: TutorialsComponent },
 
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'customer-support', component: CustomerSupportComponent },
