@@ -9,7 +9,9 @@ import { TutorialsCategoriesService } from './tutorials-categories.service';
     standalone: true,
     templateUrl: './tutorials-categories.component.html',
     styleUrl: './tutorials-categories.component.scss',
-    imports: [CommonModule, HttpClientModule]
+    imports: [CommonModule, HttpClientModule],
+    providers: [TutorialsCategoriesService]
+
 })
 export class TutorialsCategoriesComponent {
   category: any;

@@ -2,13 +2,16 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TutorialService } from './tutorial.service';
 
 @Component({
   selector: 'app-tutorial',
   standalone: true,
   imports: [CommonModule,HttpClientModule ],
   templateUrl: './tutorial.component.html',
-  styleUrl: './tutorial.component.scss'
+  styleUrl: './tutorial.component.scss',
+  providers: [TutorialService]
+
 })
 export class TutorialComponent {
   lesson: any;
