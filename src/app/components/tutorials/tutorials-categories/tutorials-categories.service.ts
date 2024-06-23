@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TutorialsCategoriesService {
 
-  private baseUrl: string = 'https://github.com/jihadelsayed/Neetechs/blob/main/JSON/Tutorial';
+  private baseUrl: string = 'https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/JSON/Tutorial';
 
   constructor(private http: HttpClient) { }
 
