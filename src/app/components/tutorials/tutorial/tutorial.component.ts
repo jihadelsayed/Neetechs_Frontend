@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tutorial',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,HttpClientModule ],
   templateUrl: './tutorial.component.html',
   styleUrl: './tutorial.component.scss'
 })

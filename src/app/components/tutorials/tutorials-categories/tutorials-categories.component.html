@@ -1,7 +1,14 @@
 <div *ngIf="category">
-    <app-category [category]="category"></app-category>
-    <div *ngFor="let lesson of lessons">
-      <app-lesson [lesson]="lesson"></app-lesson>
-    </div>
+    <img [src]="category.image" alt="{{ category.name }}">
+    <h2>{{ category.name }}</h2>
+    <p>{{ category.date }}</p>
+    <a [href]="category.href">Go to Tutorials</a>
+    <ul>
+      <li *ngFor="let tutorial of category.tutorials">
+        <h3>{{ tutorial.title }}</h3>
+        <p>{{ tutorial.description }}</p>
+        <span>Duration: {{ tutorial.duration }}</span>
+      </li>
+    </ul>
   </div>
   

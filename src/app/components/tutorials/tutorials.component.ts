@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { TutorialService } from './tutorials.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { TutorialComponent } from "./tutorial/tutorial.component";
 
 @Component({
-  selector: 'app-tutorials',
-  standalone: true,
-  imports: [CommonModule,HttpClientModule ],
-  templateUrl: './tutorials.component.html',
-  styleUrl: './tutorials.component.scss',
-  providers: [TutorialService]
+    selector: 'app-tutorials',
+    standalone: true,
+    templateUrl: './tutorials.component.html',
+    styleUrl: './tutorials.component.scss',
+    providers: [TutorialService],
+    imports: [CommonModule, HttpClientModule, TutorialComponent]
 })
 export class TutorialsComponent {
   tutorialData: any;
