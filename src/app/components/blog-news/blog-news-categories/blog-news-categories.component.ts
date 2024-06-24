@@ -32,7 +32,6 @@ export class BlogNewsCategoriesComponent {
     });
   }
   navigateTo(url: string): void {
-    // this.router.navigate([url]);
-    console.log(url)
+    this.router.navigate([url]);
   }
 }

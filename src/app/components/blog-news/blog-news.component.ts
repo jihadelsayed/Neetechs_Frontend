@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BlogService } from './blog.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BlogNewsService } from './blog-news.service';
 
 @Component({
   selector: 'app-blog-news',
@@ -9,16 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [CommonModule,HttpClientModule ],
   templateUrl: './blog-news.component.html',
   styleUrl: './blog-news.component.scss',
-  providers: [BlogService]
+  providers: [BlogNewsService]
 
 })
 export class BlogNewsComponent {
   blogData: any;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private BlogNewsService: BlogNewsService) { }
 
   ngOnInit(): void {
-    this.blogService.getBlogData().subscribe(data => {
+    this.BlogNewsService.getBlogData().subscribe(data => {
       this.blogData = data.container;
     });
   }

@@ -1,1 +1,20 @@
-<p>blog works!</p>
+<div class="blog-container" *ngIf="Blog">
+    <div class="blog-header">
+      <h1>{{ Blog.title }}</h1>
+    </div>
+    <div class="blog-sections">
+      <div class="section" *ngFor="let section of Blog.sections">
+        <h2>{{ section.heading }}</h2>
+        <div *ngIf="section.content">
+          <p *ngFor="let content of section.content" [innerHTML]="content"></p>
+        </div>
+        <div *ngIf="section.subsections">
+          <div class="subsection" *ngFor="let subsection of section.subsections">
+            <h3>{{ subsection.subheading }}</h3>
+            <pre *ngFor="let code of subsection.code"><code>{{ code }}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
