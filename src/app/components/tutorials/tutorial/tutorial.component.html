@@ -1,12 +1,22 @@
 <div class="container">
-    <h1>{{ tutorial.title }}</h1>
-    <div *ngFor="let section of tutorial.sections" class="section">
-      <h2>{{ section.title }}</h2>
-      <p>{{ section.content }}</p>
-      <pre *ngIf="section.code">
-        <code><br><br><hr>{{ section.code }}<hr></code>
-        <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
-      </pre>
-    </div>
+  <h1>{{ tutorial.title }}</h1>
+  <div *ngIf="tutorial.link" class="video-container">
+    <iframe 
+      width="560" 
+      height="315" 
+      [src]="tutorial.link" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
   </div>
-  <app-tutorial-ads></app-tutorial-ads>
+  <div *ngFor="let section of tutorial.sections" class="section">
+    <h2>{{ section.title }}</h2>
+    <p>{{ section.content }}</p>
+    <pre *ngIf="section.code">
+      <code>{{ section.code }}</code>
+      <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
+    </pre>
+  </div>
+</div>
+<app-tutorial-ads></app-tutorial-ads>
