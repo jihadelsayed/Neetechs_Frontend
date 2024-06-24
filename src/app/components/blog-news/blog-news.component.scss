@@ -61,4 +61,10 @@
     color: #333;
     line-height: 1.6;
   }
-  
+a.disabled {
+  pointer-events: none;
+  color: gray;
+  text-decoration: none;
+  cursor: default;
+  color: #555!important;
+}

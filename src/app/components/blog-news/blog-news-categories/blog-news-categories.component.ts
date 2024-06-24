@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { BlogNewsCategoriesService } from './blog-news-categories.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-news-categories',
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogNewsCategoriesComponent {
   category: any;
 
-  constructor(private route: ActivatedRoute, private BlogNewsCategoriesService: BlogNewsCategoriesService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private BlogNewsCategoriesService: BlogNewsCategoriesService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -30,5 +30,9 @@ export class BlogNewsCategoriesComponent {
     this.BlogNewsCategoriesService.getCategoryData(categoriesId).subscribe(data => {
       this.category = data;
     });
+  }
+  navigateTo(url: string): void {
+    // this.router.navigate([url]);
+    console.log(url)
   }
 }

@@ -1,15 +1,14 @@
-<div *ngIf="category">
-    <img [src]="category.image" alt="{{ category.name }}">
-    <h2>{{ category.name }}</h2>
+<div class="container">
+    <h1>{{ category.title }}</h1>
     <p>{{ category.description }}</p>
-    <p>{{ category.date }}</p>
-    <ul>
-        <li *ngFor="let tutorial of category.tutorials">
-            <h3>{{ tutorial.title }}</h3>
-            <p>{{ tutorial.description }}</p>
-            <span>Duration: {{ tutorial.duration }}</span>
-            <a [href]="tutorial.href">Read More</a>
-            <span *ngIf="tutorial.disable" style="color: red;">(Disabled)</span>
-        </li>
-    </ul>
-</div>
+    <div class="trends">
+      <div class="trend" *ngFor="let trend of category.categories">
+        <h2>{{ trend.trend }}</h2>
+        <p>{{ trend.description }}</p>
+        <button [disabled]="trend.disabled" (click)="navigateTo(trend.href)">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+  
