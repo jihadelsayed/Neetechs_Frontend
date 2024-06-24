@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from './tutorial.service';
 import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
+import { SafePipe } from "./safe.pipe";
 
 @Component({
     selector: 'app-tutorial',
@@ -11,7 +12,7 @@ import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
     templateUrl: './tutorial.component.html',
     styleUrl: './tutorial.component.scss',
     providers: [TutorialService],
-    imports: [CommonModule, HttpClientModule, TutorialAdsComponent]
+    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe]
 })
 export class TutorialComponent {
   tutorial: any;
