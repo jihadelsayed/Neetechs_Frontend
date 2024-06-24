@@ -3,15 +3,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from './tutorial.service';
+import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
 
 @Component({
-  selector: 'app-tutorial',
-  standalone: true,
-  imports: [CommonModule,HttpClientModule ],
-  templateUrl: './tutorial.component.html',
-  styleUrl: './tutorial.component.scss',
-  providers: [TutorialService]
-
+    selector: 'app-tutorial',
+    standalone: true,
+    templateUrl: './tutorial.component.html',
+    styleUrl: './tutorial.component.scss',
+    providers: [TutorialService],
+    imports: [CommonModule, HttpClientModule, TutorialAdsComponent]
 })
 export class TutorialComponent {
   tutorial: any;

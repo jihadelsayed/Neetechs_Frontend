@@ -4,7 +4,13 @@
   
     <div class="blog-post" *ngFor="let post of blogData.posts">
       <div class="post-header">
-        <h2><a [href]="post.href">{{ post.title }}</a></h2>
+        <h2>
+          <a 
+          [href]="!post.disable ? post.href : null" 
+          [class.disabled]="post.disable"
+          (click)="post.disable ? $event.preventDefault() : null"
+          >{{ post.title }}</a>
+        </h2>
         <p class="date">{{ post.date }}</p>
       </div>
       <p class="post-description">{{ post.description }}</p>
