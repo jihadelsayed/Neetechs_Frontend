@@ -1,0 +1,92 @@
+.portfolio-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide {
+  display: flex;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slide-text {
+  max-width: 45%;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 100%;  transition: background-color 0.3s ease;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .slide-text {
+    max-width: 100%;
+  }
+  
+  button.prev, button.next {
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+  
+  button.prev {
+    left: 50px;
+  }
+  
+  button.next {
+    right: 50px;
+  }
+}

@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { IntroductionComponent } from './components/homepage/introduction/introduction.component';
-import { ServicesOverviewComponent } from './components/homepage/services-overview/services-overview.component';
-import { NewsUpdatesComponent } from './components/homepage/news-updates/news-updates.component';
 import { GraphicDesignComponent } from './components/services/design-services/graphic-design/graphic-design.component';
 import { UiUxDesignComponent } from './components/services/design-services/ui-ux-design/ui-ux-design.component';
 import { WebDevelopmentComponent } from './components/services/programming-services/web-development/web-development.component';
@@ -55,12 +52,11 @@ import { TutorialsCategoriesComponent } from './components/tutorials/tutorials-c
 import { TutorialComponent } from './components/tutorials/tutorial/tutorial.component';
 import { BlogNewsCategoriesComponent } from './components/blog-news/blog-news-categories/blog-news-categories.component';
 import { BlogComponent } from './components/blog-news/blog/blog.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 export const routes: Routes = [
-  { path: '', component: IntroductionComponent },
+  { path: '', component: HomepageComponent },
   { path: 'sitemap', component: SitemapComponent },
-  { path: 'services-overview', component: ServicesOverviewComponent },
-  { path: 'news-updates', component: NewsUpdatesComponent },
   { path: 'services/graphic-design', component: GraphicDesignComponent },
   { path: 'services/ui-ux-design', component: UiUxDesignComponent },
   { path: 'services/web-development', component: WebDevelopmentComponent },

@@ -1,0 +1,80 @@
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    
+}
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f4f4f4; /* Optional: change background color if needed */
+    border-radius: 10px; /* Optional: rounded corners */
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 33.33%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: none;
+    text-align: center;
+  }
+  
+  .slide.active {
+    display: block;
+  }
+  
+  .slide img {
+    width: 80%; /* Smaller images */
+    border-radius: 10px; /* Optional: rounded corners for images */
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+  }
+  
+  button:nth-child(2) {
+    left: 10px;
+
+  }
+  
+  button:nth-child(3) {
+    right: 10px;
+
+  }
+  
+/* Responsive styles for different devices */
+@media (min-width: 1201px) {
+    .slide {
+      min-width: 33.33%; /* 3 cards on large devices */
+    }
+  }
+  
+  @media (max-width: 1200px) and (min-width: 669px) {
+    .slide {
+      min-width: 50%; /* 2 cards on medium devices */
+    }
+  }
+  
+  @media (max-width: 668px) {
+    .slide {
+      min-width: 100%; /* 1 card on small devices */
+    }
+  }

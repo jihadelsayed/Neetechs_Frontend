@@ -12,6 +12,9 @@ body{
     // background-color: hsl(208, 90%, 4%);
 
 }
+h2{
+  
+}
 li a{
     text-decoration: none!important;
     color: aliceblue;
@@ -93,6 +96,9 @@ form label {
   display: block;
   font-weight: bold;
 }
+.flex-reverse {
+  flex-direction: row-reverse;
 
+}
 
 //* Global random *//

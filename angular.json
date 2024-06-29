@@ -64,7 +64,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles.font.scss"
+
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -219,7 +221,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles.font.scss"
             ],
             "scripts": []
           }

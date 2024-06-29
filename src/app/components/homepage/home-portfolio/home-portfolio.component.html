@@ -1,0 +1,18 @@
+<div class="section">
+  <h2>Projects: </h2>
+<div class="portfolio-slider">
+  <div class="viewport">
+    <div class="slides" [style.transform]="getTransform()">
+      <div *ngFor="let project of projects" class="slide {{ project.side }}">
+        <img [src]="project.image" [alt]="project.title">
+        <div class="slide-text">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="prev" (click)="prevSlide()">&#10094;</button>
+  <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>
+</div>
