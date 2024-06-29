@@ -37,19 +37,19 @@ export class HomeTeamComponent {
   // }
 
   ngOnInit() {
-    this.updateSlidesToShow();
+    // this.updateSlidesToShow();
   }
 
-  updateSlidesToShow() {
-    const width = window.innerWidth;
-    if (width <= 500) {
-      this.slidesToShow = 1;
-    } else if (width <= 800) {
-      this.slidesToShow = 2;
-    } else {
-      this.slidesToShow = 3;
-    }
-  }
+  // updateSlidesToShow() {
+  //   const width = window.innerWidth;
+  //   if (width <= 500) {
+  //     this.slidesToShow = 1;
+  //   } else if (width <= 800) {
+  //     this.slidesToShow = 2;
+  //   } else {
+  //     this.slidesToShow = 3;
+  //   }
+  // }
 
   prevSlide() {
     if (this.currentIndex > 0) {
