@@ -4,7 +4,7 @@
     <div class="slider">
         <div class="slide" *ngFor="let member of teamMembers; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + 3}">
             <img [src]="member.img" [alt]="member.name">
-            <h5>{{ member.name }}</h5>
+            <h4>{{ member.name }}</h4>
             <p>{{ member.description }}</p>
         </div>
     </div>

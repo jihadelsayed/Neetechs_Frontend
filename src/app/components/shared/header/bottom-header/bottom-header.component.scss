@@ -22,9 +22,6 @@ header {
 
 
 .brand {
-    color: white;
-    font-size: 1.618em;
-    // font-size: 29px;
     font-weight: 900;
     font-stretch: normal;
     font-style: normal;
@@ -55,20 +52,15 @@ ul li {
 }
 
 ul a {
-    color: #b0b3b8;
-    text-decoration: none;
-    font-size: 1em;
 }
 
 ul a:hover {
-    color: white;
 }
 .navbar-contact{
     margin-left: auto;
 }
 .navbar-contact a {
     background-color: hsl(33, 80%, 52%);
-    color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;

@@ -1,9 +1,19 @@
 /* Heading styles */
 a{
+  color: #F8A242
+  ;
   text-decoration: none;
 }
+a.disabled {
+pointer-events: none;
+text-decoration: none;
+cursor: default;
+color:#BAB4B0;
+
+}
 h1 {
-  color:#BAB4B0;
+  color:#6E6A68
+  ;
     font-size: 144px;
     line-height: 161.8%;
     margin: 0; /* Remove default margin */
@@ -48,7 +58,18 @@ h1 {
     margin: 0;
   }
   
-
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+span {
+  font-size: 0.9em;
+  color: #7f8c8d;
+}
   
   /* Other elements */
   /* Example for smaller text */

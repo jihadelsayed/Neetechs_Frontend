@@ -14,12 +14,24 @@ import { BlogNewsService } from './blog-news.service';
 })
 export class BlogNewsComponent {
   blogData: any;
+  title: string | undefined;
+  description: string | undefined;
+  image: string | undefined;
+  posts: any[] | undefined;
 
   constructor(private BlogNewsService: BlogNewsService) { }
 
   ngOnInit(): void {
     this.BlogNewsService.getBlogData().subscribe(data => {
-      this.blogData = data.container;
-    });
+      if (data && data.container) {
+        this.blogData = data.container;
+        this.title = this.blogData.title;
+        this.description = this.blogData.description;
+        this.image = this.blogData.image;
+        this.posts = this.blogData.posts;
+      } else {
+        console.error('Data container is undefined or null');
+      }
+        });
   }
 }

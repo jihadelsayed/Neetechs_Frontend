@@ -12,8 +12,6 @@
 .color {
     flex: 1;
     padding: 20px;
-    color: #fff;
-    font-size: 0.8em;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -22,5 +20,4 @@
 }
 
 .palette-row .color:nth-child(even) {
-    color: #000;
 }

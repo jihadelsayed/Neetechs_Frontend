@@ -11,7 +11,7 @@
              class="card" 
              [class.disabled]="tutorial.disable" 
              (click)="!tutorial.disable && navigateTo(tutorial.href)">
-            <h3>{{ tutorial.title }}</h3>
+            <h4>{{ tutorial.title }}</h4>
             <p>{{ tutorial.description }}</p>
             <span>Duration: {{ tutorial.duration }}</span>
         </div>

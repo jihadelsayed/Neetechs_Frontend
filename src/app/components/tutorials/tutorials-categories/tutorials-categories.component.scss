@@ -15,20 +15,13 @@
 }
 
 .tutorial-hero-category h1 {
-    color: #2c3e50;
     margin-bottom: 10px;
 }
 
 .tutorial-hero-category p {
-    color: #7f8c8d;
     margin-bottom: 5px;
 }
 
-
-
-h2 {
-    color: #2c3e50;
-}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +43,6 @@ h2 {
     border: 1px solid #3498db;
 }
 .card.disabled {
-    color: #bdc3c7;
     pointer-events: none;
     cursor: default;
 }
@@ -64,10 +56,7 @@ h3 {
 p {
     margin: 5px 0;
 }
-span {
-    font-size: 0.9em;
-    color: #7f8c8d;
-}
+
 img {
     max-width: 100%;
     height: auto;
@@ -90,13 +79,5 @@ img {
 @media (max-width: 768px) {
     .tutorial-hero-category {
         padding: 10px;
-    }
-
-    .tutorial-hero-category h2 {
-        font-size: 1.5em;
-    }
-
-    .tutorial-hero-category p {
-        font-size: 1em;
     }
 }
