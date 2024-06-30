@@ -13,9 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   providers: [BlogNewsCategoriesService]
 })
 export class BlogNewsCategoriesComponent {
-  category: any;
+  category: any = {};
 
-  constructor(private route: ActivatedRoute,private router: Router, private BlogNewsCategoriesService: BlogNewsCategoriesService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private BlogNewsCategoriesService: BlogNewsCategoriesService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -31,6 +31,7 @@ export class BlogNewsCategoriesComponent {
       this.category = data;
     });
   }
+
   navigateTo(url: string): void {
     this.router.navigate([url]);
   }
