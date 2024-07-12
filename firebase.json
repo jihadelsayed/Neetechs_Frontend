@@ -16,6 +16,16 @@
   
         // },
         {
+          "source": "/ads.txt",
+          "destination": "/en/ads.txt",
+          "dynamicLinks": true 
+        },
+        {
+          "source": "/en{,/**}",
+          "destination": "/",
+          "dynamicLinks": true 
+        },
+        {
           "source": "/ar{,/**}",
           "destination": "/ar/index.html",
           "dynamicLinks": true
@@ -68,17 +78,8 @@
           "destination": "/zh/index.html",
           "dynamicLinks": true
   
-        },
-        {
-          "source": "/en/ads.txt",
-          "destination": "/ads.txt",
-          "dynamicLinks": true 
-        },
-        {
-          "source": "/en{,/**}",
-          "destination": "/",
-          "dynamicLinks": true 
         }
+        
       ]
       ,
       "redirects": [
