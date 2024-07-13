@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center; 
+}
 body{
     font-family: "Noto Naskh Arabic", serif;
     font-optical-sizing: auto;
@@ -24,7 +31,7 @@ li a{
 }
 li{
 }
-.container {
+.container-card {
   //max-width: 800px;
   margin: 0 auto;
   margin-bottom: 64px;
@@ -32,8 +39,27 @@ li{
   padding: 20px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1280px;
   width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 0px;
 }
 /* Global Button Style */
 button {

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="tutorialData">
+<div class="container-card" *ngIf="tutorialData">
 
     <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner">
     <h1>{{ tutorialData.title }}</h1>
@@ -6,10 +6,10 @@
     <div class="categories">
       <div class="category" *ngFor="let category of tutorialData.categories">
         <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
-        <h2>
+        <h5>
           <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
-        </h2>
-        <p class="date">{{ category.date }}</p>
+        </h5>
+        <h6 class="date">{{ category.date }}</h6>
       </div>
     </div>
 

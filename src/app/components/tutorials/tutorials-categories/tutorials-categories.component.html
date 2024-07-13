@@ -6,12 +6,12 @@
         <p>{{ category.date }}</p>
     </div>
 
-    <div class="container">
+    <div class="container-card">
         <div *ngFor="let tutorial of category.tutorials" 
              class="card" 
              [class.disabled]="tutorial.disable" 
              (click)="!tutorial.disable && navigateTo(tutorial.href)">
-            <h4>{{ tutorial.title }}</h4>
+            <h5>{{ tutorial.title }}</h5>
             <p>{{ tutorial.description }}</p>
             <span>Duration: {{ tutorial.duration }}</span>
         </div>

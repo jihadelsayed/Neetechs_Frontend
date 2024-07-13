@@ -1,9 +1,54 @@
-header{
+/* header.component.css */
+.tp-header-area {
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+
+  
+  .tp-header-main {
+    padding: 20px 0;
+  }
+  
+  .tp-header-main .logo img {
+    max-width: 150px;
+  }
+  
+  .tp-header-search-wrapper {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: stretch;    
-    padding-top: 8px;
-}
+    align-items: center;
+  }
+  
+  .tp-header-search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .tp-header-search-btn button {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .tp-header-main-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .tp-header-action-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .tp-header-contact p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
