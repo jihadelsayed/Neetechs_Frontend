@@ -1,8 +1,8 @@
 {
-  "name": "Neetechs Token",
-  "symbol": "NTK",
-  "description": "The official token for the Neetechs project, enabling transactions and rewards within the Neetechs ecosystem.",
-  "image": "https://neetechs.com/ntk.png",
+  "name": "Sayed Token",
+  "symbol": "sayed",
+  "description": "The Sayed Token (SAYED) is the official utility token for the Neetechs project. It enables seamless transactions, rewards, and access to exclusive features within the Neetechs ecosystem. Neetechs aims to revolutionize technology solutions, focusing on AI integration and innovative development. Join us on our journey to create cutting-edge solutions that address real-world problems and enhance technological advancements.",
+  "image": "https://neetechs.com/sayed.png",
   "attributes": [
     {
       "trait_type": "Project",
@@ -11,12 +11,20 @@
     {
       "trait_type": "Use Case",
       "value": "Transactions and Rewards"
+    },
+    {
+      "trait_type": "Version",
+      "value": "1.0"
+    },
+    {
+      "trait_type": "Total Supply",
+      "value": "18,446,744,073.709551615"
     }
   ],
   "properties": {
     "files": [
       {
-        "uri": "https://neetechs.com/ntk.png", 
+        "uri": "https://neetechs.com/sayed.png",
         "type": "image/png"
       }
     ],
@@ -27,12 +35,23 @@
       "linkedin": "https://linkedin.com/company/neetechs",
       "twitter": "https://x.com/neetechs",
       "tiktok": "https://tiktok.com/@neetechs",
+      "youtube": "www.youtube.com/@neetechs",
       "instagram": "https://instagram.com/neetechs",
       "pinterest": "https://pinterest.com/neetechs"
+    },
+    "tokenomics": {
+      "total_supply": "18,446,744,073.709551615",
+      "distribution": "50% public, 20% team, 20% partnerships, 10% reserve"
     }
-    
   },
   "external_url": "https://neetechs.com",
+  "roadmap": {
+    "Q1 2024": "Token Launch and Initial Distribution",
+    "Q2 2024": "Platform Beta Release",
+    "Q3 2024": "Full Platform Launch with AI Integration",
+    "Q4 2024": "Expansion and Partnerships"
+  },
+  "legal_disclaimer": "This token does not represent equity or ownership in Neetechs. It is a utility token intended for use within the Neetechs ecosystem.",
   "seller_fee_basis_points": 0,
   "creators": [
     {
