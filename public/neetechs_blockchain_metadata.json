@@ -1,6 +1,6 @@
 {
   "name": "Sayed Token",
-  "symbol": "sayed",
+  "symbol": "Sayed",
   "description": "The Sayed Token (SAYED) is the official utility token for the Neetechs project. It enables seamless transactions, rewards, and access to exclusive features within the Neetechs ecosystem. Neetechs aims to revolutionize technology solutions, focusing on AI integration and innovative development. Join us on our journey to create cutting-edge solutions that address real-world problems and enhance technological advancements.",
   "image": "https://neetechs.com/sayed.png",
   "attributes": [
@@ -18,7 +18,9 @@
     },
     {
       "trait_type": "Total Supply",
-      "value": "18,446,744,073.709551615"
+      "value": "16,180,339,887.498948482",
+      "burned": "1,853,648,862.210603133"
+      
     }
   ],
   "properties": {
@@ -40,8 +42,9 @@
       "pinterest": "https://pinterest.com/neetechs"
     },
     "tokenomics": {
-      "total_supply": "18,446,744,073.709551615",
-      "distribution": "50% public, 20% team, 20% partnerships, 10% reserve"
+      "total_supply": "16,180,339,887.498948482",
+      "distribution": "100% public",
+      "burned": "1,853,648,862.210603133"
     }
   },
   "external_url": "https://neetechs.com",
