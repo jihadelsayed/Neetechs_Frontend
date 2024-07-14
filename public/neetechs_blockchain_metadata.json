@@ -1,0 +1,43 @@
+{
+  "name": "Neetechs Token",
+  "symbol": "NTK",
+  "description": "The official token for the Neetechs project, enabling transactions and rewards within the Neetechs ecosystem.",
+  "image": "https://neetechs.com/ntk.png",
+  "attributes": [
+    {
+      "trait_type": "Project",
+      "value": "Neetechs"
+    },
+    {
+      "trait_type": "Use Case",
+      "value": "Transactions and Rewards"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://neetechs.com/ntk.png", 
+        "type": "image/png"
+      }
+    ],
+    "category": "token",
+    "social_media": {
+      "website": "https://neetechs.com",
+      "facebook": "https://facebook.com/neetechs0",
+      "linkedin": "https://linkedin.com/company/neetechs",
+      "twitter": "https://x.com/neetechs",
+      "tiktok": "https://tiktok.com/@neetechs",
+      "instagram": "https://instagram.com/neetechs",
+      "pinterest": "https://pinterest.com/neetechs"
+    }
+    
+  },
+  "external_url": "https://neetechs.com",
+  "seller_fee_basis_points": 0,
+  "creators": [
+    {
+      "address": "A8ZasZLSonGXgkyKC2dgbBw2zYd3WABLuoDRYeFaLJxY",
+      "share": 100
+    }
+  ]
+}

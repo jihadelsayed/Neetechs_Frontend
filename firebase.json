@@ -16,6 +16,16 @@
   
         // },
         {
+          "source": "/neetechs_blockchain_metadata.json",
+          "destination": "/en/neetechs_blockchain_metadata.json",
+          "dynamicLinks": true 
+        },
+        {
+          "source": "/logo_256.png",
+          "destination": "/en/logo_256.png",
+          "dynamicLinks": true 
+        },
+        {
           "source": "/ads.txt",
           "destination": "/en/ads.txt",
           "dynamicLinks": true 
