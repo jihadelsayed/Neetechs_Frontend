@@ -18,9 +18,7 @@
     },
     {
       "trait_type": "Total Supply",
-      "value": "16,180,339,887.498948482",
-      "burned": "1,853,648,862.210603133"
-      
+      "value": "16,180,339,887.498948482"      
     }
   ],
   "properties": {
@@ -43,9 +41,8 @@
     },
     "tokenomics": {
       "total_supply": "16,180,339,887.498948482",
-      "distribution": "100% public",
-      "burned": "1,853,648,862.210603133"
-    }
+      "distribution": "100% public"
+        }
   },
   "external_url": "https://neetechs.com",
   "roadmap": {
@@ -58,7 +55,7 @@
   "seller_fee_basis_points": 0,
   "creators": [
     {
-      "address": "A8ZasZLSonGXgkyKC2dgbBw2zYd3WABLuoDRYeFaLJxY",
+      "address": "6LyZJjhGSsRPbBR2XLaHWiKSLygmi2CmxB8zYQrTgAcm",
       "share": 100
     }
   ]
