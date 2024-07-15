@@ -1,62 +1,26 @@
 {
   "name": "Sayed Token",
   "symbol": "Sayed",
-  "description": "The Sayed Token (SAYED) is the official utility token for the Neetechs project. It enables seamless transactions, rewards, and access to exclusive features within the Neetechs ecosystem. Neetechs aims to revolutionize technology solutions, focusing on AI integration and innovative development. Join us on our journey to create cutting-edge solutions that address real-world problems and enhance technological advancements.",
+  "description": "The Sayed Token (SAYED) is the official utility token for the Neetechs.",
   "image": "https://neetechs.com/sayed.png",
-  "attributes": [
-    {
-      "trait_type": "Project",
-      "value": "Neetechs"
-    },
-    {
-      "trait_type": "Use Case",
-      "value": "Transactions and Rewards"
-    },
-    {
-      "trait_type": "Version",
-      "value": "1.0"
-    },
-    {
-      "trait_type": "Total Supply",
-      "value": "16,180,339,887.498948482"      
-    }
+  "extensions": {
+    "website": "https://neetechs.com",
+    "facebook": "https://facebook.com/neetechs0",
+    "linkedin": "https://linkedin.com/company/neetechs",
+    "twitter": "https://x.com/neetechs",
+    "tiktok": "https://tiktok.com/@neetechs",
+    "youtube": "www.youtube.com/@neetechs",
+    "instagram": "https://instagram.com/neetechs",
+    "pinterest": "https://pinterest.com/neetechs"
+  },
+  "tags": [
+    "neetechs",
+    "sayed"
   ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://neetechs.com/sayed.png",
-        "type": "image/png"
-      }
-    ],
-    "category": "token",
-    "social_media": {
-      "website": "https://neetechs.com",
-      "facebook": "https://facebook.com/neetechs0",
-      "linkedin": "https://linkedin.com/company/neetechs",
-      "twitter": "https://x.com/neetechs",
-      "tiktok": "https://tiktok.com/@neetechs",
-      "youtube": "www.youtube.com/@neetechs",
-      "instagram": "https://instagram.com/neetechs",
-      "pinterest": "https://pinterest.com/neetechs"
-    },
-    "tokenomics": {
-      "total_supply": "16,180,339,887.498948482",
-      "distribution": "100% public"
-        }
-  },
-  "external_url": "https://neetechs.com",
-  "roadmap": {
-    "Q1 2024": "Token Launch and Initial Distribution",
-    "Q2 2024": "Platform Beta Release",
-    "Q3 2024": "Full Platform Launch with AI Integration",
-    "Q4 2024": "Expansion and Partnerships"
-  },
-  "legal_disclaimer": "This token does not represent equity or ownership in Neetechs. It is a utility token intended for use within the Neetechs ecosystem.",
-  "seller_fee_basis_points": 0,
-  "creators": [
-    {
-      "address": "6LyZJjhGSsRPbBR2XLaHWiKSLygmi2CmxB8zYQrTgAcm",
-      "share": 100
-    }
-  ]
+  "creator": {
+    "name": "Jihad El Sayed",
+    "site": "https://Neetechs.com"
+  }
+  
+
 }
