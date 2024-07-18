@@ -17,22 +17,22 @@
         // },
         {
           "source": "/neetechs_blockchain_metadata.json",
-          "destination": "/en/neetechs_blockchain_metadata.json",
+          "destination": "/zh/neetechs_blockchain_metadata.json",
           "dynamicLinks": false 
         },
         {
           "source": "/sayed.png",
-          "destination": "/en/sayed.png",
+          "destination": "/zh/sayed.png",
           "dynamicLinks": false 
         },
         {
           "source": "/ads.txt",
-          "destination": "/en/ads.txt",
+          "destination": "/zh/ads.txt",
           "dynamicLinks": false 
         },
         {
           "source": "/en{,/**}",
-          "destination": "/en/index.html",
+          "destination": "/",
           "dynamicLinks": true 
         },
         {
