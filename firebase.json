@@ -32,7 +32,7 @@
         },
         {
           "source": "/en{,/**}",
-          "destination": "/",
+          "destination": "/en/index.html",
           "dynamicLinks": true 
         },
         {
