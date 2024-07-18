@@ -18,12 +18,12 @@
         {
           "source": "/neetechs_blockchain_metadata.json",
           "destination": "/en/neetechs_blockchain_metadata.json",
-          "dynamicLinks": true 
+          "dynamicLinks": false 
         },
         {
           "source": "/sayed.png",
           "destination": "/en/sayed.png",
-          "dynamicLinks": true 
+          "dynamicLinks": false 
         },
         {
           "source": "/ads.txt",
