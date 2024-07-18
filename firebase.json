@@ -32,7 +32,7 @@
         },
         {
           "source": "/en{,/**}",
-          "destination": "/",
+          "destination": "/en/index.html",
           "dynamicLinks": true 
         },
         {
@@ -47,12 +47,12 @@
           "dynamicLinks": true
   
         },
-        {
-          "source": "/en{,/**}",
-          "destination": "/en/index.html",
-          "dynamicLinks": true
+        // {
+        //   "source": "/en{,/**}",
+        //   "destination": "/en/index.html",
+        //   "dynamicLinks": true
   
-        },
+        // },
         {
           "source": "/es{,/**}",
           "destination": "/es/index.html",
