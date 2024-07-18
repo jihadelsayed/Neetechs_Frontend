@@ -28,7 +28,7 @@
         {
           "source": "/ads.txt",
           "destination": "/en/ads.txt",
-          "dynamicLinks": true 
+          "dynamicLinks": false 
         },
         {
           "source": "/en{,/**}",
