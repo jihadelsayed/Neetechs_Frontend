@@ -47,7 +47,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts", // Use "browser" for universal builds
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
