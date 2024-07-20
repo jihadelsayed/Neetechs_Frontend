@@ -1,14 +1,17 @@
 /* General Styles */
 .tp-header-sticky-area {
-  background: #fff;
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  visibility: visible;
-  opacity: 1;
-  animation: .5s ease-in-out 0s normal none 1 running fadeInDown;
+    display: flex;
+    padding: 0;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 1000;
+    visibility: visible;
+    opacity: 1;
+    animation: .5s ease-in-out 0s normal none 1 running fadeInDown;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -22,9 +25,6 @@
 .hamburger {
     font-size: 30px;
     cursor: pointer;
-    position: fixed;
-    top: 15px;
-    right: 15px;
   }
   
   .menu-open .hamburger {

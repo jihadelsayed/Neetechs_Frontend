@@ -1,9 +1,10 @@
-<div id="header-sticky-2" class="tp-header-sticky-area header-sticky-2">
+<div id="header-sticky-2" class="tp-header-sticky-area header-sticky-2 container">
     <div class="logo">
       <a routerLink="/">
         <img src="https://i.imgur.com/3fLGfPn.png" alt="logo" />
       </a>
   </div>
-  <app-mobile-sidebar-header [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-mobile-sidebar-header>
   <div class="hamburger" (click)="toggleMenu()">&#9776;</div>
+
 </div>
+<app-mobile-sidebar-header [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-mobile-sidebar-header>
