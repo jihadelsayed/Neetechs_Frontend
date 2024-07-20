@@ -1,103 +1,80 @@
-.header-bottom{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
+.stickyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #ffffff;
 }
-.menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
-  
-  .menu li {
-    position: relative;
-    margin-right: 25px;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 11px 0;
-    
-    display: block;
-  }
-  
-  /* Dropdown and mega menu styles */
-  .has-dropdown > a::after {
-    content: " ▼";
-    font-size: 12px;
-  }
-  
-  .has-dropdown .home-pages,
-  .has-dropdown .shop-mega-menus,
-  .has-dropdown .product-menus,
-  .has-dropdown .dropdown-menus {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .has-dropdown:hover .home-pages,
-  .has-dropdown:hover .shop-mega-menus,
-  .has-dropdown:hover .product-menus,
-  .has-dropdown:hover .dropdown-menus {
-    display: block;
-  }
-  
-  .home-pages div,
-  .shop-mega-menus div,
-  .product-menus li,
-  .dropdown-menus li {
-    padding: 10px;
-  }
-  
-  .home-pages a,
-  .shop-mega-menus a,
-  .product-menus a,
-  .dropdown-menus a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .mega-menu-image {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .mega-menu-image img {
-    margin-right: 10px;
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Hotline styles */
-  .hotline {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .hotline-icon {
-    margin-right: 10px;
-  }
-  
-  .hotline h5 {
-    margin: 0 10px 0 0;
-  }
-  
-  .hotline a {
-    color: #007BFF;
-    text-decoration: none;
-  }
+
+.stickyHeader a.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.stickyHeader a.logo img {
+  max-height: 40px;
+  margin-right: 10px;
+}
+
+.stickyHeader a.logo h5 {
+  font-weight: bold;
+}
+
+.stickyHeader nav {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.stickyHeader ul.menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.stickyHeader ul.menu li {
+  position: relative;
+}
+
+.stickyHeader ul.menu li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  display: block;
+  font-size: 13px;
+}
+
+.stickyHeader ul.menu li a:hover,
+.stickyHeader ul.menu li a:focus {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.stickyHeader .hotline {
+  display: flex;
+  align-items: center;
+}
+
+.stickyHeader .hotline-icon {
+  margin-right: 10px;
+}
+
+.stickyHeader .hotline h6 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.stickyHeader .hotline a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.stickyHeader .hotline a:hover,
+.stickyHeader .hotline a:focus {
+  text-decoration: underline;
+}

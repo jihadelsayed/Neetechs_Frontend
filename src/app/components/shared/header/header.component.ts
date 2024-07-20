@@ -13,7 +13,6 @@ import { WishlistService } from './wishlist.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-header',
@@ -39,7 +38,7 @@ export class HeaderComponent {
 
 
     checkWindowSize(width: number) {
-      this.isMobile = width <= 800;
+      this.isMobile = width <= 1000;
     }
     @HostListener('window:resize', ['$event'])
     onResize(event: any) {
@@ -116,7 +115,6 @@ export class HeaderComponent {
         this.address =  userInfo['address']
         this.description =  userInfo['description']
         this.fullname = capitalized
-        
       }else{
   
         this.name="Sign In";

@@ -1,23 +1,27 @@
 <header>
-  <div class="tp-header-area" *ngIf="!isMobile" >
+  <div class="tp-header-area" *ngIf="!isMobile">
     <!-- header top start  -->
     <app-top-header></app-top-header>
 
     <!-- header main start -->
-    <app-main-header class="menu-bar"></app-main-header>
+    <!-- <app-main-header class="menu-bar"></app-main-header> -->
 
     <!-- header bottom start -->
-    <app-bottom-header></app-bottom-header>
-</div>
-<app-mobile-header *ngIf="isMobile" [ngClass]="{'sticky': headerSticky}"></app-mobile-header>
+    <app-bottom-header
+    [ngClass]="{ sticky: headerSticky }">
+  </app-bottom-header>
+  </div>
 
-
+  <app-mobile-header
+    *ngIf="isMobile"
+    [ngClass]="{ sticky: headerSticky }"
+  ></app-mobile-header>
 </header>
-  <!-- cart sidebar start -->
-  <app-cart-sidebar-header></app-cart-sidebar-header>
-  <!-- cart sidebar end -->
-  
-  <!-- mobile sidebar start -->
-  <app-mobile-sidebar-header></app-mobile-sidebar-header>
-  <!-- mobile sidebar end -->
-  
+
+<!-- cart sidebar start -->
+<app-cart-sidebar-header></app-cart-sidebar-header>
+<!-- cart sidebar end -->
+
+<!-- mobile sidebar start -->
+<app-mobile-sidebar-header></app-mobile-sidebar-header>
+<!-- mobile sidebar end -->

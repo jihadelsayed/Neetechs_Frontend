@@ -1,7 +1,6 @@
 import { NgClass, CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { IMenuItem } from '../menu-d-type';
 import { menu_data } from '../menu-data';
 
 @Component({
@@ -12,7 +11,7 @@ import { menu_data } from '../menu-data';
   styleUrl: './bottom-header.component.scss'
 })
 export class BottomHeaderComponent {
-  public menu_data:IMenuItem[] = menu_data
+  public menu_data:any[] = menu_data
 
   constructor() {}
 
