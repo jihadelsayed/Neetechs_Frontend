@@ -1,0 +1,35 @@
+<div id="sideNav" class="side-nav" [class.open]="menuOpen">
+    <div class="header-sideNav">
+        <a routerLink="/" (click)="navigateToTop()" class="logo-sideNav">
+            <img src="https://i.imgur.com/GX04TlK.png" alt="PhoneTech Logo" />
+            <h3>Neetechs</h3>
+        </a>
+        <a href="javascript:void(0)" class="closebtn-sideNav" (click)="toggleMenu()">&times;</a>
+    </div>
+    <ul>
+        <li *ngFor="let item of menu_data; let i = index">
+            <a [routerLink]="item.link" (click)="navigateToTop()">{{ item.title }}</a>
+        </li>
+    </ul>
+    <a class="contact-sideNav" href="tel:0046739466551"> +46 73 946 65 51 </a>
+    <div class="footer-sideNav">
+        <div class="currency-sideNav">
+            <label for="currency-select">Currency:</label>
+            <select id="currency-select">
+                <option value="SEK">SEK</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <!-- Add other currencies if needed -->
+            </select>
+        </div>
+        <div class="language-sideNav">
+            <img src="path/to/us-flag.png" alt="US Flag" />
+            <span>English</span>
+            <select id="language-select">
+                <option value="svenska">Svenska</option>
+                <option value="english">English</option>
+                <!-- Add other languages if needed -->
+            </select>
+        </div>
+    </div>
+</div>

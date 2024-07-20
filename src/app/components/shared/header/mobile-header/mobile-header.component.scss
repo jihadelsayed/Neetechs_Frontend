@@ -1,96 +1,33 @@
 /* General Styles */
 .tp-header-sticky-area {
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .header-sticky-2 {
-    background: #f8f8f8;
-  }
-  
-  /* Container Styles */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  /* Logo Styles */
-  .logo img {
-    max-width: 100px;
-    height: auto;
-  }
-  
-  /* Menu Styles */
-  .tp-header-sticky-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #mobile-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .menu-style-1 {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu-style-1 li {
-    display: inline-block;
-    margin: 0 15px;
-  }
-  
-  /* Header Action Styles */
-  .tp-header-action {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .tp-header-action-btn {
-    background: none;
-    border: none;
+  background: #fff;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  visibility: visible;
+  opacity: 1;
+  animation: .5s ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+
+/* Logo Styles */
+.logo img {
+  max-width: 64px;
+  height: auto;
+}
+
+//* menu sidebar humbugger menu *//
+.hamburger {
+    font-size: 30px;
     cursor: pointer;
-    position: relative;
-    margin-left: 20px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
   }
   
-  .tp-header-action-btn svg {
-    fill: #333;
-  }
-  
-  .tp-header-action-badge {
-    background: #ff0000;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 50%;
-    padding: 2px 6px;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .d-none.d-md-block {
-      display: none !important;
-    }
-  
-    .d-lg-none {
-      display: block !important;
-    }
-  
-    .tp-header-action {
-      justify-content: space-between;
-    }
+  .menu-open .hamburger {
+    display: none;
   }
   

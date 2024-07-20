@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { TopHeaderComponent } from "./top-header/top-header.component";
@@ -11,27 +11,49 @@ import { IProduct } from '../../../types/product-type';
 import { CartService } from './cart.service';
 import { WishlistService } from './wishlist.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-header',
     standalone: true,
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'], // Corrected styleUrls
-    imports: [RouterModule, NavbarComponent, TopHeaderComponent, BottomHeaderComponent, MainHeaderComponent, 
-        CartSidebarHeaderComponent, MobileSidebarHeaderComponent,FormsModule,CommonModule]
+    imports: [RouterModule, NavbarComponent, TopHeaderComponent, BottomHeaderComponent, MainHeaderComponent,
+    CartSidebarHeaderComponent, MobileSidebarHeaderComponent, FormsModule, CommonModule, MobileHeaderComponent]
 })
 export class HeaderComponent {
     public products: IProduct[] = [];
     public searchText: string = '';
     public productType: string = '';
-  
+    isMobile: boolean = false;
+    headerSticky: boolean = false;
     constructor(
+      @Inject(PLATFORM_ID) private platformId: Object,
       public cartService: CartService,
       public wishlistService: WishlistService,
       public utilsService: UtilsService,
       private router: Router
     ) {}
+
+
+    checkWindowSize(width: number) {
+      this.isMobile = width <= 800;
+    }
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.checkWindowSize(event.target.innerWidth);
+      }
+    }
+  
+    @HostListener('window:scroll', ['$event'])
+    onScroll(event: any) {
+      if (isPlatformBrowser(this.platformId)) {
+        this.headerSticky = window.scrollY > 80;
+      }
+    }
   
     // select options for header category
     public niceSelectOptions = [
@@ -43,17 +65,7 @@ export class HeaderComponent {
       console.log('Selected option:', selectedOption);
       this.productType = selectedOption.value;
     }
-  
-    headerSticky: boolean = false;
-  
-    // sticky nav
-    @HostListener('window:scroll', ['$event']) onscroll() {
-      if (window.scrollY > 80) {
-        this.headerSticky = true;
-      } else {
-        this.headerSticky = false;
-      }
-    }
+
   
     handleSearchSubmit() {
       const queryParams: { [key: string]: string | null } = {};
@@ -80,14 +92,16 @@ export class HeaderComponent {
     description: string | null = null;
     
     ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth){
+        this.checkWindowSize(window.innerWidth);
+
+      }
+    }
       // Retrieve username from local storage
       if (typeof localStorage !== 'undefined') {
         const userInfoString = localStorage.getItem('userInfo');
         const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
-
-
-      
-      
       if(userInfo){
         const name = userInfo['name'];
         const names = name.split(' ');

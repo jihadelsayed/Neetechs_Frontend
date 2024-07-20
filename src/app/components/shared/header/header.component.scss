@@ -3,6 +3,20 @@
     background-color: #fff;
     border-bottom: 1px solid #eaeaea;
   }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff; /* Adjust as needed */
+
+
+    box-shadow: 0 4px 10px #03041c1a;
+   }
+  
+  .hidden {
+    display: none;
+  }
   
 
   
