@@ -127,3 +127,11 @@ form label {
 }
 
 //* Global random *//
+
+  /* Responsive styles for small devices */
+  @media (max-width: 800px) {
+    .container-card {
+      width: 100%;
+      padding: 0px;
+    }
+  }

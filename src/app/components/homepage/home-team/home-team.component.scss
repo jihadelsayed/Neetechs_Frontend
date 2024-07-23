@@ -1,15 +1,13 @@
 .section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 16px;
     
 }
 .slider-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    background-color: #f4f4f4; /* Optional: change background color if needed */
-    border-radius: 10px; /* Optional: rounded corners */
+     border-radius: 10px; /* Optional: rounded corners */
   }
   
   .slider {
@@ -20,7 +18,6 @@
   .slide {
     min-width: 33.33%;
     box-sizing: border-box;
-    padding: 10px;
     display: none;
     text-align: center;
   }

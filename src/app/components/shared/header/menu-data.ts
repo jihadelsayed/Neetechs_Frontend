@@ -1,6 +1,24 @@
 export const menu_data: any[] = [
   {
     id: 1,
+    link: '/tutorials',
+    title: 'Tutorials',
+    mega_menu: false,
+  },
+  {
+    id: 2,
+    link: '/portfolio',
+    title: 'Portfolio',
+    mega_menu: false,
+  },
+  {
+    id: 3,
+    link: '/pricing',
+    title: 'Pricing',
+    mega_menu: false,
+  },
+  {
+    id: 4,
     link: '/services',
     title: 'Services',
     mega_menu: false,
@@ -17,36 +35,20 @@ export const menu_data: any[] = [
     title: 'Contact Us',
     mega_menu: false,
   },
-  {
-    id: 4,
-    link: '/faq',
-    title: 'FAQ',
-    mega_menu: false,
-  },
-  {
-    id: 5,
-    link: '/portfolio',
-    title: 'Portfolio',
-    mega_menu: false,
-  },
-  {
-    id: 6,
-    link: '/pricing',
-    title: 'Pricing',
-    mega_menu: false,
-  },
-  {
-    id: 7,
-    link: '/blog-news',
-    title: 'Blog and News',
-    mega_menu: false,
-  },
-  {
-    id: 8,
-    link: '/tutorials',
-    title: 'Tutorials',
-    mega_menu: false,
-  },
+  // {
+  //   id: 4,
+  //   link: '/faq',
+  //   title: 'FAQ',
+  //   mega_menu: false,
+  // },
+
+  // {
+  //   id: 7,
+  //   link: '/blog-news',
+  //   title: 'Blog and News',
+  //   mega_menu: false,
+  // },
+
 ];
 
 // mobile menu data

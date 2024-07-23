@@ -8,8 +8,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    background-color: #f9f9f9;
-    margin-top: 50px;
+     margin-top: 50px;
   }
   
   .testimonials-slider .viewport {
@@ -26,7 +25,6 @@
   .testimonials-slider .slide {
     min-width: 100%;
     box-sizing: border-box;
-    padding: 20px;
     text-align: center;
   }
   
@@ -57,7 +55,6 @@
   /* Responsive Design */
   @media (max-width: 768px) {
     .testimonials-slider .slide {
-      padding: 15px;
     }
     
     .testimonials-slider button.prev, .testimonials-slider button.next {
