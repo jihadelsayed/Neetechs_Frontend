@@ -67,6 +67,7 @@
             "styles": [
               "src/styles.scss",
               "src/styles.font.scss",
+              "src/styles.form.scss",
               "src/styles.toast.scss"
               
 
@@ -226,6 +227,7 @@
             "styles": [
               "src/styles.scss",
               "src/styles.font.scss",
+              "src/styles.form.scss",
               "src/styles.toast.scss"
             ],
             "scripts": []

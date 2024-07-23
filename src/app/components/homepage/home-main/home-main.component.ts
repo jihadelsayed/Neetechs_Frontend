@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-main',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './home-main.component.scss'
 })
 export class HomeMainComponent {
+  constructor(private router: Router) { }
 
+  navigateTo(url: string): void {
+    window.scrollTo(0, 0);
+
+    this.router.navigate([url]);
+  }
 }

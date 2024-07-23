@@ -1,0 +1,28 @@
+.contact-container {
+    display: flex;
+    width: 100%;
+}
+
+.contact-form {
+    flex: 0 0 61.8%;
+}
+
+.contact-info {
+    flex: 0 0 38.2%;
+    border-left: 1px solid #A3A629;
+    padding: 10px;
+}
+p{
+    text-align: center;
+}
+@media (max-width: 800px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-info {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        border: 1px solid #A3A629;
+
+    }
+}

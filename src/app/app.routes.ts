@@ -53,6 +53,9 @@ import { TutorialComponent } from './components/tutorials/tutorial/tutorial.comp
 import { BlogNewsCategoriesComponent } from './components/blog-news/blog-news-categories/blog-news-categories.component';
 import { BlogComponent } from './components/blog-news/blog/blog.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { ToolsComponent } from './components/tools/tools.component';
+import { ToolsCategoriesComponent } from './components/tools/tools-categories/tools-categories.component';
+import { ToolComponent } from './components/tools/tools-categories/tool/tool.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -102,6 +105,10 @@ export const routes: Routes = [
   { path: 'tutorials/:categoriesId/:tutorialId', component: TutorialComponent },
   { path: 'tutorials/:categoriesId', component: TutorialsCategoriesComponent },
   { path: 'tutorials', component: TutorialsComponent },
+
+  { path: 'tools/:categoriesId/:toolId', component: ToolComponent },
+  { path: 'tools/:categoriesId', component: ToolsCategoriesComponent },
+  { path: 'tools', component: ToolsComponent },
 
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'customer-support', component: CustomerSupportComponent },
