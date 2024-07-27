@@ -1,5 +1,6 @@
-<div class="container-card">
-    <h3>{{ tutorial.title }}</h3>
+<div class="container">
+    <h3>{{ tutorial['title'] }}</h3>
+
     <div *ngIf="tutorial.link" class="video-container">
       <iframe 
         width="560" 
@@ -14,7 +15,7 @@
       <h4>{{ section.title }}</h4>
       <p>{{ section.content }}</p>
       <pre *ngIf="section.code">
-        <code><br><br><hr>{{ section.code }}<hr></code>
+        <code><hr>{{ section.code }}<hr></code>
         <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
       </pre>
     </div>

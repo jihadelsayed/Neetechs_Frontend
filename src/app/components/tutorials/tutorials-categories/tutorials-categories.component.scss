@@ -22,14 +22,15 @@
     margin-bottom: 5px;
 }
 
-.container-card {
+.tutorial-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+    justify-content: flex-start;
+    align-content: center;
     flex-direction: row;
     align-items: flex-start;
-    gap: 20px;
+    background-color: transparent;
+    gap: 24px;
 }
 .card {
     background-color: #ecf0f1;
@@ -90,14 +91,23 @@ img {
 }
 
 /* New CSS rules for different levels */
-.card.Tutorial {
-    border-left: 5px solid #2ecc71; /* Green for beginner */
+.card.Introduction  {
+    border-left: 5px solid #3498db; /* Blue for introduction */
+}
+.card.Fundamentals, .card.Basics  {
+    border-left: 5px solid #2ecc71; /* Green for basics */
+}
+.card.Styling  {
+    border-left: 5px solid #9b59b6; /* Purple for styling */
 }
 
-.card.advanced {
-    border-left: 5px solid #f1c40f; /* Yellow for intermediate */
+.card.Advanced {
+    border-left: 5px solid #f1c40f; /* Yellow for advanced */
 }
 
-.card.Script {
-    border-left: 5px solid #e74c3c; /* Red for advanced */
+.card.Script, .card.Projects {
+    border-left: 5px solid #e67e22; /* Orange for projects */
+}
+.card.Bonus {
+    border-left: 5px solid #e74c3c; /* Red for bonus */
 }
