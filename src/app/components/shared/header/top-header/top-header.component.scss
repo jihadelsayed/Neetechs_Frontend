@@ -2,10 +2,15 @@
 .tp-header-top {
   background-color: #121110;
   padding: 0px;
-  margin: 0;
+
   
 }
-
+.header-container{
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+}
 .tp-header-top h6 {
   color: #dfdcdb;
   margin: 0;

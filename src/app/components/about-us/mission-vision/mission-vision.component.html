@@ -1,1 +1,8 @@
-<p>mission-vision works!</p>
+<div *ngFor="let section of sections; let i = index" class="section">
+    <h3>{{ section.title }}</h3>
+    <div class="subSection" [ngClass]="{'flex-reverse': isOdd(i)}">
+      <img [src]="section.content.image.src" [alt]="section.content.image.alt" />
+      <p>{{ section.content.text }}</p>
+    </div>
+  </div>
+  

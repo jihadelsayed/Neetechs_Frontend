@@ -88,3 +88,16 @@ img {
         padding: 10px;
     }
 }
+
+/* New CSS rules for different levels */
+.card.Tutorial {
+    border-left: 5px solid #2ecc71; /* Green for beginner */
+}
+
+.card.advanced {
+    border-left: 5px solid #f1c40f; /* Yellow for intermediate */
+}
+
+.card.Script {
+    border-left: 5px solid #e74c3c; /* Red for advanced */
+}

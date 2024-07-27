@@ -8,7 +8,7 @@
 
     <div class="container-card">
         <div *ngFor="let tutorial of category.tutorials" 
-             class="card" 
+             class="card {{tutorial.lvl}}" 
              [class.disabled]="tutorial.disable" 
              (click)="!tutorial.disable && navigateTo(tutorial.href)">
             <h5>{{ tutorial.title }}</h5>
@@ -16,4 +16,5 @@
             <span>Duration: {{ tutorial.duration }}</span>
         </div>
     </div>
+    
 </div>
