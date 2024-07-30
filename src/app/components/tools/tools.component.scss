@@ -77,6 +77,7 @@ body {
   h5,p{
     text-align: left;
   }
+  
   .tool-card {
     background-color: #121110;
     border-radius: 8px;
@@ -88,9 +89,12 @@ body {
     height: 124px;
     text-align: center;
     transition: transform 0.3s;
-
+    border: 2px solid transparent;
     &:hover {
       transform: scale(1.05);
+      background-color: #2A2927;
+      border: 2px solid #f8a242; /* Add width and style */
+
     }
 
     .tool {
@@ -126,10 +130,28 @@ body {
       }
     }
   }
+  
 }
 .disable-clicks {
     pointer-events: none;
-  }
+    cursor: not-allowed; /* Optional: visual indicator */
+    ;
+
+}
+.disable-clicks:hover {
+
+}
+
+.disableScale{
+    
+    background-color: #4B4846!important;
+
+}
+.disableScale:hover {
+    border: 2px solid transparent!important;
+
+    transform: scale(1)!important;
+}
 @media (max-width: 600px) {
     // .image-button {
     //     font-size: 28px;

@@ -18,9 +18,9 @@
 <div class="container">
 
     <div class="tools">
-      <div *ngFor="let tool of filteredTools" class="tool-card">
+      <div *ngFor="let tool of filteredTools" class="tool-card" [ngClass]="{'disableScale': tool.disable}">
         <a class="tool" [href]="tool.link" [ngClass]="{'disable-clicks': tool.disable}">
-          <h4>😀</h4>
+          <h4>{{tool.icon}}</h4>
           <!-- <img [src]="tool.image" alt="tool image">   -->
           <div>
             <h5>{{ tool.name }}</h5>
