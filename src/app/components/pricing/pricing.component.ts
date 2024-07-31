@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-pricing',
   standalone: true,
-  imports: [],
+  imports: [ContactBannerComponent],
   templateUrl: './pricing.component.html',
   styleUrl: './pricing.component.scss'
 })

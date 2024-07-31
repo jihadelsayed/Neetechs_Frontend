@@ -2,7 +2,7 @@
     <div class="viewport">
     <div class="slides" [style.transform]="getTransform()">
         <div *ngFor="let item of items" class="slide fade">
-        <img [src]="item.image" [alt]="item.title || item.name">
+        <img [src]="item.image" [alt]="item.title || item.name" [ngClass]="{'black': isBlackClass}">
         <div class="slide-text">
             <h3>{{ item.title || item.name }}</h3>
             <h4 *ngIf="item.position">{{ item.position }}</h4>

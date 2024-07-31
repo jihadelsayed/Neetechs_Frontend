@@ -3,11 +3,12 @@ import { ToolsService } from './tools.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-tools',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ContactBannerComponent],
   providers: [ToolsService],
   templateUrl: './tools.component.html',
   styleUrl: './tools.component.scss'

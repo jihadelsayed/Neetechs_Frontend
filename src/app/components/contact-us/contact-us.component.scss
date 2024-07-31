@@ -1,28 +1,91 @@
+.hero-banner {
+  position: relative;
+  background-image: url("https://imgur.com/1eri1JA.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 38.2vh;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 38.2vh;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the overlay color and opacity */
+  z-index: 0;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  //box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
+  text-align: left;
+}
+
+.hero-content p {
+  text-align: left;
+  color: aliceblue;
+}
+h2 {
+  text-align: left !important;
+}
+.container-card {
+  padding: 24px;
+  text-align: center;
+}
+
 .contact-container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  justify-content: left;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.contact-form,
+.contact-info {
+  flex: 1 1 300px; /* Adjust the flex-basis as needed */
+  max-width: 600px;
+}
+
+.contact-info h4 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.contact-container {
+  display: flex;
+  width: 100%;
 }
 
 .contact-form {
-    flex: 0 0 61.8%;
+  flex: 0 0 61.8%;
 }
 
 .contact-info {
-    flex: 0 0 38.2%;
-    border-left: 1px solid #A3A629;
-    padding: 10px;
+  flex: 0 0 38.2%;
+  border-left: 1px solid #a3a629;
+  padding: 10px;
 }
-p{
-    text-align: center;
+p {
+  text-align: center;
 }
 @media (max-width: 800px) {
-    .contact-container {
-        flex-direction: column;
-    }
-    .contact-info {
-        margin-top: 32px;
-        margin-bottom: 32px;
-        border: 1px solid #A3A629;
-
-    }
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-info {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    border: 1px solid #a3a629;
+  }
 }

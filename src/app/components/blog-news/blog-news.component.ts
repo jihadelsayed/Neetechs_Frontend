@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogNewsService } from './blog-news.service';
+import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-blog-news',
   standalone: true,
-  imports: [CommonModule,HttpClientModule ],
+  imports: [CommonModule, HttpClientModule, ContactBannerComponent],
   templateUrl: './blog-news.component.html',
   styleUrl: './blog-news.component.scss',
   providers: [BlogNewsService]

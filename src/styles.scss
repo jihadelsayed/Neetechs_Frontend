@@ -74,6 +74,9 @@ hr, br{
   margin: 64px 0;
   width: 100%;
 }
+.display_none{
+  display: none;
+}
   /* Responsive styles for small devices */
   @media (max-width: 800px) {
     .container-card {

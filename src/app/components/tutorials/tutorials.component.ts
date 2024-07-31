@@ -3,6 +3,7 @@ import { TutorialService } from './tutorials.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TutorialComponent } from "./tutorial/tutorial.component";
+import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
 
 @Component({
     selector: 'app-tutorials',
@@ -10,7 +11,7 @@ import { TutorialComponent } from "./tutorial/tutorial.component";
     templateUrl: './tutorials.component.html',
     styleUrl: './tutorials.component.scss',
     providers: [TutorialService],
-    imports: [CommonModule, HttpClientModule, TutorialComponent]
+    imports: [CommonModule, HttpClientModule, TutorialComponent, ContactBannerComponent]
 })
 export class TutorialsComponent {
   tutorialData: any;

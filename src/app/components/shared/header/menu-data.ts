@@ -11,12 +11,12 @@ export const menu_data: any[] = [
     title: 'Tools',
     mega_menu: false,
   },
-  {
-    id: 3,
-    link: '/portfolio',
-    title: 'Portfolio',
-    mega_menu: false,
-  },
+  // {
+  //   id: 3,
+  //   link: '/portfolio',
+  //   title: 'Portfolio',
+  //   mega_menu: false,
+  // },
   {
     id: 4,
     link: '/services',
@@ -72,12 +72,12 @@ export const mobile_menu: any[] = [
     title: 'Tools',
     mega_menu: false,
   },
-  {
-    id: 3,
-    link: '/portfolio',
-    title: 'Portfolio',
-    mega_menu: false,
-  },
+  // {
+  //   id: 3,
+  //   link: '/portfolio',
+  //   title: 'Portfolio',
+  //   mega_menu: false,
+  // },
   {
     id: 4,
     link: '/services',

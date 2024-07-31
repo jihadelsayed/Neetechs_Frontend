@@ -1,0 +1,44 @@
+.contact-banner {
+    background: linear-gradient(135deg, #FBD5BD
+
+    , #121110
+    );
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 128px 0;
+  }
+  
+  .contact-banner-content {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .contact-banner h2 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-banner p {
+    margin-bottom: 40px;
+    color: #FEEDED
+    ;
+  }
+  
+  .contact-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #121110
+    ;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-button:hover {
+    background-color: #4B4846
+    ;
+  }
+  

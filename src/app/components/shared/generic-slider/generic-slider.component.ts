@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 export class GenericSliderComponent {
   @Input()
   items!: Array<{ image: string; title?: string; name?: string; position?: string; description: string; }>;
+  @Input() isBlackClass!: boolean;
 
   currentIndex = 0;
 
