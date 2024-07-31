@@ -1,26 +1,27 @@
 <div class="hero-banner">
   <div class="hero-content">
-      <h1>Our Tutorials</h1>
-      <p>Explore our tutorials to enhance your tech skills, covering web development, mobile app creation, and technical repairs. Start learning today!</p>
+    <h1>Our Tutorials</h1>
+    <p>Explore our tutorials to enhance your tech skills, covering web development, mobile app creation, and technical repairs. Start learning today!</p>
   </div>
 </div>
-<div class="container-card" *ngIf="tutorialData">
+<div *ngIf="tutorialData">
 
-    <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
-    <h1>{{ tutorialData.title }}</h1>
-    <p class="description">{{ tutorialData.description }}</p>
-    <div class="categories">
-      <div class="category" *ngFor="let category of tutorialData.categories">
-        <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
-        <h5>
-          <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
-        </h5>
-        <h6 class="date">{{ category.date }}</h6>
-      </div>
-    </div>
-
-  </div>
-  <div class="container">
-    <app-contact-banner></app-contact-banner>
+<div class="container-card" *ngFor="let type of getTypes()">
+  <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
+  <h2>{{ type }}</h2>
   
+  <div class="categories" >
+    <div class="category" *ngFor="let category of groupedCategories[type]">
+      <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
+      <h5>
+        <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
+      </h5>
+      <h6 class="date">{{ category.date }}</h6>
+    </div>
   </div>
+</div>
+</div>
+
+<div class="container">
+  <app-contact-banner></app-contact-banner>
+</div>
