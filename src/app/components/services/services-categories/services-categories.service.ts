@@ -13,8 +13,9 @@ export class ServicesCategoriesService {
 
   getServicesCategoriesData(categoriesId: string): Observable<any> {
     const url = `${this.jsonUrl}/${categoriesId}.json`;
+    console.log(url)
 
-    return this.http.get(this.jsonUrl);
+    return this.http.get(url);
   }
 
 }
