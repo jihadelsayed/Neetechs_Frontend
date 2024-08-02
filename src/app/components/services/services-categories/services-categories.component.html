@@ -1,0 +1,62 @@
+<div *ngIf="category" class="category-container">
+    <h1>{{ category.title }}</h1>
+    <p class="overview">{{ category.overview }}</p>
+  
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li *ngFor="let service of category.services">
+          <h3>{{ service.name }}</h3>
+          <p>{{ service.description }}</p>
+        </li>
+      </ul>
+    </section>
+  
+    <section class="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-items">
+        <div *ngFor="let item of category.portfolio" class="portfolio-item">
+          <img [src]="item.image" alt="{{ item.projectName }}">
+          <h3>{{ item.projectName }}</h3>
+          <p><strong>Client:</strong> {{ item.client }}</p>
+          <blockquote>{{ item.testimonial }}</blockquote>
+        </div>
+      </div>
+    </section>
+  
+    <section class="process">
+      <h2>Our Process</h2>
+      <ol>
+        <li *ngFor="let step of category.process">{{ step }}</li>
+      </ol>
+    </section>
+  
+    <section class="technologies">
+      <h2>Technologies Used</h2>
+      <ul>
+        <li *ngFor="let tech of category.technologies">{{ tech }}</li>
+      </ul>
+    </section>
+  
+    <section class="testimonials">
+      <h2>Testimonials</h2>
+      <div *ngFor="let testimonial of category.testimonials" class="testimonial">
+        <p><strong>{{ testimonial.client }}</strong></p>
+        <blockquote>{{ testimonial.feedback }}</blockquote>
+      </div>
+    </section>
+  
+    <section class="faq">
+      <h2>FAQs</h2>
+      <div *ngFor="let faq of category.faq" class="faq-item">
+        <p class="question">{{ faq.question }}</p>
+        <p class="answer">{{ faq.answer }}</p>
+      </div>
+    </section>
+  
+    <div class="call-to-action">
+      <p>{{ category.callToAction }}</p>
+      <button (click)="navigateTo('/schedule')">Schedule Now</button>
+    </div>
+  </div>
+  

@@ -56,6 +56,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ToolsComponent } from './components/tools/tools.component';
 import { ToolsCategoriesComponent } from './components/tools/tools-categories/tools-categories.component';
 import { ToolComponent } from './components/tools/tools-categories/tool/tool.component';
+import { ServicesCategoriesComponent } from './components/services/services-categories/services-categories.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -86,7 +87,6 @@ export const routes: Routes = [
   { path: 'design-services', component: DesignServicesComponent },
   { path: 'technical-repair-services', component: TechnicalRepairServicesComponent },
   { path: 'programming-services', component: ProgrammingServicesComponent },
-  { path: 'services', component: ServicesComponent },
   { path: 'job-application', component: JobApplicationComponent },
   { path: 'openapi-tools', component: OpenapiToolsComponent },
   { path: 'about-us', component: AboutUsComponent },
@@ -97,6 +97,9 @@ export const routes: Routes = [
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'terms-of-service', component: TermsOfServiceComponent },
   { path: 'cookies-policy', component: CookiesPolicyComponent },
+
+  { path: 'services/:categoriesId', component: ServicesCategoriesComponent },
+  { path: 'services', component: ServicesComponent },
 
   { path: 'blog-news/:categoriesId/:blogId', component: BlogComponent },
   { path: 'blog-news/:categoriesId', component: BlogNewsCategoriesComponent },

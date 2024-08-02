@@ -5,38 +5,39 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialsCategoriesService } from './tutorials-categories.service';
 
 @Component({
-    selector: 'app-tutorials-categories',
-    standalone: true,
-    templateUrl: './tutorials-categories.component.html',
-    styleUrl: './tutorials-categories.component.scss',
-    imports: [CommonModule, HttpClientModule],
-    providers: [TutorialsCategoriesService]
-
+  selector: 'app-tutorials-categories',
+  standalone: true,
+  templateUrl: './tutorials-categories.component.html',
+  styleUrl: './tutorials-categories.component.scss',
+  imports: [CommonModule, HttpClientModule],
+  providers: [TutorialsCategoriesService],
 })
 export class TutorialsCategoriesComponent {
   category: any;
   groupedTutorials: any = {};
 
-  constructor(private route: ActivatedRoute,private router: Router, private TutorialsCategoriesService: TutorialsCategoriesService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private TutorialsCategoriesService: TutorialsCategoriesService
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const categoriesId = params.get('categoriesId');
       if (categoriesId) {
         this.fetchData(categoriesId);
-
       }
     });
-
-
   }
 
   private fetchData(categoriesId: string): void {
-    this.TutorialsCategoriesService.getCategoryData(categoriesId).subscribe(data => {
-      this.category = data;
-      this.groupTutorialsByLevel();
-
-    });
+    this.TutorialsCategoriesService.getCategoryData(categoriesId).subscribe(
+      (data) => {
+        this.category = data;
+        this.groupTutorialsByLevel();
+      }
+    );
   }
   navigateTo(url: string): void {
     this.router.navigate([url]);
