@@ -110,7 +110,7 @@ export const routes: Routes = [
   { path: 'tutorials', component: TutorialsComponent },
 
   { path: 'tools/:categoriesId/:toolId', component: ToolComponent },
-  { path: 'tools/:categoriesId', component: ToolsCategoriesComponent },
+  { path: 'tools/:categoriesId', component: ToolComponent },
   { path: 'tools', component: ToolsComponent },
 
   { path: 'privacy-policy', component: PrivacyPolicyComponent },

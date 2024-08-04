@@ -1,3 +1,5 @@
+@import './styles._variables.scss';
+
 /* Heading styles */
 a{
   color: #F8A242
@@ -12,8 +14,9 @@ color:#BAB4B0;
 
 }
 h1 {
-  color:#FBD5BD
-  ;
+   color:#FBD5BD;
+  //color: $font-color-h1;
+
     font-size: 144px;
     line-height: 161.8%;
     margin: 0; /* Remove default margin */
@@ -21,6 +24,8 @@ h1 {
   
   h2 {
     color: #F8A242;
+    //color: $font-color-h2;
+
     font-size: 89px;
     line-height: 161.8%;
     margin: 0;
@@ -43,7 +48,7 @@ h1 {
   p {
     font-size: 21px;
     line-height: 161.8%;
-    margin: 0 0 16px 0; /* Adjust margins as needed */
+    // margin: 0 0 16px 0; /* Adjust margins as needed */
   }
   
   h5 {
@@ -112,6 +117,7 @@ span {
       p {
         font-size: 13px;
         line-height: 161.8%;
-        margin: 0 0 16px 0; /* Adjust margins as needed */
+        // margin: 0 0 16px 0; /* Adjust margins as needed */
       }
   }
+

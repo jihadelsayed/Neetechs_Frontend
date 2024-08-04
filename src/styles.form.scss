@@ -1,3 +1,5 @@
+@import './styles._variables.scss';
+
 /* Overall Form Styling */
 form {
  // background-color: #FBD5BD
@@ -48,7 +50,9 @@ textarea:focus {
 
 /* Button Styling */
 button {
-  background-color: #5A5C12; /* Olive green */
+  // background-color: #5A5C12; /* Olive green */
+  background-color: $secondary-color;
+
   color: #FFF;
   border: none;
   border-radius: 24px;  padding: 10px 20px;
@@ -58,7 +62,9 @@ button {
 }
 
 button:hover {
-  background-color: #7D801D; /* Dark yellow-green */
+  background-color: $tertiary-color;
+
+  // background-color: #7D801D; /* Dark yellow-green */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

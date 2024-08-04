@@ -1,25 +1,13 @@
-
-$primary-color: #004643;
-$secondary-color: #001E1D;
-$accent-color: #F9BC60;
-$text-color: #333;
-$background-color: #E8E8E8;
-$white-color: #FFFFFF;
-
 .category-container {
    padding: 20px;
-  background-color: $background-color;
-  color: $text-color;
   max-width: 800px;
   margin: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   h1, h2 {
-    color: $primary-color;
   }
 
   h3 {
-    color: $secondary-color;
   }
 
   .overview {
@@ -32,7 +20,6 @@ $white-color: #FFFFFF;
     margin-bottom: 40px;
 
     h2 {
-      border-bottom: 2px solid $primary-color;
       padding-bottom: 5px;
       margin-bottom: 20px;
     }
@@ -43,7 +30,6 @@ $white-color: #FFFFFF;
 
       li {
         margin-bottom: 15px;
-        background: $white-color;
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -56,7 +42,6 @@ $white-color: #FFFFFF;
       gap: 20px;
 
       .portfolio-item {
-        background: $white-color;
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -76,7 +61,6 @@ $white-color: #FFFFFF;
 
         blockquote {
           font-style: italic;
-          color: $accent-color;
         }
       }
     }
@@ -92,7 +76,6 @@ $white-color: #FFFFFF;
     }
 
     .testimonial, .faq-item {
-      background: $white-color;
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -104,21 +87,16 @@ $white-color: #FFFFFF;
 
       blockquote {
         font-style: italic;
-        color: $accent-color;
       }
     }
   }
 
   .call-to-action {
     text-align: center;
-    background: $primary-color;
-    color: $white-color;
     padding: 20px;
     border-radius: 5px;
 
     button {
-      background: $accent-color;
-      color: $white-color;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -127,7 +105,7 @@ $white-color: #FFFFFF;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: darken($accent-color, 10%);
+        background-color: darken(#F8A242, 10%);
       }
     }
   }

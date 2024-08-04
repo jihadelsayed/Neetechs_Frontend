@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles._variables.scss';
+
+
 
 *{
   margin: 0;
@@ -7,18 +10,28 @@
   align-items: center; 
   
 }
+header{
+  z-index: 100;
+}
 body{
     font-family: "Noto Naskh Arabic", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-color: #DFDCDB;
+    background-color: $neutral-color-light;
+    color: $font-color-paragraph;  // Default paragraph color
     padding: 0px;
     margin: 0px;
 
     
     // background-color: hsl(208, 90%, 4%);
 
+}
+.button {
+  background-color: $secondary-color;
+  &:hover {
+    background-color: $tertiary-color;
+  }
 }
 h2{
   

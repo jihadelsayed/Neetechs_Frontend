@@ -1,1 +1,25 @@
-<p>tool works!</p>
+<!-- src/app/emoji-translator/emoji-translator.component.html -->
+
+<div class="container emoji-translator" *ngIf="tool">
+    <h2>Emoji Translator</h2>
+    <div class="main">
+        <div>
+            <h4>Input Text:</h4>
+
+            <textarea
+            [(ngModel)]="inputText"
+            placeholder="Type your text here..."
+            rows="5"
+            cols="50"
+          ></textarea>
+        </div>
+ 
+      <button (click)="translateText()">Translate</button>
+    <div class="translated-text">
+      <h4>Translated Text:</h4>
+      <pre ><code><br>{{ translatedText }}</code></pre>
+      <button class="copy-btn" (click)="copyToClipboard(translatedText)">Copy</button>
+    </div>
+    </div>
+
+</div>
