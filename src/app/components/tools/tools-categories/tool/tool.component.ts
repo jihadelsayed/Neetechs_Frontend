@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToolService } from './tool.service';
 import { CommonModule } from '@angular/common';
 import { ContactBannerComponent } from "../../../shared/contact-banner/contact-banner.component";
+import { addEmojisToText, translateToEmoji, translateToText } from '../utils/emoji.utils';
 
 @Component({
   selector: 'app-tool',
@@ -19,7 +20,7 @@ export class ToolComponent {
   toolId: string | null = null;
   inputText: string = '';
   translatedText: string = '';
-  translationMode: string = 'add-emojis-to-text'; // Default mode
+  toolMode: string = 'add-emojis-to-text'; // Default mode
 
   constructor(
     private route: ActivatedRoute,
@@ -46,7 +47,7 @@ export class ToolComponent {
     this.toolService
       .getCategoryData(categoriesId, toolId)
       .subscribe((data: any) => {
-        this.tool = data.data;
+        this.tool = data;
       });
   }
 
@@ -61,58 +62,19 @@ export class ToolComponent {
   }
 
   translateText(): void {
-    if (this.translationMode === 'text-to-emoji') {
-      this.translateToEmoji();
-    } else if (this.translationMode === 'emoji-to-text') {
-      this.translateToText();
-    } else if (this.translationMode === 'add-emojis-to-text') {
-      this.addEmojisToText();
+    switch (this.toolMode) {
+      case 'text-to-emoji':
+        this.translatedText = translateToEmoji(this.inputText, this.tool?.data);
+        break;
+      case 'emoji-to-text':
+        this.translatedText = translateToText(this.inputText, this.tool?.data);
+        break;
+      case 'add-emojis-to-text':
+        this.translatedText = addEmojisToText(this.inputText, this.tool?.data);
+        break;
+      default:
+        console.warn('Unknown tool mode:', this.toolMode);
     }
   }
 
-  private translateToEmoji(): void {
-    this.translatedText = this.inputText;
-    const EMOJIS = this.tool;
-    for (const emojiKey in EMOJIS) {
-      if (Object.prototype.hasOwnProperty.call(EMOJIS, emojiKey)) {
-        const emoji = EMOJIS[emojiKey];
-        emoji.keywords.forEach((keyword: any) => {
-          const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
-          this.translatedText = this.translatedText.replace(
-            regex,
-            emoji.char
-          );
-        });
-      }
-    }
-  }
-
-  private translateToText(): void {
-    this.translatedText = this.inputText;
-    const EMOJIS = this.tool;
-    for (const emojiKey in EMOJIS) {
-      if (Object.prototype.hasOwnProperty.call(EMOJIS, emojiKey)) {
-        const emoji = EMOJIS[emojiKey];
-        const regex = new RegExp(`${emoji.char}`, 'g');
-        this.translatedText = this.translatedText.replace(regex, emojiKey);
-      }
-    }
-  }
-
-  private addEmojisToText(): void {
-    this.translatedText = this.inputText;
-    const EMOJIS = this.tool;
-    for (const emojiKey in EMOJIS) {
-      if (Object.prototype.hasOwnProperty.call(EMOJIS, emojiKey)) {
-        const emoji = EMOJIS[emojiKey];
-        emoji.keywords.forEach((keyword: any) => {
-          const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
-          this.translatedText = this.translatedText.replace(
-            regex,
-            `${keyword} ${emoji.char}`
-          );
-        });
-      }
-    }
-  }
 }

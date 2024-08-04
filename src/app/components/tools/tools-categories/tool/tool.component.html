@@ -15,11 +15,9 @@
         <!-- Added the select element here -->
         <select
         class="translation-mode-selector"
-        [(ngModel)]="translationMode"
+        [(ngModel)]="toolMode"
       >
-        <option value="text-to-emoji">Text to Emoji</option>
-        <option value="emoji-to-text">Emoji to Text</option>
-        <option value="add-emojis-to-text" selected>Add Emojis to Text (emojify!)</option>
+        <option *ngFor="let option of tool.jobOption" [value]="option.value">{{option.text}}</option>
       </select>
       <button (click)="translateText()">{{tool.button}}</button>
 
