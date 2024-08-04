@@ -1,25 +1,42 @@
 <!-- src/app/emoji-translator/emoji-translator.component.html -->
-
 <div class="container emoji-translator" *ngIf="tool">
-    <h2>Emoji Translator</h2>
+    <h2>{{tool.title}}</h2>
     <div class="main">
         <div>
-            <h4>Input Text:</h4>
+        <h4>{{tool.input}}</h4>
+        <textarea
+          [(ngModel)]="inputText"
+          placeholder="Type your text here..."
+          rows="5"
+          cols="50"
+        ></textarea>
+      </div>
+      <div class="middle">
+        <!-- Added the select element here -->
+        <select
+        class="translation-mode-selector"
+        [(ngModel)]="translationMode"
+      >
+        <option value="text-to-emoji">Text to Emoji</option>
+        <option value="emoji-to-text">Emoji to Text</option>
+        <option value="add-emojis-to-text" selected>Add Emojis to Text (emojify!)</option>
+      </select>
+      <button (click)="translateText()">{{tool.button}}</button>
 
-            <textarea
-            [(ngModel)]="inputText"
-            placeholder="Type your text here..."
-            rows="5"
-            cols="50"
-          ></textarea>
-        </div>
- 
-      <button (click)="translateText()">Translate</button>
-    <div class="translated-text">
-      <h4>Translated Text:</h4>
-      <pre ><code><br>{{ translatedText }}</code></pre>
-      <button class="copy-btn" (click)="copyToClipboard(translatedText)">Copy</button>
+      </div>
+      <div class="translated-text">
+        <h4>{{tool.output}}</h4>
+        <pre><code>{{ translatedText }}</code>
+            <button class="copy-btn" (click)="copyToClipboard(translatedText)">Copy</button>
+        </pre>
+      </div>
     </div>
-    </div>
+  </div>
+  <div class="container helpContainer">
+    <h4>{{tool.heroText}}</h4>
+    <a [href]="tool.heroLink">{{tool.heroLinkName}}</a>
+  </div>
 
-</div>
+  <div class="container">
+    <app-contact-banner></app-contact-banner>
+  </div>
