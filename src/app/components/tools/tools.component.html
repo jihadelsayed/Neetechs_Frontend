@@ -1,36 +1,55 @@
-
 <div class="hero">
-  <img src="https://imgur.com/01izsjk.png" alt="Hero Image" class="hero-image">
-<h1 class="display_none">Tools</h1>
+  <img
+    src="https://imgur.com/01izsjk.png"
+    alt="Hero Image"
+    class="hero-image"
+  />
+  <h1 class="display_none">Tools</h1>
   <!-- <div class="hero-text">
 <h1>About Neetechs</h1> 
   <p>Innovating the Future with AI and Machine Learning</p>
   </div> -->
-          <!-- <button class="image-button" (click)="navigateTo('/contact-us')">Learn More</button> -->
-           <div class="filter-bar">
-    <input type="text" placeholder="Search tools..." [(ngModel)]="searchTerm" (input)="filterTools()" class="search-input">
-    <select [(ngModel)]="selectedType" (change)="filterTools()" class="type-select">
+  <!-- <button class="image-button" (click)="navigateTo('/contact-us')">Learn More</button> -->
+  <div class="filter-bar">
+    <input
+      type="text"
+      placeholder="Search tools..."
+      [(ngModel)]="searchTerm"
+      (input)="filterTools()"
+      class="search-input"
+    />
+    <select
+      [(ngModel)]="selectedType"
+      (change)="filterTools()"
+      class="type-select"
+    >
       <option value="">All Types</option>
       <option *ngFor="let type of uniqueTypes">{{ type }}</option>
     </select>
-  </div>   
+  </div>
 </div>
 <div class="container">
-
-    <div class="tools">
-      <div *ngFor="let tool of filteredTools" class="tool-card" [ngClass]="{'disableScale': tool.disable}">
-        <a class="tool" [href]="tool.link" [ngClass]="{'disable-clicks': tool.disable}">
-          <h4>{{tool.icon}}</h4>
-          <!-- <img [src]="tool.image" alt="tool image">   -->
-          <div>
-            <h5>{{ tool.name }}</h5>
-            <p>{{ tool.type }}</p>
-          </div>
-        </a>
-      </div>
+  <div class="tools">
+    <div
+      *ngFor="let tool of filteredTools"
+      class="tool-card"
+      [ngClass]="{ disableScale: tool.disable }"
+    >
+      <a
+        class="tool"
+        (click)="navigateTo(tool.link)"
+        [ngClass]="{ 'disable-clicks': tool.disable }"
+      >
+        <h4>{{ tool.icon }}</h4>
+        <!-- <img [src]="tool.image" alt="tool image">   -->
+        <div>
+          <h5>{{ tool.name }}</h5>
+          <p>{{ tool.type }}</p>
+        </div>
+      </a>
     </div>
   </div>
-  <div class="container">
-    <app-contact-banner></app-contact-banner>
-  
-  </div>
+</div>
+<div class="container">
+  <app-contact-banner></app-contact-banner>
+</div>
