@@ -1,7 +1,13 @@
-<div *ngIf="category" class="category-container">
+<div *ngIf="category">
+
+
+  <div class="hero-banner" [ngStyle]="{'background-image': 'url(' + category.image + ')'}">
+    <div class="hero-content">
     <h1>{{ category.title }}</h1>
-    <p class="overview">{{ category.overview }}</p>
-  
+    <p>{{ category.overview }}</p>
+  </div>
+</div>
+<div  class="category-container container">
     <section class="services">
       <h2>Our Services</h2>
       <ul>
@@ -59,4 +65,4 @@
       <button (click)="navigateTo('/schedule')">Schedule Now</button>
     </div>
   </div>
-  
+</div>
