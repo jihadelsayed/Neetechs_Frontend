@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolComponent } from './tool.component';
+import { ApiKeyModalComponent } from './api-key-modal.component';
 
-describe('ToolComponent', () => {
-  let component: ToolComponent;
-  let fixture: ComponentFixture<ToolComponent>;
+describe('ApiKeyModalComponent', () => {
+  let component: ApiKeyModalComponent;
+  let fixture: ComponentFixture<ApiKeyModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolComponent]
+      imports: [ApiKeyModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToolComponent);
+    fixture = TestBed.createComponent(ApiKeyModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

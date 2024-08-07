@@ -1,0 +1,37 @@
+<app-api-key-modal (keySaved)="onApiKeySaved()"></app-api-key-modal>
+
+<div class="container" *ngIf="tool">
+  <h2>{{ tool.title }}</h2>
+  <div class="main">
+    <div>
+      <h4>{{ tool.input }}</h4>
+      <textarea
+        [(ngModel)]="inputText"
+        placeholder="Type your text here..."
+        rows="5"
+        cols="50"
+      ></textarea>
+    </div>
+    <div class="middle">
+      <!-- Added the select element here -->
+      <select class="selector" [(ngModel)]="toolMode">
+        <option *ngFor="let option of tool.jobOption" [value]="option.value">{{ option.text }}</option>
+      </select>
+      <button (click)="executeTool()">{{ tool.button }}</button>
+    </div>
+    <div class="result-text">
+      <h4>{{ tool.output }}</h4>
+      <pre><code>{{ result }}</code></pre>
+      <button class="copy-btn" (click)="copyToClipboard(result)">Copy</button>
+    </div>
+  </div>
+  <div class="container helpContainer">
+    <h4>{{ tool['heroText'] }}</h4>
+    <a [href]="tool.heroLink">{{ tool.heroLinkName }}</a>
+  </div>
+</div>
+
+
+<div class="container">
+  <app-contact-banner></app-contact-banner>
+</div>

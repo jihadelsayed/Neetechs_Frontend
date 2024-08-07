@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolsCategoriesComponent } from './tools-categories.component';
+import { SimpleAiToolsComponent } from './simple-ai-tools.component';
 
-describe('ToolsCategoriesComponent', () => {
-  let component: ToolsCategoriesComponent;
-  let fixture: ComponentFixture<ToolsCategoriesComponent>;
+describe('SimpleAiToolsComponent', () => {
+  let component: SimpleAiToolsComponent;
+  let fixture: ComponentFixture<SimpleAiToolsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolsCategoriesComponent]
+      imports: [SimpleAiToolsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToolsCategoriesComponent);
+    fixture = TestBed.createComponent(SimpleAiToolsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -54,9 +54,11 @@ import { BlogNewsCategoriesComponent } from './components/blog-news/blog-news-ca
 import { BlogComponent } from './components/blog-news/blog/blog.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ToolsComponent } from './components/tools/tools.component';
-import { ToolsCategoriesComponent } from './components/tools/tools-categories/tools-categories.component';
-import { ToolComponent } from './components/tools/tools-categories/tool/tool.component';
 import { ServicesCategoriesComponent } from './components/services/services-categories/services-categories.component';
+import { SimpleAiToolsComponent } from './components/tools/simple-ai-tools/simple-ai-tools.component';
+import { SimpleAiToolComponent } from './components/tools/simple-ai-tools/simple-ai-tool/simple-ai-tool.component';
+import { SimpleToolComponent } from './components/tools/simple-tools/simple-tool/simple-tool.component';
+import { SimpleToolsComponent } from './components/tools/simple-tools/simple-tools.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -109,10 +111,14 @@ export const routes: Routes = [
   { path: 'tutorials/:categoriesId', component: TutorialsCategoriesComponent },
   { path: 'tutorials', component: TutorialsComponent },
 
-  { path: 'tools/:categoriesId/:toolId', component: ToolComponent },
-  { path: 'tools/:categoriesId', component: ToolComponent },
+  /* this is the tools section */
+  { path: 'tools/simple_ai_tools/:toolId', component: SimpleAiToolComponent },
+  { path: 'tools/simple_ai_tools', component: SimpleAiToolsComponent },
+  { path: 'tools/simple_tools/:toolId', component: SimpleToolComponent },
+  { path: 'tools/simple_tools', component: SimpleToolsComponent },
   { path: 'tools', component: ToolsComponent },
 
+  /* other */
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'customer-support', component: CustomerSupportComponent },
   { path: 'case-studies', component: CaseStudiesComponent },

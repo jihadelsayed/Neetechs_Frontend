@@ -11,9 +11,8 @@ export class ToolService {
   constructor(private http: HttpClient) { }
 
   getCategoryData(categoriesId: string, toolId: string): Observable<any> {
-    const url = `${this.baseUrl}/${categoriesId}/${categoriesId}.json`;
-    console.log(url);
-
+    const url = `${this.baseUrl}/${toolId}/${toolId}.json`;
+ 
     return this.http.get<any>(url);
   }
 }
