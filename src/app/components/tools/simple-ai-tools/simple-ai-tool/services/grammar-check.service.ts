@@ -18,32 +18,23 @@ export class GrammarCheckService {
     });
   }
 
-  checkGrammar(text: string, apiKey: string): Observable<any> {
-    const prompt = `Check the grammar of the following text and suggest corrections:\n\n"${text}"`;
-    const requestBody = {
-      model: this.model,
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: prompt }
-      ]
-    };
-    return this.http.post(this.apiUrl, requestBody, { headers: this.createHeaders(apiKey) });
-  }
+  checkText(text: string, apiKey: string, mode: 'grammar' | 'spelling' | 'style'): Observable<any> {
+    let prompt: string;
 
-  checkSpelling(text: string, apiKey: string): Observable<any> {
-    const prompt = `Check the spelling of the following text and suggest corrections:\n\n"${text}"`;
-    const requestBody = {
-      model: this.model,
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: prompt }
-      ]
-    };
-    return this.http.post(this.apiUrl, requestBody, { headers: this.createHeaders(apiKey) });
-  }
+    switch (mode) {
+      case 'grammar':
+        prompt = `Check the grammar of the following text and suggest corrections:\n\n"${text}"`;
+        break;
+      case 'spelling':
+        prompt = `Check the spelling of the following text and suggest corrections:\n\n"${text}"`;
+        break;
+      case 'style':
+        prompt = `Analyze the style of the following text and provide style improvement suggestions:\n\n"${text}"`;
+        break;
+      default:
+        throw new Error('Invalid mode provided.');
+    }
 
-  suggestStyle(text: string, apiKey: string): Observable<any> {
-    const prompt = `Analyze the style of the following text and provide style improvement suggestions:\n\n"${text}"`;
     const requestBody = {
       model: this.model,
       messages: [

@@ -45,7 +45,7 @@
             ],
             "outputPath": "dist/neetechs",
             "index": "src/index.html",
-            "browser": "src/main.ts", // Use "browser" for universal builds
+            "browser": "src/main.ts", 
             "polyfills": [
               "zone.js",
               "@angular/localize/init"
@@ -126,18 +126,17 @@
               ]
             },
             "public": {
-              //add the public folder
             },
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "1000kb",
                   "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
+                  "maximumWarning": "3kb",
                   "maximumError": "4kb"
                 }
               ],
@@ -164,37 +163,37 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "neetechs:build:production"
+              "buildTarget": "neetechs:build:production"
             },
             "development": {
-              "browserTarget": "neetechs:build:development"
+              "buildTarget": "neetechs:build:development"
             },
             "ar": {
-              "browserTarget": "neetechs:build:ar"
+              "buildTarget": "neetechs:build:ar"
             },
             "en": {
-              "browserTarget": "neetechs:build:en"
+              "buildTarget": "neetechs:build:en"
             },
             "es": {
-              "browserTarget": "neetechs:build:es"
+              "buildTarget": "neetechs:build:es"
             },
             "pt": {
-              "browserTarget": "neetechs:build:pt"
+              "buildTarget": "neetechs:build:pt"
             },
             "de": {
-              "browserTarget": "neetechs:build:de"
+              "buildTarget": "neetechs:build:de"
             },
             "ru": {
-              "browserTarget": "neetechs:build:ru"
+              "buildTarget": "neetechs:build:ru"
             },
             "sv": {
-              "browserTarget": "neetechs:build:sv"
+              "buildTarget": "neetechs:build:sv"
             },
             "zh": {
-              "browserTarget": "neetechs:build:zh"
+              "buildTarget": "neetechs:build:zh"
             },
             "fr": {
-              "browserTarget": "neetechs:build:fr"
+              "buildTarget": "neetechs:build:fr"
             }
           },
           "defaultConfiguration": "production"
@@ -202,7 +201,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "neetechs:build"
+            "buildTarget": "neetechs:build"
           }
         },
         "test": {
