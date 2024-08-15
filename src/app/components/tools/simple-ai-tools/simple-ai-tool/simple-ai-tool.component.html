@@ -18,8 +18,9 @@
     </div>
     <div class="result-text">
       <h4>{{ tool.output }}</h4>
-      <pre><code>{{ result }}</code></pre>
-      <button class="copy-btn" (click)="copyToClipboard(result)">Copy</button>
+      <pre><code>{{ result }}</code>
+        <button class="copy-btn" (click)="copyToClipboard(result)">Copy</button>
+      </pre>
     </div>
   </div>
   <div class="container helpContainer">

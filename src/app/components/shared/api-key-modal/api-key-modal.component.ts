@@ -17,11 +17,15 @@ export class ApiKeyModalComponent {
 
   saveApiKey() {
     if (this.apiKey) {
+      if(localStorage)
       
-      localStorage.setItem('apiKey', this.apiKey);
-      alert('API Key saved successfully!');
-      this.showModal = false;
-      this.keySaved.emit(); // Emit event to notify parent component
+      {
+        localStorage.setItem('apiKey', this.apiKey);
+        alert('API Key saved successfully!');
+        this.showModal = false;
+        this.keySaved.emit(); // Emit event to notify parent component
+      }
+
     } else {
       alert('Please enter a valid API key.');
     }
