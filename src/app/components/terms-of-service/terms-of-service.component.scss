@@ -1,0 +1,35 @@
+h1, h2, h3, h4, p, strong, ul {
+    text-align: left !important;
+    display: block;
+    width: 100%;
+}
+
+/* Indentation like tree structure */
+h1 {
+    margin-left: 0;
+}
+
+h2 {
+    margin-left: 1rem;
+}
+
+h3 {
+    margin-left: 2rem;
+}
+
+h4 {
+    margin-left: 3rem;
+}
+
+p {
+    margin-left: 4rem;
+}
+
+strong {
+    margin-left: 5rem;
+}
+
+ul {
+    margin-left: 5rem;
+    padding-left: 1rem; /* keep bullets nicely spaced */
+}

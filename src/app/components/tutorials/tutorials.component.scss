@@ -9,38 +9,40 @@
 .hero-banner {
     position: relative;
     background-image: url("https://imgur.com/9ngVUPZ.png");
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    height: 38.2vh;
-  }
   
-  .hero-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 38.2vh;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the overlay color and opacity */
-    z-index: 0;
-  }
-  
-  .hero-content {
-    position: absolute;
-    bottom: 8%;
-    left: 8%;
-    //box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .hero-content h1 {
-    text-align: left;
-  }
-  
-  .hero-content p {
-    text-align: left;
-    color: aliceblue;
-  }
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        min-height: 38.2vh;
+        padding: 48px 8%;
+        display: flex;
+        align-items: center;
+      
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 0;
+        }
+      
+        .hero-content {
+          position: relative;
+          z-index: 1;
+          max-width: 90%;
+          h1 {
+            text-align: left;
+          }
+      
+          p {
+            text-align: left;
+            color: aliceblue;
+          }
+        }
+      }
 
 //*tutorial*///
 .banner {
