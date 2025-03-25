@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogNewsService } from './blog-news.service';
-import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
+import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-blog-news',

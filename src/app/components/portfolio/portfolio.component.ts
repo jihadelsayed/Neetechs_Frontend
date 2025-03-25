@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
+import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-portfolio',

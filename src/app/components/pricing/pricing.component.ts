@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
+import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 import { PricingService } from './pricing.service';
 import { CommonModule } from '@angular/common';
 import { ServiceCategory } from './pricing.model';

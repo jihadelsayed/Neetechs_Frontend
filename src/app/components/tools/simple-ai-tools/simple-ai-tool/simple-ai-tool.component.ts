@@ -2,11 +2,12 @@ import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ContactBannerComponent } from '../../../shared/contact-banner/contact-banner.component';
-import { ApiKeyModalComponent } from '../../../shared/api-key-modal/api-key-modal.component';
+
 import { ToolService } from '../../tool.service';
 import { GrammarCheckService } from './services/grammar-check.service';
 import { Subscription } from 'rxjs';
+import { ApiKeyModalComponent } from '../../../../shared/api-key-modal/api-key-modal.component';
+import { ContactBannerComponent } from '../../../../shared/contact-banner/contact-banner.component';
 
 @Component({
   selector: 'app-simple-ai-tool',

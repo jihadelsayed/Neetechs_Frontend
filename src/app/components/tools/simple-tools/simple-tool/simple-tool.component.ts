@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToolService } from '../../tool.service';
 import { CommonModule } from '@angular/common';
-import { ContactBannerComponent } from '../../../shared/contact-banner/contact-banner.component';
 import { addEmojisToText, translateToEmoji, translateToText } from './utils/emoji.utils';
+import { ContactBannerComponent } from '../../../../shared/contact-banner/contact-banner.component';
 
  
 @Component({

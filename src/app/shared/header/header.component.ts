@@ -6,13 +6,14 @@ import { BottomHeaderComponent } from "./bottom-header/bottom-header.component";
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { CartSidebarHeaderComponent } from "./cart-sidebar-header/cart-sidebar-header.component";
 import { MobileSidebarHeaderComponent } from "./mobile-sidebar-header/mobile-sidebar-header.component";
-import { UtilsService } from '../../../services/utils.service';
-import { IProduct } from '../../../types/product-type';
+
 import { CartService } from './cart.service';
 import { WishlistService } from './wishlist.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
+import { UtilsService } from '../../services/utils.service';
+import { IProduct } from '../../types/product-type';
 
 @Component({
     selector: 'app-header',

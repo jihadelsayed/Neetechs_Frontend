@@ -3,7 +3,7 @@ import { ToolsService } from './tools.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ContactBannerComponent } from "../shared/contact-banner/contact-banner.component";
+import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
   selector: 'app-tools',

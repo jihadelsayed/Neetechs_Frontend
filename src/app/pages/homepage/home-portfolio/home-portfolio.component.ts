@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PortfolioService } from './portfolio.service';
-import { GenericSliderComponent } from '../../shared/generic-slider/generic-slider.component';
+import { GenericSliderComponent } from '../../../shared/generic-slider/generic-slider.component';
 
 @Component({
   selector: 'app-home-portfolio',

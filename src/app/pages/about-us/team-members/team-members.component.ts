@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GenericSliderComponent } from '../../shared/generic-slider/generic-slider.component';
+import { GenericSliderComponent } from '../../../shared/generic-slider/generic-slider.component';
 import { TeamService } from './team.service';
 
 @Component({

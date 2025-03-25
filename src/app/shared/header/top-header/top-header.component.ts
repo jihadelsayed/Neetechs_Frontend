@@ -3,8 +3,9 @@ import { Component, Renderer2 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, NgClass } from '@angular/common';
 import category_data from '../category-data';
-import { CurrencyService } from '../../../../services/currency.service';
-import { LanguageService } from '../../../../services/language.service';
+import { CurrencyService } from '../../../services/currency.service';
+import { LanguageService } from '../../../services/language.service';
+ 
  
 @Component({
   selector: 'app-top-header',
