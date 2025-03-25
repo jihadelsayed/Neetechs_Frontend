@@ -104,8 +104,15 @@
               </li>
             </ul>
           </div>
+          <div class="dropdown" *ngIf="!isLoggedIn" [class.active]="isSettingsActive">
+            <span class="dropdown-toggle" (click)="toggleActive('setting')">Account &#9660;</span>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/pages/login">Login</a></li>
+              <li><a class="dropdown-item" routerLink="/pages/register">Sign Up</a></li>
+            </ul>
+          </div>
 
-          <div class="dropdown" [class.active]="isSettingsActive">
+          <div class="dropdown" *ngIf="isLoggedIn" [class.active]="isSettingsActive">
             <span class="dropdown-toggle" (click)="toggleActive('setting')"
               >Setting &#9660;</span
             >

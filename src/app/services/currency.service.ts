@@ -7,9 +7,9 @@ export class CurrencyService {
   private localStorageKey = 'selectedCurrency';
 
   private currencies: { code: string; symbol: string }[] = [
-    { code: 'SEK', symbol: 'kr' },
     { code: 'USD', symbol: '$' },
-    { code: 'EUR', symbol: '€' },
+    { code: 'SEK', symbol: 'kr' },
+    { code: 'الدينار', symbol: 'د.ك' },
     // Add more currencies as needed
   ];
 

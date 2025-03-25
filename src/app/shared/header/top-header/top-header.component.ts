@@ -5,7 +5,9 @@ import { CommonModule, NgClass } from '@angular/common';
 import category_data from '../category-data';
 import { CurrencyService } from '../../../services/currency.service';
 import { LanguageService } from '../../../services/language.service';
- 
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
  
 @Component({
   selector: 'app-top-header',
@@ -18,11 +20,22 @@ export class TopHeaderComponent {
   isLanguageActive = false;
   isSettingsActive = false;
   isCurrencyActive = false;
-  currencies = ['SEK', 'USD', 'EUR'];
-  languages = ['Svenska', 'English', 'عربي'];
+  isLoggedIn = false;
 
-  constructor(private router: Router, public currencyService: CurrencyService, public languageService: LanguageService) {}
+  currencies = ['USD', 'SEK', 'الدينار'];
+  languages = ['English', 'Svenska', 'عربي'];
 
+  constructor(private router: Router, public currencyService: CurrencyService, public languageService: LanguageService,
+    @Inject(PLATFORM_ID) private platformId: Object
+
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('token');
+      this.isLoggedIn = !!token;
+    }
+  }
   changeLanguage(language: string): void {
     this.languageService.setCurrentLanguage(language);
   }
