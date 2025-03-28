@@ -65,4 +65,22 @@ export class TopHeaderComponent {
     localStorage.removeItem('userInfo');
     this.router.navigate(['/pages/login']);
   }
+  goToAuth(action: 'login' | 'signup'): void {
+    const lang = this.languageService.getCurrentLanguage().toLowerCase();
+  
+    const langMap: { [key: string]: string } = {
+      english: 'en',
+      svenska: 'sv',
+      عربي: 'ar'
+    };
+  
+    const langSlug = langMap[lang] || 'en';
+  
+    const returnUrl = encodeURIComponent('https://neetechs.com/dashboard');
+    const url = `https://accounts.neetechs.com/${langSlug}/${action}?return_url=${returnUrl}`;
+  
+    window.location.href = url;
+  }
+  
+  
 }
