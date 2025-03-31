@@ -65,7 +65,7 @@ export class TopHeaderComponent {
     localStorage.removeItem('userInfo');
     this.router.navigate(['/pages/login']);
   }
-  goToAuth(action: 'login' | 'signup'): void {
+  goToAuth(action: 'signin' | 'signup'): void {
     const lang = this.languageService.getCurrentLanguage().toLowerCase();
   
     const langMap: { [key: string]: string } = {
