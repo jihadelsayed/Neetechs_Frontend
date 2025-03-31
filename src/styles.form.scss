@@ -1,13 +1,9 @@
-@import './styles._variables.scss';
+@use './styles._variables.scss' as *;
 
 /* Overall Form Styling */
-form {
- // background-color: #FBD5BD
-  // /* Light yellow */
- // border: 2px solid #CACE35; /* Medium yellow-green */
- border-radius: 24px;
+.form-default {
+  border-radius: 24px;
   padding: 20px;
-//  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
 
@@ -21,32 +17,36 @@ form {
 /* Label Styling */
 label {
   font-weight: bold;
-  color: #383A08; /* Dark olive */
+  color: $highlight-quinary-color; // Was: #383A08 (Dark olive)
   margin-bottom: 5px;
 }
 
 /* Input and Textarea Styling */
-input, textarea {
+input,
+textarea {
   background-color: #FFF;
-  border: 1px solid #A3A629; /* Darker yellow-green */
-  border-radius: 24px;
-  padding: 10px;
+  border: 1px solid $highlight-secondary-color; // Was: #A3A629
   font-size: 16px;
-  color: #1A1B02; /* Very dark olive */
+  color: $font-color-primary; // Was: #1A1B02 (very dark olive)
   transition: border-color 0.3s, box-shadow 0.3s;
-  width: 100%;
 }
+
 textarea {
   height: 150px;
 }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
-textarea:focus {
-  border-color: #7D801D; /* Dark yellow-green */
-  box-shadow: 0 0 5px rgba(125, 128, 29, 0.5);
+textarea:focus,input:focus {
+  border-color: $highlight-quaternary-color; // Was: #7D801D
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.5); // using rgba version of $highlight-quaternary-color
   outline: none;
 }
+ 
+
+/* Button Styling */
+
 
 /* Button Styling */
 button {
@@ -55,7 +55,11 @@ button {
 
   color: #FFF;
   border: none;
-  border-radius: 24px;  padding: 10px 20px;
+  background-color: $secondary-color;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 24px;  
+  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -63,27 +67,31 @@ button {
 
 button:hover {
   background-color: $tertiary-color;
-
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   // background-color: #7D801D; /* Dark yellow-green */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+/* Icon Sizes */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
 }
 
+.icon-md {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
 
-/* Global Button Style */
-// button {
-//   background-color: #4CAF50; /* Green */
-//   border: none;
-//   color: white;
-//   padding: 15px 32px;
-//   text-align: center;
-//   text-decoration: none;
-//   display: inline-block;
-//   margin: 4px 2px;
-//   cursor: pointer;
-//   border-radius: 12px;
-//   transition: background-color 0.3s ease;
-// }
-
-// button:hover {
-//   background-color: #45a049;
-// }
+.icon-lg {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
