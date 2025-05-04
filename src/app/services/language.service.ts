@@ -20,7 +20,7 @@ export class LanguageService {
     } else {
      // console.error('localStorage is not available');
     }
-
+    
   }
 
   getCurrentLanguage(): string {

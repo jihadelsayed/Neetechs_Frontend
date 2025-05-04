@@ -11,6 +11,7 @@ export class ApiInterceptorService implements HttpInterceptor {
     const apiKey = localStorage.getItem('apiKey');
 
     if (apiKey) {
+      
       // Clone the request and add the API key to the headers
       const clonedReq = req.clone({
         setHeaders: {
