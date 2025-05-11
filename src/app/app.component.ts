@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { AuthorizationModule } from './authorization/authorization.module';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FooterComponent,HeaderComponent,AuthorizationModule],
+  imports: [RouterOutlet,FooterComponent,HeaderComponent,AuthorizationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

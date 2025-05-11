@@ -14,7 +14,7 @@ export const environment = {
   JSON_URL: 'https://raw.githubusercontent.com/jihadelsayed/neetechs/main/json/islam/',
   FrontEnd_URL: '',
   MainDomain: '',
-  LoginURL: '',
+  //LoginURL: '',
   MY_ACCOUNT_URL: "https://myaccount.neetechs.com/"
 };
 

@@ -13,7 +13,7 @@ export const environment = {
   SERVER_URL_WITH_OUT_SLASH: "",
   FrontEnd_URL: "https://neetechs.com",
   //LoginURL: "http://localhost:22958/",
-  LoginURL: '',
+  //LoginURL: '',
   //LoginURL: "https://accounts.neetechs.com/",
   
   MY_ACCOUNT_URL: "https://myaccount.neetechs.com/",
