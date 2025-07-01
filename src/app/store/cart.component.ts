@@ -35,7 +35,4 @@ export class CartComponent {
   }
 }
 
-  imports: [CommonModule],
-  template: '<p>Cart works!</p>'
-})
-export class CartComponent {}
+
