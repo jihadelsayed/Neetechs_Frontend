@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastService } from '../../services/toast.service';
+import { ToastService } from '../../core/toast.service';
 import { IProduct } from '../../types/product-type';
 
 
