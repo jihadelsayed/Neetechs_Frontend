@@ -6,6 +6,12 @@ export const menu_data: any[] = [
     mega_menu: false,
   },
   {
+    id: 99,
+    link: '/shop',
+    title: 'Shop',
+    mega_menu: false,
+  },
+  {
     id: 2,
     link: '/tools',
     title: 'Tools',
@@ -64,6 +70,12 @@ export const mobile_menu: any[] = [
     id: 1,
     link: '/tutorials',
     title: 'Tutorials',
+    mega_menu: false,
+  },
+  {
+    id: 99,
+    link: '/shop',
+    title: 'Shop',
     mega_menu: false,
   },
   {

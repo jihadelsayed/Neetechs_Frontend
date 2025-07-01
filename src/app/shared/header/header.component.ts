@@ -12,7 +12,7 @@ import { WishlistService } from './wishlist.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
-import { UtilsService } from '../../services/utils.service';
+import { UtilsService } from '../../core/utils.service';
 import { IProduct } from '../../types/product-type';
 
 @Component({
