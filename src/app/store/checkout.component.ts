@@ -25,3 +25,7 @@ export class CheckoutComponent {
     this.name = this.email = this.address = '';
   }
 }
+  imports: [CommonModule],
+  template: '<p>Checkout works!</p>'
+})
+export class CheckoutComponent {}

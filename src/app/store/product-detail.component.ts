@@ -5,6 +5,7 @@ import { CartService } from '../shared/header/cart.service';
 import { SAMPLE_PRODUCTS } from './products';
 import { IProduct } from '../types/product-type';
 
+
 @Component({
   selector: 'app-product-detail',
   standalone: true,
@@ -23,3 +24,4 @@ export class ProductDetailComponent {
     this.cartService.addCartProduct(product);
   }
 }
+

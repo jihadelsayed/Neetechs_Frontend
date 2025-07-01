@@ -34,3 +34,8 @@ export class CartComponent {
     return this.cartService.totalPriceQuantity();
   }
 }
+
+  imports: [CommonModule],
+  template: '<p>Cart works!</p>'
+})
+export class CartComponent {}

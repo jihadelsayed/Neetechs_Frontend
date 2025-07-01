@@ -20,3 +20,4 @@ export class ShopComponent {
     this.cartService.addCartProduct(product);
   }
 }
+
