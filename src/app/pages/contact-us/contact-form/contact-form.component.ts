@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
 import { CommonModule } from '@angular/common';
-import { ToastService } from '../../../services/toast.service';
+import { ToastService } from '../../../core/toast.service';
 import { Router } from '@angular/router';
 
 @Component({

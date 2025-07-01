@@ -1,0 +1,15 @@
+<div class="container-card">
+  <h2>Checkout</h2>
+  <form (ngSubmit)="submit()" #f="ngForm">
+    <label>Name
+      <input type="text" [(ngModel)]="name" name="name" required />
+    </label>
+    <label>Email
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </label>
+    <label>Address
+      <textarea [(ngModel)]="address" name="address" required></textarea>
+    </label>
+    <button class="button" type="submit" [disabled]="f.invalid">Place Order</button>
+  </form>
+</div>
