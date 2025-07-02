@@ -1,13 +1,45 @@
 .container-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.left {
+  flex: 1 1 300px;
   text-align: center;
 }
 
-.container-card img {
+.right {
+  flex: 1 1 300px;
+}
+
+.main-image {
   max-width: 300px;
   width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 16px auto;
+}
+
+.breadcrumbs {
+  margin: 16px 0;
+}
+
+.gallery {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.gallery img {
+  width: 60px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.gallery img.active {
+  border-color: #333;
 }
 
 .price {

@@ -4,7 +4,50 @@
       <img src="https://i.imgur.com/GX04TlK.png" alt="Logo">
     </a>
   </div>
+  <nav class="breadcrumbs">
+    <a routerLink="/">Home</a> &gt; <span>Shop</span>
+  </nav>
+  <form class="search" (submit)="$event.preventDefault()">
+    <input
+      type="text"
+      placeholder="Search products"
+      [formControl]="searchControl"
+    />
+  </form>
+  <label class="category-select">
+    <select [(ngModel)]="selectedCategory" name="cat" (change)="search()">
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+  </label>
+  <div class="dropdown" [class.active]="isLanguageActive">
+    <span class="dropdown-toggle" (click)="toggle('language')">
+      {{ languageService.getCurrentLanguage() }} &#9660;
+    </span>
+    <ul class="dropdown-menu">
+      <li *ngFor="let lang of languages">
+        <a class="dropdown-item" href="#" (click)="changeLanguage(lang)">{{ lang }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown" [class.active]="isCurrencyActive">
+    <span class="dropdown-toggle" (click)="toggle('currency')">
+      {{ currencyService.getCurrentCurrency().code }} &#9660;
+    </span>
+    <ul class="dropdown-menu">
+      <li *ngFor="let cur of currencies">
+        <a class="dropdown-item" href="#" (click)="changeCurrency(cur)">{{ cur }}</a>
+      </li>
+    </ul>
+  </div>
   <div class="spacer"></div>
+  <div class="user">
+    <a routerLink="/account/login">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5" />
+        <path d="M2 21C2 17 6 15 12 15C18 15 22 17 22 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </a>
+  </div>
   <div class="cart">
     <a routerLink="/shop/cart" class="cart-link">
       <svg width="24" height="24" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,3 +58,4 @@
     </a>
   </div>
 </header>
+

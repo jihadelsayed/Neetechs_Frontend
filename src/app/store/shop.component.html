@@ -1,24 +1,77 @@
 <div class="hero-banner">
   <div class="hero-content">
-    <h1>Shop</h1>
-    <p>Browse our selection of products</p>
+    <h1>Browse curated tech solutions</h1>
+    <p>Find the perfect tools for your workflow</p>
   </div>
 </div>
 
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<nav class="breadcrumbs">
+  <a routerLink="/">Home</a> &gt; <span>Shop</span>
+</nav>
+
+<div class="filters">
+  <label>
+    Category
+    <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+  </label>
+  <label>
+    Sort
+    <select [(ngModel)]="sortOption" (change)="applyFilters()">
+      <option value="newest">Newest</option>
+      <option value="priceAsc">Price: Low-High</option>
+      <option value="priceDesc">Price: High-Low</option>
+    </select>
+  </label>
+</div>
+
 <div class="container-card">
-  <div class="product-grid">
-    <div class="product-card" *ngFor="let product of products">
+  <div class="product-grid" *ngIf="pagedProducts.length; else loading">
+    <div class="product-card" *ngFor="let product of pagedProducts">
+      <button class="wishlist" (click)="toggleWishlist(product)" [attr.aria-label]="'Wishlist ' + product.title">
+        <svg viewBox="0 0 24 24" [class.active]="isWishlisted(product)">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </button>
       <a [routerLink]="['/shop/product', product.slug]">
-        <img [src]="product.img" [alt]="product.title" />
         <img
           [src]="product.img"
           (error)="onImageError($event)"
           [alt]="product.title"
+          loading="lazy"
         />
         <h3>{{ product.title }}</h3>
       </a>
+      <div class="rating">★★★★★</div>
       <p class="price">${{ product.price }}</p>
       <button class="button" (click)="addToCart(product)">Add to Cart</button>
+      <button class="quick-view" (click)="openQuickView(product)">Quick View</button>
     </div>
+  </div>
+</div>
+
+<div class="container-card" *ngIf="!filteredProducts.length">
+  <p>No results found.</p>
+</div>
+
+<div class="pagination" *ngIf="filteredProducts.length > pageSize">
+  <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+  <span>Page {{ page }} of {{ Math.ceil(filteredProducts.length / pageSize) }}</span>
+  <button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Next</button>
+</div>
+
+<div class="modal-backdrop" *ngIf="quickProduct" (click)="closeQuickView()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <img [src]="quickProduct.img" [alt]="quickProduct.title" (error)="onImageError($event)" loading="lazy" />
+    <h3>{{ quickProduct.title }}</h3>
+    <p class="price">${{ quickProduct.price }}</p>
+    <p>{{ quickProduct.description }}</p>
+    <button class="button" (click)="addToCart(quickProduct)">Add to Cart</button>
+    <button class="button secondary" (click)="closeQuickView()">Close</button>
   </div>
 </div>

@@ -1,14 +1,35 @@
+<nav class="breadcrumbs" *ngIf="product">
+  <a routerLink="/">Home</a> &gt; <a routerLink="/shop">Shop</a> &gt;
+  <span>{{ product.title }}</span>
+</nav>
 
- <div class="container-card" *ngIf="product">
-   <h2>{{ product.title }}</h2>
--  <img [src]="product.imageURLs[0].img" [alt]="product.title" />
-+  <img [src]="product.imageURLs[0].img"
-+       (error)="onImageError($event)"
-+       [alt]="product.title" />
-   <p>{{ product.description }}</p>
-   <p class="price">${{ product.price }}</p>
-   <button class="button" (click)="addToCart(product)">Add to Cart</button>
- </div>
- <div class="container-card" *ngIf="!product">
-   <p>Product not found.</p>
- </div>
+<div class="container-card" *ngIf="product">
+  <div class="left">
+    <img
+      [src]="selectedImage"
+      (error)="onImageError($event)"
+      [alt]="product.title"
+      class="main-image"
+      loading="lazy" />
+    <div class="gallery">
+      <img
+        *ngFor="let img of product.imageURLs"
+        [src]="img.img"
+        (error)="onImageError($event)"
+        [alt]="product.title"
+        (click)="selectImage(img.img)"
+        [class.active]="img.img === selectedImage"
+        loading="lazy" />
+    </div>
+  </div>
+  <div class="right">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="price">${{ product.price }}</p>
+    <button class="button" (click)="addToCart(product)">Add to Cart</button>
+  </div>
+</div>
+<div class="container-card" *ngIf="!product">
+  <p>Product not found.</p>
+</div>
+

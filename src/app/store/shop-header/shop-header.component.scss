@@ -17,8 +17,49 @@
   flex: 1;
 }
 
+.search input {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.category-select {
+  margin-left: 8px;
+}
+
+.user svg {
+  width: 24px;
+  height: 24px;
+}
+
 .cart {
   position: relative;
+}
+
+.breadcrumbs {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  display: none;
+}
+
+.dropdown.active .dropdown-menu {
+  display: block;
 }
 
 .cart-link {

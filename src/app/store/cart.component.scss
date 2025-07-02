@@ -11,6 +11,22 @@
   text-align: center;
 }
 
+.cart-table button {
+  padding: 4px 8px;
+  margin: 0 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.button.secondary {
+  background: #eee;
+  color: #333;
+}
+
 .total {
   text-align: right;
   font-weight: bold;
