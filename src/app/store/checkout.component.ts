@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { CartService } from '../shared/header/cart.service';
+import { CartService } from '../core/cart.service';
 
 @Component({
   selector: 'app-checkout',

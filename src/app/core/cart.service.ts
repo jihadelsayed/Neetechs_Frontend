@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToastService } from '../../core/toast.service';
-import { IProduct } from '../../types/product-type';
+import { ToastService } from './toast.service';
+import { IProduct } from '../types/product-type';
 
 
 function isLocalStorageAvailable(): boolean {

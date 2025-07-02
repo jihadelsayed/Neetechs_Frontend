@@ -59,7 +59,6 @@ export function translateToEmoji(inputText: string, toolData: any): string {
           }
   
           if (regex.test(translatedText)) {
-            console.log(`Replacing keyword: "${keyword}" with emoji: "${emoji.char}"`);
             translatedText = translatedText.replace(regex, `${keyword} ${emoji.char}`);
             replacedKeywords.add(keyword);
           }

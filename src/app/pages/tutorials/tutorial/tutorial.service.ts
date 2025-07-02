@@ -13,8 +13,6 @@ export class TutorialService {
 
   getCategoryData(categoriesId: string, tutorialId: string): Observable<any> {
     const url = `${this.baseUrl}/${categoriesId}/${tutorialId}.json`;
-    console.log(url);
-
     return this.http.get<any>(url);
   }
 }

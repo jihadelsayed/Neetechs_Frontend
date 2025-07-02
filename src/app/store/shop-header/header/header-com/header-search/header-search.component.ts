@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UtilsService } from '@/shared/services/utils.service';
+import { UtilsService } from '../../../../../core/utils.service';
 
 @Component({
   selector: 'app-header-search',

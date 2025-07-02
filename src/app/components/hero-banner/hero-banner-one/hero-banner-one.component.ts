@@ -1,6 +1,6 @@
-import { sliderData } from '@/data/hero-slider-data';
-import { CurrencyService } from '@/shared/header/header-com/header-top-bar/currency.service';
-import { ISliderData } from '@/types/slider-type';
+import { sliderData } from '../../../shared/hero-slider-data';
+import { CurrencyService } from '../../../store/shop-header/header/header-com/header-top-bar/currency.service';
+import { ISliderData } from '../../../types/slider-type';
 import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import Swiper from 'swiper';
 import { Navigation, Pagination,EffectFade } from 'swiper/modules';

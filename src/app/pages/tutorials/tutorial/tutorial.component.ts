@@ -37,7 +37,6 @@ export class TutorialComponent {
   private fetchData(categoriesId: string, tutorialId: string): void {
     this.TutorialService.getCategoryData(categoriesId, tutorialId).subscribe(data => {
       this.tutorial = data;
-      console.log(this.tutorial)
     });
   }
   navigateTo(url: string): void {

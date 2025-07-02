@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, HostListener,Input } from '@angular/core';
-import { CartService } from '@/shared/services/cart.service';
-import { WishlistService } from '@/shared/services/wishlist.service';
-import { UtilsService } from '@/shared/services/utils.service';
+import { CartService } from '../../../../core/cart.service';
+import { WishlistService } from '../../../../core/wishlist.service';
+import { UtilsService } from '../../../../core/utils.service';
 
 @Component({
   selector: 'app-header-two',

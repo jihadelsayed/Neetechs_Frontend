@@ -7,8 +7,8 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { CartSidebarHeaderComponent } from "./cart-sidebar-header/cart-sidebar-header.component";
 import { MobileSidebarHeaderComponent } from "./mobile-sidebar-header/mobile-sidebar-header.component";
 
-import { CartService } from './cart.service';
-import { WishlistService } from './wishlist.service';
+import { CartService } from '../../core/cart.service';
+import { WishlistService } from '../../core/wishlist.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
@@ -62,7 +62,6 @@ export class HeaderComponent {
     ];
   
     changeHandler(selectedOption: { value: string; text: string }) {
-      console.log('Selected option:', selectedOption);
       this.productType = selectedOption.value;
     }
 
