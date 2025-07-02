@@ -14,6 +14,12 @@
   <a routerLink="/">Home</a> &gt; <span>Shop</span>
 </nav>
 
+<nav class="store-nav">
+  <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Shop</a>
+  <a routerLink="/shop/cart" routerLinkActive="active">Cart</a>
+  <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
+</nav>
+
 <div class="filters">
   <label>
     Category
@@ -42,7 +48,7 @@
       <a [routerLink]="['/shop/product', product.slug]">
         <img
           [src]="product.img"
-          appImageFallback
+          appImageFallback="/assets/images/product-placeholder.png"
           [alt]="product.title"
           loading="lazy"
         />
@@ -68,7 +74,7 @@
 
 <div class="modal-backdrop" *ngIf="quickProduct" (click)="closeQuickView()">
   <div class="modal" (click)="$event.stopPropagation()">
-    <img [src]="quickProduct.img" [alt]="quickProduct.title" appImageFallback loading="lazy" />
+    <img [src]="quickProduct.img" [alt]="quickProduct.title" appImageFallback="/assets/images/product-placeholder.png" loading="lazy" />
     <h3>{{ quickProduct.title }}</h3>
     <p class="price">${{ quickProduct.price }}</p>
     <p>{{ quickProduct.description }}</p>
