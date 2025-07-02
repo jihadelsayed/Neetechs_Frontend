@@ -1,3 +1,9 @@
+<nav class="store-nav">
+  <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Shop</a>
+  <a routerLink="/shop/cart" routerLinkActive="active">Cart</a>
+  <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
+</nav>
+
 <div class="container-card">
   <h2>Checkout</h2>
   <form (ngSubmit)="submit()" #f="ngForm">

@@ -1,0 +1,23 @@
+@use '../../styles._variables.scss' as *;
+
+.store-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  a {
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: $neutral-color-light;
+    color: $font-color-primary;
+    text-decoration: none;
+
+    &.active,
+    &:hover,
+    &:focus {
+      background-color: $tertiary-color;
+      color: #fff;
+    }
+  }
+}

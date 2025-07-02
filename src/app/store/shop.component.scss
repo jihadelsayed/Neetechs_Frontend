@@ -1,3 +1,6 @@
+@use '../../styles._variables.scss' as *;
+@use './store-nav' as *;
+
 .hero-banner {
   background-image: url('https://i.imgur.com/DlQdn6e.jpg');
   background-size: cover;
@@ -24,10 +27,14 @@
     h1 {
       text-align: left;
       color: #fff;
+      font-size: 24px;
+      margin-bottom: 8px;
     }
     p {
       text-align: left;
       color: aliceblue;
+      font-size: 16px;
+      line-height: 1.4;
     }
   }
 }
@@ -35,19 +42,7 @@
 .product-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(1, 1fr);
-}
-
-@media (min-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .breadcrumbs {
@@ -59,6 +54,13 @@
   gap: 16px;
   justify-content: center;
   margin-bottom: 16px;
+  label {
+    font-size: 14px;
+  }
+  select {
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
 }
 
 .pagination {
@@ -66,13 +68,17 @@
   justify-content: center;
   gap: 8px;
   margin-top: 16px;
+  button {
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
 }
 
 .product-card {
   position: relative;
   background: white;
   padding: 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -124,6 +130,10 @@
   margin-top: 8px;
 }
 
+.product-card .button {
+  margin-top: 8px;
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -140,13 +150,18 @@
 .modal {
   background: #fff;
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 8px;
   max-width: 400px;
   width: 100%;
   text-align: center;
+  button {
+    margin-top: 8px;
+  }
 }
 
 .price {
   margin: 8px 0;
   font-weight: bold;
+  font-size: 16px;
+  line-height: 1.4;
 }

@@ -3,11 +3,17 @@
   <span>{{ product.title }}</span>
 </nav>
 
+<nav class="store-nav">
+  <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Shop</a>
+  <a routerLink="/shop/cart" routerLinkActive="active">Cart</a>
+  <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
+</nav>
+
 <div class="container-card" *ngIf="product">
   <div class="left">
     <img
       [src]="selectedImage"
-      appImageFallback
+      appImageFallback="/assets/images/product-placeholder.png"
       [alt]="product.title"
       class="main-image"
       loading="lazy" />
@@ -15,7 +21,7 @@
       <img
         *ngFor="let img of product.imageURLs"
         [src]="img.img"
-        appImageFallback
+        appImageFallback="/assets/images/product-placeholder.png"
         [alt]="product.title"
         (click)="selectImage(img.img)"
         [class.active]="img.img === selectedImage"

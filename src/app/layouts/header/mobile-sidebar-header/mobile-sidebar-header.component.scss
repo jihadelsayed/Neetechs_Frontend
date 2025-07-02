@@ -1,3 +1,5 @@
+@use '../../../styles._variables.scss' as *;
+
 .side-nav {
   height: 100%;
   width: 0;
@@ -57,6 +59,10 @@ ul li a {
   display: block;
   transition: 0.3s;
   text-align: center;
+  &.active {
+    background-color: $tertiary-color;
+    border-radius: 4px;
+  }
 }
 
 ul li a:hover {

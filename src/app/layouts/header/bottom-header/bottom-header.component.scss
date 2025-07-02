@@ -1,3 +1,5 @@
+@use '../../../styles._variables.scss' as *;
+
 .stickyHeader {
   display: flex;
   justify-content: space-between;
@@ -45,6 +47,11 @@
   padding: 10px 15px;
   display: block;
   font-size: 13px;
+  &.active {
+    background-color: $tertiary-color;
+    color: #fff;
+    border-radius: 4px;
+  }
 }
 
 .stickyHeader ul.menu li a:hover,
