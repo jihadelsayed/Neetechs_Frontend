@@ -14,11 +14,12 @@
       [formControl]="searchControl"
     />
   </form>
-  <label class="category-select">
-    <select [(ngModel)]="selectedCategory" name="cat" (change)="search()">
-      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
-    </select>
-  </label>
+  <app-nice-select
+    class="category-select"
+    [options]="categoryOptions"
+    (onChange)="onCategoryChange($event)"
+    [defaultCurrent]="0"
+  ></app-nice-select>
   <div class="dropdown" [class.active]="isLanguageActive">
     <span class="dropdown-toggle" (click)="toggle('language')">
       {{ languageService.getCurrentLanguage() }} &#9660;

@@ -7,7 +7,7 @@
   <div class="left">
     <img
       [src]="selectedImage"
-      (error)="onImageError($event)"
+      appImageFallback
       [alt]="product.title"
       class="main-image"
       loading="lazy" />
@@ -15,7 +15,7 @@
       <img
         *ngFor="let img of product.imageURLs"
         [src]="img.img"
-        (error)="onImageError($event)"
+        appImageFallback
         [alt]="product.title"
         (click)="selectImage(img.img)"
         [class.active]="img.img === selectedImage"

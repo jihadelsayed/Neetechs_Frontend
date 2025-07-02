@@ -7,11 +7,12 @@ import { IProduct } from '../types/product-type';
 import { ProductService } from './product.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { WishlistService } from '../shared/header/wishlist.service';
+import { ImageFallbackDirective } from '../shared/directives/image-fallback.directive';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, ImageFallbackDirective],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
@@ -123,10 +124,6 @@ Math = Math; // Expose Math for use in templates
     this.quickProduct = null;
   }
 
-  onImageError(event: Event): void {
-    const element = event.target as HTMLImageElement;
-    element.src = '/assets/images/product-placeholder.png';
-  }
     navigateTo(url: string): void {
     this.router.navigate([url]);
   }

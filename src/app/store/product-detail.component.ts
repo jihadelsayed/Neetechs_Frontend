@@ -5,11 +5,12 @@ import { CartService } from '../shared/header/cart.service';
 import { SAMPLE_PRODUCTS } from './products';
 import { IProduct } from '../types/product-type';
 import { Title, Meta } from '@angular/platform-browser';
+import { ImageFallbackDirective } from '../shared/directives/image-fallback.directive';
  
  @Component({
    selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ImageFallbackDirective],
    templateUrl: './product-detail.component.html',
    styleUrl: './product-detail.component.scss'
  })
@@ -41,10 +42,6 @@ export class ProductDetailComponent {
     this.selectedImage = url;
   }
 
-  onImageError(event: Event): void {
-    const element = event.target as HTMLImageElement;
-        element.src = '/assets/images/product-placeholder.png';
-  }
- }
+}
 
 

@@ -42,7 +42,7 @@
       <a [routerLink]="['/shop/product', product.slug]">
         <img
           [src]="product.img"
-          (error)="onImageError($event)"
+          appImageFallback
           [alt]="product.title"
           loading="lazy"
         />
@@ -68,7 +68,7 @@
 
 <div class="modal-backdrop" *ngIf="quickProduct" (click)="closeQuickView()">
   <div class="modal" (click)="$event.stopPropagation()">
-    <img [src]="quickProduct.img" [alt]="quickProduct.title" (error)="onImageError($event)" loading="lazy" />
+    <img [src]="quickProduct.img" [alt]="quickProduct.title" appImageFallback loading="lazy" />
     <h3>{{ quickProduct.title }}</h3>
     <p class="price">${{ quickProduct.price }}</p>
     <p>{{ quickProduct.description }}</p>
