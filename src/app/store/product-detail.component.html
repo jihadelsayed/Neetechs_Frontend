@@ -1,0 +1,10 @@
+<div class="container-card" *ngIf="product">
+  <h2>{{ product.title }}</h2>
+  <img [src]="product.imageURLs[0].img" [alt]="product.title" (error)="onImageError($event)" />
+  <p>{{ product.description }}</p>
+  <p class="price">${{ product.price }}</p>
+  <button class="button" (click)="addToCart(product)">Add to Cart</button>
+</div>
+<div class="container-card" *ngIf="!product">
+  <p>Product not found.</p>
+</div>
