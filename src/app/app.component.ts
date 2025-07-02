@@ -4,12 +4,13 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ShopHeaderComponent } from './store/shop-header/shop-header.component';
 import { filter } from 'rxjs/operators';
+import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, ShopHeaderComponent],
+imports: [RouterOutlet, FooterComponent, HeaderComponent, ShopHeaderComponent, NgIf],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
