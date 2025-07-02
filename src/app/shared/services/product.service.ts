@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { of,Observable } from 'rxjs';
 import  product_data from '@/data/product-data';
 import { map } from 'rxjs/operators';
-import { CurrencyService } from '../header/header-com/header-top-bar/currency.service';
+import { CurrencyService } from '@/core/currency.service';
 
 const all_products = product_data
 

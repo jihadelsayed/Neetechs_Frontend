@@ -6,8 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // header and footer components
 
 // ui components
-import { NiceSelectComponent } from './ui/nice-select/nice-select.component';
 import { PaginationComponent } from './ui/pagination/pagination.component';
+import { NiceSelectComponent } from './ui/nice-select/nice-select.component';
 
 // footer components
 import { FooterOneComponent } from './footer/footer-one/footer-one.component';
@@ -64,7 +64,6 @@ import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header
     MenuBarComponent,
     HeaderCategoryComponent,
     HeaderTopBarComponent,
-    NiceSelectComponent,
     FooterOneComponent,
     FooterTwoComponent,
     SocialLinksComponent,
@@ -109,11 +108,11 @@ import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NiceSelectComponent,
   ],
   exports: [
     HeaderOneComponent,
     HeaderTwoComponent,
-    NiceSelectComponent,
     FooterOneComponent,
     FooterTwoComponent,
     PaginationComponent,

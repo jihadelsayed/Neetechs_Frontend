@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
+import Swiper, { Pagination } from 'swiper';
 import { ProductService } from '@/shared/services/product.service';
 import { IProduct } from '@/types/product-type';
 

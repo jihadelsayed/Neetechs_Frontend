@@ -2,8 +2,7 @@ import { sliderData } from '../../../shared/hero-slider-data';
 import { CurrencyService } from '../../../store/shop-header/header/header-com/header-top-bar/currency.service';
 import { ISliderData } from '../../../types/slider-type';
 import { Component, ElementRef, ViewChild, Input } from '@angular/core';
-import Swiper from 'swiper';
-import { Navigation, Pagination,EffectFade } from 'swiper/modules';
+import Swiper, { Navigation, Pagination, EffectFade } from 'swiper';
 
 
 @Component({
@@ -14,7 +13,7 @@ import { Navigation, Pagination,EffectFade } from 'swiper/modules';
 export class HeroBannerOneComponent {
 
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
-  public swiperInstance: Swiper | undefined;
+  public swiperInstance: any;
   public swiperIndex: number = 0;
   constructor(public currencyService: CurrencyService) {}
 

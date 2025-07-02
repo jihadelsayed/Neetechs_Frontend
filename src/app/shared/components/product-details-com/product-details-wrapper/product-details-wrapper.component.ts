@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { IProduct } from '@/types/product-type';
 import { CartService } from '@/shared/services/cart.service';
 import { CurrencyService } from '@/core/currency.service';
-import { ProductService } from '@/store/product.service';
+import { ProductService } from '@/shared/services/product.service';
 
 @Component({
   selector: 'app-product-details-wrapper',

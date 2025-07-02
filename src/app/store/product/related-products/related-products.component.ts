@@ -1,8 +1,7 @@
 import { IProduct } from '@/types/product-type';
 import { Component, Input } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
-import Swiper from 'swiper';
-import { Scrollbar } from 'swiper/modules';
+import Swiper, { Scrollbar } from 'swiper';
 
 @Component({
   selector: 'app-related-products',

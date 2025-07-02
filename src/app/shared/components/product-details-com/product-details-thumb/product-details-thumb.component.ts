@@ -1,7 +1,7 @@
 import { UtilsService } from '@/shared/services/utils.service';
 import { Component, Input } from '@angular/core';
 import { IProduct } from '@/types/product-type';
-import { ProductService } from '@/store/product.service';
+import { ProductService } from '@/shared/services/product.service';
 
 @Component({
   selector: 'app-product-details-thumb',
