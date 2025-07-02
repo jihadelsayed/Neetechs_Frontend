@@ -7,11 +7,18 @@ import { LanguageService } from '../../core/language.service';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ProductService } from '../product.service';
+import { NiceSelectComponent } from '../../shared/ui/nice-select/nice-select.component';
 
 @Component({
   selector: 'app-shop-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NiceSelectComponent
+  ],
   templateUrl: './shop-header.component.html',
   styleUrl: './shop-header.component.scss'
 })
@@ -21,6 +28,7 @@ export class ShopHeaderComponent implements OnInit {
   languages = ['English', 'Svenska', 'عربي'];
   currencies = ['USD', 'SEK', 'الدينار'];
   categories: string[] = [];
+  categoryOptions: { value: string; text: string }[] = [];
   searchTerm = '';
   searchControl = new FormControl('');
   selectedCategory = 'All';
@@ -35,6 +43,7 @@ export class ShopHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = ['All', ...this.productService.getCategories()];
+    this.categoryOptions = this.categories.map(c => ({ value: c, text: c }));
     this.searchControl.valueChanges
       .pipe(debounceTime(300))
       .subscribe(value => {
@@ -63,6 +72,11 @@ export class ShopHeaderComponent implements OnInit {
 
   changeCurrency(cur: string): void {
     this.currencyService.setCurrentCurrency(cur);
+  }
+
+  onCategoryChange(option: { value: string; text: string }): void {
+    this.selectedCategory = option.value;
+    this.search();
   }
 
   search(): void {
