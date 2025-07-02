@@ -1,7 +1,7 @@
 <div class="hero-banner">
   <div class="hero-content">
-    <h1>Shop</h1>
-    <p>Browse our selection of products</p>
+    <h1>Browse curated tech solutions</h1>
+    <p>Find the perfect tools for your workflow</p>
   </div>
 </div>
 
@@ -42,10 +42,15 @@
         />
         <h3>{{ product.title }}</h3>
       </a>
+      <div class="rating">★★★★★</div>
       <p class="price">${{ product.price }}</p>
       <button class="button" (click)="addToCart(product)">Add to Cart</button>
     </div>
   </div>
+</div>
+
+<div class="container-card" *ngIf="!filteredProducts.length">
+  <p>No results found.</p>
 </div>
 
 <div class="pagination" *ngIf="filteredProducts.length > pageSize">

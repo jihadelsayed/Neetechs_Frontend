@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../shared/header/cart.service';
 import { IProduct } from '../types/product-type';
@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit {
   filteredProducts: IProduct[] = [];
   categories: string[] = [];
   selectedCategory = 'All';
+  searchTerm = '';
   sortOption = 'newest';
   page = 1;
   pageSize = 6;
@@ -27,7 +28,9 @@ export class ShopComponent implements OnInit {
     private cartService: CartService,
     private productService: ProductService,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +44,11 @@ export class ShopComponent implements OnInit {
           "This is a demonstration product used to showcase Neetechs' eCommerce functionality. No actual item will be shipped.",
       }));
       this.categories = ['All', ...this.productService.getCategories()];
-      this.applyFilters();
+      this.route.queryParams.subscribe(params => {
+        this.searchTerm = params['search'] || '';
+        this.selectedCategory = params['category'] || 'All';
+        this.applyFilters();
+      });
     });
   }
 
@@ -49,6 +56,10 @@ export class ShopComponent implements OnInit {
     let result = [...this.products];
     if (this.selectedCategory !== 'All') {
       result = result.filter(p => p.category?.name === this.selectedCategory);
+    }
+    if (this.searchTerm) {
+      const term = this.searchTerm.toLowerCase();
+      result = result.filter(p => p.title.toLowerCase().includes(term));
     }
     switch (this.sortOption) {
       case 'priceAsc':
@@ -62,6 +73,14 @@ export class ShopComponent implements OnInit {
     }
     this.filteredProducts = result;
     this.page = 1;
+    const queryParams: any = {};
+    if (this.searchTerm) {
+      queryParams.search = this.searchTerm;
+    }
+    if (this.selectedCategory !== 'All') {
+      queryParams.category = this.selectedCategory;
+    }
+    this.router.navigate([], { queryParams });
   }
 
   get pagedProducts(): IProduct[] {

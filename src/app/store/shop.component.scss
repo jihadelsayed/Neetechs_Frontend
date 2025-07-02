@@ -1,5 +1,5 @@
 .hero-banner {
-  background-image: url('https://imgur.com/9ngVUPZ.png');
+  background-image: url('https://i.imgur.com/DlQdn6e.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -32,10 +32,21 @@
 }
 
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 16px;
-  justify-content: center;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .breadcrumbs {
@@ -62,13 +73,18 @@
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 200px;
 }
 
 .product-card img {
   max-width: 100%;
   height: auto;
   margin-bottom: 8px;
+}
+
+.rating {
+  color: #f5a623;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .price {
