@@ -38,10 +38,12 @@ export class TopHeaderComponent {
   }
   changeLanguage(language: string): void {
     this.languageService.setCurrentLanguage(language);
+    this.isLanguageActive = false;
   }
 
   changeCurrency(currency: string): void {
     this.currencyService.setCurrentCurrency(currency);
+    this.isCurrencyActive = false;
   }
 
   toggleActive(section: string): void {
