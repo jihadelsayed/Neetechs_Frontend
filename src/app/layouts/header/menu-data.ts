@@ -38,13 +38,13 @@ export const menu_data: any[] = [
 
   {
     id: 6,
-    link: '/about-us',
+    link: '/about',
     title: 'About Us',
     mega_menu: false,
   },
   {
     id: 7,
-    link: '/contact-us',
+    link: '/contact',
     title: 'Contact Us',
     mega_menu: false,
   },
@@ -105,13 +105,13 @@ export const mobile_menu: any[] = [
 
   {
     id: 6,
-    link: '/about-us',
+    link: '/about',
     title: 'About Us',
     mega_menu: false,
   },
   {
     id: 7,
-    link: '/contact-us',
+    link: '/contact',
     title: 'Contact Us',
     mega_menu: false,
   },

@@ -34,7 +34,7 @@ export class MainHeaderComponent {
       if (this.productType) {
         queryParams['productType'] = this.productType;
       }
-      this.router.navigate(['/pages/search'], { queryParams });
+      this.router.navigate(['/search'], { queryParams });
     }
   }
 }

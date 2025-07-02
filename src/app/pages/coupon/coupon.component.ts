@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import coupon_data from '@/data/coupon-data';
 import { ICoupon } from '@/types/coupon-type';
 import { CurrencyService } from '@/shared/header/header-com/header-top-bar/currency.service';
 
 @Component({
   selector: 'app-coupon',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './coupon.component.html',
   styleUrls: ['./coupon.component.scss']
 })

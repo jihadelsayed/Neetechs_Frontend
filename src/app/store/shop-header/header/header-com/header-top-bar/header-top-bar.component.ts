@@ -45,7 +45,7 @@ export class HeaderTopBarComponent {
     localStorage.removeItem('userInfo');
     
     // Navigate to the login page
-    this.router.navigate(['/pages/login']);
+    this.router.navigate(['/login']);
   }
   handleActive(type: string): void {
     if (type === this.isActive) {

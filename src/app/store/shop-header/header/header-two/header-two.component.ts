@@ -40,7 +40,7 @@ export class HeaderTwoComponent {
       if (this.searchText) {
         queryParams['searchText'] = this.searchText;
       }
-      this.router.navigate(['/pages/search'], { queryParams });
+      this.router.navigate(['/search'], { queryParams });
     }
   }
 }

@@ -26,9 +26,9 @@ export class BlogComponent {
       if (this.categoriesId && this.blogId) {
         this.fetchData(this.categoriesId,this.blogId);
       }else if(this.categoriesId){
-        this.router.navigate(['/blog-news/'+this.categoriesId]);
+        this.router.navigate(['/blog/'+this.categoriesId]);
       }else{
-        this.router.navigate(['/blog-news/']);
+        this.router.navigate(['/blog/']);
       }
     });
   }

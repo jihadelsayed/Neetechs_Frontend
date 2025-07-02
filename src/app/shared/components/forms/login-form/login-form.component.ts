@@ -60,7 +60,7 @@ export class LoginFormComponent {
           this.loginForm.reset();
           this.formSubmitted = false; // Reset formSubmitted to false
           // Navigate to the profile page after successful login
-          this.router.navigate(['/pages/profile']);
+          this.router.navigate(['/profile']);
           // Optionally, navigate to a protected route or perform other actions
         },
         (error: any) => {
