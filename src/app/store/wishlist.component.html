@@ -1,0 +1,22 @@
+<div class="container-card" *ngIf="items.length; else empty">
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let item of items">
+      <a [routerLink]="['/shop/product', item.slug]">
+        <img [src]="item.img" [alt]="item.title" />
+        <h3>{{ item.title }}</h3>
+      </a>
+      <p class="price">${{ item.price }}</p>
+      <button class="button" (click)="addToCart(item)" [disabled]="isInCart(item)">Add to Cart</button>
+      <button class="button secondary" (click)="remove(item)">Remove</button>
+    </div>
+  </div>
+  <div class="actions">
+    <a routerLink="/shop/cart" class="button secondary">Go To Cart</a>
+    <button class="button" (click)="clear()">Clear Wishlist</button>
+  </div>
+</div>
+<ng-template #empty>
+  <div class="container-card">
+    <p>Your wishlist is empty.</p>
+  </div>
+</ng-template>

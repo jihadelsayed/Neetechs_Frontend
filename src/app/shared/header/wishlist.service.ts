@@ -60,4 +60,16 @@ export class WishlistService {
     } else {
     }
   }
+
+  clearWishlist() {
+    const confirmMsg = window.confirm("Are you sure you want to clear your wishlist?");
+    if (confirmMsg) {
+      state.wishlists = [];
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem("wishlist_products", JSON.stringify(state.wishlists));
+
+      } else {
+      }
+    }
+  }
 }

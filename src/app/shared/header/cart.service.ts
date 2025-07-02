@@ -30,6 +30,10 @@ export class CartService {
     return state.cart_products;
   }
 
+  isInCart(product: IProduct): boolean {
+    return state.cart_products.some((p: IProduct) => p.id === product.id);
+  }
+
   handleOpenCartSidebar () {
     this.isCartOpen = !this.isCartOpen
   }
