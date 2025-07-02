@@ -1,3 +1,4 @@
+@use "../../../styles._variables.scss" as *;
 .hero-banner {
   background-image: url("https://imgur.com/1eri1JA.png");
   background-size: cover;
@@ -43,23 +44,22 @@
   }
 }
 
+
 .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
   width: 100%;
 
   .contact-form {
-    flex: 0 0 61.8%;
-    max-width: 600px;
+    width: 100%;
   }
 
   .contact-info {
-    flex: 0 0 38.2%;
-    max-width: 600px;
-    border-left: 1px solid #a3a629;
-    padding: 10px;
+    background: $card-background;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 
     h4 {
       margin-bottom: 15px;
@@ -88,18 +88,10 @@
   }
 
   .contact-container {
-    flex-direction: column;
-
+    grid-template-columns: 1fr;
+    
     .contact-info {
       margin: 32px 0;
-      border: 1px solid #a3a629;
-      border-left: none;
-    }
-
-    .contact-form,
-    .contact-info {
-      flex: 1 1 100%;
-      max-width: 100%;
     }
   }
 }

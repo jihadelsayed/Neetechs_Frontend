@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ContactService } from './contact.service';
 import { CommonModule } from '@angular/common';
 import { ToastService } from '../../../core/toast.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,11 +13,15 @@ import { Router } from '@angular/router';
 })
 export class ContactFormComponent {
   contactForm: FormGroup;
-  isSubmitting: boolean = false;
+  isSubmitting = false;
+  successMessage = '';
+  errorMessage = '';
 
-  constructor(private fb: FormBuilder,     private toastr: ToastService,
-    private contactService: ContactService,
-    private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastService,
+    private contactService: ContactService
+  ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -27,28 +30,27 @@ export class ContactFormComponent {
   }
 
   onSubmit(): void {
-    if (this.contactForm.valid) {
-      this.isSubmitting = true;
-
-      this.contactService.submitContactForm(this.contactForm.value).subscribe(
-        (response: any) => {
-
-          console.log('Form successfully submitted', response);
-          this.router.navigate(['/']); // Redirect to homepage
-          this.toastr.success('Form successfully submitted!');
-
-          window.scrollTo(0, 0);
-
-        },
-        (error: any) => {
-          this.toastr.error('Error submitting form. Please try again.');
-
-          console.error('Error submitting form', error);
-        },
-        () => {
-          this.isSubmitting = false;
-        }
-      );
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
     }
+    this.isSubmitting = true;
+    this.successMessage = '';
+    this.errorMessage = '';
+
+    this.contactService.submitContactForm(this.contactForm.value).subscribe({
+      next: () => {
+        this.successMessage = 'Thanks for reaching out!';
+        this.toastr.success('Form successfully submitted!');
+        this.contactForm.reset();
+      },
+      error: () => {
+        this.errorMessage = 'Error submitting form. Please try again.';
+        this.toastr.error('Error submitting form. Please try again.');
+      },
+      complete: () => {
+        this.isSubmitting = false;
+      }
+    });
   }
 }
