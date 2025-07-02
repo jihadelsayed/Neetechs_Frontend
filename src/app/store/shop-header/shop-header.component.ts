@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ProductService } from '../product.service';
 import { NiceSelectComponent } from '../../shared/ui/nice-select/nice-select.component';
+import { HeaderOneComponent } from './header/header-one/header-one.component';
 
 @Component({
   selector: 'app-shop-header',
@@ -17,8 +18,10 @@ import { NiceSelectComponent } from '../../shared/ui/nice-select/nice-select.com
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NiceSelectComponent
-  ],
+    NiceSelectComponent,
+    HeaderOneComponent
+],
+
   templateUrl: './shop-header.component.html',
   styleUrls: ['./shop-header.component.scss']
 })

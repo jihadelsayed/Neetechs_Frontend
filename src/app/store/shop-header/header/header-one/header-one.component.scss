@@ -1,0 +1,166 @@
+/* ====== HEADER FIX FOR TECHS-STYLE LAYOUT ====== */
+
+.tp-header-top {
+  background-color: #0a1d45;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 6px 0;
+
+  .tp-header-welcome {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+      color: #f7931a;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .tp-header-top-right {
+    justify-content: flex-end;
+  }
+}
+
+.tp-header-main {
+  background-color: #fff;
+
+  .logo img {
+    max-height: 40px;
+    padding: 5px 0;
+  }
+
+  .tp-header-search {
+    .tp-header-search-wrapper {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 2px solid #007bff;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 45px;
+    }
+
+    .tp-header-search-box {
+      flex: 1;
+
+      input {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 0.95rem;
+      }
+    }
+
+    .tp-header-search-category {
+      border-left: 1px solid #ddd;
+      padding-left: 10px;
+      margin-left: 10px;
+    }
+
+    .tp-header-search-btn {
+      button {
+        background: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+  }
+
+  .tp-header-login {
+    .tp-header-login-content {
+      margin-left: 10px;
+
+      span {
+        display: block;
+        font-size: 0.75rem;
+        color: #555;
+      }
+
+      .tp-header-login-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
+
+  .tp-header-action {
+    gap: 18px;
+
+    .tp-header-action-item {
+      position: relative;
+
+      .tp-header-action-btn {
+        background: none;
+        border: none;
+        position: relative;
+        padding: 0;
+
+        svg {
+          width: 22px;
+          height: auto;
+          color: #222;
+        }
+
+        .tp-header-action-badge {
+          position: absolute;
+          top: -5px;
+          right: -8px;
+          background: red;
+          color: white;
+          font-size: 10px;
+          padding: 2px 5px;
+          border-radius: 999px;
+        }
+      }
+    }
+  }
+
+  .tp-header-contact {
+    gap: 10px;
+
+    .tp-header-contact-icon {
+      svg {
+        color: #007bff;
+      }
+    }
+
+    .tp-header-contact-content {
+      h5 {
+        font-size: 0.8rem;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* Sticky Header Refinement */
+#header-sticky-2 {
+  background: white;
+  border-bottom: 1px solid #eee;
+
+  .logo img {
+    max-height: 35px;
+  }
+
+  .tp-header-action {
+    gap: 16px;
+  }
+}

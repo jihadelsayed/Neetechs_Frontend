@@ -54,12 +54,10 @@ import { HeaderCategoryComponent } from '@/store/shop-header/header/header-com/h
 import { HeaderSearchComponent } from '@/store/shop-header/header/header-com/header-search/header-search.component';
 import { HeaderTopBarComponent } from '@/store/shop-header/header/header-com/header-top-bar/header-top-bar.component';
 import { MenuBarComponent } from '@/store/shop-header/header/header-com/menu-bar/menu-bar.component';
-import { HeaderOneComponent } from '@/store/shop-header/header/header-one/header-one.component';
 import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header-two.component';
 
 @NgModule({
   declarations: [
-    HeaderOneComponent,
     HeaderTwoComponent,
     MenuBarComponent,
     HeaderCategoryComponent,
@@ -111,7 +109,6 @@ import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header
     NiceSelectComponent,
   ],
   exports: [
-    HeaderOneComponent,
     HeaderTwoComponent,
     FooterOneComponent,
     FooterTwoComponent,

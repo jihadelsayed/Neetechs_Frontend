@@ -2,13 +2,23 @@ import { Component, HostListener, Inject } from '@angular/core';
 import { CartService } from '../../../../core/cart.service';
 import { IProduct } from '@/types/product-type';
 import { WishlistService } from '../../../../core/wishlist.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UtilsService } from '../../../../core/utils.service';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgClass } from '@angular/common';
+import { NiceSelectComponent } from '@/shared/ui/nice-select/nice-select.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header-one',
+    standalone: true,
+  imports:[
+    NgClass,
+    CommonModule,
+    FormsModule,          // ✅ For ngModel
+    RouterModule,         // ✅ For routerLink
+    NiceSelectComponent
+    ],
   templateUrl: './header-one.component.html',
   styleUrls: ['./header-one.component.scss'],
 })
