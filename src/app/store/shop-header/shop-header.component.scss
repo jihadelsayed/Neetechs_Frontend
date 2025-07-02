@@ -17,10 +17,24 @@
   flex: 1;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+}
+
 .search input {
   padding: 4px 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.search button {
+  border: 1px solid #ccc;
+  border-left: none;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
 }
 
 .category-select {

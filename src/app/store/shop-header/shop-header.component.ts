@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../shared/header/cart.service';
@@ -40,6 +40,20 @@ export class ShopHeaderComponent implements OnInit {
     private productService: ProductService,
     private router: Router
   ) {}
+
+  @HostListener('document:click', ['$event'])
+  handleOutsideClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.dropdown')) {
+      this.isLanguageActive = false;
+      this.isCurrencyActive = false;
+    }
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    this.search();
+  }
 
   ngOnInit(): void {
     this.categories = ['All', ...this.productService.getCategories()];
