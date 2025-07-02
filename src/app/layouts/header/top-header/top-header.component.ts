@@ -63,8 +63,10 @@ export class TopHeaderComponent {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userInfo');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userInfo');
+    }
     this.router.navigate(['/login']);
   }
   goToAuth(action: 'signIn' | 'signup'): void {

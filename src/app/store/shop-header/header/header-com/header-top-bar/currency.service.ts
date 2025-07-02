@@ -17,9 +17,11 @@ export class CurrencyService {
 
   constructor() {
     // Load the selected currency from localStorage during service initialization
-    const storedCurrency = localStorage.getItem(this.localStorageKey);
-    if (storedCurrency) {
-      this.currentCurrency = JSON.parse(storedCurrency) || this.currencies[0];
+    if (typeof localStorage !== 'undefined') {
+      const storedCurrency = localStorage.getItem(this.localStorageKey);
+      if (storedCurrency) {
+        this.currentCurrency = JSON.parse(storedCurrency) || this.currencies[0];
+      }
     }
   }
   
@@ -32,7 +34,9 @@ export class CurrencyService {
     this.currentCurrency = newCurrency;
   
     // Save the selected currency (including symbol) to localStorage
-    localStorage.setItem(this.localStorageKey, JSON.stringify(newCurrency));
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(this.localStorageKey, JSON.stringify(newCurrency));
+    }
     location.reload(); // Avoid unnecessary page reload
   }
   

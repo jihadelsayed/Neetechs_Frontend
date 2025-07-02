@@ -3,8 +3,21 @@ import { ToastService } from '@/core/toast.service';
 import { IProduct } from '@/types/product-type';
 
 
+function isLocalStorageAvailable(): boolean {
+  try {
+    const testKey = 'test';
+    localStorage.setItem(testKey, '1');
+    localStorage.removeItem(testKey);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const state = {
-  wishlists: JSON.parse(localStorage['wishlist_products'] || '[]')
+  wishlists: isLocalStorageAvailable()
+    ? JSON.parse(localStorage.getItem('wishlist_products') || '[]')
+    : []
 }
 
 @Injectable({
@@ -30,12 +43,16 @@ export class WishlistService {
       state.wishlists.push(payload);
       this.ToastService.success(`${payload.title} added to wishlist`);
     }
-    localStorage.setItem("wishlist_products", JSON.stringify(state.wishlists));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('wishlist_products', JSON.stringify(state.wishlists));
+    }
   };
   // removeWishlist
   removeWishlist(payload: IProduct) {
     state.wishlists = state.wishlists.filter((p: IProduct) => p.id !== payload.id);
     this.ToastService.error(`${payload.title} remove to wishlist`);
-    localStorage.setItem("wishlist_products", JSON.stringify(state.wishlists));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('wishlist_products', JSON.stringify(state.wishlists));
+    }
   };
 }

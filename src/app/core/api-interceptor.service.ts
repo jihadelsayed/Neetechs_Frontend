@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class ApiInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Retrieve the API key from local storage
-    const apiKey = localStorage.getItem('apiKey');
+    // Retrieve the API key from local storage when available
+    const apiKey = typeof localStorage !== 'undefined'
+      ? localStorage.getItem('apiKey')
+      : null;
 
     if (apiKey) {
       

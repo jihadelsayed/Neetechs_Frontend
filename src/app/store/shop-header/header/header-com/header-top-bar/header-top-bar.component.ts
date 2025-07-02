@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { CurrencyService } from './currency.service';
 import { LanguageService } from './language.service';
@@ -15,7 +17,12 @@ export class HeaderTopBarComponent {
   currencies: string[] = ['SEK','USD', 'EUR'];
   languages: string[] = ['Svenska', 'English', 'عربي'];
   
-  constructor(private router: Router, public currencyService: CurrencyService, public languageService: LanguageService) {}
+  constructor(
+    private router: Router,
+    public currencyService: CurrencyService,
+    public languageService: LanguageService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
 
   changeLanguage(language: string): void {
@@ -40,10 +47,12 @@ export class HeaderTopBarComponent {
     }
     }
   logout() {
-    // Delete the token from localStorage (or wherever you store your token)
-    localStorage.removeItem('token');
-    localStorage.removeItem('userInfo');
-    
+    if (isPlatformBrowser(this.platformId)) {
+      // Delete the token from localStorage (or wherever you store your token)
+      localStorage.removeItem('token');
+      localStorage.removeItem('userInfo');
+    }
+
     // Navigate to the login page
     this.router.navigate(['/login']);
   }
