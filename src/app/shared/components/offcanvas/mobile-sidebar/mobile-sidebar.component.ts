@@ -1,8 +1,8 @@
 import { Component,Input } from '@angular/core';
-import {mobile_menu} from '@/data/menu-data';
-import { IMobileType } from '@/types/menu-d-type';
-import { UtilsService } from '@/shared/services/utils.service';
-import category_data from "@/data/category-data";
+import { mobile_menu } from '../../../menu-data';
+import { IMobileType } from '../../../types/menu-d-type';
+import { UtilsService } from '../../../services/utils.service';
+import category_data from '../../../category-data';
 
 @Component({
   selector: 'app-mobile-sidebar',

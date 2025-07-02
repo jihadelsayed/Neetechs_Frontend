@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
-import { ICategory } from '@/types/category-type';
+import { ICategory } from '../../shared/types/category-type';
 import { Component } from '@angular/core';
-import category_data from '@/data/category-data';
+import category_data from '../../shared/category-data';
 
 @Component({
   selector: 'app-shop-category',

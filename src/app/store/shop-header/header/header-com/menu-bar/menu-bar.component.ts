@@ -1,5 +1,5 @@
-import { menu_data } from '@/data/menu-data';
-import { IMenuItem } from '@/types/menu-d-type';
+import { menu_data } from '../../../../../shared/menu-data';
+import { IMenuItem } from '../../../../../shared/types/menu-d-type';
 import { Component } from '@angular/core';
 
 @Component({

@@ -1,4 +1,4 @@
-import category_data from '@/data/category-data';
+import category_data from '../../../category-data';
 import { Component } from '@angular/core';
 
 @Component({

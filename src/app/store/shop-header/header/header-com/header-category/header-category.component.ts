@@ -1,6 +1,6 @@
 import { Router  } from '@angular/router';
 import { Component,Renderer2  } from '@angular/core';
-import category_data from '@/data/category-data';
+import category_data from '../../../../../shared/category-data';
 
 @Component({
   selector: 'app-header-category',
