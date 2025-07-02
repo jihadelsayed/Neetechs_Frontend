@@ -26,7 +26,10 @@
     </tbody>
   </table>
   <p class="total">Grand Total: ${{ total.total.toFixed(2) }}</p>
-  <a routerLink="/shop/checkout" class="button">Checkout</a>
+  <div class="actions">
+    <a routerLink="/shop" class="button secondary">Continue Shopping</a>
+    <button class="button" (click)="goToCheckout()">Checkout</button>
+  </div>
 </div>
 <ng-template #empty>
   <div class="container-card">

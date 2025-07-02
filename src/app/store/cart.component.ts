@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CartService } from '../shared/header/cart.service';
 import { IProduct } from '../types/product-type';
 
@@ -16,7 +16,7 @@ export class CartComponent {
     return this.cartService.getCartProducts();
   }
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   increment(item: IProduct) {
     this.cartService.addCartProduct(item);
@@ -32,5 +32,14 @@ export class CartComponent {
 
   get total() {
     return this.cartService.totalPriceQuantity();
+  }
+
+  goToCheckout(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.router.navigate(['/shop/checkout']);
+    } else {
+      this.router.navigate(['/account/login'], { queryParams: { redirect: 'checkout' } });
+    }
   }
 }

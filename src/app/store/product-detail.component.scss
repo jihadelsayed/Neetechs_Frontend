@@ -1,8 +1,19 @@
 .container-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.left {
+  flex: 1 1 300px;
   text-align: center;
 }
 
-.container-card img {
+.right {
+  flex: 1 1 300px;
+}
+
+.main-image {
   max-width: 300px;
   width: 100%;
   height: auto;
