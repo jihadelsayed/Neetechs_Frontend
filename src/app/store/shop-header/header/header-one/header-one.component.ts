@@ -1,9 +1,11 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { CartService } from '../../../../core/cart.service';
 import { IProduct } from '@/types/product-type';
 import { WishlistService } from '../../../../core/wishlist.service';
 import { Router } from '@angular/router';
 import { UtilsService } from '../../../../core/utils.service';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header-one',
@@ -19,7 +21,8 @@ export class HeaderOneComponent {
     public cartService: CartService,
     public wishlistService: WishlistService,
     public utilsService: UtilsService,
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   // select options for header category
@@ -69,8 +72,11 @@ export class HeaderOneComponent {
   
   ngOnInit() {
     // Retrieve username from local storage
-    const userInfoString = localStorage.getItem('userInfo');
-    const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+    let userInfo: any = null;
+    if (isPlatformBrowser(this.platformId)) {
+      const userInfoString = localStorage.getItem('userInfo');
+      userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+    }
     
     if(userInfo){
       const name = userInfo['name'];

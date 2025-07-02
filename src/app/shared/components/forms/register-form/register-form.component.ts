@@ -53,9 +53,11 @@ export class RegisterFormComponent {
           this.formSubmitted = false; // Reset formSubmitted to false
 
           // Store the token in local storage (or other secure storage)
-          localStorage.setItem('token', accessToken);
-          localStorage.setItem('userInfo', accessToken);
-          localStorage.setItem('roles', roles);
+          if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('token', accessToken);
+            localStorage.setItem('userInfo', accessToken);
+            localStorage.setItem('roles', roles);
+          }
           // Optionally, navigate to a different route or perform other actions
         },
         (error: any) => {

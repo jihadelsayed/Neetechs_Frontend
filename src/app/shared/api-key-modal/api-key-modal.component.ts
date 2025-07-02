@@ -17,9 +17,7 @@ export class ApiKeyModalComponent {
 
   saveApiKey() {
     if (this.apiKey) {
-      if(localStorage)
-      
-      {
+      if (typeof localStorage !== 'undefined') {
         localStorage.setItem('apiKey', this.apiKey);
         alert('API Key saved successfully!');
         this.showModal = false;

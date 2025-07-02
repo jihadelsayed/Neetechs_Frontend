@@ -49,8 +49,12 @@ export class SimpleAiToolComponent implements OnInit, OnDestroy {
       }
     });
 
-    // Fetch API key from local storage
-    this.apiKey = localStorage.getItem('apiKey') || '';
+    // Fetch API key from local storage if available
+    if (typeof localStorage !== 'undefined') {
+      this.apiKey = localStorage.getItem('apiKey') || '';
+    } else {
+      this.apiKey = '';
+    }
     if (!this.apiKey) {
       setTimeout(() => {
         this.apiKeyModal.showModal = true;
@@ -77,7 +81,9 @@ export class SimpleAiToolComponent implements OnInit, OnDestroy {
   }
 
   onApiKeySaved(): void {
-    this.apiKey = localStorage.getItem('apiKey') || '';
+    if (typeof localStorage !== 'undefined') {
+      this.apiKey = localStorage.getItem('apiKey') || '';
+    }
   }
 
   navigateTo(url: string): void {

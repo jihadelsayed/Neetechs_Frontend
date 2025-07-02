@@ -3,8 +3,21 @@ import { ToastService } from '@/core/toast.service';
 import { IProduct } from '@/types/product-type';
 
 
+function isLocalStorageAvailable(): boolean {
+  try {
+    const testKey = 'test';
+    localStorage.setItem(testKey, '1');
+    localStorage.removeItem(testKey);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const state = {
-  compare_items: JSON.parse(localStorage['compare_products'] || '[]')
+  compare_items: isLocalStorageAvailable()
+    ? JSON.parse(localStorage.getItem('compare_products') || '[]')
+    : []
 }
 
 @Injectable({
@@ -30,12 +43,16 @@ export class CompareService {
       state.compare_items.push(payload);
       this.ToastService.success(`${payload.title} added to compare`);
     }
-    localStorage.setItem("compare_products", JSON.stringify(state.compare_items));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('compare_products', JSON.stringify(state.compare_items));
+    }
   };
   // remove compare
   removeCompare(payload: IProduct) {
     state.compare_items = state.compare_items.filter((p: IProduct) => p.id !== payload.id);
     this.ToastService.error(`${payload.title} remove to compare`);
-    localStorage.setItem("compare_products", JSON.stringify(state.compare_items));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('compare_products', JSON.stringify(state.compare_items));
+    }
   };
 }

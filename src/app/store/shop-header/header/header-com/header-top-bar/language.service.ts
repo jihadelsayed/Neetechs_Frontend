@@ -12,9 +12,11 @@ export class LanguageService {
 
   constructor() {
     // Load the selected language from localStorage during service initialization
-    const storedLanguage = localStorage.getItem(this.localStorageKey);
-    if (storedLanguage && this.languages.includes(storedLanguage)) {
-      this.currentLanguage = storedLanguage;
+    if (typeof localStorage !== 'undefined') {
+      const storedLanguage = localStorage.getItem(this.localStorageKey);
+      if (storedLanguage && this.languages.includes(storedLanguage)) {
+        this.currentLanguage = storedLanguage;
+      }
     }
   }
 
@@ -26,7 +28,9 @@ export class LanguageService {
     this.currentLanguage = language;
 
     // Save the selected language to localStorage
-    localStorage.setItem(this.localStorageKey, language);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(this.localStorageKey, language);
+    }
     location.reload(); // Avoid unnecessary page reload
   }
 }

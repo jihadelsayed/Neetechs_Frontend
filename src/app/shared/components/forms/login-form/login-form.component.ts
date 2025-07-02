@@ -49,9 +49,11 @@ export class LoginFormComponent {
           const { accessToken,userInfo, roles, email, username, id  } = response;
 
           // Store the token in local storage (or other secure storage)
-          localStorage.setItem('token', accessToken);
-          localStorage.setItem('userInfo', userInfo);
-          localStorage.setItem('roles', roles);
+          if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('token', accessToken);
+            localStorage.setItem('userInfo', userInfo);
+            localStorage.setItem('roles', roles);
+          }
 
           // Display a success message
           this.ToastService.success('Login successful');

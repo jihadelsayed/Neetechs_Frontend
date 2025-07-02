@@ -17,7 +17,8 @@ export class RoleGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const isAuthenticated = localStorage.getItem('token') !== null;
+    const isAuthenticated =
+      typeof localStorage !== 'undefined' && localStorage.getItem('token') !== null;
     const excludedRoutes = ['/login', '/register', '/forgot'];
     const isExcludedRoute = excludedRoutes.includes(state.url);
 

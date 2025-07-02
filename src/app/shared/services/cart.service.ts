@@ -2,8 +2,21 @@ import { Injectable } from '@angular/core';
 import { ToastService } from '@/core/toast.service';
 import { IProduct } from '@/types/product-type';
 
+function isLocalStorageAvailable(): boolean {
+  try {
+    const testKey = 'test';
+    localStorage.setItem(testKey, '1');
+    localStorage.removeItem(testKey);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const state = {
-  cart_products: JSON.parse(localStorage['cart_products'] || '[]')
+  cart_products: isLocalStorageAvailable()
+    ? JSON.parse(localStorage.getItem('cart_products') || '[]')
+    : []
 }
 
 @Injectable({
@@ -54,7 +67,9 @@ export class CartService {
         return { ...item };
       });
     }
-    localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('cart_products', JSON.stringify(state.cart_products));
+    }
   };
 
 // total price quantity
@@ -110,7 +125,9 @@ export class CartService {
       }
       return { ...item };
     });
-    localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('cart_products', JSON.stringify(state.cart_products));
+    }
   };
 
   // remover_cart_products
@@ -119,7 +136,9 @@ export class CartService {
       (p: IProduct) => p.id !== payload.id
     );
     this.ToastService.error(`${payload.title} remove to cart`);
-    localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('cart_products', JSON.stringify(state.cart_products));
+    }
   };
 
   // clear cart
@@ -130,7 +149,9 @@ export class CartService {
     if (confirmMsg) {
       state.cart_products = [];
     }
-    localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
+    if (isLocalStorageAvailable()) {
+      localStorage.setItem('cart_products', JSON.stringify(state.cart_products));
+    }
   };
   // initialOrderQuantity
   initialOrderQuantity() {
