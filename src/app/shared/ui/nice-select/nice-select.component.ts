@@ -1,9 +1,12 @@
+import { NgClass } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nice-select',
   templateUrl: './nice-select.component.html',
   styleUrls: ['./nice-select.component.scss'],
+  imports: [NgClass], // No need to import CommonModule here as it's not used in the template
+  standalone: true
 })
 export class NiceSelectComponent {
   @Input() options!: { value: string; text: string }[];

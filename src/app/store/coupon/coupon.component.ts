@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import coupon_data from '@/data/coupon-data';
-import { ICoupon } from '@/types/coupon-type';
-import { CurrencyService } from '@/shared/header/header-com/header-top-bar/currency.service';
-
+ 
+import { CurrencyService } from '../../core/currency.service';
+import { ICoupon } from './coupon-type';
+import coupon_data from './coupon-data';
+ 
 @Component({
   selector: 'app-coupon',
   standalone: true,
@@ -13,6 +14,7 @@ import { CurrencyService } from '@/shared/header/header-com/header-top-bar/curre
 })
 export class CouponComponent {
   public coupons = coupon_data;
+  @Input() primary_style: boolean = false;
 
   isCouponActive(coupon: ICoupon): boolean {
     const currentTime = new Date().getTime();
