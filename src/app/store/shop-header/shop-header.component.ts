@@ -20,7 +20,7 @@ import { NiceSelectComponent } from '../../shared/ui/nice-select/nice-select.com
     NiceSelectComponent
   ],
   templateUrl: './shop-header.component.html',
-  styleUrl: './shop-header.component.scss'
+  styleUrls: ['./shop-header.component.scss']
 })
 export class ShopHeaderComponent implements OnInit {
   isLanguageActive = false;
