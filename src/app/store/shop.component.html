@@ -10,6 +10,11 @@
     <div class="product-card" *ngFor="let product of products">
       <a [routerLink]="['/shop/product', product.slug]">
         <img [src]="product.img" [alt]="product.title" />
+        <img
+          [src]="product.img"
+          (error)="onImageError($event)"
+          [alt]="product.title"
+        />
         <h3>{{ product.title }}</h3>
       </a>
       <p class="price">${{ product.price }}</p>
