@@ -18,7 +18,7 @@ body {
     display: block;
 }
 
-.image-button {
+.cta-button {
     position: absolute;
     top: 87%;
     left: 50%;
@@ -31,10 +31,10 @@ body {
     font-size: 28px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-}
 
-.image-button:hover {
-    background-color: rgb(106, 72, 32)
+    &:hover {
+        background-color: rgb(106, 72, 32)
+    }
 }
 .hero-text{
     position: absolute;
