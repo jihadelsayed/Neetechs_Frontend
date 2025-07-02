@@ -9,7 +9,7 @@
     <li
       *ngFor="let item of options; let index = index"
       class="option"
-      [ngClass]="item.value === current?.value ? 'selected focus' : ''"
+      [ngClass]="(item.value === current?.value ? 'selected focus' : '')"
       (click)="currentHandler(item, index)"
       role="menuitem"
     >

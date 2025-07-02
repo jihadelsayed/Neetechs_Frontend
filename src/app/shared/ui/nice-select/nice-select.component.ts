@@ -1,44 +1,44 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nice-select',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './nice-select.component.html',
-  styleUrls: ['./nice-select.component.scss']
+  styleUrls: ['./nice-select.component.scss'],
 })
 export class NiceSelectComponent {
-  @Input() options: { value: string; text: string }[] = [];
-  @Input() defaultCurrent = 0;
-  @Input() placeholder = '';
-  @Input() className = '';
-  @Input() name = '';
+  @Input() options!: { value: string; text: string }[];
+  @Input() defaultCurrent: number = 0;
+  @Input() placeholder: string = '';
+  @Input() className: string = '';
+  @Input() name: string = '';
 
   open = false;
   current: { value: string; text: string } | undefined;
 
-  @Output() onChange = new EventEmitter<{ value: string; text: string }>();
+  @Output() onChange: EventEmitter<{ value: string; text: string }> =
+    new EventEmitter();
 
-  toggleOpen(): void {
+  constructor() {}
+
+  toggleOpen() {
     this.open = !this.open;
   }
 
-  stopPropagation(event: Event): void {
+  stopPropagation(event: Event) {
     event.stopPropagation();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.current = this.options[this.defaultCurrent];
   }
 
-  currentHandler(item: { value: string; text: string }, index: number): void {
+  currentHandler(item: { value: string; text: string }, index: number) {
     this.current = this.options[index];
-    this.onChange.emit(item);
+    this.onChange.emit(item); // Emitting the event
     this.onClose();
   }
 
-  onClose(): void {
+  onClose() {
     this.open = false;
   }
 }
