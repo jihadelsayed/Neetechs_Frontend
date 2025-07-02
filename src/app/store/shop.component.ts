@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
   sortOption = 'newest';
   page = 1;
   pageSize = 6;
+  Math = Math;
 
   constructor(
     private cartService: CartService,
