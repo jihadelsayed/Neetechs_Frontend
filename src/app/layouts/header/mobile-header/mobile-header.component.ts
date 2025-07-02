@@ -16,14 +16,12 @@ export class MobileHeaderComponent {
   //* menu sidebar humbugger menu *//
   menuOpen: boolean = false;
   toggleMenu() {
-    console.log(this.menuOpen)
-
     this.menuOpen = !this.menuOpen;
   }
 
   //* menu  *//
   constructor (){};
   ngOnInit() {
-
+    this.menuOpen = false;
   }
 }

@@ -13,8 +13,6 @@ export class BlogService {
 
   getCategoryData(categoriesId: string, blogId: string): Observable<any> {
     const url = `${this.baseUrl}/${categoriesId}/${blogId}.json`;
-    console.log(url);
-
     return this.http.get<any>(url);
   }
 

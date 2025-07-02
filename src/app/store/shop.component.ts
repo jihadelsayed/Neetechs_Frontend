@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CartService } from '../shared/header/cart.service';
+import { CartService } from '../core/cart.service';
 import { IProduct } from '../types/product-type';
 import { ProductService } from './product.service';
 import { Title, Meta } from '@angular/platform-browser';
-import { WishlistService } from '../shared/header/wishlist.service';
+import { WishlistService } from '../core/wishlist.service';
 import { ImageFallbackDirective } from '../shared/directives/image-fallback.directive';
 
 @Component({
