@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { WishlistService } from '../shared/header/wishlist.service';
-import { CartService } from '../shared/header/cart.service';
+import { WishlistService } from '../core/wishlist.service';
+import { CartService } from '../core/cart.service';
 import { IProduct } from '../types/product-type';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Component, HostListener } from '@angular/core';
-import { CartService } from '@/shared/services/cart.service';
+import { CartService } from '../../../../core/cart.service';
 import { IProduct } from '@/types/product-type';
-import { WishlistService } from '@/shared/services/wishlist.service';
+import { WishlistService } from '../../../../core/wishlist.service';
 import { Router } from '@angular/router';
-import { UtilsService } from '@/shared/services/utils.service';
+import { UtilsService } from '../../../../core/utils.service';
 
 @Component({
   selector: 'app-header-one',
@@ -29,7 +29,6 @@ export class HeaderOneComponent {
   ];
 
   changeHandler(selectedOption: { value: string; text: string }) {
-    console.log('Selected option:', selectedOption);
     this.productType = selectedOption.value;
   }
 

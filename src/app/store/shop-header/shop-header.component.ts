@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../shared/header/cart.service';
+import { CartService } from '../../core/cart.service';
 import { CurrencyService } from '../../core/currency.service';
 import { LanguageService } from '../../core/language.service';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';

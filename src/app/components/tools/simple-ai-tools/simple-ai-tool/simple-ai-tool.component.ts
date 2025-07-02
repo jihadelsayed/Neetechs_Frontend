@@ -103,7 +103,6 @@ export class SimpleAiToolComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.grammarCheckService.checkText(this.inputText, this.apiKey, mode).subscribe(
         (response) => {
-          console.log(response)
           this.result = response['choices'][0]['message']['content'] || `${mode.charAt(0).toUpperCase() + mode.slice(1)} check performed successfully.`;
         },
         (error) => {
