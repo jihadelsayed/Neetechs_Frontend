@@ -25,4 +25,3 @@ export class CheckoutComponent {
     this.name = this.email = this.address = '';
   }
 }
-
