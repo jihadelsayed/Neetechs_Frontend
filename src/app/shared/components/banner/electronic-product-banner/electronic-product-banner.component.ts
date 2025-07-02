@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swiper, { Pagination, EffectFade } from 'swiper';
 import { ProductBanner } from '@/data/banner-data';
 import { IProductBanner } from '@/types/banner-d-type';
 import { CurrencyService } from '@/core/currency.service';

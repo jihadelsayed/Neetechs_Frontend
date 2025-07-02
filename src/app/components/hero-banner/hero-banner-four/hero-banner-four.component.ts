@@ -9,11 +9,11 @@ register();
   styleUrls: ['./hero-banner-four.component.scss']
 })
 export class HeroBannerFourComponent {
-  thumbsSwiper: Swiper | undefined;
+  thumbsSwiper: any;
 
   play: boolean = false;
 
-  setThumbsSwiper(swiper: Swiper) {
+  setThumbsSwiper(swiper: any) {
     this.thumbsSwiper = swiper;
   }
 

@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import Swiper from 'swiper';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import Swiper, { Navigation, Pagination, EffectFade } from 'swiper';
 
 @Component({
   selector: 'app-hero-banner-three',
@@ -10,7 +9,7 @@ import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 export class HeroBannerThreeComponent {
 
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
-  public swiperInstance: Swiper | undefined;
+  public swiperInstance: any;
 
   // slider data
   public slider_data = [

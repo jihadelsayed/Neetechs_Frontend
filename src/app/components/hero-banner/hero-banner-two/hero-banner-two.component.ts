@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import Swiper from 'swiper';
-import { Navigation, Pagination,EffectFade } from 'swiper/modules';
+import Swiper, { Navigation, Pagination, EffectFade } from 'swiper';
 
 @Component({
   selector: 'app-hero-banner-two',
