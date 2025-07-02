@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../shared/header/cart.service';
 import { CurrencyService } from '../../core/currency.service';
 import { LanguageService } from '../../core/language.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-shop-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './shop-header.component.html',
   styleUrl: './shop-header.component.scss'
 })
@@ -21,6 +22,7 @@ export class ShopHeaderComponent implements OnInit {
   currencies = ['USD', 'SEK', 'الدينار'];
   categories: string[] = [];
   searchTerm = '';
+  searchControl = new FormControl('');
   selectedCategory = 'All';
 
   constructor(
@@ -33,6 +35,12 @@ export class ShopHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = ['All', ...this.productService.getCategories()];
+    this.searchControl.valueChanges
+      .pipe(debounceTime(300))
+      .subscribe(value => {
+        this.searchTerm = value || '';
+        this.search();
+      });
   }
 
   get count(): number {

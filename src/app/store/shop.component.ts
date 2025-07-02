@@ -6,6 +6,7 @@ import { CartService } from '../shared/header/cart.service';
 import { IProduct } from '../types/product-type';
 import { ProductService } from './product.service';
 import { Title, Meta } from '@angular/platform-browser';
+import { WishlistService } from '../shared/header/wishlist.service';
 
 @Component({
   selector: 'app-shop',
@@ -23,10 +24,11 @@ export class ShopComponent implements OnInit {
   sortOption = 'newest';
   page = 1;
   pageSize = 6;
-  Math = Math;
+  quickProduct: IProduct | null = null;
 
   constructor(
     private cartService: CartService,
+    private wishlistService: WishlistService,
     private productService: ProductService,
     private title: Title,
     private meta: Meta,
@@ -103,6 +105,22 @@ export class ShopComponent implements OnInit {
 
   addToCart(product: IProduct): void {
     this.cartService.addCartProduct(product);
+  }
+
+  toggleWishlist(product: IProduct): void {
+    this.wishlistService.add_wishlist_product(product);
+  }
+
+  isWishlisted(product: IProduct): boolean {
+    return this.wishlistService.getWishlistProducts().some(p => p.id === product.id);
+  }
+
+  openQuickView(product: IProduct): void {
+    this.quickProduct = product;
+  }
+
+  closeQuickView(): void {
+    this.quickProduct = null;
   }
 
   onImageError(event: Event): void {

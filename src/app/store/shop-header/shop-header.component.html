@@ -7,12 +7,11 @@
   <nav class="breadcrumbs">
     <a routerLink="/">Home</a> &gt; <span>Shop</span>
   </nav>
-  <form class="search" (ngSubmit)="search()">
+  <form class="search" (submit)="$event.preventDefault()">
     <input
       type="text"
       placeholder="Search products"
-      name="search"
-      [(ngModel)]="searchTerm"
+      [formControl]="searchControl"
     />
   </form>
   <label class="category-select">
