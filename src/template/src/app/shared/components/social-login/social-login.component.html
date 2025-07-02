@@ -1,0 +1,38 @@
+<!-- social-login.component.html -->
+<div
+  class="tp-login-social mb-10 d-flex flex-wrap align-items-center justify-content-center"
+>
+  <div class="tp-login-option-item has-google">
+    <button (click)="signInWithGoogle()">
+      <img src="/assets/img/icon/login/google.svg" alt="Google Icon" />
+      Sign in with Google
+    </button>
+  </div>
+  <div class="tp-login-option-item">
+    <button (click)="signInWithFacebook()">
+      <img src="/assets/img/icon/login/facebook.svg" alt="Facebook Icon" />
+      Sign in with Facebook
+    </button>
+  </div>
+  <!-- <div class="tp-login-option-item">
+    <button (click)="signInWithApple()">
+      <img
+        class="apple"
+        src="/assets/img/icon/login/apple.svg"
+        alt="Apple Icon"
+      />
+      Sign in with Apple
+    </button>
+  </div> -->
+  <div class="tp-login-option-item">
+    <button (click)="signInWithBankID()">
+      <img
+        class="bankid"
+        style="width: 22px; height: 22px"
+        src="/assets/img/icon/login/bankid.svg"
+        alt="bankid Icon"
+      />
+      Sign in with BankID
+    </button>
+  </div>
+</div>

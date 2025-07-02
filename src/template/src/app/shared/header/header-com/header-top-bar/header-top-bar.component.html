@@ -1,0 +1,56 @@
+<div class="tp-header-top-menu d-flex align-items-center justify-content-end">
+<!-- header-top-bar.component.html -->
+<div class="tp-header-top-menu-item tp-header-lang">
+  <span
+    (click)="handleActive('language')"
+    class="tp-header-lang-toggle"
+    id="tp-header-lang-toggle"
+  >{{ languageService.getCurrentLanguage() }}</span>
+  <ul [ngClass]="isActive === 'language' ? 'tp-lang-list-open' : ''">
+    <li *ngFor="let language of languages">
+      <a href="#" (click)="changeLanguage(language)">{{ language }}</a>
+    </li>
+  </ul>
+</div>
+
+<!-- your-component.component.html -->
+<div class="tp-header-top-menu-item tp-header-currency">
+  <span
+    (click)="handleActiveCurrency('currency')"
+    class="tp-header-currency-toggle"
+    id="tp-header-currency-toggle"
+  >
+    {{ currencyService.getCurrentCurrency().code }}
+  </span>
+  <ul [ngClass]="isCurrencyActive === 'currency' ? 'tp-currency-list-open' : ''">
+    <li *ngFor="let currency of currencies">
+      <a href="#" (click)="changeCurrency(currency)">{{ currency }}</a>
+    </li>
+  </ul>
+</div>
+
+
+
+  <div class="tp-header-top-menu-item tp-header-setting">
+    <span
+      (click)="handleActive('setting')"
+      class="tp-header-setting-toggle"
+      id="tp-header-setting-toggle"
+      >Setting</span
+    >
+    <ul [ngClass]="isActive === 'setting' ? 'tp-setting-list-open' : ''">
+      <li>
+        <a routerLink="/pages/profile">My Profile</a>
+      </li>
+      <li>
+        <a routerLink="/shop/wishlist">Wishlist</a>
+      </li>
+      <li>
+        <a routerLink="/shop/cart">Cart</a>
+      </li>
+      <li>
+        <a (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
