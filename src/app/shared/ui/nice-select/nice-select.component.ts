@@ -1,7 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nice-select',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './nice-select.component.html',
   styleUrls: ['./nice-select.component.scss'],
 })

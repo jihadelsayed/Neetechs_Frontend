@@ -1,4 +1,4 @@
-import { ICoupon } from '@/types/coupon-type';
+import { ICoupon } from './types/coupon-type';
 
 const coupon_data: ICoupon[] = [
   {

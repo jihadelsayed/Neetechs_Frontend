@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
-import category_data from '@/data/category-data';
-import { ICategory } from '@/types/category-type';
+import category_data from '../../../shared/category-data';
+import { ICategory } from '../../../shared/types/category-type';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
