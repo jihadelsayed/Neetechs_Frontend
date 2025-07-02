@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TutorialComponent } from "./tutorial/tutorial.component";
 import { ContactBannerComponent } from '../../shared/contact-banner/contact-banner.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tutorials',
@@ -17,7 +18,8 @@ export class TutorialsComponent {
   tutorialData: any;
   groupedCategories: { [key: string]: any[] } = {};
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService,
+      private router: Router) { }
 
   ngOnInit(): void {
     this.tutorialService.getTutorialData().subscribe(data => {
@@ -41,5 +43,7 @@ export class TutorialsComponent {
   getTypes(): string[] {
     return Object.keys(this.groupedCategories);
   }
-  
+    navigateTo(url: string): void {
+    this.router.navigate([url]);
+  }
 }

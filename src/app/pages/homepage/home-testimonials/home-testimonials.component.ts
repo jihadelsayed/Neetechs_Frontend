@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-testimonials',
@@ -36,5 +37,14 @@ export class HomeTestimonialsComponent {
 
   nextTestimonial() {
     this.currentTestimonialIndex = (this.currentTestimonialIndex < this.testimonials.length - 1) ? this.currentTestimonialIndex + 1 : 0;
+  }
+      navigateTo(url: string): void {
+    this.router.navigate([url]);
+  }
+  constructor(
+      private router: Router
+  ) {
+    // Initialization logic if needed
+
   }
 }

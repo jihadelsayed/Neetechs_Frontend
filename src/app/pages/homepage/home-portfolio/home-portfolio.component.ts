@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PortfolioService } from './portfolio.service';
 import { GenericSliderComponent } from '../../../shared/generic-slider/generic-slider.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-portfolio',
@@ -14,7 +15,8 @@ export class HomePortfolioComponent {
 
   projects: any = [];
 
-  constructor(private portfolioService: PortfolioService) {}
+  constructor(private portfolioService: PortfolioService,        private router: Router
+) {}
 
   ngOnInit() {
     if (this.projects.length === 0)
@@ -29,4 +31,8 @@ export class HomePortfolioComponent {
        this.projects = data.projects;
     });
   }
+        navigateTo(url: string): void {
+      this.router.navigate([url]);
+    }
+
 }

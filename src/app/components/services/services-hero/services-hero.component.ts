@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services-hero',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './services-hero.component.scss'
 })
 export class ServicesHeroComponent {
-
+       navigateTo(url: string): void {
+      this.router.navigate([url]);
+    }
+    constructor(
+        private router: Router
+    ) {
+      // Initialization logic if needed
+  
+    }
 }

@@ -127,4 +127,7 @@ Math = Math; // Expose Math for use in templates
     const element = event.target as HTMLImageElement;
     element.src = '/assets/images/product-placeholder.png';
   }
+    navigateTo(url: string): void {
+    this.router.navigate([url]);
+  }
 }
