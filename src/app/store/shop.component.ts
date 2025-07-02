@@ -25,7 +25,7 @@ export class ShopComponent implements OnInit {
   page = 1;
   pageSize = 6;
   quickProduct: IProduct | null = null;
-
+Math = Math; // Expose Math for use in templates
   constructor(
     private cartService: CartService,
     private wishlistService: WishlistService,
@@ -112,7 +112,7 @@ export class ShopComponent implements OnInit {
   }
 
   isWishlisted(product: IProduct): boolean {
-    return this.wishlistService.getWishlistProducts().some(p => p.id === product.id);
+    return this.wishlistService.getWishlistProducts().some((p: IProduct) => p.id === product.id);
   }
 
   openQuickView(product: IProduct): void {
