@@ -4,6 +4,29 @@
       <img src="https://i.imgur.com/GX04TlK.png" alt="Logo">
     </a>
   </div>
+  <nav class="breadcrumbs">
+    <a routerLink="/">Home</a> &gt; <span>Shop</span>
+  </nav>
+  <div class="dropdown" [class.active]="isLanguageActive">
+    <span class="dropdown-toggle" (click)="toggle('language')">
+      {{ languageService.getCurrentLanguage() }} &#9660;
+    </span>
+    <ul class="dropdown-menu">
+      <li *ngFor="let lang of languages">
+        <a class="dropdown-item" href="#" (click)="changeLanguage(lang)">{{ lang }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown" [class.active]="isCurrencyActive">
+    <span class="dropdown-toggle" (click)="toggle('currency')">
+      {{ currencyService.getCurrentCurrency().code }} &#9660;
+    </span>
+    <ul class="dropdown-menu">
+      <li *ngFor="let cur of currencies">
+        <a class="dropdown-item" href="#" (click)="changeCurrency(cur)">{{ cur }}</a>
+      </li>
+    </ul>
+  </div>
   <div class="spacer"></div>
   <div class="cart">
     <a routerLink="/shop/cart" class="cart-link">
@@ -15,3 +38,4 @@
     </a>
   </div>
 </header>
+

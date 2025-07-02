@@ -5,15 +5,40 @@
   </div>
 </div>
 
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<nav class="breadcrumbs">
+  <a routerLink="/">Home</a> &gt; <span>Shop</span>
+</nav>
+
+<div class="filters">
+  <label>
+    Category
+    <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+  </label>
+  <label>
+    Sort
+    <select [(ngModel)]="sortOption" (change)="applyFilters()">
+      <option value="newest">Newest</option>
+      <option value="priceAsc">Price: Low-High</option>
+      <option value="priceDesc">Price: High-Low</option>
+    </select>
+  </label>
+</div>
+
 <div class="container-card">
-  <div class="product-grid">
-    <div class="product-card" *ngFor="let product of products">
+  <div class="product-grid" *ngIf="pagedProducts.length; else loading">
+    <div class="product-card" *ngFor="let product of pagedProducts">
       <a [routerLink]="['/shop/product', product.slug]">
-        <img [src]="product.img" [alt]="product.title" />
         <img
           [src]="product.img"
           (error)="onImageError($event)"
           [alt]="product.title"
+          loading="lazy"
         />
         <h3>{{ product.title }}</h3>
       </a>
@@ -21,4 +46,10 @@
       <button class="button" (click)="addToCart(product)">Add to Cart</button>
     </div>
   </div>
+</div>
+
+<div class="pagination" *ngIf="filteredProducts.length > pageSize">
+  <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+  <span>Page {{ page }} of {{ Math.ceil(filteredProducts.length / pageSize) }}</span>
+  <button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Next</button>
 </div>
