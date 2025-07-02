@@ -38,6 +38,24 @@
   justify-content: center;
 }
 
+.breadcrumbs {
+  margin: 16px 0;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
 .product-card {
   background: white;
   padding: 16px;

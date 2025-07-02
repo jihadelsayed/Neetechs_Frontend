@@ -21,6 +21,29 @@
   position: relative;
 }
 
+.breadcrumbs {
+  margin-left: 16px;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  display: none;
+}
+
+.dropdown.active .dropdown-menu {
+  display: block;
+}
+
 .cart-link {
   display: inline-flex;
   align-items: center;
