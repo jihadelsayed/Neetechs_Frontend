@@ -1,0 +1,107 @@
+@use "../../../styles._variables.scss" as *;
+.hero-banner {
+  background-image: url("https://imgur.com/1eri1JA.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 38.2vh;
+  padding: 48px 8%;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    h1 {
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+      color: aliceblue;
+    }
+  }
+}
+
+.container-card {
+  text-align: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    background: $card-background;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    h4 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 5px 0;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 800px), (max-height: 600px) {
+  .hero-banner {
+    height: auto;
+    padding: 24px 8%;
+    .hero-content {
+      position: static;
+      text-align: center;
+
+      h1,
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+
+    .contact-info {
+      margin: 2rem 0;
+    }
+  }
+}

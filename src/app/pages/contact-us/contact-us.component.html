@@ -1,27 +1,71 @@
-<div class="hero-banner">
-  <div class="hero-content">
-    <h1>Contact Us</h1>
-    <p>
-      If you have any questions, comments, or inquiries, please feel free to reach out to us using the contact form below. We look forward to hearing from you!
-    </p>
+<div class="contact-header">
+    <h2>Keep In Touch with Us</h2>
+    <p>Hem • Contact</p>
   </div>
-</div>
 
-<div class="container-card">
-  <h2>Contact Form</h2>
+<section class="contact-section">
 
-  <div class="contact-container">
-    <app-contact-form class="contact-form"></app-contact-form>
+    <!-- Left Form -->
+    <div class="contact-form-wrapper">
+      <h2>Sent A Message</h2>
+      <form class="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Shahnewaz Sakil" />
 
-    <div class="contact-info">
-      <h4>Our Contact Information</h4>
-      <p><strong>Address:</strong>
-        <br>
-         19th Ave S
-        <br>
-Birmingham, AL 35205</p>
-      <p><strong>Phone:</strong> (888) 884-9864</p>
-      <p><strong>Email:</strong> info&#64;neetechs.com</p>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="example@neetechs.com" />
+
+        <label for="phone">Phone number</label>
+        <input type="text" id="phone" placeholder="+46 739466551" />
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Write your subject" />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+
+        <div class="remember">
+          <input type="checkbox" id="remember">
+          <label for="remember">Save my name, email, and website in this browser for the next time I comment.</label>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </div>
-</div>
+
+    <!-- Right Info -->
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <img src="assets/img/contact/contact-icon-1.png" alt="Email Icon">
+        <div>
+          <strong>Email</strong>
+          info&#64;neetechs.com
+          <br>
+          <strong>Phone</strong>
+          (888) 884-9864
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <img src="assets/img/contact/contact-icon-2.png" alt="Location Icon">
+        <div>
+          <strong>Address</strong>
+          642 19th Ave S<br>
+          Birmingham, AL 35205
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <img src="assets/img/contact/contact-icon-3.png" alt="Social Icon">
+        <div>
+          <strong>Find on social media</strong>
+          <div class="social-icons">
+            <a href="#">F</a>
+            <a href="#">T</a>
+            <a href="#">in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
