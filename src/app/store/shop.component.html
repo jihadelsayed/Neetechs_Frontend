@@ -2,7 +2,7 @@
   <div class="hero-content">
     <h1>Browse curated tech solutions</h1>
     <p>Find the perfect tools for your workflow</p>
-    <button class="cta-button" (click)="navigateTo('/shop')">Shop Now</button>
+    <button class="cta-button" routerLink="." fragment="product-grid">Browse Products</button>
   </div>
 </div>
 
@@ -32,7 +32,7 @@
 </div>
 
 <div class="container-card">
-  <div class="product-grid" *ngIf="pagedProducts.length; else loading">
+  <div id="product-grid" class="product-grid" *ngIf="pagedProducts.length; else loading">
     <div class="product-card" *ngFor="let product of pagedProducts">
       <button class="wishlist" (click)="toggleWishlist(product)" [attr.aria-label]="'Wishlist ' + product.title">
         <svg viewBox="0 0 24 24" [class.active]="isWishlisted(product)">

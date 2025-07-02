@@ -31,6 +31,21 @@
   }
 }
 
+@media (max-width: 600px) {
+  .hero-banner {
+    padding: 32px 4%;
+    min-height: 200px;
+    .hero-content {
+      max-width: 100%;
+      text-align: center;
+      h1,
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
 .product-grid {
   display: grid;
   gap: 16px;

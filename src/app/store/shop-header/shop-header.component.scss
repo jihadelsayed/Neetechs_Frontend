@@ -7,6 +7,7 @@
   padding: 8px 16px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo img {
@@ -84,4 +85,24 @@
   font-size: 12px;
   line-height: 16px;
   padding: 0 4px;
+}
+
+@media (max-width: 768px) {
+  .shop-header {
+    padding: 8px;
+  }
+  .breadcrumbs {
+    margin-left: 0;
+    width: 100%;
+    order: 1;
+  }
+  .search {
+    flex: 1 1 100%;
+    order: 2;
+    margin-top: 8px;
+  }
+  .category-select,
+  .dropdown {
+    margin-left: 0;
+  }
 }
