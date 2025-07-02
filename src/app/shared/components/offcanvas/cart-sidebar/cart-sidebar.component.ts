@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '@/shared/services/cart.service';
-import { CurrencyService } from '@/shared/header/header-com/header-top-bar/currency.service';
+import { CurrencyService } from '@/core/currency.service';
 
 @Component({
   selector: 'app-cart-sidebar',

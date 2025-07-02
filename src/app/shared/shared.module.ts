@@ -4,11 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // header and footer components
-import { HeaderOneComponent } from './header/header-one/header-one.component';
-import { HeaderTwoComponent } from './header/header-two/header-two.component';
-import { MenuBarComponent } from './header/header-com/menu-bar/menu-bar.component';
-import { HeaderCategoryComponent } from './header/header-com/header-category/header-category.component';
-import { HeaderTopBarComponent } from './header/header-com/header-top-bar/header-top-bar.component';
+
 // ui components
 import { NiceSelectComponent } from './ui/nice-select/nice-select.component';
 import { PaginationComponent } from './ui/pagination/pagination.component';
@@ -17,7 +13,6 @@ import { PaginationComponent } from './ui/pagination/pagination.component';
 import { FooterOneComponent } from './footer/footer-one/footer-one.component';
 import { FooterTwoComponent } from './footer/footer-two/footer-two.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
-import { HeaderSearchComponent } from './header/header-com/header-search/header-search.component';
 
 // components
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
@@ -34,10 +29,7 @@ import { ContactFormComponent } from './components/forms/contact-form/contact-fo
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { ShopDetailsFormComponent } from './components/forms/shop-details-form/shop-details-form.component';
-import { HeroBannerOneComponent } from './components/hero-banner/hero-banner-one/hero-banner-one.component';
-import { HeroBannerTwoComponent } from './components/hero-banner/hero-banner-two/hero-banner-two.component';
-import { HeroBannerThreeComponent } from './components/hero-banner/hero-banner-three/hero-banner-three.component';
-import { HeroBannerFourComponent } from './components/hero-banner/hero-banner-four/hero-banner-four.component';
+
 import { InstagramAreaOneComponent } from './components/instagram/instagram-area-one/instagram-area-one.component';
 import { InstagramAreaTwoComponent } from './components/instagram/instagram-area-two/instagram-area-two.component';
 import { ProductModalComponent } from './components/modals/product-modal/product-modal.component';
@@ -54,6 +46,16 @@ import { PaginationTwoComponent } from './ui/pagination-two/pagination-two.compo
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { RoleGuard } from './role.guard';
+import { HeroBannerFourComponent } from '@/components/hero-banner/hero-banner-four/hero-banner-four.component';
+import { HeroBannerOneComponent } from '@/components/hero-banner/hero-banner-one/hero-banner-one.component';
+import { HeroBannerThreeComponent } from '@/components/hero-banner/hero-banner-three/hero-banner-three.component';
+import { HeroBannerTwoComponent } from '@/components/hero-banner/hero-banner-two/hero-banner-two.component';
+import { HeaderCategoryComponent } from '@/store/shop-header/header/header-com/header-category/header-category.component';
+import { HeaderSearchComponent } from '@/store/shop-header/header/header-com/header-search/header-search.component';
+import { HeaderTopBarComponent } from '@/store/shop-header/header/header-com/header-top-bar/header-top-bar.component';
+import { MenuBarComponent } from '@/store/shop-header/header/header-com/menu-bar/menu-bar.component';
+import { HeaderOneComponent } from '@/store/shop-header/header/header-one/header-one.component';
+import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header-two.component';
 
 @NgModule({
   declarations: [

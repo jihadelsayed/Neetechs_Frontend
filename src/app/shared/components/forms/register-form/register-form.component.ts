@@ -1,7 +1,7 @@
+import { ToastService } from '@/core/toast.service';
+import { AuthService } from '@/services/auth.service';
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -19,7 +19,7 @@ export class RegisterFormComponent {
   public formSubmitted = false;
 
   constructor(
-    private toastrService: ToastrService,
+    private ToastService: ToastService,
     private authService: AuthService
   ) {}
 
@@ -46,7 +46,7 @@ export class RegisterFormComponent {
           const { accessToken,userInfo, roles, email, username, id, message } = response;
 
           // Display a success message
-          this.toastrService.success(message);
+          this.ToastService.success(message);
 
           // Reset the form
           this.registerForm.reset();
@@ -61,10 +61,10 @@ export class RegisterFormComponent {
         (error: any) => {
           console.log(error);
           if (error) {
-            this.toastrService.error(error.error.message);
+            this.ToastService.error(error.error.message);
           } else {
             // Handle signup error
-            this.toastrService.error('Signup failed. Please try again.');
+            this.ToastService.error('Signup failed. Please try again.');
           }
         }
       );

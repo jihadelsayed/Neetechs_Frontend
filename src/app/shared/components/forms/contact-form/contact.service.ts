@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
-import { environment } from 'src/environments/environment';
+import { ToastService } from '@/core/toast.service';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactService {
-  private apiUrl = environment.ServerURL +'feedbacks'; // Replace with your actual API endpoint
+  private apiUrl = environment.SERVER_URL +'feedbacks'; // Replace with your actual API endpoint
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) {}
+  constructor(private http: HttpClient, private ToastService: ToastService) {}
 
   sendMessage(formData: any): Observable<any> {
     return this.http
@@ -26,7 +26,7 @@ export class ContactService {
 
   private handleApiError(error: any): void {
     // Handle API error, e.g., show a toastr notification
-    this.toastrService.error('An error occurred while sending the message.');
+    this.ToastService.error('An error occurred while sending the message.');
     console.error('API error:', error);
   }
 }

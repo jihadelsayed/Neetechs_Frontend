@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { ToastService } from '@/core/toast.service';
+import { AuthService } from '@/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -20,7 +20,7 @@ export class LoginFormComponent {
   public formSubmitted = false;
 
   constructor(
-    private toastrService: ToastrService,
+    private ToastService: ToastService,
     private authService: AuthService,
     private router: Router // Inject the Router service
   ) {}
@@ -54,7 +54,7 @@ export class LoginFormComponent {
           localStorage.setItem('roles', roles);
 
           // Display a success message
-          this.toastrService.success('Login successful');
+          this.ToastService.success('Login successful');
 
           // Reset the form
           this.loginForm.reset();
@@ -68,9 +68,9 @@ export class LoginFormComponent {
           console.log(error);
 
           if (error.error) {
-            this.toastrService.error(error.error.message);
+            this.ToastService.error(error.error.message);
           } else {
-            this.toastrService.error('Invalid credentials. Please try again.');
+            this.ToastService.error('Invalid credentials. Please try again.');
           }
         }
       );

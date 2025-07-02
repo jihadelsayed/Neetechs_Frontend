@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '@/core/toast.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ export class BlogReplyFormComponent {
   public blogReplyForm!: FormGroup;
   public formSubmitted = false;
 
-  constructor(private toastrService: ToastrService) { }
+  constructor(private ToastService: ToastService) { }
 
   ngOnInit () {
     this.blogReplyForm = new FormGroup({
@@ -26,7 +26,7 @@ export class BlogReplyFormComponent {
     this.formSubmitted = true;
     if (this.blogReplyForm.valid) {
       console.log('blog-reply-form-value', this.blogReplyForm.value);
-      this.toastrService.success(`Message sent successfully`);
+      this.ToastService.success(`Message sent successfully`);
 
       // Reset the form
       this.blogReplyForm.reset();

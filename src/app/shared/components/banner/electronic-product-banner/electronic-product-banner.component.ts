@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import Swiper from 'swiper';
-import { Pagination, EffectFade } from 'swiper/modules';
 import { ProductBanner } from '@/data/banner-data';
 import { IProductBanner } from '@/types/banner-d-type';
-import { CurrencyService } from '@/shared/header/header-com/header-top-bar/currency.service';
+import { CurrencyService } from '@/core/currency.service';
 
 @Component({
   selector: 'app-electronic-product-banner',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '@/core/toast.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
 
@@ -12,7 +12,7 @@ export class ContactFormComponent {
   public contactForm!: FormGroup;
   public formSubmitted = false;
 
-  constructor(private toastrService: ToastrService,
+  constructor(private ToastService: ToastService,
     private contactService: ContactService) { }
 
   ngOnInit () {
@@ -32,7 +32,7 @@ export class ContactFormComponent {
       this.contactService.sendMessage(formData).subscribe(
         (response) => {
           console.log('API response:', response);
-          this.toastrService.success(`Message sent successfully`);
+          this.ToastService.success(`Message sent successfully`);
           this.contactForm.reset();
           this.formSubmitted = false;
         },

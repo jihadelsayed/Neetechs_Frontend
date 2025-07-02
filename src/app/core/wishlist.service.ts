@@ -26,7 +26,7 @@ const state = {
 })
 export class WishlistService {
 
-  constructor(private toastService: ToastService) { }
+  constructor(private ToastService: ToastService) { }
 
   public getWishlistProducts() {
     return state.wishlists;
@@ -36,10 +36,10 @@ export class WishlistService {
     const isAdded = state.wishlists.findIndex((p: IProduct) => p.id === payload.id);
     if (isAdded !== -1) {
       state.wishlists = state.wishlists.filter((p: IProduct) => p.id !== payload.id);
-      this.toastService.error(`${payload.title} removed from wishlist`);
+      this.ToastService.error(`${payload.title} removed from wishlist`);
     } else {
       state.wishlists.push(payload);
-      this.toastService.success(`${payload.title} added to wishlist`);
+      this.ToastService.success(`${payload.title} added to wishlist`);
     }
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem("wishlist_products", JSON.stringify(state.wishlists));
@@ -53,7 +53,7 @@ export class WishlistService {
 
   removeWishlist(payload: IProduct) {
     state.wishlists = state.wishlists.filter((p: IProduct) => p.id !== payload.id);
-    this.toastService.error(`${payload.title} removed from wishlist`);
+    this.ToastService.error(`${payload.title} removed from wishlist`);
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem("wishlist_products", JSON.stringify(state.wishlists));
 

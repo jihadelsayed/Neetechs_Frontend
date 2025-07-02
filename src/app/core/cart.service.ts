@@ -24,7 +24,7 @@ const state = {
 export class CartService {
   public orderQuantity: number = 1;
   public isCartOpen: boolean = false;
-  constructor(private toastService: ToastService) { }
+  constructor(private ToastService: ToastService) { }
 
   public getCartProducts(): IProduct[] {
     return state.cart_products;
@@ -42,7 +42,7 @@ export class CartService {
   addCartProduct(payload: IProduct) {
     const isExist = state.cart_products.some((i: IProduct) => i.id === payload.id);
     if (payload.status === 'out-of-stock' || payload.quantity === 0) {
-      this.toastService.error(`Out of stock ${payload.title}`);
+      this.ToastService.error(`Out of stock ${payload.title}`);
     }
     else if (!isExist) {
       const newItem = {
@@ -50,7 +50,7 @@ export class CartService {
         orderQuantity: 1,
       };
       state.cart_products.push(newItem);
-      this.toastService.success(`${payload.title} added to cart`);
+      this.ToastService.success(`${payload.title} added to cart`);
     } else {
       state.cart_products.map((item: IProduct) => {
         if (item.id === payload.id) {
@@ -60,9 +60,9 @@ export class CartService {
                 this.orderQuantity !== 1
                   ? this.orderQuantity + item.orderQuantity
                   : item.orderQuantity + 1;
-              this.toastService.success(`${this.orderQuantity} ${item.title} added to cart`);
+              this.ToastService.success(`${this.orderQuantity} ${item.title} added to cart`);
             } else {
-              this.toastService.success(`No more quantity available for this product!`);
+              this.ToastService.success(`No more quantity available for this product!`);
               this.orderQuantity = 1;
             }
           }
@@ -125,7 +125,7 @@ export class CartService {
         if (typeof item.orderQuantity !== "undefined") {
           if (item.orderQuantity > 1) {
             item.orderQuantity = item.orderQuantity - 1;
-            this.toastService.info(`Decrement Quantity For ${item.title}`);
+            this.ToastService.info(`Decrement Quantity For ${item.title}`);
           }
         }
       }
@@ -142,7 +142,7 @@ export class CartService {
     state.cart_products = state.cart_products.filter(
       (p: IProduct) => p.id !== payload.id
     );
-    this.toastService.error(`${payload.title} remove to cart`);
+    this.ToastService.error(`${payload.title} remove to cart`);
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
     } else {
