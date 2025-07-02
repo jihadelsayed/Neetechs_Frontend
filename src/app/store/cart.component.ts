@@ -35,11 +35,11 @@ export class CartComponent {
   }
 
   goToCheckout(): void {
-    const token = localStorage.getItem('token');
-    if (token) {
+   // const token = localStorage.getItem('token');
+   // if (token) {
       this.router.navigate(['/shop/checkout']);
-    } else {
-      this.router.navigate(['/account/login'], { queryParams: { redirect: 'checkout' } });
-    }
+   // } else {
+     // this.router.navigate(['/account/login'], { queryParams: { redirect: 'checkout' } });
+    //}
   }
 }

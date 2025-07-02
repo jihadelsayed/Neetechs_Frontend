@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Directive({
   selector: 'img[appImageFallback]',
-  standalone: true,
-  imports: [CommonModule]
+  standalone: true
 })
 export class ImageFallbackDirective {
   @Input() appImageFallback = '/assets/images/product-placeholder.png';
