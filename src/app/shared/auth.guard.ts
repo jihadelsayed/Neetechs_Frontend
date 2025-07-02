@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       // If not authenticated, navigate to the login page and save the current URL for redirection after login
-      this.router.navigate(['/pages/login'], {
+      this.router.navigate(['/login'], {
         queryParams: { returnUrl: state.url },
       });
       return false;

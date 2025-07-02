@@ -57,8 +57,8 @@
         <span>{{ getCurrencySymbol() }}{{ cartService.totalPriceQuantity().total.toFixed(2) }}</span>
       </div>
       <div class="cartmini__checkout-btn">
-        <a routerLink="/pages/cart" (click)="cartService.handleOpenCartSidebar()" class="tp-btn mb-10 w-100">view cart</a>
-        <a routerLink="/pages/checkout" (click)="cartService.handleOpenCartSidebar()" class="tp-btn tp-btn-border w-100">checkout</a>
+        <a routerLink="/shop/cart" (click)="cartService.handleOpenCartSidebar()" class="tp-btn mb-10 w-100">view cart</a>
+        <a routerLink="/shop/checkout" (click)="cartService.handleOpenCartSidebar()" class="tp-btn tp-btn-border w-100">checkout</a>
       </div>
     </div>
   </div>

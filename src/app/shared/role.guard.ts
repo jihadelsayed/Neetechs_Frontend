@@ -18,12 +18,12 @@ export class RoleGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const isAuthenticated = localStorage.getItem('token') !== null;
-    const excludedRoutes = ['/pages/login', '/pages/register', '/pages/forgot'];
+    const excludedRoutes = ['/login', '/register', '/forgot'];
     const isExcludedRoute = excludedRoutes.includes(state.url);
 
     if (isAuthenticated && !isExcludedRoute) {
       // If authenticated and not on an excluded route, handle specific scenarios
-      if (state.url === '/pages/profile') {
+      if (state.url === '/profile') {
         // Do something specific for the profile route if needed
       }
 
@@ -32,7 +32,7 @@ export class RoleGuard implements CanActivate {
       return true; // Allow access to excluded routes without additional checks
     } else {
       // If not authenticated and not on an excluded route, navigate to the login page
-      this.router.navigate(['/pages/login']);
+      this.router.navigate(['/login']);
       return false;
     }
   }

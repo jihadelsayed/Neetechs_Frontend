@@ -34,11 +34,11 @@ export const routes: Routes = [
     loadComponent: () => import('./components/sitemap/sitemap.component').then(m => m.SitemapComponent),
   },
   {
-    path: 'about-us',
+    path: 'about',
     loadComponent: () => import('./pages/about-us/about-us.component').then(m => m.AboutUsComponent),
   },
   {
-    path: 'contact-us',
+    path: 'contact',
     loadComponent: () => import('./pages/contact-us/contact-us.component').then(m => m.ContactUsComponent),
   },
   {
@@ -48,6 +48,42 @@ export const routes: Routes = [
   {
     path: 'terms-of-service',
     loadComponent: () => import('./pages/terms-of-service/terms-of-service.component').then(m => m.TermsOfServiceComponent),
+  },
+  {
+    path: 'coupon',
+    loadComponent: () => import('./pages/coupon/coupon.component').then(m => m.CouponComponent),
+  },
+  {
+    path: 'faq',
+    loadComponent: () => import('./pages/faq/faq.component').then(m => m.FaqComponent),
+  },
+  {
+    path: 'cookies-policy',
+    loadComponent: () => import('./pages/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent),
+  },
+  {
+    path: 'job-application',
+    loadComponent: () => import('./pages/job-application/job-application.component').then(m => m.JobApplicationComponent),
+  },
+  {
+    path: 'user-guides',
+    loadComponent: () => import('./pages/user-guides/user-guides.component').then(m => m.UserGuidesComponent),
+  },
+  {
+    path: 'careers',
+    loadComponent: () => import('./pages/careers/careers.component').then(m => m.CareersComponent),
+  },
+  {
+    path: 'blog',
+    loadComponent: () => import('./pages/blog-news/blog-news.component').then(m => m.BlogNewsComponent),
+  },
+  {
+    path: 'blog/:categoriesId',
+    loadComponent: () => import('./pages/blog-news/blog-news-categories/blog-news-categories.component').then(m => m.BlogNewsCategoriesComponent),
+  },
+  {
+    path: 'blog/:categoriesId/:blogId',
+    loadComponent: () => import('./pages/blog-news/blog/blog.component').then(m => m.BlogComponent),
   },
   {
     path: '**',
