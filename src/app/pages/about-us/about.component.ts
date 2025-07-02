@@ -18,7 +18,7 @@ export class AboutComponent {
       subtitle_2:
         'So start browsing today and find the perfect products to suit your needs!',
       img: '/assets/img/history/history-1.jpg',
-      thumb_text: 'Welcome to our <br> Phonetech.techs.se eCommerce Theme',
+      thumb_text: 'Welcome to our <br> neetechs.com eCommerce Theme',
       year: 2016,
     },
     {
@@ -28,7 +28,7 @@ export class AboutComponent {
       subtitle_2:
         'So start browsing today and find the perfect products to suit your needs!',
       img: '/assets/img/history/history-2.jpg',
-      thumb_text: 'Welcome to our <br> Phonetech.techs.se eCommerce Theme',
+      thumb_text: 'Welcome to our <br> neetechs.com eCommerce Theme',
       year: 2017,
     },
     {
@@ -38,7 +38,7 @@ export class AboutComponent {
       subtitle_2:
         'So start browsing today and find the perfect products to suit your needs!',
       img: '/assets/img/history/history-1.jpg',
-      thumb_text: 'Welcome to our <br> Phonetech.techs.se eCommerce Theme',
+      thumb_text: 'Welcome to our <br> neetechs.com eCommerce Theme',
       year: 2018,
     },
     {
@@ -48,7 +48,7 @@ export class AboutComponent {
       subtitle_2:
         'So start browsing today and find the perfect products to suit your needs!',
       img: '/assets/img/history/history-2.jpg',
-      thumb_text: 'Welcome to our <br> Phonetech.techs.se eCommerce Theme',
+      thumb_text: 'Welcome to our <br> neetechs.com eCommerce Theme',
       year: 2019,
     },
   ];

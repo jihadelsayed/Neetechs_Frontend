@@ -40,25 +40,25 @@ public slider_data = [
     subtitle: "The original",
     title: "Shine bright",
     img: "/assets/img/slider/4/slider-1.png",
-    videoSrc: "http://weblearnbd.net/tphtml/videos/phonetech.techs.se/jewellery-1.mp4#t=3",
+    videoSrc: "http://weblearnbd.net/tphtml/videos/neetechs.com/jewellery-1.mp4#t=3",
   },
   {
     subtitle: "The original",
     title: "Creative Design",
     img: "/assets/img/slider/4/slider-2.png",
-    videoSrc: "http://weblearnbd.net/tphtml/videos/phonetech.techs.se/jewellery-1.mp4#t=3",
+    videoSrc: "http://weblearnbd.net/tphtml/videos/neetechs.com/jewellery-1.mp4#t=3",
   },
   {
     subtitle: "The original",
     title: "Gold Plateted",
     img: "/assets/img/slider/4/slider-3.png",
-    videoSrc: "http://weblearnbd.net/tphtml/videos/phonetech.techs.se/jewellery-1.mp4#t=3",
+    videoSrc: "http://weblearnbd.net/tphtml/videos/neetechs.com/jewellery-1.mp4#t=3",
   },
   {
     subtitle: "The original",
     title: "Unique shapes",
     img: "/assets/img/slider/4/slider-4.png",
-    videoSrc: "http://weblearnbd.net/tphtml/videos/phonetech.techs.se/jewellery-1.mp4#t=3",
+    videoSrc: "http://weblearnbd.net/tphtml/videos/neetechs.com/jewellery-1.mp4#t=3",
   }
 ];
 
