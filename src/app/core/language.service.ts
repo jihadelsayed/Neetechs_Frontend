@@ -8,7 +8,7 @@ export class LanguageService {
 
   private languages: string[] = ['English', 'Svenska',  'عربي'];
 
-  private currentLanguage: string = this.languages[0]; // Default to Swedish
+  private currentLanguage: string = this.languages[0]; // Default to English
 
   constructor() {
     // Load the selected language from localStorage during service initialization

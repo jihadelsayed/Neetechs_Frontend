@@ -13,7 +13,7 @@ export class CurrencyService {
     // Add more currencies as needed
   ];
 
-  private currentCurrency: { code: string; symbol: string } = this.currencies[0]; // Default to SEK
+  private currentCurrency: { code: string; symbol: string } = this.currencies[0]; // Default to USD
 
   constructor() {
     // Check if localStorage is available

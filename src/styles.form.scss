@@ -5,18 +5,20 @@
   border-radius: 24px;
   padding: 20px;
   margin: 0 auto;
+  max-width: 600px;
 }
 
 /* Form Group Styling */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 /* Label Styling */
 label {
-  font-weight: bold;
+  font-weight: 600;
   color: $highlight-quinary-color; // Was: #383A08 (Dark olive)
   margin-bottom: 5px;
 }
@@ -28,6 +30,8 @@ textarea {
   border: 1px solid $highlight-secondary-color; // Was: #A3A629
   font-size: 16px;
   color: $font-color-primary; // Was: #1A1B02 (very dark olive)
+  padding: 0.5rem 0.875rem;
+  border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -94,4 +98,28 @@ button:disabled {
   width: 24px;
   height: 24px;
   font-size: 24px;
+}
+
+/* Utility classes */
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.FormInput {
+  background-color: #FFF;
+  border: 1px solid $highlight-secondary-color;
+  font-size: 16px;
+  color: $font-color-primary;
+  padding: 0.5rem 0.875rem;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.FormLabel {
+  font-weight: 600;
+  color: $highlight-quinary-color;
+  margin-bottom: 5px;
 }

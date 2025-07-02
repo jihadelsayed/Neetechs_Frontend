@@ -36,23 +36,32 @@
 }
 
 .container-card {
-  //padding: 24px;
   text-align: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h2 {
     text-align: left;
+    margin-bottom: 1rem;
   }
 }
+
 
 
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 1rem;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 
   .contact-form {
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .contact-info {
@@ -89,9 +98,10 @@
 
   .contact-container {
     grid-template-columns: 1fr;
-    
+    margin: 0 auto;
+
     .contact-info {
-      margin: 32px 0;
+      margin: 2rem 0;
     }
   }
 }
