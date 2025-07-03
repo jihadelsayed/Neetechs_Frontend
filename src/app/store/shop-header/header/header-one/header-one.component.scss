@@ -35,6 +35,21 @@
 
   .tp-header-search {
     .tp-header-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tp-header-search-category,
+.tp-header-search-btn {
+  flex-shrink: 0;
+}
+
+.tp-header-login .tp-header-login-content {
+  line-height: 1.2;
+}
+
+    .tp-header-search-wrapper {
       display: flex;
       align-items: center;
       background: #fff;
