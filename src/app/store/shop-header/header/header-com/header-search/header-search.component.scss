@@ -90,3 +90,14 @@
     height: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .search-overlay {
+    .search-box {
+      max-width: none;
+      width: calc(100% - 40px);
+      margin: 60px auto;
+      padding: 20px;
+    }
+  }
+}

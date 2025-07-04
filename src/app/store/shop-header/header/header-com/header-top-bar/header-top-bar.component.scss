@@ -43,3 +43,17 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: center;
+    gap: 15px;
+
+    .top-bar-item {
+      ul {
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+}
