@@ -1,5 +1,5 @@
 <div class="category-wrapper">
-  <button class="category-toggle" (click)="handleActive()">
+  <button class="category-toggle" (click)="handleActive($event)">
     <span class="hamburger">☰</span>
     <span class="title">Browse Categories</span>
     <span class="caret" [class.rotate]="isActive">▼</span>
@@ -17,7 +17,7 @@
         <button class="category-link" (click)="toggleSubCategory(parent.parent)">
           <img class="icon" [src]="parent.img" alt="icon" />
           <strong class="name">{{ parent.parent }}</strong>
-          <span class="arrow">▶</span>
+          <span class="arrow">→</span>
         </button>
 
         <ul class="subcategory-popup" *ngIf="parent.children?.length && openCategory === parent.parent">

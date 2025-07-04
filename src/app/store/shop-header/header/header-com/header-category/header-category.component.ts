@@ -2,7 +2,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router  } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import category_data from '../../../../../shared/category-data';
 
 @Component({
@@ -17,9 +17,12 @@ export class HeaderCategoryComponent {
   public isActive: boolean = false;
   public openCategory: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private elementRef: ElementRef) {}
 
-  public handleActive(): void {
+  public handleActive(event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
     this.isActive = !this.isActive;
     if (!this.isActive) {
       this.openCategory = null;
@@ -36,6 +39,14 @@ export class HeaderCategoryComponent {
 
   public hideSubCategory(): void {
     this.openCategory = null;
+  }
+
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: Event): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.isActive = false;
+      this.openCategory = null;
+    }
   }
 
   public handleParentCategory(value: string): void {
