@@ -1,3 +1,6 @@
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '@/types/product-type';
@@ -6,19 +9,19 @@ import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-dynamic-product-details',
   templateUrl: './dynamic-product-details.component.html',
   styleUrls: ['./dynamic-product-details.component.scss']
 })
 export class DynamicProductDetailsComponent implements OnInit {
   public product: IProduct | null | undefined;
-
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private router: Router
   ) {}
-
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap(params => {

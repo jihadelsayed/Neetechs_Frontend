@@ -1,9 +1,14 @@
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory } from '../../shared/types/category-type';
 import { Component } from '@angular/core';
 import category_data from '../../shared/category-data';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-shop-category',
   templateUrl: './shop-category.component.html',
   styleUrls: ['./shop-category.component.scss'],

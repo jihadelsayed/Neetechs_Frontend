@@ -1,7 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 import Swiper, { Navigation, Pagination, EffectFade } from 'swiper';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-hero-banner-two',
   templateUrl: './hero-banner-two.component.html',
   styleUrls: ['./hero-banner-two.component.scss']
@@ -14,20 +19,15 @@ export class HeroBannerTwoComponent  {
       title: "The Clothing Collection",
       img: "/assets/img/slider/2/slider-1.png",
     },
-    {
       id: 2,
       subtitle: "Best Selling 2023",
       title: "The Summer Collection",
       img: "/assets/img/slider/2/slider-2.png",
-    },
-    {
       id: 3,
       subtitle: "Winter Has Arrived",
       title: "Amazing New designs",
       img: "/assets/img/slider/2/slider-3.png",
-    },
   ];
-
   ngOnInit(): void {
     new Swiper('.tp-slider-active-2', {
       slidesPerView: 1,
@@ -42,7 +42,6 @@ export class HeroBannerTwoComponent  {
       pagination: {
         el: ".tp-slider-2-dot",
         clickable: true
-      },
     });
   }
 }

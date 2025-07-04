@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 import { ToastService } from '@/core/toast.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { ContactService } from './contact.service';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss']
@@ -11,10 +15,8 @@ import { ContactService } from './contact.service';
 export class ContactFormComponent {
   public contactForm!: FormGroup;
   public formSubmitted = false;
-
   constructor(private ToastService: ToastService,
     private contactService: ContactService) { }
-
   ngOnInit () {
     this.contactForm = new FormGroup({
       name:new FormControl(null,Validators.required),
@@ -24,7 +26,6 @@ export class ContactFormComponent {
       description:new FormControl(null,Validators.required),
     })
   }
-
   onSubmit() {
     this.formSubmitted = true;
     if (this.contactForm.valid) {
@@ -41,8 +42,6 @@ export class ContactFormComponent {
         }
       );}
     console.log('contact-form', this.contactForm);
-  }
-
   get name() { return this.contactForm.get('name') }
   get phone() { return this.contactForm.get('phone') }
   get email() { return this.contactForm.get('email') }

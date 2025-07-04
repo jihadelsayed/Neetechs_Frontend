@@ -1,8 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { ProductService } from '@/shared/services/product.service';
 import { IProduct } from '@/types/product-type';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-electronic-trending-products',
   templateUrl: './electronic-trending-products.component.html',
   styleUrls: ['./electronic-trending-products.component.scss']
@@ -10,7 +15,6 @@ import { IProduct } from '@/types/product-type';
 export class ElectronicTrendingProductsComponent {
   // electronic prd
   public electronic_prd:IProduct[] = [];
-
   constructor(private cdr: ChangeDetectorRef,public productService: ProductService) {
     this.productService.products.subscribe((products) => {
       this.electronic_prd = products.filter((p) => p.productType === 'electronics');
@@ -25,7 +29,6 @@ export class ElectronicTrendingProductsComponent {
     this.activeTab = tab;
     this.filteredProducts = this.getFilteredProducts(); // Update the filtered products
     this.cdr.detectChanges(); // Trigger change detection
-  }
   // filtered Products
   filteredProducts = this.getFilteredProducts(); // Initialize with default filtering
   // get Filtered Products
@@ -42,5 +45,4 @@ export class ElectronicTrendingProductsComponent {
     } else {
       return [];
     }
-  }
 }

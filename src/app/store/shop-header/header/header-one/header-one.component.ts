@@ -8,9 +8,9 @@ import { PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser, NgClass } from '@angular/common';
 import { NiceSelectComponent } from '@/shared/ui/nice-select/nice-select.component';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from "../../../../shared/shared.module";
 import { CartSidebarComponent } from "../../../../shared/components/offcanvas/cart-sidebar/cart-sidebar.component";
 import { MenuBarComponent } from '../header-com/menu-bar/menu-bar.component';
+import { MobileSidebarComponent } from '../../../../shared/components/offcanvas/mobile-sidebar/mobile-sidebar.component';
 
 @Component({
   selector: 'app-header-one',
@@ -21,9 +21,9 @@ import { MenuBarComponent } from '../header-com/menu-bar/menu-bar.component';
     FormsModule, // ✅ For ngModel
     RouterModule, // ✅ For routerLink
     NiceSelectComponent,
-    SharedModule,
     CartSidebarComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    MobileSidebarComponent
 ],
   templateUrl: './header-one.component.html',
   styleUrls: ['./header-one.component.scss'],
