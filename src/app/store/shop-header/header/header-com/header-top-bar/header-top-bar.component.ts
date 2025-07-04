@@ -37,12 +37,15 @@ export class HeaderTopBarComponent {
     } else {
       this.isActive = language;
     }
+    }
   changeCurrency(currency: any): void {
     this.currencyService.setCurrentCurrency(currency);
+    }
   handleActiveCurrency(section: any): void {
     if (section === this.isCurrencyActive) {
       this.isCurrencyActive = '';
       this.isCurrencyActive = section;
+      }}
   logout() {
     if (isPlatformBrowser(this.platformId)) {
       // Delete the token from localStorage (or wherever you store your token)
@@ -50,7 +53,11 @@ export class HeaderTopBarComponent {
       localStorage.removeItem('userInfo');
     // Navigate to the login page
     this.router.navigate(['/login']);
+    }}
   handleActive(type: string): void {
     if (type === this.isActive) {
       this.isActive = type;
-}
+  }
+  }
+  }
+  

@@ -23,13 +23,14 @@ export class CountdownTimerComponent {
     if (this.date) {
       this.timerdate = Math.trunc(new Date(this.date).getTime() / 1000);
       this.now = Math.trunc(new Date().getTime() / 1000);
-    }
+    }}
   get seconds() {
     return Math.max((this.timerdate - this.now) % 60, 0);
+    }
   get minutes() {
     return Math.max(Math.trunc((this.timerdate - this.now) / 60) % 60, 0);
-  get hours() {
+ } get hours() {
     return Math.max(Math.trunc((this.timerdate - this.now) / 60 / 60) % 24, 0);
-  get days() {
+ } get days() {
     return Math.max(Math.trunc((this.timerdate - this.now) / 60 / 60 / 24), 0);
-}
+}}

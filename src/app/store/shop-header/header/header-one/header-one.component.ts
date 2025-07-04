@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { CartSidebarComponent } from "../../../../shared/components/offcanvas/cart-sidebar/cart-sidebar.component";
 import { MenuBarComponent } from '../header-com/menu-bar/menu-bar.component';
 import { MobileSidebarComponent } from '../../../../shared/components/offcanvas/mobile-sidebar/mobile-sidebar.component';
+import { HeaderCategoryComponent } from "../header-com/header-category/header-category.component";
+import { HeaderSearchComponent } from "../header-com/header-search/header-search.component";
+import { HeaderTopBarComponent } from "../header-com/header-top-bar/header-top-bar.component";
 
 @Component({
   selector: 'app-header-one',
@@ -23,7 +26,10 @@ import { MobileSidebarComponent } from '../../../../shared/components/offcanvas/
     NiceSelectComponent,
     CartSidebarComponent,
     MenuBarComponent,
-    MobileSidebarComponent
+    MobileSidebarComponent,
+    HeaderCategoryComponent,
+    HeaderSearchComponent,
+    HeaderTopBarComponent
 ],
   templateUrl: './header-one.component.html',
   styleUrls: ['./header-one.component.scss'],

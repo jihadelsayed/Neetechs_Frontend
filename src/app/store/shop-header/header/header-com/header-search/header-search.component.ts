@@ -33,3 +33,6 @@ export class HeaderSearchComponent {
         queryParams['productType'] = this.productType;
       this.router.navigate(['/search'], { queryParams });
 }
+}}
+
+}

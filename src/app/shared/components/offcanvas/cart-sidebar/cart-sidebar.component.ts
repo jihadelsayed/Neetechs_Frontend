@@ -3,13 +3,14 @@ import { CartService } from '@/shared/services/cart.service';
 import { CurrencyService } from '@/core/currency.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgClass } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart-sidebar',
   templateUrl: './cart-sidebar.component.html',
   styleUrls: ['./cart-sidebar.component.scss'],
   standalone: true,
-  imports: [NgClass, FormsModule, CommonModule]
+  imports: [NgClass, FormsModule, CommonModule,RouterModule]
 })
 export class CartSidebarComponent {
 
