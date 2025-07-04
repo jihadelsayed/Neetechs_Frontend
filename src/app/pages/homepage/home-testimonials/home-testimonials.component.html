@@ -1,18 +1,18 @@
-<div class="section">
-    <h2>Testimonials:</h2>
+<div class="testimonials">
+  <h2 class="testimonials__title">Testimonials:</h2>
 
-    <div class="testimonials-slider">
-        <div class="viewport">
-          <div class="slides" [style.transform]="getTestimonialsTransform()">
-            <div *ngFor="let testimonial of testimonials" class="slide">
-              <p>"{{ testimonial.text }}"</p>
-              <p><strong>- {{ testimonial.author }}</strong></p>
-            </div>
-          </div>
+  <div class="testimonials__slider">
+    <div class="testimonials__viewport">
+      <div class="testimonials__slides" [style.transform]="getTestimonialsTransform()">
+        <div *ngFor="let testimonial of testimonials" class="testimonials__slide">
+          <p class="testimonials__text">"{{ testimonial.text }}"</p>
+          <p class="testimonials__author"><strong>- {{ testimonial.author }}</strong></p>
         </div>
-        <button class="prev" (click)="prevTestimonial()">&#10094;</button>
-        <button class="next" (click)="nextTestimonial()">&#10095;</button>
       </div>
- <button class="cta-button" (click)="navigateTo('/contact')">Get Started</button>
+    </div>
+    <button class="testimonials__nav testimonials__nav--prev" (click)="prevTestimonial()">&#10094;</button>
+    <button class="testimonials__nav testimonials__nav--next" (click)="nextTestimonial()">&#10095;</button>
+  </div>
 
+  <button class="cta-button testimonials__cta" (click)="navigateTo('/contact')">Get Started</button>
 </div>
