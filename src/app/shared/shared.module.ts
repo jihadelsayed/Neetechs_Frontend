@@ -53,13 +53,11 @@ import { HeroBannerTwoComponent } from '@/components/hero-banner/hero-banner-two
 import { HeaderCategoryComponent } from '@/store/shop-header/header/header-com/header-category/header-category.component';
 import { HeaderSearchComponent } from '@/store/shop-header/header/header-com/header-search/header-search.component';
 import { HeaderTopBarComponent } from '@/store/shop-header/header/header-com/header-top-bar/header-top-bar.component';
-import { MenuBarComponent } from '@/store/shop-header/header/header-com/menu-bar/menu-bar.component';
 import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header-two.component';
 
 @NgModule({
   declarations: [
     HeaderTwoComponent,
-    MenuBarComponent,
     HeaderCategoryComponent,
     HeaderTopBarComponent,
     FooterOneComponent,
@@ -82,7 +80,6 @@ import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header
     ShopDetailsBreadcrumbComponent,
     BreadcrumbTwoComponent,
     VideoPopapComponent,
-    CartSidebarComponent,
     SocialLoginComponent,
     HeroBannerThreeComponent,
     HeroBannerFourComponent,
@@ -129,7 +126,6 @@ import { HeaderTwoComponent } from '@/store/shop-header/header/header-two/header
     ShopDetailsBreadcrumbComponent,
     BreadcrumbTwoComponent,
     VideoPopapComponent,
-    CartSidebarComponent,
     SocialLoginComponent,
     HeroBannerThreeComponent,
     HeroBannerFourComponent,

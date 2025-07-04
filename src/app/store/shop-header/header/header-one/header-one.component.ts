@@ -10,6 +10,7 @@ import { NiceSelectComponent } from '@/shared/ui/nice-select/nice-select.compone
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from "../../../../shared/shared.module";
 import { CartSidebarComponent } from "../../../../shared/components/offcanvas/cart-sidebar/cart-sidebar.component";
+import { MenuBarComponent } from '../header-com/menu-bar/menu-bar.component';
 
 @Component({
   selector: 'app-header-one',
@@ -21,7 +22,8 @@ import { CartSidebarComponent } from "../../../../shared/components/offcanvas/ca
     RouterModule, // ✅ For routerLink
     NiceSelectComponent,
     SharedModule,
-    CartSidebarComponent
+    CartSidebarComponent,
+    MenuBarComponent
 ],
   templateUrl: './header-one.component.html',
   styleUrls: ['./header-one.component.scss'],
