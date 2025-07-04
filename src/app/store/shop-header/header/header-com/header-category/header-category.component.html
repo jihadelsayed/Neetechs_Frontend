@@ -1,21 +1,28 @@
 <div class="category-wrapper">
   <button class="category-toggle" (click)="handleActive()">
-    Browse Categories
-    <span [class.rotate]="isActive">▼</span>
+    <span class="hamburger">☰</span>
+    <span class="title">Browse Categories</span>
+    <span class="caret" [class.rotate]="isActive">▼</span>
   </button>
 
   <div class="category-dropdown" *ngIf="isActive">
-    <ul class="parent-category-list">
-      <li *ngFor="let parent of categoryItems">
-        <button (click)="handleParentCategory(parent.parent)">
-          {{ parent.parent }}
+    <ul class="category-list">
+      <li
+        *ngFor="let parent of categoryItems"
+        class="category-item"
+        [class.open]="openCategory === parent.parent"
+        (mouseenter)="showSubCategory(parent.parent)"
+        (mouseleave)="hideSubCategory()"
+      >
+        <button class="category-link" (click)="toggleSubCategory(parent.parent)">
+          <img class="icon" [src]="parent.img" alt="icon" />
+          <strong class="name">{{ parent.parent }}</strong>
+          <span class="arrow">▶</span>
         </button>
 
-        <ul *ngIf="parent.children?.length" class="sub-category-list">
+        <ul class="subcategory-popup" *ngIf="parent.children?.length && openCategory === parent.parent">
           <li *ngFor="let sub of parent.children">
-            <a (click)="handleSubCategory(sub)">
-              {{ sub }}
-            </a>
+            <a (click)="handleSubCategory(sub)">{{ sub }}</a>
           </li>
         </ul>
       </li>

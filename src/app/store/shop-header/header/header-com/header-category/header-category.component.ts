@@ -2,7 +2,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router  } from '@angular/router';
-import { Component,Renderer2  } from '@angular/core';
+import { Component } from '@angular/core';
 import category_data from '../../../../../shared/category-data';
 
 @Component({
@@ -15,11 +15,27 @@ import category_data from '../../../../../shared/category-data';
 export class HeaderCategoryComponent {
   public categoryItems = category_data.filter(c => c.productType === 'electronics');
   public isActive: boolean = false;
+  public openCategory: string | null = null;
 
   constructor(private router: Router) {}
 
   public handleActive(): void {
     this.isActive = !this.isActive;
+    if (!this.isActive) {
+      this.openCategory = null;
+    }
+  }
+
+  public toggleSubCategory(parent: string): void {
+    this.openCategory = this.openCategory === parent ? null : parent;
+  }
+
+  public showSubCategory(parent: string): void {
+    this.openCategory = parent;
+  }
+
+  public hideSubCategory(): void {
+    this.openCategory = null;
   }
 
   public handleParentCategory(value: string): void {
