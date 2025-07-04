@@ -1,9 +1,14 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { IProduct } from '@/types/product-type';
 import { Component, Input } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import Swiper, { Scrollbar } from 'swiper';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-related-products',
   templateUrl: './related-products.component.html',
   styleUrls: ['./related-products.component.scss'],
@@ -12,9 +17,7 @@ export class RelatedProductsComponent {
   @Input() productId!: string;
   @Input() category!: string;
   public related_products: IProduct[] = []; // Replace with your product interface
-
   constructor(private productService: ProductService) {}
-
   private loadRelatedProducts() {
     if (this.productId && this.category) {
       this.productService
@@ -24,7 +27,6 @@ export class RelatedProductsComponent {
         });
     }
   }
-
   ngOnInit(): void {
     // loadRelatedProducts
     this.loadRelatedProducts();
@@ -45,17 +47,10 @@ export class RelatedProductsComponent {
         },
         '992': {
           slidesPerView: 3,
-        },
         '768': {
           slidesPerView: 2,
-        },
         '576': {
-          slidesPerView: 2,
-        },
         '0': {
           slidesPerView: 1,
-        },
-      },
     });
-  }
 }

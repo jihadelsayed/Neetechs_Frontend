@@ -1,3 +1,6 @@
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
@@ -6,20 +9,20 @@ import brands_data from '@/data/brand-data';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-brand-filter',
   templateUrl: './brand-filter.component.html',
   styleUrls: ['./brand-filter.component.scss'],
 })
 export class BrandFilterComponent {
   public brandsData: IBrand[] = brands_data;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private viewScroller: ViewportScroller,
     public productService: ProductService
   ) {}
-
   handleBrandRoute(value: string) {
     const newBrand = value.toLowerCase().replace('&', '').split(' ').join('-');
     // Define the query parameters as an object

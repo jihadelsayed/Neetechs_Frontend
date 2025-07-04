@@ -1,3 +1,6 @@
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
@@ -6,6 +9,8 @@ import { ICategory } from '../../../shared/types/category-type';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-category-filter',
   templateUrl: './category-filter.component.html',
   styleUrls: ['./category-filter.component.scss'],
@@ -13,28 +18,23 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class CategoryFilterComponent {
   public categoryData: ICategory[] = category_data;
   activeQuery: string = '';
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private viewScroller: ViewportScroller,
     public productService: ProductService
   ) {}
-
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams) => {
       this.activeQuery = queryParams['category'];
     });
   }
-
   handleCategoryRoute(value: string): void {
     const newCategory = value.toLowerCase().replace('&', '').split(' ').join('-');
-
     // Define the query parameters as an object
     const queryParams: Params = {
       category: newCategory,
     };
-
     this.router
       .navigate([], {
         relativeTo: this.route,
@@ -46,5 +46,4 @@ export class CategoryFilterComponent {
         this.viewScroller.setOffset([120, 120]);
         this.viewScroller.scrollToAnchor('products'); // Anchore Link
       });
-  }
 }

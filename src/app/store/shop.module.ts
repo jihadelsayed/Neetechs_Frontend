@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from './../shared/shared.module';
 import { ShopRoutingModule } from './shop-routing.module';
 
 // electronics products
@@ -79,7 +78,6 @@ import { OrderComponent } from './pages/order/order.component';
     CommonModule,
     ShopRoutingModule,
     NgxSliderModule,
-    SharedModule,
     FormsModule,
   ],
   exports: [

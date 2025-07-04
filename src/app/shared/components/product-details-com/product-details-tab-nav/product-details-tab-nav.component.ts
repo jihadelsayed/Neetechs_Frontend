@@ -1,7 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Component,ElementRef,Renderer2,ViewChild,Input } from '@angular/core';
 import { IProduct } from '@/types/product-type';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-product-details-tab-nav',
   templateUrl: './product-details-tab-nav.component.html',
   styleUrls: ['./product-details-tab-nav.component.scss']
@@ -9,11 +14,8 @@ import { IProduct } from '@/types/product-type';
 export class ProductDetailsTabNavComponent {
   @ViewChild('navActive') navActive!: ElementRef;
   @ViewChild('productTabMarker') productTabMarker!: ElementRef;
-
   @Input () product! : IProduct;
-
   constructor(private renderer: Renderer2) {}
-
   handleActiveMarker(event: Event): void {
     const marker = document.getElementById("productTabMarker");
     if (marker && event.target) {
@@ -21,11 +23,9 @@ export class ProductDetailsTabNavComponent {
       marker.style.width = (event.target as HTMLButtonElement).offsetWidth + "px";
     }
   }
-
   ngAfterViewInit() {
     setTimeout(() => {
       this.renderer.setStyle(this.productTabMarker.nativeElement, 'left', this.navActive.nativeElement.offsetLeft + 'px');
       this.renderer.setStyle(this.productTabMarker.nativeElement, 'width', this.navActive.nativeElement.offsetWidth + 'px');
     }, 0);
-  }
 }

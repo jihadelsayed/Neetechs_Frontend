@@ -1,8 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { ProductService } from '@/shared/services/product.service';
 import { IProduct } from '@/types/product-type';
 import { Component } from '@angular/core';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   selector: 'app-electronic-sm-products',
   templateUrl: './electronic-sm-products.component.html',
   styleUrls: ['./electronic-sm-products.component.scss']
@@ -10,14 +15,11 @@ import { Component } from '@angular/core';
 export class ElectronicSmProductsComponent {
   // electronic prd
   public electronic_prd:IProduct[] = [];
-
   // discount_products
   public discount_products:IProduct[] = [];
   // featured_products
   public featured_products:IProduct[] = [];
-  // featured_products
   public selling_products:IProduct[] = [];
-
     constructor(public productService: ProductService) {
       this.productService.products.subscribe((products) => {
         const electronic_products = products.filter((p) => p.productType === 'electronics')
