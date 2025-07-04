@@ -1,27 +1,25 @@
-@use '../../../styles._variables.scss' as *;
+@use '../../../../styles._variables.scss' as *;
 
 .side-nav {
-  height: 100%;
-  width: 0;
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #4B4846;
+  height: 100vh;
+  width: 0;
   overflow-x: hidden;
-  transition: 0.5s;
-
+  background-color: #4B4846;
+  transition: 0.4s ease;
   z-index: 1100;
-  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 20px;
 }
-
 .side-nav.open {
   width: 100%;
   max-width: 512px;
-  // width: 380px;
 }
+
 
 .header-sideNav {
   display: flex;

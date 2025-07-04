@@ -1,16 +1,8 @@
+
 <!-- header-one.component.html -->
 <header class="header-wrapper">
   <!-- Top strip -->
-  <div class="header-top">
-    <div class="container welcome">
-      <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14.6364 1H1V12.8182H14.6364V1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M14.6364 5.54545H18.2727L21 8.27273V12.8182H14.6364V5.54545Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <p>FREE Express Shipping On Orders $570+</p>
-    </div>
-    <app-header-top-bar></app-header-top-bar>
-  </div>
+
 
   <!-- Main header -->
   <div class="header-main container">
@@ -47,6 +39,13 @@
   </div>
 </header>
 
+
+<!-- Sidebars -->
+<app-cart-sidebar></app-cart-sidebar>
+<app-mobile-sidebar product_type="electronics"></app-mobile-sidebar>
+
+<!-- Global search overlay -->
+<app-header-search></app-header-search>
 <!-- Sticky Header -->
 <div [ngClass]="{ 'header-sticky': headerSticky }" class="header-sticky-wrapper">
   <div class="container">
@@ -72,10 +71,3 @@
     </div>
   </div>
 </div>
-
-<!-- Sidebars -->
-<app-cart-sidebar></app-cart-sidebar>
-<app-mobile-sidebar product_type="electronics"></app-mobile-sidebar>
-
-<!-- Global search overlay -->
-<app-header-search></app-header-search>
