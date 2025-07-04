@@ -1,44 +1,39 @@
+@use "../../../styles._variables.scss" as *;
 .contact-banner {
-    background: linear-gradient(135deg, #FBD5BD
+  background: linear-gradient(135deg, $secondary-color, $neutral-color-darkest);
+  padding: 4rem 1rem;
+  text-align: center;
+  border-radius: 0.625rem; // 10px
+  margin: 8rem 0;
 
-    , #121110
-    );
-    padding: 50px 20px;
-    text-align: center;
-    border-radius: 10px;
-    margin: 128px 0;
-  }
-  
-  .contact-banner-content {
+  &__content {
     max-width: 800px;
     margin: auto;
+
+    h3 {
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 2.5rem;
+      color: #FEEDED;
+    }
   }
-  
-  .contact-banner h2 {
-    margin-bottom: 20px;
-  }
-  
-  .contact-banner p {
-    margin-bottom: 40px;
-    color: #FEEDED
-    ;
-  }
-  
-  .contact-button {
-    padding: 15px 30px;
+
+  &__button {
+    padding: 0.9375rem 1.875rem; // 15px 30px
     border: none;
-    border-radius: 5px;
-    background-color: #121110
-    ;
+    border-radius: 0.3125rem; // 5px
+    background-color: $neutral-color-darkest;
     color: white;
     font-size: 1.2em;
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #4B4846;
+    }
   }
-  
-  .contact-button:hover {
-    background-color: #4B4846
-    ;
-  }
-  
+}
