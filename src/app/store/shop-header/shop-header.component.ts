@@ -28,7 +28,7 @@ import { HeaderOneComponent } from './header/header-one/header-one.component';
 export class ShopHeaderComponent implements OnInit {
   isLanguageActive = false;
   isCurrencyActive = false;
-  languages = ['English', 'Svenska', 'عربي'];
+  languages = ['English', 'Swedish', 'عربي'];
   currencies = ['USD', 'SEK', 'الدينار'];
   categories: string[] = [];
   categoryOptions: { value: string; text: string }[] = [];

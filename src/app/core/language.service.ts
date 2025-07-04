@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LanguageService {
   private localStorageKey = 'selectedLanguage';
 
-  private languages: string[] = ['English', 'Svenska',  'عربي'];
+  private languages: string[] = ['English', 'Swedish',  'عربي'];
 
   private currentLanguage: string = this.languages[0]; // Default to English
 
