@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { BottomHeaderComponent } from './bottom-header/bottom-header.component';
@@ -14,8 +14,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { UtilsService } from '../../core/utils.service';
 import { IProduct } from '../../types/product-type';
-import { filter } from 'rxjs/operators';
 import { ShopHeaderComponent } from '../../store/shop-header/shop-header.component';
+import { LayoutService } from '@/services/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -50,22 +50,10 @@ export class HeaderComponent {
     public cartService: CartService,
     public wishlistService: WishlistService,
     public utilsService: UtilsService,
+    private layoutService: LayoutService,
     private router: Router
   ) {
-    this.showShopHeader = this.isShopRoute(this.router.url);
-    this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((e) => {
-        this.showShopHeader = this.isShopRoute(e.urlAfterRedirects);
-      });
-  }
-  private isShopRoute(url: string): boolean {
-    return (
-      url.startsWith('/shop') ||
-      url.startsWith('/cart') ||
-      url.startsWith('/checkout') ||
-      url.includes('/shop/product')
-    );
+    this.layoutService.showShopHeader$.subscribe(v => (this.showShopHeader = v));
   }
   checkWindowSize(width: number) {
     this.isMobile = width <= 1000;
