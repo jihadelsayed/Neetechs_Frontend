@@ -1,26 +1,26 @@
-<div class="hero-banner">
+<!-- <div class="hero-banner">
   <div class="hero-content">
     <h1>Browse curated tech solutions</h1>
     <p>Find the perfect tools for your workflow</p>
     <button class="cta-button" (click)="navigateTo('/shop')">Shop Now</button>
   </div>
-</div>
+</div> -->
 
 <ng-template #loading>
   <p>Loading...</p>
 </ng-template>
 
-<nav class="breadcrumbs">
+<!-- <nav class="breadcrumbs">
   <a routerLink="/">Home</a> &gt; <span>Shop</span>
-</nav>
+</nav> -->
 
-<nav class="store-nav">
+<!-- <nav class="store-nav">
   <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Shop</a>
   <a routerLink="/shop/cart" routerLinkActive="active">Cart</a>
   <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
-</nav>
+</nav> -->
 
-<div class="filters">
+<!-- <div class="filters">
   <label>
     Category
     <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
@@ -35,7 +35,7 @@
       <option value="priceDesc">Price: High-Low</option>
     </select>
   </label>
-</div>
+</div> -->
 
 <div class="container-card">
   <div class="product-grid" *ngIf="pagedProducts.length; else loading">

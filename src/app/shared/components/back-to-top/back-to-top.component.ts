@@ -20,7 +20,8 @@ export class BackToTopComponent {
     }
     else {
       this.showBackToTopBtn = false;
-  }
+  }}
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 }
