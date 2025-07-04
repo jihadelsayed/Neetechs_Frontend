@@ -1,8 +1,7 @@
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { UtilsService } from '../../../../../core/utils.service';
 
 @Component({
@@ -15,24 +14,25 @@ import { UtilsService } from '../../../../../core/utils.service';
 export class HeaderSearchComponent {
   public searchText: string = '';
   public productType: string = '';
-  constructor (public utilsService:UtilsService,private router: Router){};
-  public categories: string[] = ["electronics", "fashion", "beauty", "jewelry"];
-  handleProductType(productType: string) {
+  constructor(public utilsService: UtilsService, private router: Router) {}
+
+  public categories: string[] = ['electronics', 'fashion', 'beauty', 'jewelry'];
+
+  handleProductType(productType: string): void {
     this.productType = productType;
   }
-  handleSearchSubmit() {
-    const queryParams: { [key: string]: string | null } = {};
-    if(!this.searchText && !this.productType){
-      return
-    }
-    else {
-      if (this.searchText) {
-        queryParams['searchText'] = this.searchText;
-      }
-      if (this.productType) {
-        queryParams['productType'] = this.productType;
-      this.router.navigate(['/search'], { queryParams });
-}
-}}
 
+  handleSearchSubmit(): void {
+    const queryParams: { [key: string]: string | null } = {};
+    if (!this.searchText && !this.productType) {
+      return;
+    }
+    if (this.searchText) {
+      queryParams['searchText'] = this.searchText;
+    }
+    if (this.productType) {
+      queryParams['productType'] = this.productType;
+    }
+    this.router.navigate(['/search'], { queryParams });
+  }
 }
