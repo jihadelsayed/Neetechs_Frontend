@@ -18,7 +18,7 @@ export class HeaderTopBarComponent {
   public isCurrencyActive: string = '';
   public currentLanguage: string = '';
   currencies: string[] = ['SEK', 'USD', 'EUR'];
-  languages: string[] = ['Svenska', 'English', 'عربي'];
+  languages: string[] = ['Swedish', 'English', 'عربي'];
 
   constructor(
     private router: Router,
