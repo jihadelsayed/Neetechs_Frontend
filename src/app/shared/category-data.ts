@@ -44,7 +44,7 @@ const category_data: ICategory[] = [
   {
     id: '641d424bdbfab7b02ab28b95',
     img: '/assets/img/category/main/mobile.png',
-    parent: 'Övrigt Telefoner',
+    parent: 'Other Phones',
     children: [
       'Huawei',
       'Google Pixel',
@@ -65,7 +65,7 @@ const category_data: ICategory[] = [
   {
     id: '641d424bdbfab7b02ab28b95',
     img: '/assets/img/category/main/labtop.png',
-    parent: 'Datorer',
+    parent: 'Computers',
     children: ['Windows', 'Mac'],
     productType: 'electronics',
     products: [
@@ -79,8 +79,8 @@ const category_data: ICategory[] = [
   {
     id: '641d424bdbfab7b02ab28b95',
     img: '/assets/img/category/main/headphone.png',
-    parent: 'hörlurar',
-    children: ['Kids Headphones', 'Bluetooth Headphones', 'On-Ear Headphones',      'Högtalare',
+    parent: 'Headphones',
+    children: ['Kids Headphones', 'Bluetooth Headphones', 'On-Ear Headphones',      'Speakers',
   ],
     productType: 'electronics',
     products: [
@@ -93,7 +93,7 @@ const category_data: ICategory[] = [
   {
     id: '6419723bd7dc5155c04350d4',
     img: '/assets/img/category/main/tablets.png',
-    parent: 'Surfplattor',
+    parent: 'Tablets',
     children: ['Samsung', 'Apple'],
     productType: 'electronics',
     products: [
@@ -106,23 +106,23 @@ const category_data: ICategory[] = [
    {
     id: '641d424bdbfab7b02ab28b95',
     img: '/assets/img/category/main/other.png',
-    parent: 'övrigt',
+    parent: 'Others',
     children: [
-      'FODRAL',
-      'SKAL',
-      'TRANSPARENT SKAL',
-      'SKÄRMSKYDD',
-      'Strömkablar',
-      'Tangentbord',
-      'Mus',
-      'Webbkamera',
-      'hårddisk',
+      'CASES',
+      'COVERS',
+      'TRANSPARENT COVER',
+      'SCREEN PROTECTOR',
+      'Power Cables',
+      'Keyboards',
+      'Mouse',
+      'Webcam',
+      'Hard Drive',
       'USB Hub',
       'Monitor Stand',
-      'Musmatta',
-      'Mikrofon',
-      'KABEL ',
-      'LADDARE',
+      'Mousepad',
+      'Microphone',
+      'CABLE ',
+      'CHARGER',
     ],
     productType: 'electronics',
     products: [

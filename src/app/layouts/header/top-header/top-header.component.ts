@@ -23,7 +23,7 @@ export class TopHeaderComponent {
   isLoggedIn = false;
 
   currencies = ['USD', 'SEK', 'الدينار'];
-  languages = ['English', 'Svenska', 'عربي'];
+  languages = ['English', 'Swedish', 'عربي'];
 
   constructor(private router: Router, public currencyService: CurrencyService, public languageService: LanguageService,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -74,7 +74,7 @@ export class TopHeaderComponent {
   
     const langMap: { [key: string]: string } = {
       english: 'en',
-      svenska: 'sv',
+      swedish: 'sv',
       عربي: 'ar'
     };
   

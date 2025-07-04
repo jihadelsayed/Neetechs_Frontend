@@ -4,18 +4,18 @@ export const menu_data: IMenuItem[] = [
   {
     id: 1,
     link: '/home',
-    title: 'Hem',
+    title: 'Home',
     mega_menu: false,
   },
   {
     id: 2,
     link: '/shop',
-    title: 'Affär',
+    title: 'Shop',
     mega_menu: true,
     shop_mega_menus: [
       {
         link: '/shop',
-        title: 'Affär Sidor',
+        title: 'Shop Pages',
         list_menus: [
           { title: 'Grid Layout', link: '/shop' },
           { title: 'Shop Categories', link: '/shop/shop-category' },
@@ -39,7 +39,7 @@ export const menu_data: IMenuItem[] = [
   {
     id: 3,
     link: '/shop',
-    title: 'Produkter',
+    title: 'Products',
     mega_menu: true,
     product_menus: [
       {
@@ -60,7 +60,7 @@ export const menu_data: IMenuItem[] = [
       },
       {
         id: 2,
-        title: 'Produkter',
+        title: 'Products',
         link: '/shop',
         dropdown_menus: [
           { title: 'Product Simple', link: '/shop/shop-details' },
@@ -104,12 +104,12 @@ export const menu_data: IMenuItem[] = [
 
   {
     id: 5,
-    title: 'Reparation',
+    title: 'Repair',
     link: '/repair',
   },
   {
     id: 6,
-    title: 'Om oss',
+    title: 'About Us',
     link: '/about',
   },
   {
@@ -124,7 +124,7 @@ export const mobile_menu: IMobileType[] = [
   {
     id: 1,
     homes: true,
-    title: 'Hem',
+    title: 'Home',
     link: '/home',
   },
   {
@@ -194,13 +194,13 @@ export const mobile_menu: IMobileType[] = [
   {
     id: 5,
     single_link: true,
-    title: 'Om oss',
+    title: 'About Us',
     link: '/about',
   },
   {
     id: 6,
     single_link: true,
-    title: 'Reparation',
+    title: 'Repair',
     link: '/repair',
   },
   {
