@@ -7,7 +7,6 @@ import { LanguageService } from '../../core/language.service';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ProductService } from '../product.service';
-import { NiceSelectComponent } from '../../shared/ui/nice-select/nice-select.component';
 import { UtilsService } from '@/core/utils.service';
 import { WishlistService } from '@/core/wishlist.service';
 import { MobileSidebarComponent } from '@/shared/components/offcanvas/mobile-sidebar/mobile-sidebar.component';
@@ -15,7 +14,6 @@ import { CartSidebarComponent, MenuBarComponent } from '@/shared/shared-ui';
 import { IProduct } from '@/types/product-type';
 import { HeaderCategoryComponent } from './header/header-com/header-category/header-category.component';
 import { HeaderSearchComponent } from './header/header-com/header-search/header-search.component';
-import { HeaderTopBarComponent } from './header/header-com/header-top-bar/header-top-bar.component';
 
 @Component({
     selector: 'app-shop-header',
@@ -24,14 +22,13 @@ import { HeaderTopBarComponent } from './header/header-com/header-top-bar/header
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        NiceSelectComponent,
         NgClass,
         CartSidebarComponent,
         MenuBarComponent,
         MobileSidebarComponent,
         HeaderCategoryComponent,
-        HeaderSearchComponent,
-        HeaderTopBarComponent
+        HeaderSearchComponent
+        
     ],
     templateUrl: './shop-header.component.html',
     styleUrls: ['./shop-header.component.scss']

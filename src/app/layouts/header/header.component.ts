@@ -1,12 +1,6 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { TopHeaderComponent } from './top-header/top-header.component';
 import { BottomHeaderComponent } from './bottom-header/bottom-header.component';
-import { MainHeaderComponent } from './main-header/main-header.component';
-import { CartSidebarHeaderComponent } from './cart-sidebar-header/cart-sidebar-header.component';
-import { MobileSidebarHeaderComponent } from './mobile-sidebar-header/mobile-sidebar-header.component';
-
 import { CartService } from '../../core/cart.service';
 import { WishlistService } from '../../core/wishlist.service';
 import { FormsModule } from '@angular/forms';
@@ -23,12 +17,7 @@ import { LayoutService } from '@/services/layout.service';
     styleUrls: ['./header.component.scss'], // Corrected styleUrls
     imports: [
         RouterModule,
-        NavbarComponent,
-        TopHeaderComponent,
         BottomHeaderComponent,
-        MainHeaderComponent,
-        CartSidebarHeaderComponent,
-        MobileSidebarHeaderComponent,
         FormsModule,
         CommonModule,
         MobileHeaderComponent,

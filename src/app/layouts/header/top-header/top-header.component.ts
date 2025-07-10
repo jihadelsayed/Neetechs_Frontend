@@ -1,8 +1,7 @@
 // top-header.component.ts
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule, NgClass } from '@angular/common';
-import category_data from '../category-data';
+import { CommonModule } from '@angular/common';
 import { CurrencyService } from '../../../core/currency.service';
 import { LanguageService } from '../../../core/language.service';
 import { Inject, PLATFORM_ID } from '@angular/core';
@@ -11,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
  
 @Component({
     selector: 'app-top-header',
-    imports: [RouterModule, NgClass, CommonModule],
+    imports: [RouterModule, CommonModule],
     templateUrl: './top-header.component.html',
     styleUrls: ['./top-header.component.scss']
 })

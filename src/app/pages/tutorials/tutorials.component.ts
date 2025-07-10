@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { TutorialService } from './tutorials.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { TutorialComponent } from "./tutorial/tutorial.component";
 import { ContactBannerComponent } from '../../shared/contact-banner/contact-banner.component';
 import { Router } from '@angular/router';
 
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
     templateUrl: './tutorials.component.html',
     styleUrl: './tutorials.component.scss',
     providers: [TutorialService],
-    imports: [CommonModule, HttpClientModule, TutorialComponent, ContactBannerComponent]
+    imports: [CommonModule, HttpClientModule, ContactBannerComponent]
 })
 export class TutorialsComponent {
   tutorialData: any;

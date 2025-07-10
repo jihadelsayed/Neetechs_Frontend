@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CountdownTimerComponent } from '../../shared/components/countdown-timer/countdown-timer.component';
 import coupon_data from '../../shared/coupon-data';
 import { ICoupon } from '../../shared/types/coupon-type';
 import { CurrencyService } from '../../core/currency.service';
 
 @Component({
     selector: 'app-coupon',
-    imports: [CommonModule, CountdownTimerComponent],
+    imports: [CommonModule],
     templateUrl: './coupon.component.html',
     styleUrls: ['./coupon.component.scss']
 })
