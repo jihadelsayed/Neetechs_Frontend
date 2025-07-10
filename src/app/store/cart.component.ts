@@ -5,11 +5,10 @@ import { CartService } from '../core/cart.service';
 import { IProduct } from '../types/product-type';
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+    selector: 'app-cart',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.scss'
 })
 export class CartComponent {
   get items(): IProduct[] {

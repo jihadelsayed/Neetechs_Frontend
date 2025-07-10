@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-services',
-  standalone: true,
-  imports: [],
-  templateUrl: './home-services.component.html',
-  styleUrl: './home-services.component.scss'
+    selector: 'app-home-services',
+    imports: [],
+    templateUrl: './home-services.component.html',
+    styleUrl: './home-services.component.scss'
 })
 export class HomeServicesComponent {
       navigateTo(url: string): void {

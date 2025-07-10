@@ -1,11 +1,10 @@
 import { Component, Renderer2 } from '@angular/core';
 
 @Component({
-  selector: 'app-tutorial-ads',
-  standalone: true,
-  imports: [],
-  templateUrl: './tutorial-ads.component.html',
-  styleUrl: './tutorial-ads.component.scss'
+    selector: 'app-tutorial-ads',
+    imports: [],
+    templateUrl: './tutorial-ads.component.html',
+    styleUrl: './tutorial-ads.component.scss'
 })
 export class TutorialAdsComponent {
   constructor(private renderer: Renderer2) {}

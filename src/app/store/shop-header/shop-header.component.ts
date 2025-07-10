@@ -18,26 +18,23 @@ import { HeaderSearchComponent } from './header/header-com/header-search/header-
 import { HeaderTopBarComponent } from './header/header-com/header-top-bar/header-top-bar.component';
 
 @Component({
-  selector: 'app-shop-header',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NiceSelectComponent,
+    selector: 'app-shop-header',
+    imports: [
+        RouterModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NiceSelectComponent,
         NgClass,
-
         CartSidebarComponent,
         MenuBarComponent,
         MobileSidebarComponent,
         HeaderCategoryComponent,
         HeaderSearchComponent,
         HeaderTopBarComponent
-],
-
-  templateUrl: './shop-header.component.html',
-  styleUrls: ['./shop-header.component.scss']
+    ],
+    templateUrl: './shop-header.component.html',
+    styleUrls: ['./shop-header.component.scss']
 })
 export class ShopHeaderComponent implements OnInit {
   isLanguageActive = false;

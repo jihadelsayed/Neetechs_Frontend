@@ -7,12 +7,11 @@ import { ContactBannerComponent } from '../../shared/contact-banner/contact-bann
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tutorials',
-  standalone: true,
-  templateUrl: './tutorials.component.html',
-  styleUrl: './tutorials.component.scss',
-  providers: [TutorialService],
-  imports: [CommonModule, HttpClientModule, TutorialComponent, ContactBannerComponent]
+    selector: 'app-tutorials',
+    templateUrl: './tutorials.component.html',
+    styleUrl: './tutorials.component.scss',
+    providers: [TutorialService],
+    imports: [CommonModule, HttpClientModule, TutorialComponent, ContactBannerComponent]
 })
 export class TutorialsComponent {
   tutorialData: any;

@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
 import category_data from '../../../../../shared/category-data';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-header-category',
-  templateUrl: './header-category.component.html',
-  styleUrls: ['./header-category.component.scss']
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-header-category',
+    templateUrl: './header-category.component.html',
+    styleUrls: ['./header-category.component.scss']
 })
 export class HeaderCategoryComponent {
   public categoryItems = category_data.filter(c => c.productType === 'electronics');

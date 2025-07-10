@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-generic-slider',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './generic-slider.component.html',
-  styleUrl: './generic-slider.component.scss'
+    selector: 'app-generic-slider',
+    imports: [CommonModule],
+    templateUrl: './generic-slider.component.html',
+    styleUrl: './generic-slider.component.scss'
 })
 export class GenericSliderComponent {
   @Input()

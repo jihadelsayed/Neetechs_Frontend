@@ -3,11 +3,10 @@ import { GenericSliderComponent } from '../../../shared/generic-slider/generic-s
 import { TeamService } from './team.service';
 
 @Component({
-  selector: 'app-team-members',
-  standalone: true,
-  imports: [GenericSliderComponent],
-  templateUrl: './team-members.component.html',
-  styleUrl: './team-members.component.scss',
+    selector: 'app-team-members',
+    imports: [GenericSliderComponent],
+    templateUrl: './team-members.component.html',
+    styleUrl: './team-members.component.scss'
 })
 export class TeamMembersComponent {
   team: any = [];

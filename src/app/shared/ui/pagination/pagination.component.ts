@@ -6,11 +6,10 @@ import { IProduct } from '@/types/product-type';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss'],
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-pagination',
+    templateUrl: './pagination.component.html',
+    styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent {
   @Input() products: IProduct[] | IBlogType[] = [];

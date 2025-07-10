@@ -8,12 +8,11 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ImageFallbackDirective } from '../shared/directives/image-fallback.directive';
  
  @Component({
-   selector: 'app-product-detail',
-  standalone: true,
-  imports: [CommonModule, RouterModule, ImageFallbackDirective],
-   templateUrl: './product-detail.component.html',
-   styleUrl: './product-detail.component.scss'
- })
+    selector: 'app-product-detail',
+    imports: [CommonModule, RouterModule, ImageFallbackDirective],
+    templateUrl: './product-detail.component.html',
+    styleUrl: './product-detail.component.scss'
+})
 export class ProductDetailComponent {
   product?: IProduct;
   selectedImage = '';

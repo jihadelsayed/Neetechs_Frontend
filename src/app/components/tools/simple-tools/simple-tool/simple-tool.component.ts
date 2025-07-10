@@ -8,13 +8,11 @@ import { ContactBannerComponent } from '../../../../shared/contact-banner/contac
 
  
 @Component({
-  selector: 'app-simple-tool',
-  standalone: true,
-  imports: [FormsModule, CommonModule, ContactBannerComponent],
-  providers: [ToolService],
-
-  templateUrl: './simple-tool.component.html',
-  styleUrl: './simple-tool.component.scss'
+    selector: 'app-simple-tool',
+    imports: [FormsModule, CommonModule, ContactBannerComponent],
+    providers: [ToolService],
+    templateUrl: './simple-tool.component.html',
+    styleUrl: './simple-tool.component.scss'
 })
  
 

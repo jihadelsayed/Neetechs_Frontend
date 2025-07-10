@@ -6,12 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
-  selector: 'app-tools',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ContactBannerComponent],
-  providers: [ToolsService],
-  templateUrl: './tools.component.html',
-  styleUrl: './tools.component.scss'
+    selector: 'app-tools',
+    imports: [CommonModule, FormsModule, ContactBannerComponent],
+    providers: [ToolsService],
+    templateUrl: './tools.component.html',
+    styleUrl: './tools.component.scss'
 })
 export class ToolsComponent {
   tools: any[] = [];

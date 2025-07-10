@@ -6,11 +6,10 @@ import { CartService } from '../core/cart.service';
 import { IProduct } from '../types/product-type';
 
 @Component({
-  selector: 'app-wishlist',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.scss']
+    selector: 'app-wishlist',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './wishlist.component.html',
+    styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent {
   constructor(

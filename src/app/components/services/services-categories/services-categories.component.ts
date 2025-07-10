@@ -4,12 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ServicesCategoriesService } from './services-categories.service';
 
 @Component({
-  selector: 'app-services-categories',
-  standalone: true,
-  imports: [CommonModule],
-  providers: [ServicesCategoriesService],
-  templateUrl: './services-categories.component.html',
-  styleUrl: './services-categories.component.scss'
+    selector: 'app-services-categories',
+    imports: [CommonModule],
+    providers: [ServicesCategoriesService],
+    templateUrl: './services-categories.component.html',
+    styleUrl: './services-categories.component.scss'
 })
 export class ServicesCategoriesComponent {
   category: any;

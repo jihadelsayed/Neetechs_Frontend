@@ -5,11 +5,10 @@ import { CompanyInfoComponent } from "./company-info/company-info.component";
 import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
-  selector: 'app-about-us',
-  standalone: true,
-  imports: [MissionVisionComponent, TeamMembersComponent, CompanyInfoComponent, ContactBannerComponent],
-  templateUrl: './about-us.component.html',
-  styleUrl: './about-us.component.scss'
+    selector: 'app-about-us',
+    imports: [MissionVisionComponent, TeamMembersComponent, CompanyInfoComponent, ContactBannerComponent],
+    templateUrl: './about-us.component.html',
+    styleUrl: './about-us.component.scss'
 })
 export class AboutUsComponent {
 

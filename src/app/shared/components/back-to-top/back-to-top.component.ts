@@ -5,11 +5,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-back-to-top',
-  templateUrl: './back-to-top.component.html',
-  styleUrls: ['./back-to-top.component.scss']
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-back-to-top',
+    templateUrl: './back-to-top.component.html',
+    styleUrls: ['./back-to-top.component.scss']
 })
 export class BackToTopComponent {
   showBackToTopBtn = false;

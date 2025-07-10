@@ -5,12 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialsCategoriesService } from './tutorials-categories.service';
 
 @Component({
-  selector: 'app-tutorials-categories',
-  standalone: true,
-  templateUrl: './tutorials-categories.component.html',
-  styleUrl: './tutorials-categories.component.scss',
-  imports: [CommonModule, HttpClientModule],
-  providers: [TutorialsCategoriesService],
+    selector: 'app-tutorials-categories',
+    templateUrl: './tutorials-categories.component.html',
+    styleUrl: './tutorials-categories.component.scss',
+    imports: [CommonModule, HttpClientModule],
+    providers: [TutorialsCategoriesService]
 })
 export class TutorialsCategoriesComponent {
   category: any;

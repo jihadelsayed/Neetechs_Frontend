@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-home-team',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home-team.component.html',
-  styleUrl: './home-team.component.scss'
+    selector: 'app-home-team',
+    imports: [CommonModule],
+    templateUrl: './home-team.component.html',
+    styleUrl: './home-team.component.scss'
 })
 export class HomeTeamComponent {
   teamMembers = [

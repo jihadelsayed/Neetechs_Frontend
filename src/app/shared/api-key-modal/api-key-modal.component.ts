@@ -3,11 +3,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-api-key-modal',
-  standalone: true,
-  imports: [CommonModule,FormsModule],
-  templateUrl: './api-key-modal.component.html',
-  styleUrl: './api-key-modal.component.scss'
+    selector: 'app-api-key-modal',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './api-key-modal.component.html',
+    styleUrl: './api-key-modal.component.scss'
 })
 export class ApiKeyModalComponent {
   apiKey: string = '';

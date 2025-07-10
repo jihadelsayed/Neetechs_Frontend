@@ -6,11 +6,10 @@ import { ICoupon } from '../../shared/types/coupon-type';
 import { CurrencyService } from '../../core/currency.service';
 
 @Component({
-  selector: 'app-coupon',
-  standalone: true,
-  imports: [CommonModule, CountdownTimerComponent],
-  templateUrl: './coupon.component.html',
-  styleUrls: ['./coupon.component.scss']
+    selector: 'app-coupon',
+    imports: [CommonModule, CountdownTimerComponent],
+    templateUrl: './coupon.component.html',
+    styleUrls: ['./coupon.component.scss']
 })
 export class CouponComponent {
   public coupons = coupon_data;

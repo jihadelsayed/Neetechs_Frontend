@@ -10,12 +10,11 @@ import { ApiKeyModalComponent } from '../../../../shared/api-key-modal/api-key-m
 import { ContactBannerComponent } from '../../../../shared/contact-banner/contact-banner.component';
 
 @Component({
-  selector: 'app-simple-ai-tool',
-  standalone: true,
-  imports: [FormsModule, CommonModule, ContactBannerComponent, ApiKeyModalComponent],
-  providers: [ToolService, GrammarCheckService],
-  templateUrl: './simple-ai-tool.component.html',
-  styleUrls: ['./simple-ai-tool.component.scss']
+    selector: 'app-simple-ai-tool',
+    imports: [FormsModule, CommonModule, ContactBannerComponent, ApiKeyModalComponent],
+    providers: [ToolService, GrammarCheckService],
+    templateUrl: './simple-ai-tool.component.html',
+    styleUrls: ['./simple-ai-tool.component.scss']
 })
 export class SimpleAiToolComponent implements OnInit, OnDestroy {
   tool: any;

@@ -4,11 +4,10 @@ import { RouterModule } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-countdown-timer',
-  templateUrl: './countdown-timer.component.html',
-  styleUrls: ['./countdown-timer.component.scss']
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-countdown-timer',
+    templateUrl: './countdown-timer.component.html',
+    styleUrls: ['./countdown-timer.component.scss']
 })
 export class CountdownTimerComponent {
   @Input() date: string | undefined;

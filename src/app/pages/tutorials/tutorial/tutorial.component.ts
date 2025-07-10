@@ -8,7 +8,6 @@ import { SafePipe } from "./safe.pipe";
 
 @Component({
     selector: 'app-tutorial',
-    standalone: true,
     templateUrl: './tutorial.component.html',
     styleUrl: './tutorial.component.scss',
     providers: [TutorialService],

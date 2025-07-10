@@ -5,13 +5,10 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-bar',
-    standalone: true,
-  imports: [RouterModule, NgClass,CommonModule],
-
-  templateUrl: './menu-bar.component.html',
-  styleUrls: ['./menu-bar.component.scss'],
-
+    selector: 'app-menu-bar',
+    imports: [RouterModule, NgClass, CommonModule],
+    templateUrl: './menu-bar.component.html',
+    styleUrls: ['./menu-bar.component.scss']
 })
 export class MenuBarComponent {
   public menu_data:IMenuItem[] = menu_data

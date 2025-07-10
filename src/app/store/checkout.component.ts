@@ -5,11 +5,10 @@ import { RouterModule } from '@angular/router';
 import { CartService } from '../core/cart.service';
 
 @Component({
-  selector: 'app-checkout',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss'
+    selector: 'app-checkout',
+    imports: [CommonModule, FormsModule, RouterModule],
+    templateUrl: './checkout.component.html',
+    styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
   name = '';

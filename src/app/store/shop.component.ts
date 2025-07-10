@@ -10,11 +10,10 @@ import { WishlistService } from '../core/wishlist.service';
 import { ImageFallbackDirective } from '../shared/directives/image-fallback.directive';
 
 @Component({
-  selector: 'app-shop',
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ImageFallbackDirective],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss'
+    selector: 'app-shop',
+    imports: [CommonModule, RouterModule, FormsModule, ImageFallbackDirective],
+    templateUrl: './shop.component.html',
+    styleUrl: './shop.component.scss'
 })
 export class ShopComponent implements OnInit {
   products: IProduct[] = [];

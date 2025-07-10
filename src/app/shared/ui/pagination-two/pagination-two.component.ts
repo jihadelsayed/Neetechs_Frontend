@@ -4,11 +4,10 @@ import { RouterModule } from '@angular/router';
 import { Component,EventEmitter,Input,Output } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-pagination-two',
-  templateUrl: './pagination-two.component.html',
-  styleUrls: ['./pagination-two.component.scss']
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-pagination-two',
+    templateUrl: './pagination-two.component.html',
+    styleUrls: ['./pagination-two.component.scss']
 })
 export class PaginationTwoComponent {
   @Input() itemsPerPage: number = 4;

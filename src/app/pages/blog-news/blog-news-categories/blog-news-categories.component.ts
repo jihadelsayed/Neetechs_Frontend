@@ -5,12 +5,11 @@ import { BlogNewsCategoriesService } from './blog-news-categories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-blog-news-categories',
-  standalone: true,
-  imports: [CommonModule,HttpClientModule ],
-  templateUrl: './blog-news-categories.component.html',
-  styleUrl: './blog-news-categories.component.scss',
-  providers: [BlogNewsCategoriesService]
+    selector: 'app-blog-news-categories',
+    imports: [CommonModule, HttpClientModule],
+    templateUrl: './blog-news-categories.component.html',
+    styleUrl: './blog-news-categories.component.scss',
+    providers: [BlogNewsCategoriesService]
 })
 export class BlogNewsCategoriesComponent {
   category: any = {};

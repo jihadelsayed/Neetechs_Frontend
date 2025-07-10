@@ -10,11 +10,10 @@ import { isPlatformBrowser } from '@angular/common';
 
  
 @Component({
-  selector: 'app-top-header',
-  standalone: true,
-  imports: [RouterModule, NgClass,CommonModule],
-  templateUrl: './top-header.component.html',
-  styleUrls: ['./top-header.component.scss']
+    selector: 'app-top-header',
+    imports: [RouterModule, NgClass, CommonModule],
+    templateUrl: './top-header.component.html',
+    styleUrls: ['./top-header.component.scss']
 })
 export class TopHeaderComponent {
   isLanguageActive = false;

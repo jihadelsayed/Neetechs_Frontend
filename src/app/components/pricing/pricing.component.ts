@@ -5,12 +5,11 @@ import { CommonModule } from '@angular/common';
 import { ServiceCategory } from './pricing.model';
 
 @Component({
-  selector: 'app-pricing',
-  standalone: true,
-  imports: [ContactBannerComponent, CommonModule],
-  providers: [PricingService],
-  templateUrl: './pricing.component.html',
-  styleUrl: './pricing.component.scss'
+    selector: 'app-pricing',
+    imports: [ContactBannerComponent, CommonModule],
+    providers: [PricingService],
+    templateUrl: './pricing.component.html',
+    styleUrl: './pricing.component.scss'
 })
 export class PricingComponent {
 

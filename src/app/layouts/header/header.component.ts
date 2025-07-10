@@ -18,24 +18,22 @@ import { ShopHeaderComponent } from '../../store/shop-header/shop-header.compone
 import { LayoutService } from '@/services/layout.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'], // Corrected styleUrls
-  imports: [
-    RouterModule,
-    NavbarComponent,
-    TopHeaderComponent,
-    BottomHeaderComponent,
-    MainHeaderComponent,
-    CartSidebarHeaderComponent,
-    MobileSidebarHeaderComponent,
-    FormsModule,
-    CommonModule,
-    MobileHeaderComponent,
-
-    ShopHeaderComponent,
-  ],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'], // Corrected styleUrls
+    imports: [
+        RouterModule,
+        NavbarComponent,
+        TopHeaderComponent,
+        BottomHeaderComponent,
+        MainHeaderComponent,
+        CartSidebarHeaderComponent,
+        MobileSidebarHeaderComponent,
+        FormsModule,
+        CommonModule,
+        MobileHeaderComponent,
+        ShopHeaderComponent,
+    ]
 })
 export class HeaderComponent {
   public products: IProduct[] = [];

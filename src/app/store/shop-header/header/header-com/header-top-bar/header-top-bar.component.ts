@@ -7,11 +7,10 @@ import { CurrencyService } from './currency.service';
 import { LanguageService } from './language.service';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-header-top-bar',
-  templateUrl: './header-top-bar.component.html',
-  styleUrls: ['./header-top-bar.component.scss'],
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-header-top-bar',
+    templateUrl: './header-top-bar.component.html',
+    styleUrls: ['./header-top-bar.component.scss']
 })
 export class HeaderTopBarComponent {
   public isActive: string = '';

@@ -5,13 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from './blog.service';
 
 @Component({
-  selector: 'app-blog',
-  standalone: true,
-  imports: [CommonModule,HttpClientModule ],
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
-  providers: [BlogService],
-
+    selector: 'app-blog',
+    imports: [CommonModule, HttpClientModule],
+    templateUrl: './blog.component.html',
+    styleUrl: './blog.component.scss',
+    providers: [BlogService]
 })
 export class BlogComponent {
   Blog: any;

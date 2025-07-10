@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { ToastService } from '../../../core/toast.service';
 
 @Component({
-  selector: 'app-contact-form',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss'] // Correct the typo from `styleUrl` to `styleUrls`
+    selector: 'app-contact-form',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './contact-form.component.html',
+    styleUrls: ['./contact-form.component.scss'] // Correct the typo from `styleUrl` to `styleUrls`
 })
 export class ContactFormComponent {
   contactForm: FormGroup;

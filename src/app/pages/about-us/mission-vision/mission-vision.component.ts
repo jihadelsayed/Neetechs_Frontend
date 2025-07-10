@@ -3,11 +3,10 @@ import { AboutService } from './about.service';
 import { CommonModule, NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-mission-vision',
-  standalone: true,
-  imports: [NgClass,CommonModule],
-  templateUrl: './mission-vision.component.html',
-  styleUrl: './mission-vision.component.scss'
+    selector: 'app-mission-vision',
+    imports: [NgClass, CommonModule],
+    templateUrl: './mission-vision.component.html',
+    styleUrl: './mission-vision.component.scss'
 })
 export class MissionVisionComponent {
   sections: any = [];

@@ -5,11 +5,10 @@ import { GenericSliderComponent } from '../../../shared/generic-slider/generic-s
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-portfolio',
-  standalone: true,
-  imports: [CommonModule, GenericSliderComponent],
-  templateUrl: './home-portfolio.component.html',
-  styleUrl: './home-portfolio.component.scss'
+    selector: 'app-home-portfolio',
+    imports: [CommonModule, GenericSliderComponent],
+    templateUrl: './home-portfolio.component.html',
+    styleUrl: './home-portfolio.component.scss'
 })
 export class HomePortfolioComponent {
 

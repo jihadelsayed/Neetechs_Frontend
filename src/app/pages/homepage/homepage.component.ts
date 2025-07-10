@@ -9,7 +9,6 @@ import { ContactBannerComponent } from "../../shared/contact-banner/contact-bann
 
 @Component({
     selector: 'app-homepage',
-    standalone: true,
     templateUrl: './homepage.component.html',
     styleUrl: './homepage.component.scss',
     imports: [HomePortfolioComponent, HomeTestimonialsComponent, HomeTeamComponent, HomeMainComponent, HomeServicesComponent, HomeContactComponent, ContactBannerComponent]

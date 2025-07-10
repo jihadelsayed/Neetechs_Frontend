@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-testimonials',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home-testimonials.component.html',
-  styleUrl: './home-testimonials.component.scss'
+    selector: 'app-home-testimonials',
+    imports: [CommonModule],
+    templateUrl: './home-testimonials.component.html',
+    styleUrl: './home-testimonials.component.scss'
 })
 export class HomeTestimonialsComponent {
   testimonials = [

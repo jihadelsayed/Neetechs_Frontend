@@ -5,11 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { UtilsService } from '../../../core/utils.service';
 
 @Component({
-  selector: 'app-main-header',
-  standalone: true,
-  imports: [RouterModule, NgClass,CommonModule,FormsModule],
-  templateUrl: './main-header.component.html',
-  styleUrl: './main-header.component.scss'
+    selector: 'app-main-header',
+    imports: [RouterModule, NgClass, CommonModule, FormsModule],
+    templateUrl: './main-header.component.html',
+    styleUrl: './main-header.component.scss'
 })
 export class MainHeaderComponent {
   public searchText: string = '';

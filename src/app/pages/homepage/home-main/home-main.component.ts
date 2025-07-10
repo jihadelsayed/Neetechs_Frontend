@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-main',
-  standalone: true,
-  imports: [],
-  templateUrl: './home-main.component.html',
-  styleUrl: './home-main.component.scss'
+    selector: 'app-home-main',
+    imports: [],
+    templateUrl: './home-main.component.html',
+    styleUrl: './home-main.component.scss'
 })
 export class HomeMainComponent {
   constructor(private router: Router) { }

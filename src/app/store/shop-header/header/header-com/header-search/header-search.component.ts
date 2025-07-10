@@ -5,11 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UtilsService } from '../../../../../core/utils.service';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
-  selector: 'app-header-search',
-  templateUrl: './header-search.component.html',
-  styleUrls: ['./header-search.component.scss']
+    imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+    selector: 'app-header-search',
+    templateUrl: './header-search.component.html',
+    styleUrls: ['./header-search.component.scss']
 })
 export class HeaderSearchComponent {
   public searchText: string = '';

@@ -6,13 +6,11 @@ import { Router } from '@angular/router';
 import { ContactBannerComponent } from '../../shared/contact-banner/contact-banner.component';
 
 @Component({
-  selector: 'app-services',
-  standalone: true,
-  providers: [ServicesService],
-
-  imports: [ServicesHeroComponent, CommonModule, ContactBannerComponent],
-  templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+    selector: 'app-services',
+    providers: [ServicesService],
+    imports: [ServicesHeroComponent, CommonModule, ContactBannerComponent],
+    templateUrl: './services.component.html',
+    styleUrl: './services.component.scss'
 })
 export class ServicesComponent {
   services:any;

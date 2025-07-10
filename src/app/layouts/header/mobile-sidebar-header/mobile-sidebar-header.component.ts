@@ -1,14 +1,13 @@
-import { NgClass, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { menu_data } from '../menu-data';
 
 @Component({
-  selector: 'app-mobile-sidebar-header',
-  standalone: true,
-  imports: [RouterModule, NgClass,CommonModule],
-  templateUrl: './mobile-sidebar-header.component.html',
-  styleUrl: './mobile-sidebar-header.component.scss'
+    selector: 'app-mobile-sidebar-header',
+    imports: [RouterModule, CommonModule],
+    templateUrl: './mobile-sidebar-header.component.html',
+    styleUrl: './mobile-sidebar-header.component.scss'
 })
 export class MobileSidebarHeaderComponent {
   //** menu call **/

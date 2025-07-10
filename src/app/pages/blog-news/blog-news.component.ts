@@ -5,13 +5,11 @@ import { BlogNewsService } from './blog-news.service';
 import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
 
 @Component({
-  selector: 'app-blog-news',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, ContactBannerComponent],
-  templateUrl: './blog-news.component.html',
-  styleUrl: './blog-news.component.scss',
-  providers: [BlogNewsService]
-
+    selector: 'app-blog-news',
+    imports: [CommonModule, HttpClientModule, ContactBannerComponent],
+    templateUrl: './blog-news.component.html',
+    styleUrl: './blog-news.component.scss',
+    providers: [BlogNewsService]
 })
 export class BlogNewsComponent {
   blogData: any;
