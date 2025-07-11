@@ -18,12 +18,21 @@
         <code><hr>{{ section.code }}<hr></code>
         <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
       </pre>
-      <app-plotly
-      *ngIf="section.graph"
-      [data]="section.graph.data"
-      [layout]="section.graph.layout"
-      style="width: 100%; height: 400px">
-    </app-plotly>
+      <ngx-charts-line-chart
+        *ngIf="section.graph"
+        [results]="section.graph"
+        [scheme]="colorScheme"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="true"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="section.graph.xLabel || 'X'"
+        [yAxisLabel]="section.graph.yLabel || 'Y'"
+        [autoScale]="true"
+        style="width: 100%; height: 400px">
+      </ngx-charts-line-chart>
+
     </div>
   </div>
   <app-tutorial-ads></app-tutorial-ads>

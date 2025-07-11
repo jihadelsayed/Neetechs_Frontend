@@ -5,8 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from './tutorial.service';
 import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
 import { SafePipe } from "./safe.pipe";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import { PlotlyComponent } from './plotly/plotly.component';
 
 
 // math 
@@ -15,7 +15,9 @@ import { PlotlyComponent } from './plotly/plotly.component';
     templateUrl: './tutorial.component.html',
     styleUrl: './tutorial.component.scss',
     providers: [TutorialService],
-    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe,     PlotlyComponent]
+      standalone: true,
+
+    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe, NgxChartsModule ]
 })
 export class TutorialComponent {
   tutorial: any;
@@ -51,5 +53,8 @@ export class TutorialComponent {
     });
   }
 
+colorScheme:any = {
+  domain: ['#f7931a', '#3366cc', '#dc3912']
+};
 
 }
