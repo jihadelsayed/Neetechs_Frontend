@@ -18,6 +18,8 @@
         <code><hr>{{ section.code }}<hr></code>
         <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
       </pre>
+      <app-katex *ngIf="section.math" [expression]="section.math"></app-katex>
+
       <ngx-charts-line-chart
         *ngIf="section.graph"
         [results]="section.graph"

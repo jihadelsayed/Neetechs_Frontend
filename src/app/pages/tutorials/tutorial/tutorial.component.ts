@@ -6,6 +6,7 @@ import { TutorialService } from './tutorial.service';
 import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
 import { SafePipe } from "./safe.pipe";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { KatexComponent } from "./katex/katex.component";
 
 
 
@@ -17,7 +18,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     providers: [TutorialService],
       standalone: true,
 
-    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe, NgxChartsModule ]
+    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe, NgxChartsModule, KatexComponent]
 })
 export class TutorialComponent {
   tutorial: any;
