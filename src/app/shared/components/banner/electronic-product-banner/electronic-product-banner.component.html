@@ -10,7 +10,7 @@
                     <div class="tp-product-banner-content p-relative z-index-1">
                       <span class="tp-product-banner-subtitle">{{item.subtitle}}</span>
                       <h3 class="tp-product-banner-title">
-                        {{item.title}}
+                        {{ item?.title }}
                       </h3>
                       <div class="tp-product-banner-price mb-40">
                         <span class="old-price">{{ getCurrencySymbol() }}{{item.oldPrice.toFixed(2)}}</span>

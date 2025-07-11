@@ -1,4 +1,5 @@
-import { Component, Renderer2 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 
 @Component({
     selector: 'app-tutorial-ads',
@@ -7,11 +8,12 @@ import { Component, Renderer2 } from '@angular/core';
     styleUrl: './tutorial-ads.component.scss'
 })
 export class TutorialAdsComponent {
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit(): void {
-    this.loadAd();
-  }
+   if (isPlatformBrowser(this.platformId)) {
+      this.loadAd(); // Safe to access document here
+    }  }
 
   loadAd() {
     const adScript = this.renderer.createElement('script');

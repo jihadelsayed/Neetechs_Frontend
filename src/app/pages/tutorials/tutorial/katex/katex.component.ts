@@ -1,11 +1,13 @@
-import { Component, Input, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, Input, AfterViewInit, ElementRef,ViewEncapsulation  } from '@angular/core';
 import katex from 'katex';
 
 @Component({
   selector: 'app-katex',
   standalone: true,
   imports: [],
-  template: `<div class="math-render" #mathContainer></div>`
+    encapsulation: ViewEncapsulation.None,
+    templateUrl: './katex.component.html',
+  styleUrl: './katex.component.scss'
 })
 export class KatexComponent implements AfterViewInit {
   @Input() expression: string = '';

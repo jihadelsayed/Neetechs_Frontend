@@ -26,7 +26,7 @@
         <span>Total</span>
       </li>
       <li *ngFor="let item of cartService.getCartProducts()">
-        <span>{{ item.title }} x {{ item.orderQuantity }}</span>
+        <span>{{ item?.title }} x {{ item.orderQuantity }}</span>
         <span>
           {{ item.price * (item.orderQuantity || 0) | currency:'USD':'symbol':'1.0-2' }}
         </span>

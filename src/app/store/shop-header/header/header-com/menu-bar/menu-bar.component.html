@@ -1,6 +1,6 @@
 <ul class="main-menu">
   <li *ngFor="let item of menu_data" class="menu-item" [ngClass]="{ 'has-dropdown': item.drop_down || item.mega_menu }">
-    <a [routerLink]="item.link">{{ item.title }}</a>
+    <a [routerLink]="item.link">{{ item?.title }}</a>
 
     <!-- Dropdown -->
     <ul *ngIf="item.drop_down" class="dropdown-menu">

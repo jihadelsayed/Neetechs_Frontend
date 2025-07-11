@@ -15,7 +15,7 @@
         </div>
         <div class="info">
           <h5>
-            <a [routerLink]="['/shop/shop-details', item.id]">{{ item.title }}</a>
+            <a [routerLink]="['/shop/shop-details', item.id]">{{ item?.title }}</a>
           </h5>
           <div class="price-row">
             <span *ngIf="item.discount > 0 && item.orderQuantity">

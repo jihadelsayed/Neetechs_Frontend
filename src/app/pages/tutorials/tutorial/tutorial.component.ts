@@ -21,7 +21,7 @@ import { KatexComponent } from "./katex/katex.component";
     imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe, NgxChartsModule, KatexComponent]
 })
 export class TutorialComponent {
-  tutorial: any;
+  tutorial: any = {};
   categoriesId: string | null = null;
   tutorialId: string | null = null;
   constructor(private route: ActivatedRoute,private router: Router, private TutorialService: TutorialService) { }

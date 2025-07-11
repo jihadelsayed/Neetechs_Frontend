@@ -1,0 +1,40 @@
+.math-render {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+
+  font-family: 'KaTeX_Main', 'Georgia', 'Cambria', serif;
+  line-height: 1.7;
+  color: #f7931a;
+  font-size: 4.2rem; // Base size
+
+  .katex {
+    max-width: 100%;
+    overflow-x: auto;
+        font-size: inherit !important;
+
+    white-space: normal !important;
+  }
+.katex .mrel {
+  color: #f7931a !important;
+}
+
+  .katex-display {
+    margin: 0 auto;
+    text-align: center;
+  }
+    .katex .mord,  // regular math atoms
+  .katex .mrel,  // relation symbols like =
+  .katex .mtable, // matrices
+  .katex .vlist {
+    font-size: inherit !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .math-render {
+    font-size: 2.7rem;
+  }
+}
