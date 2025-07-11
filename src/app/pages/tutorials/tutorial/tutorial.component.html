@@ -1,40 +1,41 @@
 <div class="container">
-    <h3>{{ tutorial['title'] }}</h3>
+  <h3>{{ tutorial["title"] }}</h3>
 
-    <div *ngIf="tutorial.link" class="video-container">
-      <iframe 
-        width="560" 
-        height="315" 
-        [src]="tutorial.link | safe" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div *ngFor="let section of tutorial.sections" class="section">
-      <h4>{{ section.title }}</h4>
-      <p>{{ section.content }}</p>
-      <pre *ngIf="section.code">
+  <div *ngIf="tutorial.link" class="video-container">
+    <iframe
+      width="560"
+      height="315"
+      [src]="tutorial.link | safe"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
+  <div *ngFor="let section of tutorial.sections" class="section">
+    <h4>{{ section.title }}</h4>
+    <p>{{ section.content }}</p>
+    <pre *ngIf="section.code">
         <code><hr>{{ section.code }}<hr></code>
         <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
       </pre>
-      <app-katex *ngIf="section.math" [expression]="section.math"></app-katex>
+    <app-katex *ngIf="section.math" [expression]="section.math"></app-katex>
 
-      <ngx-charts-line-chart
-        *ngIf="section.graph"
-        [results]="section.graph"
-        [scheme]="colorScheme"
-        [xAxis]="true"
-        [yAxis]="true"
-        [legend]="true"
-        [showXAxisLabel]="true"
-        [showYAxisLabel]="true"
-        [xAxisLabel]="section.graph.xLabel || 'X'"
-        [yAxisLabel]="section.graph.yLabel || 'Y'"
-        [autoScale]="true"
-        style="width: 100%; height: 400px">
-      </ngx-charts-line-chart>
-
-    </div>
+    <ngx-charts-line-chart
+      *ngIf="section.graph"
+      [results]="section.graph"
+      [scheme]="colorScheme"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="section.graph.xLabel || 'X'"
+      [yAxisLabel]="section.graph.yLabel || 'Y'"
+      [autoScale]="true"
+      style="width: 100%; height: 400px"
+    >
+    </ngx-charts-line-chart>
   </div>
-  <app-tutorial-ads></app-tutorial-ads>
+</div>
+<app-tutorial-ads></app-tutorial-ads>
