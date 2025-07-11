@@ -28,7 +28,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+        "types": ["plotly.js"]
+
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

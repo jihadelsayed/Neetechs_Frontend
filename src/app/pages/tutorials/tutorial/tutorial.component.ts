@@ -6,12 +6,16 @@ import { TutorialService } from './tutorial.service';
 import { TutorialAdsComponent } from "../tutorial-ads/tutorial-ads.component";
 import { SafePipe } from "./safe.pipe";
 
+import { PlotlyComponent } from './plotly/plotly.component';
+
+
+// math 
 @Component({
     selector: 'app-tutorial',
     templateUrl: './tutorial.component.html',
     styleUrl: './tutorial.component.scss',
     providers: [TutorialService],
-    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe]
+    imports: [CommonModule, HttpClientModule, TutorialAdsComponent, SafePipe,     PlotlyComponent]
 })
 export class TutorialComponent {
   tutorial: any;
@@ -46,4 +50,6 @@ export class TutorialComponent {
       alert('Code copied to clipboard!');
     });
   }
+
+
 }
