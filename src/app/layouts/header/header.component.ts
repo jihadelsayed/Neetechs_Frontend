@@ -52,12 +52,19 @@ export class HeaderComponent {
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: any) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.headerSticky = window.scrollY > 80;
-    }
-  }
+private scrollTimeout: any;
+
+@HostListener('window:scroll', ['$event'])
+onScroll(event: any) {
+  if (!isPlatformBrowser(this.platformId)) return;
+
+  clearTimeout(this.scrollTimeout);
+  this.scrollTimeout = setTimeout(() => {
+    this.headerSticky = window.scrollY > 180;
+  }, 50);
+}
+
+
 
   // select options for header category
   public niceSelectOptions = [
