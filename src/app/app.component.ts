@@ -16,6 +16,8 @@ export class AppComponent {
   constructor() {
 
   }
-
+scrollToTop(): void {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 }

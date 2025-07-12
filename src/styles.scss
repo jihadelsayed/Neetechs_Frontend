@@ -12,6 +12,11 @@
  //  overflow-x: hidden;
 
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; // Match your fixed header height
+}
+
 header{
   z-index: 100;
 }

@@ -70,3 +70,110 @@ iframe {
   height: 315px;
   border-radius: 8px;
 }
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 48px;
+
+  a {
+    padding: 12px 24px;
+    background: #f7931a;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: #d97800;
+    }
+  }
+  a.disabled {
+    background: #ccc;
+    pointer-events: none;
+  }
+}
+
+.toc {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+  background: #fff;
+  border-left: 3px solid #f7931a;
+  padding: 16px;
+  margin-bottom: 32px;
+  max-width: 280px;
+  width: 100%;
+
+  h4 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 8px;
+
+      a {
+        cursor: pointer;
+
+        text-decoration: none;
+        color: #333;
+
+        &:hover {
+cursor: pointer;
+  text-decoration: underline;
+            color: #f7931a;
+              opacity: 0.8;
+
+        }
+        &.active {
+          color: #f7931a !important;
+          font-weight: bold;
+          border-left: 3px solid #f7931a;
+          padding-left: 8px;
+        }
+        
+      }
+    }
+  }
+}
+.tutorial-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+.completion-toggle {
+  margin-top: 8px;
+  font-size: 14px;
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+.quiz-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  .quiz-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #f7931a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #e07a00;
+    }
+  }
+}

@@ -1,41 +1,121 @@
-<div class="container">
-  <h3>{{ tutorial["title"] }}</h3>
-
-  <div *ngIf="tutorial.link" class="video-container">
-    <iframe
-      width="560"
-      height="315"
-      [src]="tutorial.link | safe"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    >
-    </iframe>
+<!-- Hero + All Tutorials Page -->
+<div *ngIf="!tutorial?.sections?.length">
+  <div class="hero-banner">
+    <div class="hero-content">
+      <h1>Our Tutorials</h1>
+      <p>
+        Explore our tutorials to enhance your tech skills, covering web development, mobile app creation, and technical repairs. Start learning today!
+      </p>
+      <button class="cta-button" (click)="navigateTo('/tutorials')">Explore Tutorials</button>
+    </div>
   </div>
-  <div *ngFor="let section of tutorial.sections" class="section">
-    <h4>{{ section.title }}</h4>
-    <p>{{ section.content }}</p>
-    <pre *ngIf="section.code">
-        <code><hr>{{ section.code }}<hr></code>
-        <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
-      </pre>
-    <app-katex *ngIf="section.math" [expression]="section.math"></app-katex>
 
-    <ngx-charts-line-chart
-      *ngIf="section.graph"
-      [results]="section.graph"
-      [scheme]="colorScheme"
-      [xAxis]="true"
-      [yAxis]="true"
-      [legend]="true"
-      [showXAxisLabel]="true"
-      [showYAxisLabel]="true"
-      [xAxisLabel]="section.graph.xLabel || 'X'"
-      [yAxisLabel]="section.graph.yLabel || 'Y'"
-      [autoScale]="true"
-      style="width: 100%; height: 400px"
-    >
-    </ngx-charts-line-chart>
+  <div *ngIf="tutorialList">
+    <div class="container-card" *ngFor="let type of getTypes()">
+      <h2>{{ type }}</h2>
+      <div class="categories">
+        <div class="category" *ngFor="let category of groupedCategories[type]">
+          <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
+          <h5>
+            <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
+          </h5>
+          <h6 class="date">{{ category.date }}</h6>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<app-tutorial-ads></app-tutorial-ads>
+
+<!-- Tutorial Details Page -->
+<div *ngIf="tutorial?.sections?.length" class="tutorial-wrapper">
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <h4>📚 Contents</h4>
+    <ul>
+      <li *ngFor="let section of tutorial.sections">
+        <a  (click)="scrollToSection(section.title)"   [class.active]="slugify(section.title) === activeSection">
+>{{ section.title }}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Tutorial Content -->
+  <div class="container">
+    <h3>{{ tutorial["title"] }}</h3>
+<p style="font-size: 14px; color: gray; margin-top: -16px;">📘 {{ getEstimatedReadingTime() }}</p>
+
+    <div *ngIf="tutorial.link" class="video-container">
+      <iframe
+        width="560"
+        height="315"
+        [src]="tutorial.link | safe"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div *ngFor="let section of tutorial.sections" class="section" [attr.id]="slugify(section.title)">
+<h4 [id]="slugify(section.title)">{{ section.title }}</h4>
+      <p>{{ section.content }}</p>
+      <pre *ngIf="section.code">
+        <code>{{ section.code }}</code>
+        <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
+      </pre>
+      <app-katex *ngIf="section.math" [expression]="section.math"></app-katex>
+
+      <ngx-charts-line-chart
+        *ngIf="section.graph"
+        [results]="section.graph"
+        [scheme]="colorScheme"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="true"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="section.graph.xLabel || 'X'"
+        [yAxisLabel]="section.graph.yLabel || 'Y'"
+        [autoScale]="true"
+        style="width: 100%; height: 400px"
+      >
+      </ngx-charts-line-chart>
+    </div>
+<div class="completion-toggle">
+  <label>
+    <input type="checkbox" [checked]="isCompleted()" (change)="toggleCompletion()" />
+    ✅ Mark as Complete
+  </label>
+</div>
+
+    <!-- Prev / Next -->
+  <div class="nav-buttons" *ngIf="tutorialList.length > 0">
+  <a *ngIf="previousTutorial" class="prev" [routerLink]="['/'].concat(previousTutorial.href.split('/'))">
+  ← {{ previousTutorial.title }}
+</a>
+
+  <a *ngIf="!previousTutorial" class="prev disabled">
+    ← No Previous Tutorial
+  </a>
+
+  <a *ngIf="!nextTutorial" class="next disabled">
+    No Next Tutorial →
+  </a>
+<a *ngIf="nextTutorial" class="next" [routerLink]="['/'].concat(nextTutorial.href.split('/'))">
+  {{ nextTutorial.title }} →
+</a>
+
+<!-- Quiz Button -->
+<div class="quiz-section" *ngIf="tutorial?.quiz">
+  <hr />
+  <button class="quiz-btn" (click)="startQuiz(tutorial)">
+    🧠 Take Quiz
+  </button>
+</div>
+
+</div>
+
+
+    <!-- Optional: Ads -->
+    <app-tutorial-ads></app-tutorial-ads>
+  </div>
+</div>
