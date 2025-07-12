@@ -11,14 +11,14 @@ export class TutorialService {
 
   constructor(private http: HttpClient) { }
 
-  getCategoryData(categoriesId: string, tutorialId: string): Observable<any> {
-    const url = `${this.baseUrl}/${categoriesId}/${tutorialId}.json`;
+    getCategoryData(categoriesId: string, tutorialId: string): Observable<any> {
+      const url = `${this.baseUrl}/${categoriesId}/${tutorialId}.json`;
+      return this.http.get<any>(url);
+    }
+    getCategoryList(categoryId: string): Observable<any> {
+          const url = `${this.baseUrl}/${categoryId}/${categoryId}.json`;
+
     return this.http.get<any>(url);
   }
-  getCategoryList(categoryId: string): Observable<any> {
-        const url = `${this.baseUrl}/${categoryId}/${categoryId}.json`;
-
-  return this.http.get<any>(url);
-}
 
 }

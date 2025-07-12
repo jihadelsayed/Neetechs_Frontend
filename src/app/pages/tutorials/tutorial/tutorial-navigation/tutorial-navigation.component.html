@@ -1,0 +1,25 @@
+<div class="nav-buttons" *ngIf="previousTutorial || nextTutorial">
+  <a *ngIf="previousTutorial" class="prev" [routerLink]="['/'].concat(previousTutorial.href.split('/'))">
+    ← {{ previousTutorial.title }}
+  </a>
+
+  <a *ngIf="!previousTutorial" class="prev disabled">
+    ← No Previous Tutorial
+  </a>
+
+  <a *ngIf="!nextTutorial" class="next disabled">
+    No Next Tutorial →
+  </a>
+
+  <a *ngIf="nextTutorial" class="next" [routerLink]="['/'].concat(nextTutorial.href.split('/'))">
+    {{ nextTutorial.title }} →
+  </a>
+</div>
+
+<!-- Quiz Button -->
+<div class="quiz-section" *ngIf="tutorial?.quiz">
+  <hr />
+  <button class="quiz-btn" (click)="startQuiz.emit(tutorial)">
+    🧠 Take Quiz
+  </button>
+</div>

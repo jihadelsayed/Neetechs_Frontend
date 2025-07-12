@@ -1,0 +1,53 @@
+<!-- TOC toggle for mobile -->
+<div class="tutorial-wrapper"
+>
+<!-- Table of Contents -->
+<app-tutorial-toc
+  [sections]="tutorial.sections"
+  [activeSection]="activeSection"
+   (sectionClicked)="scrollToSection($event)"
+></app-tutorial-toc>
+
+<!-- Main Tutorial Content -->
+<div class="container">
+  <h3>{{ tutorial["title"] }}</h3>
+  <p class="reading-time">📘 {{ getEstimatedReadingTime() }}</p>
+
+  <div *ngIf="tutorial.link" class="video-container">
+    <iframe
+      [src]="tutorial.link | safe"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <app-tutorial-section
+    *ngFor="let section of tutorial.sections"
+    [section]="section"
+    [stepIndex]="stepIndexes[slugify(section.title)]"
+    (next)="nextStep(slugify(section.title))"
+    [sectionId]="slugify(section.title)">
+  </app-tutorial-section>
+
+  <!-- Completion Toggle -->
+  <div class="completion-toggle">
+    <label>
+      <input type="checkbox" [checked]="isCompleted()" (change)="toggleCompletion()" />
+      ✅ Mark as Complete
+    </label>
+  </div>
+
+  <!-- Prev / Next / Quiz -->
+  <app-tutorial-navigation
+    [previousTutorial]="previousTutorial"
+    [nextTutorial]="nextTutorial"
+    [tutorial]="tutorial"
+    (startQuiz)="this.startQuiz.emit(tutorial);
+">
+  </app-tutorial-navigation>
+
+  <!-- Ads -->
+  <app-tutorial-ads></app-tutorial-ads>
+</div>
+</div>
