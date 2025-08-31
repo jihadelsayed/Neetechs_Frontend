@@ -1,18 +1,66 @@
 <div class="modal" *ngIf="showModal">
-    <div class="modal-content">
-      <span class="close" (click)="closeModal()">&times;</span>
-      <h2>Enter Your API Key</h2>
-      <form (ngSubmit)="saveApiKey()">
-        <label for="apiKey">API Key:</label>
-        <input
-          type="text"
-          id="apiKey"
-          [(ngModel)]="apiKey"
-          name="apiKey"
-          required
-        />
-        <button type="submit">Save</button>
-      </form>
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <h4>Enter your OpenAI API Key</h4>
+
+    <label for="apiKey">API Key</label>
+    <div class="key-row">
+      <input
+        [type]="showKey ? 'text' : 'password'"
+        id="apiKey"
+        [(ngModel)]="apiKey"
+        name="apiKey"
+        placeholder="sk-..."
+        required
+      />
+      <button type="button" (click)="showKey = !showKey">
+        {{ showKey ? 'Hide' : 'Show' }}
+      </button>
     </div>
+
+    <hr />
+
+    <h4>Choose a Model</h4>
+
+    <label>
+      <input
+        type="radio"
+        name="modelChoice"
+        value="preset"
+        [(ngModel)]="modelChoice"
+      />
+      Use a preset
+    </label>
+
+    <div class="preset" *ngIf="modelChoice === 'preset'">
+      <select [(ngModel)]="presetModel">
+        <option value="gpt-5">GPT-5 (best quality)</option>
+        <option value="gpt-5-mini">GPT-5 mini (fast & cheap)</option>
+        <option value="gpt-5-nano">GPT-5 nano (cheapest)</option>
+        <option value="gpt-4o-mini">GPT-4o mini (legacy)</option>
+      </select>
+      <small>Switch anytime later in Settings.</small>
+    </div>
+
+    <label class="mt">
+      <input
+        type="radio"
+        name="modelChoice"
+        value="custom"
+        [(ngModel)]="modelChoice"
+      />
+      Use custom model id
+    </label>
+
+    <div class="custom" *ngIf="modelChoice === 'custom'">
+      <input
+        type="text"
+        [(ngModel)]="customModel"
+        placeholder="e.g. gpt-5-chat-latest or org/fine-tuned-model"
+      />
+    </div>
+
+    <button class="primary mt" (click)="saveApiKey()">Save</button>
   </div>
-  
+</div>

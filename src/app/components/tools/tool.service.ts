@@ -15,4 +15,8 @@ export class ToolService {
  
     return this.http.get<any>(url);
   }
+    getAllTools(): Observable<any> {
+    const url = `${this.baseUrl}/tools.json`;
+    return this.http.get<any>(url);
+  }
 }

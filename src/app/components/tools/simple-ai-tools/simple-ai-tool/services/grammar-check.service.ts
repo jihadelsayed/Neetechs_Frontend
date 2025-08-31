@@ -2,46 +2,53 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+export type ToolMode = 'grammar' | 'spelling' | 'style';
+export interface CheckOptions {
+  apiKey: string;
+  model?: string;        // 'gpt-5', 'gpt-5-mini', 'gpt-4o-mini', etc.
+  temperature?: number;  // optional; if omitted, NOT sent
+}
+
+@Injectable({ providedIn: 'root' })
 export class GrammarCheckService {
-  private apiUrl: string = 'https://api.openai.com/v1/chat/completions'; // OpenAI API URL
-  private model: string = 'gpt-4o-mini'; // The model you want to use
+  private readonly chatUrl = 'https://api.openai.com/v1/chat/completions';
 
   constructor(private http: HttpClient) {}
 
-  private createHeaders(apiKey: string): HttpHeaders {
+  private headers(apiKey: string) {
     return new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${apiKey}`,
     });
   }
 
-  checkText(text: string, apiKey: string, mode: 'grammar' | 'spelling' | 'style'): Observable<any> {
-    let prompt: string;
-
+  private promptFor(mode: ToolMode, text: string): string {
     switch (mode) {
       case 'grammar':
-        prompt = `Check the grammar of the following text and suggest corrections:\n\n"${text}"`;
-        break;
+        return `Fix grammar. Return corrected text, then bullet list of changes.\n\n${text}`;
       case 'spelling':
-        prompt = `Check the spelling of the following text and suggest corrections:\n\n"${text}"`;
-        break;
+        return `Fix spelling. Return corrected text, then bullet list of corrections.\n\n${text}`;
       case 'style':
-        prompt = `Analyze the style of the following text and provide style improvement suggestions:\n\n"${text}"`;
-        break;
-      default:
-        throw new Error('Invalid mode provided.');
+        return `Improve clarity & tone (concise, natural). Return improved text, then 3–5 bullets explaining changes.\n\n${text}`;
+    }
+  }
+
+  checkText(text: string, mode: ToolMode, opts: CheckOptions): Observable<any> {
+    const model = (opts.model || 'gpt-5-mini').trim();
+
+    const body: any = {
+      model,
+      messages: [
+        { role: 'system', content: 'You are a precise English editor. Keep meaning, be concise.' },
+        { role: 'user', content: this.promptFor(mode, text) },
+      ],
+    };
+
+    // IMPORTANT: only include temperature if provided; some models reject decimals or the field entirely
+    if (typeof opts.temperature === 'number') {
+      body.temperature = opts.temperature;
     }
 
-    const requestBody = {
-      model: this.model,
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: prompt }
-      ]
-    };
-    return this.http.post(this.apiUrl, requestBody, { headers: this.createHeaders(apiKey) });
+    return this.http.post(this.chatUrl, body, { headers: this.headers(opts.apiKey) });
   }
 }

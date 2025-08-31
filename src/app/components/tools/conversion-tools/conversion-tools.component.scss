@@ -1,0 +1,33 @@
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.icon {
+  font-size: 28px;
+}
+.name {
+  font-weight: bold;
+  margin-top: 4px;
+}
+.desc {
+  font-size: 12px;
+  color: #555;
+}

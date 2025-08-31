@@ -21,6 +21,7 @@
         <a [href]="downloadUrl" [download]="downloadName">⬇️ Download {{ downloadName }}</a>
       </div>
       <ng-template #nores><code>—</code></ng-template>
+
       <pre *ngIf="logs.length">{{ logs.join('\n') }}</pre>
     </div>
   </div>
