@@ -10,19 +10,21 @@ import { UtilsService } from '../../core/utils.service';
 import { IProduct } from '../../types/product-type';
 import { ShopHeaderComponent } from '../../store/shop-header/shop-header.component';
 import { LayoutService } from '@/services/layout.service';
+import { TopHeaderComponent } from "./top-header/top-header.component";
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'], // Corrected styleUrls
     imports: [
-        RouterModule,
-        BottomHeaderComponent,
-        FormsModule,
-        CommonModule,
-        MobileHeaderComponent,
-        ShopHeaderComponent,
-    ]
+    RouterModule,
+    BottomHeaderComponent,
+    FormsModule,
+    CommonModule,
+    MobileHeaderComponent,
+    ShopHeaderComponent,
+    TopHeaderComponent
+]
 })
 export class HeaderComponent {
   public products: IProduct[] = [];
