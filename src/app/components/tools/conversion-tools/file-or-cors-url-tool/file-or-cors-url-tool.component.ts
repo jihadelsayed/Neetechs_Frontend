@@ -86,13 +86,20 @@ export class FileOrCorsUrlToolComponent implements OnInit, OnDestroy {
     const name = (u.split('/').pop() || 'video').split('?')[0] || 'video.mp4';
     return new File([b], name, { type: b.type || 'video/mp4' });
   }
-
+private isLikelyUrl(u: string) {
+  try { new URL(u); return true; } catch { return false; }
+}
   private preset() {
     switch (this.mode) {
       case 'high-quality': return { vbrQuality: 2 };  // ~190–220 kbps VBR
       case 'small-size':   return { bitrateKbps: 128 };
       default:             return { vbrQuality: 2 };
     }
+  }
+  errMsg: string | null = null;
+  private showError(msg: string) {
+    this.errMsg = msg;
+    setTimeout(() => (this.errMsg = null), 4000);
   }
 
   async run() {
@@ -101,26 +108,29 @@ export class FileOrCorsUrlToolComponent implements OnInit, OnDestroy {
       this.logs = [];
 
       const input =
-        this.file ||
-        (this.url ? await this.fetchCorsFile(this.url) : undefined);
+  this.file ||
+  (this.url && this.isLikelyUrl(this.url) ? await this.fetchCorsFile(this.url) : undefined);
 
-      if (!input) throw new Error('Select a file or enter a CORS-enabled URL.');
+if (!input) throw new Error('Select a file or enter a **valid CORS-enabled** URL.');
 
-      const { blob, fileName } = await this.ff.toMp3(input, this.preset());
 
-      // Force MP3 filename if needed
-      const safeName = (fileName && fileName.endsWith('.mp3'))
-        ? fileName
-        : (input.name.replace(/\.[^.]+$/, '') || 'audio') + '.mp3';
+const { blob, fileName } = await this.ff.toMp3(input, this.preset());
 
-      // Ensure correct content-type
-      const mp3Blob = blob.type === 'audio/mpeg' ? blob : new Blob([await blob.arrayBuffer()], { type: 'audio/mpeg' });
+const safeName = (fileName?.toLowerCase().endsWith('.mp3')
+  ? fileName
+  : (input.name.replace(/\.[^.]+$/, '') || 'audio') + '.mp3');
 
-      this.downloadUrl = URL.createObjectURL(mp3Blob);
-      this.downloadName = safeName;
+const mp3Blob = blob.type === 'audio/mpeg'
+  ? blob
+  : new Blob([await blob.arrayBuffer()], { type: 'audio/mpeg' });
+
+this.downloadUrl = URL.createObjectURL(mp3Blob);
+this.downloadName = safeName;
+
     } catch (e: any) {
-      this.logs.push('ERROR: ' + (e?.message || String(e)));
-    } finally {
+  const msg = 'ERROR: ' + (e?.message || String(e));
+  this.logs.push(msg);
+  this.showError(e?.message || 'Conversion failed. See logs.');    } finally {
       this.busy = false;
     }
   }

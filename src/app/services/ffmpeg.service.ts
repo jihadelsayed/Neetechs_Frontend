@@ -1,23 +1,42 @@
-import { Injectable } from '@angular/core';
-import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { fetchFile } from '@ffmpeg/util';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Inject, PLATFORM_ID } from '@angular/core';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 @Injectable({ providedIn: 'root' })
 export class FfmpegService {
   private ff?: FFmpeg;
   private loaded = false;
-constructor(@Inject(PLATFORM_ID) private pid: Object) {}
+
+  // If you prefer hosting locally, set to '/assets/ffmpeg'
+  // and copy the three core files there (see note below).
+  private coreBase =
+    'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd';
+
+  constructor(@Inject(PLATFORM_ID) private pid: Object) {}
+
+  get isReady() { return this.loaded; }
+
 
 async init(onLog?: (m: string) => void) {
-  if (!isPlatformBrowser(this.pid)) return; // skip on server
+  if (!isPlatformBrowser(this.pid)) return;
   if (this.loaded) return;
+
   this.ff = new FFmpeg();
+
   if (onLog) this.ff.on('log', ({ message }) => onLog(message));
-  await this.ff.load();
+
+  // point at CDN or local assets
+  const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd';
+
+  const coreURL   = await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript');
+  const wasmURL   = await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm');
+  const workerURL = await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript');
+
+  await this.ff.load({ coreURL, wasmURL, workerURL });
   this.loaded = true;
 }
+
 
   async toMp3(
     file: File,
@@ -42,7 +61,7 @@ async init(onLog?: (m: string) => void) {
 
     await this.ff.exec(args);
 
-    // Copy off SAB to avoid COOP/COEP issues
+    // Avoid SAB issues: copy to a normal ArrayBuffer before Blob
     const data = (await this.ff.readFile(outputName)) as Uint8Array;
     const buf = new ArrayBuffer(data.byteLength);
     new Uint8Array(buf).set(data);

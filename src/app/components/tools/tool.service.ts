@@ -1,22 +1,31 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, tap, catchError, throwError } from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ToolService {
-  private baseUrl: string = 'https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/JSON/Tools';
+  private baseUrl = 'https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/JSON/Tools';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getCategoryData(categoriesId: string, toolId: string): Observable<any> {
+  getCategoryData(_categoryId: string, toolId: string): Observable<any> {
     const url = `${this.baseUrl}/${toolId}/${toolId}.json`;
- 
-    return this.http.get<any>(url);
+    return this.http.get<any>(url, { observe: 'body' }).pipe(
+      tap(() => console.log('[ToolService] Loaded:', url)),
+      catchError((err) => {
+        console.error('[ToolService] ERROR loading', url, err);
+        return throwError(() => err);
+      })
+    );
   }
-    getAllTools(): Observable<any> {
+
+  getAllTools(): Observable<any> {
     const url = `${this.baseUrl}/tools.json`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      tap(() => console.log('[ToolService] Loaded tools:', url)),
+      catchError((err) => {
+        console.error('[ToolService] ERROR loading tools', url, err);
+        return throwError(() => err);
+      })
+    );
   }
 }
