@@ -1,20 +1,21 @@
+import { NgClass, CommonModule } from '@angular/common';
+import { menu_data } from '../menu-data';
 // top-header.component.ts
-import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { CurrencyService } from '../../../core/currency.service';
 import { LanguageService } from '../../../core/language.service';
-import { Inject, PLATFORM_ID } from '@angular/core';
+import { Inject, PLATFORM_ID,Component, EventEmitter, Output } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
- 
 @Component({
-    selector: 'app-top-header',
-    imports: [RouterModule, CommonModule],
-    templateUrl: './top-header.component.html',
-    styleUrls: ['./top-header.component.scss']
+    selector: 'app-bottom-header',
+    imports: [RouterModule, NgClass, CommonModule],
+    templateUrl: './bottom-header.component.html',
+    styleUrl: './bottom-header.component.scss'
 })
-export class TopHeaderComponent {
+export class BottomHeaderComponent {
+  public menu_data:any[] = menu_data
+  @Output() menuToggle: EventEmitter<void> = new EventEmitter<void>();
+
   isLanguageActive = false;
   isSettingsActive = false;
   isCurrencyActive = false;
@@ -83,6 +84,14 @@ export class TopHeaderComponent {
   
     window.location.href = url;
   }
-  
-  
+    toggleMenu() {
+    this.menuToggle.emit();
+  }
+
+  navigateToTop() {
+    window.scrollTo(0, 0);
+    this.toggleMenu();
+
+  }
+
 }

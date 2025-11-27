@@ -1,80 +1,49 @@
-/* header.component.css */
-app-bottom-header {
-  position:absolute;
-  width: 100%;
-  height: 72px;
-      z-index: 1000;
+@use '../../../styles._variables.scss' as *;
 
-}
-app-mobile-header{
-    position: absolute;
+.site-header {
   width: 100%;
-    height: 72px;
-    z-index: 1000;
-
+  position: relative;
+  z-index: 1000;
 }
+
 .tp-header-area {
-  background-color: #fff;
-  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.sticky {
+/* host for desktop header */
+app-desktop-header {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* sticky wrapper – only handles positioning/blur */
+app-desktop-header.sticky {
   position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(3, 4, 28, 0.1);
-  transition: all 0.25s ease-in-out;
+  left: 0;
+  right: 0;
+
+  z-index: 1100;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  /* no background here – the inner .desktop-header handles visuals */
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  transition:
+    border-color 0.18s ease;
 }
 
+/* mobile header host */
+app-mobile-header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
 
-.hidden {
-  display: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-.tp-header-main {
-  padding: 20px 0;
-}
-
-.tp-header-main .logo img {
-  max-width: 150px;
-}
-
-.tp-header-search-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.tp-header-search-box input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.tp-header-search-btn button {
-  padding: 10px;
-  background-color: #5A5C12;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-}
-
-.tp-header-main-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.tp-header-action-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-left: 20px;
-}
-
-.tp-header-contact p a {
-  color: #5A5C12;
-  text-decoration: none;
-}

@@ -1,0 +1,185 @@
+@use '../../../../styles._variables.scss' as *;
+
+/* ===== Desktop Main Header (bottom-header) ===== */
+
+.stickyHeader {
+  position: relative;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0.75rem 4vw;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  color: $neutral-color-lightest;
+  background:
+    radial-gradient(120% 200% at 0% 0%, rgba(56, 189, 248, 0.12), transparent 55%)
+    rgba(15, 23, 42, 0.92);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Logo block */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.logo h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Main nav */
+.primary-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: $neutral-color-medium-light;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+/* hover + active underline */
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(148, 163, 184, 0) 0%,
+    rgba(248, 250, 252, 0.9) 50%,
+    rgba(148, 163, 184, 0) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+.menu a:hover {
+  color: $neutral-color-lightest;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+  transform: scaleX(1);
+}
+
+.menu a.active {
+  color: $neutral-color-lightest;
+}
+
+/* Right side (Account button) */
+.header-right {
+  display: flex;
+  align-items: center;
+    justify-content: flex-end;
+
+  gap: 0.75rem;
+}
+:host {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* ensure wrapper doesn’t add spacing */
+:host ::ng-deep app-bottom-header {
+  margin: 0;
+  padding: 0;
+}
+.account-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.7);
+  color: $neutral-color-lightest;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.account-link:hover {
+  background: rgba(30, 64, 175, 0.9);
+  border-color: rgba(191, 219, 254, 0.9);
+  transform: translateY(-1px);
+}
+
+/* Responsive tweaks for desktop breakpoints */
+@media (max-width: 1200px) {
+  .stickyHeader {
+    padding-inline: 3vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .stickyHeader {
+    gap: 1.25rem;
+    padding-inline: 2vw;
+  }
+
+  .primary-nav {
+    justify-content: flex-start;
+  }
+
+  .menu {
+    gap: 1.35rem;
+  }
+}
+
+/* في الشاشات الصغيرة جداً الديسكتوب هيدر غالباً يختفي ويشتغل mobile-header */
+@media (max-width: 768px) {
+  .stickyHeader {
+    display: none;
+  }
+}

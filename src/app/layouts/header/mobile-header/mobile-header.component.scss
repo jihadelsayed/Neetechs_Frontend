@@ -1,36 +1,372 @@
-/* General Styles */
-.tp-header-sticky-area {
-    display: flex;
-    padding: 0;
-    position: sticky;
-    background-color: white;
-    top: 0;
-    z-index: 1000;
-    visibility: visible;
-    opacity: 1;
-    animation: .5s ease-in-out 0s normal none 1 running fadeInDown;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
+@use '../../../../styles._variables.scss' as *;
+
+/* ===== Top mobile bar ===== */
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.45rem 4vw;
+  padding-left: 3vw;
+
+  background:
+    radial-gradient(120% 200% at 0% 0%, rgba(56, 189, 248, 0.08), transparent 55%)
+    rgba(2, 8, 23, 0.96);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  z-index: 1200;
+}
+
+/* Logo */
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: $neutral-color-lightest;
+}
+
+.mobile-logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.mobile-logo span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Hamburger button */
+.mobile-hamburger {
+  position: relative;
+  width: 34px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.mobile-hamburger span {
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background-color: $neutral-color-lightest;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.mobile-hamburger span:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.mobile-hamburger span:nth-child(2) {
+  transform: translateY(0);
+}
+
+.mobile-hamburger span:nth-child(3) {
+  transform: translateY(5px);
+}
+
+.mobile-hamburger:hover {
+  background: rgba(30, 64, 175, 0.95);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.6);
+  transform: translateY(-1px);
+}
+
+.mobile-hamburger:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ===== Slide-out nav ===== */
+/* ===== Slide-out nav ===== */
+
+.side-nav {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  transition:
+    background 0.25s ease,
+    visibility 0.25s ease;
+  z-index: 1100;
+
+  display: flex;
+  justify-content: flex-end;   // ✅ push panel to the RIGHT
+  align-items: stretch;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.side-nav.open {
+  background: rgba(0, 0, 0, 0.55);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Inner panel */
+.side-nav-panel {
+  background:
+    radial-gradient(120% 200% at 0% 0%, rgba(56, 189, 248, 0.1), transparent 55%)
+    rgba(2, 8, 23, 0.98);
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px 20px;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.35);
+
+  margin-left: auto;           // ✅ always hug the right edge
+  transform: translateX(100%); // start off-screen to the RIGHT
+  transition: transform 0.3s ease;
+}
+
+/* slide in when open */
+.side-nav.open .side-nav-panel {
+  transform: translateX(0);
 }
 
 
-/* Logo Styles */
-.logo img {
-  max-width: 64px;
-  height: auto;
+ 
+
+/* Header (logo + close) */
+.header-sideNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-//* menu sidebar humbugger menu *//
-.hamburger {
-    font-size: 30px;
-    cursor: pointer;
+.logo-sideNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-sideNav img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.logo-sideNav h3 {
+  margin: 0;
+  font-size: 19px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+.closebtn-sideNav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;          // don't stretch
+  width: 32px;
+  height: 32px;
+
+  margin-left: 8px;
+  padding: 0;
+
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: none;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.closebtn-sideNav:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.closebtn-sideNav:active {
+  transform: scale(0.95);
+}
+
+/* Menu list */
+/* Menu list */
+.side-nav ul {
+  list-style-type: none;
+  padding: 12px 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* each item starts slightly shifted for animation */
+.side-nav ul li {
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* staggered slide-in when drawer opens */
+.side-nav.open ul li {
+  animation: menuItemIn 0.26s ease-out forwards;
+}
+
+.side-nav.open ul li:nth-child(1) { animation-delay: 0.03s; }
+.side-nav.open ul li:nth-child(2) { animation-delay: 0.06s; }
+.side-nav.open ul li:nth-child(3) { animation-delay: 0.09s; }
+.side-nav.open ul li:nth-child(4) { animation-delay: 0.12s; }
+.side-nav.open ul li:nth-child(5) { animation-delay: 0.15s; }
+
+/* Card-style nav links */
+.side-nav ul li a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #e5e7eb;
+  text-align: left;
+  font-size: 16px;
+
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+
+  box-shadow: 0 0 0 rgba(15, 23, 42, 0);
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.12s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* hover / tap */
+.side-nav ul li a:hover {
+  background: rgba(30, 64, 175, 0.72);
+  border-color: rgba(191, 219, 254, 0.9);
+  color: #f9fafb;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.65);
+  transform: translateY(-1px);
+}
+
+.side-nav ul li a:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.7);
+}
+
+/* active route */
+.side-nav ul li a.active {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 146, 60, 0.85),
+    rgba(249, 115, 22, 0.9)
+  );
+  border-color: rgba(251, 146, 60, 0.55);
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(251, 146, 60, 0.35);
+  transform: translateY(-1px);
+}
+
+
+
+/* Account actions block */
+.account-block {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0));
+
+}
+
+.account-block .btn-outline,
+.account-block .btn-primary {
+  flex: 1;
+  font-size: 14px;
+  padding: 9px 0;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.1s ease;
+}
+.account-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(226, 232, 240, 0.65);
+  margin-bottom: 4px;
+}
+
+.account-block .btn-primary {
+  background: $highlight-quinary-color;
+  border-color: transparent;
+  color: #0b1120;
+  font-weight: 600;
+}
+
+.account-block .btn-outline:hover {
+  background-color: rgba(148, 163, 184, 0.12);
+  transform: translateY(-1px);
+}
+
+.account-block .btn-primary:hover {
+  background-color: $highlight-septenary-color;
+  transform: translateY(-1px);
+}
+
+/* Small screens: panel takes full width */
+@media (max-width: 480px) {
+  .side-nav-panel {
+    max-width: 100%;
   }
-  
-  .menu-open .hamburger {
+}
+
+/* hide mobile header on desktop */
+@media (min-width: 769px) {
+  .mobile-header {
     display: none;
   }
-  
-  .container{
-    margin: 0px auto!important;
+}
+@keyframes menuItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

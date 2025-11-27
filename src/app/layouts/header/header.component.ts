@@ -1,6 +1,5 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { BottomHeaderComponent } from './bottom-header/bottom-header.component';
 import { CartService } from '../../core/cart.service';
 import { WishlistService } from '../../core/wishlist.service';
 import { FormsModule } from '@angular/forms';
@@ -10,21 +9,20 @@ import { UtilsService } from '../../core/utils.service';
 import { IProduct } from '../../types/product-type';
 import { ShopHeaderComponent } from '../../store/shop-header/shop-header.component';
 import { LayoutService } from '@/services/layout.service';
-import { TopHeaderComponent } from "./top-header/top-header.component";
+import { DesktopHeaderComponent } from './desktop-header/desktop-header.component';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'], // Corrected styleUrls
-    imports: [
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  imports: [
     RouterModule,
-    BottomHeaderComponent,
     FormsModule,
     CommonModule,
     MobileHeaderComponent,
     ShopHeaderComponent,
-    TopHeaderComponent
-]
+    DesktopHeaderComponent,
+  ],
 })
 export class HeaderComponent {
   public products: IProduct[] = [];
@@ -34,6 +32,18 @@ export class HeaderComponent {
   headerSticky: boolean = false;
   showShopHeader = false;
 
+  name: string | null = null;
+  fullname: string | null = null;
+  email: string | null = null;
+  twitter: string | null = null;
+  facebook: string | null = null;
+  gender: string | null = null;
+  phone: string | null = null;
+  address: string | null = null;
+  description: string | null = null;
+
+  private scrollTimeout: any;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     public cartService: CartService,
@@ -42,11 +52,15 @@ export class HeaderComponent {
     private layoutService: LayoutService,
     private router: Router
   ) {
-    this.layoutService.showShopHeader$.subscribe(v => (this.showShopHeader = v));
+    this.layoutService.showShopHeader$.subscribe(
+      (v) => (this.showShopHeader = v)
+    );
   }
+
   checkWindowSize(width: number) {
-    this.isMobile = width <= 1000;
+    this.isMobile = width <= 640;
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     if (isPlatformBrowser(this.platformId)) {
@@ -54,21 +68,16 @@ export class HeaderComponent {
     }
   }
 
-private scrollTimeout: any;
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: any) {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-@HostListener('window:scroll', ['$event'])
-onScroll(event: any) {
-  if (!isPlatformBrowser(this.platformId)) return;
+    clearTimeout(this.scrollTimeout);
+    this.scrollTimeout = setTimeout(() => {
+      this.headerSticky = window.scrollY > 180;
+    }, 50);
+  }
 
-  clearTimeout(this.scrollTimeout);
-  this.scrollTimeout = setTimeout(() => {
-    this.headerSticky = window.scrollY > 180;
-  }, 50);
-}
-
-
-
-  // select options for header category
   public niceSelectOptions = [
     { value: 'select-category', text: 'Select Category' },
     { value: 'electronics', text: 'Electronics' },
@@ -82,25 +91,17 @@ onScroll(event: any) {
     const queryParams: { [key: string]: string | null } = {};
     if (!this.searchText && !this.productType) {
       return;
-    } else {
-      if (this.searchText) {
-        queryParams['searchText'] = this.searchText;
-      }
-      if (this.productType) {
-        queryParams['productType'] = this.productType;
-      }
-      this.router.navigate(['/search'], { queryParams });
     }
+
+    if (this.searchText) {
+      queryParams['searchText'] = this.searchText;
+    }
+    if (this.productType) {
+      queryParams['productType'] = this.productType;
+    }
+
+    this.router.navigate(['/search'], { queryParams });
   }
-  name: string | null = null;
-  fullname: string | null = null;
-  email: string | null = null;
-  twitter: string | null = null;
-  facebook: string | null = null;
-  gender: string | null = null;
-  phone: string | null = null;
-  address: string | null = null;
-  description: string | null = null;
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -108,17 +109,21 @@ onScroll(event: any) {
         this.checkWindowSize(window.innerWidth);
       }
     }
-    // Retrieve username from local storage
+
     if (typeof localStorage !== 'undefined') {
       const userInfoString = localStorage.getItem('userInfo');
       const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+
       if (userInfo) {
         const name = userInfo['name'];
         const names = name.split(' ');
         const capitalized = names
-          .map((name: string) => name.charAt(0).toUpperCase() + name.slice(1))
+          .map(
+            (n: string) => n.charAt(0).toUpperCase() + n.slice(1)
+          )
           .join(' ');
         const firstName = name.split(' ')[0].toUpperCase();
+
         this.name = firstName;
         this.email = userInfo['email'];
         this.twitter = userInfo['twitter'];
@@ -131,7 +136,6 @@ onScroll(event: any) {
       } else {
         this.name = 'Sign In';
       }
-    } else {
     }
   }
 }

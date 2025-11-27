@@ -1,15 +1,19 @@
 // src/styles/_variables.scss
 
+// =======================
 // Brand Color Scheme
-$primary-color: #FFF3E0;               // Light background
-$secondary-color: #FFB74D;             // Soft orange
-$tertiary-color: #F7931A;              // Brand orange
+// =======================
+$primary-color: #FFF3E0;               // Soft warm background
+$secondary-color: #FFB74D;             // Soft orange (buttons / accents)
+$tertiary-color: #F7931A;              // Main brand orange
 $quaternary-color: #EF6C00;            // Strong accent orange
 $quinary-color: #E65100;               // Darker action tone
 $senary-color: #BF360C;                // Deep tone
 $septenary-color: #8B2B00;             // Base dark
 
-// Highlight (Positive Actions & Attention)
+// =======================
+// Highlight (Success / Positive / Attention)
+// =======================
 $highlight-color: #E3FCEC;             // Soft success background
 $highlight-secondary-color: #A7F3D0;
 $highlight-tertiary-color: #34D399;
@@ -18,7 +22,9 @@ $highlight-quinary-color: #059669;
 $highlight-senary-color: #047857;
 $highlight-septenary-color: #065F46;
 
-// Accent (Cool Colors for UI accents or secondary CTAs)
+// =======================
+// Accent (Cool Accents / Secondary CTAs)
+// =======================
 $accent-color-light: #E0F7FA;
 $accent-color-medium-light: #B2EBF2;
 $accent-color-medium: #26C6DA;
@@ -27,16 +33,20 @@ $accent-color-dark: #0097A7;
 $accent-color-darker: #006064;
 $accent-color-darkest: #004D40;
 
+// =======================
 // Neutrals (Backgrounds / Borders / Base UI)
-$neutral-color-light: #F5F5F5;
-$neutral-color-medium-light: #E0E0E0;
-$neutral-color-medium: #BDBDBD;
-$neutral-color-medium-dark: #9E9E9E;
-$neutral-color-dark: #616161;
-$neutral-color-darker: #424242;
-$neutral-color-darkest: #212121;
+// =======================
+$neutral-color-light: #F5F5F5;           // Page background
+$neutral-color-medium-light: #E0E0E0;    // Subtle borders
+$neutral-color-medium: #BDBDBD;          // Disabled text / icons
+$neutral-color-medium-dark: #9E9E9E;     // Muted text
+$neutral-color-dark: #616161;            // Body text secondary
+$neutral-color-darker: #424242;          // Strong text
+$neutral-color-darkest: #212121;         // Titles / high contrast
 
-// Font Colors
+// =======================
+// Typography Colors
+// =======================
 $font-color-primary: #212121;
 $font-color-secondary: #424242;
 $font-color-tertiary: #616161;
@@ -48,27 +58,58 @@ $font-color-accent-dark: #059669;
 $font-color-highlight: #FACC15; // Bright yellow highlight
 $font-color-muted: #9E9E9E;
 
-// Headings Font Colors
+// Headings
 $font-color-h1: $font-color-primary;
 $font-color-h2: $font-color-secondary;
 $font-color-h3: $font-color-tertiary;
 
-// Paragraph Font Colors
+// Paragraphs
 $font-color-paragraph: $font-color-secondary;
 
-// Link Font Colors
+// Links
 $font-color-link: $font-color-accent;
 $font-color-link-hover: $font-color-accent-dark;
 
-
-// Category/Level-Based Accent Colors
+// =======================
+// Category / Level Accent Colors
+// =======================
 $level-intro-color: #3498db;      // Blue
 $level-basics-color: #2ecc71;     // Green
 $level-styling-color: #9b59b6;    // Purple
 $level-advanced-color: #f1c40f;   // Yellow
 $level-projects-color: #e67e22;   // Orange
-$level-bonus-color: #e74c3c;      // Red
+$level-bonus-color: #e74c3c;      // Red (also used for error toast)
 
+// =======================
 // Shared UI Backgrounds
-$card-background: #ecf0f1;
+// =======================
+$card-background: #ffffff;
 $section-background: $neutral-color-light;
+
+// =======================
+// Layout Tokens (new helpers)
+// =======================
+$body-bg: $neutral-color-light;
+$body-color: $font-color-paragraph;
+
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-pill: 999px;
+
+$shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
+$shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.10);
+$shadow-strong: 0 16px 40px rgba(0, 0, 0, 0.16);
+
+
+/* ============================
+   Neutral Color System (Dark UI)
+   ============================ */
+
+$neutral-color-darkest: #0b0f19;         // Page background / deep surface
+$neutral-color-darker:  #111827;         // Cards, glass layers
+$neutral-color-dark:    #1e293b;         // Borders, subtle surfaces
+$neutral-color-medium:  #334155;         // Muted text
+$neutral-color-medium-light: #94a3b8;    // Menu links (inactive)
+$neutral-color-light:   #cbd5e1;         // Placeholders, soft text
+$neutral-color-lightest:#f8fafc;         // Pure light text (white-ish)

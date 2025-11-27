@@ -1,0 +1,65 @@
+<!-- desktop-header.component.html -->
+
+<div class="desktop-header">
+  <!-- Logo -->
+  <a class="logo" routerLink="/">
+    <img src="https://i.imgur.com/3fLGfPn.png" alt="Neetechs logo" />
+    <h5>Neetechs</h5>
+  </a>
+
+  <!-- Center navigation -->
+  <nav class="primary-nav" aria-label="Main navigation">
+    <ul class="menu">
+      <li
+        *ngFor="let item of menu_data; let i = index"
+        [ngClass]="{
+          'has-dropdown': item.drop_down,
+          'has-mega-menu': item.mega_menu
+        }"
+      >
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          (click)="navigateToTop()"
+        >
+          {{ item?.title }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Right side: Account dropdown from old top bar -->
+  <div class="header-right">
+    <div class="dropdown" [class.active]="isSettingsActive">
+      <span class="dropdown-toggle" (click)="toggleAccountDropdown()">
+        Account ▼
+      </span>
+
+      <ul class="dropdown-menu">
+        <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+          <li>
+            <a class="dropdown-item" (click)="goToAuth('signIn')">Login</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="goToAuth('signup')">Sign Up</a>
+          </li>
+        </ng-container>
+
+        <ng-template #loggedInMenu>
+          <li>
+            <a class="dropdown-item" routerLink="#">My Profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/shop/wishlist">Wishlist</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/shop/cart">Cart</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</div>

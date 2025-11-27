@@ -1,61 +1,99 @@
 <footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section collaborate">
-            <a href="/"><img class="footer-logo" src="https://i.imgur.com/nC6qrDl.png" alt="Neetechs"></a>
-            
-            <h3>Let's Collaborate</h3>
-            <a href="mailto:info@neetechs.com"><h3>info&#64;neetechs.com</h3></a>
-            <p>Partner with us to elevate your technical capabilities and achieve your vision.</p>
-            <div class="social-icons">
-                <a href="https://facebook.com/neetechs0"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-facebook.svg" alt="Facebook"></a>
-                <a href="https://x.com/neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-twitter.svg" alt="Twitter"></a>
-                <a href="https://instagram.com/neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-instagram.svg" alt="Instagram"></a>
-                <a href="https://linkedin.com/company/neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-linkedin.svg" alt="LinkedIn"></a>
-                <a href="https://youtube.com/@neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-youtube.svg" alt="YouTube"></a>
-                <a href="https://github.com/jihadelsayed"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-github.svg" alt="Github"></a>
-                <a href="https://pinterest.com/neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-pinterest.svg" alt="Pinterest"></a>
-                <a href="https://tiktok.com/@neetechs"><img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-tiktok.svg" alt="Tiktok"></a>
-            </div>
+  <div class="footer-content">
+    <!-- Brand / Collaborate -->
+    <div class="footer-section footer-brand">
+      <a routerLink="/" class="footer-logo-wrap">
+        <img
+          class="footer-logo"
+          src="https://i.imgur.com/nC6qrDl.png"
+          alt="Neetechs"
+        />
+      </a>
 
-        </div>
+      <h3 class="footer-heading">Let's Collaborate</h3>
 
-        <div class="footer-sections">
-            <div class="footer-section">
-                <h4>About Us</h4>
-                <ul>
-                    <li><a routerLink="/faq">FAQ</a></li>
-                    <li><a routerLink="/careers">Careers</a></li>
-                </ul>
-            </div>
+      <a class="footer-email" href="mailto:info@neetechs.com">
+        info&#64;neetechs.com
+      </a>
 
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a routerLink="/blog">Blog</a></li>
-                    <li><a routerLink="/shop">Shop</a></li>
-                    <li><a routerLink="/shop/cart">Cart</a></li>
-                    <li><a routerLink="/shop/checkout">Checkout</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-sections">
+      <p class="footer-text">
+        Partner with us to elevate your technical capabilities and bring your
+        ideas to life with modern AI-driven solutions.
+      </p>
 
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a routerLink="/contact">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a routerLink="/sitemap">Sitemap</a></li>
-                    <li><a routerLink="/terms-of-service">Terms of Service</a></li>
-                    <li><a routerLink="/cookies-policy">Cookies Policy</a></li>
-                    <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
+      <div class="social-icons">
+        <a href="https://facebook.com/neetechs0" aria-label="Facebook">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-facebook.svg" alt="Facebook" />
+        </a>
+        <a href="https://x.com/neetechs" aria-label="X (Twitter)">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-twitter.svg" alt="Twitter" />
+        </a>
+        <a href="https://instagram.com/neetechs" aria-label="Instagram">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://linkedin.com/company/neetechs" aria-label="LinkedIn">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a href="https://youtube.com/@neetechs" aria-label="YouTube">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-youtube.svg" alt="YouTube" />
+        </a>
+        <a href="https://github.com/jihadelsayed" aria-label="Github">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-github.svg" alt="Github" />
+        </a>
+        <a href="https://pinterest.com/neetechs" aria-label="Pinterest">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-pinterest.svg" alt="Pinterest" />
+        </a>
+        <a href="https://tiktok.com/@neetechs" aria-label="Tiktok">
+          <img src="https://raw.githubusercontent.com/jihadelsayed/Neetechs/main/icons/icon-tiktok.svg" alt="Tiktok" />
+        </a>
+      </div>
     </div>
+
+    <!-- Link columns -->
+    <div class="footer-section-group">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a routerLink="/company">About Neetechs</a></li>
+          <li><a routerLink="/faq">FAQ</a></li>
+          <li><a routerLink="/careers">Careers</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+            <li><a routerLink="/tutorials">Tutorials</a></li>
+          <li><a routerLink="/tools">Tools Directory</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li><a routerLink="/blog">Blog</a></li>
+          <li><a routerLink="/shop">Shop</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+          <li><a routerLink="/cookies-policy">Cookies Policy</a></li>
+          <li><a routerLink="/terms-of-service">Terms of Service</a></li>
+          <li><a routerLink="/sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <span class="footer-copy">
+      © {{ currentYear }} Neetechs. All rights reserved.
+    </span>
+
+    <div class="footer-bottom-links">
+      <a routerLink="/privacy-policy">Privacy</a>
+      <span>•</span>
+      <a routerLink="/terms-of-service">Terms</a>
+    </div>
+  </div>
 </footer>

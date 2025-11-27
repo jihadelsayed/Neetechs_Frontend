@@ -1,10 +1,76 @@
-<div id="header-sticky-2" class="tp-header-sticky-area header-sticky-2 container">
-    <div class="logo">
-      <a routerLink="/">
-        <img src="https://i.imgur.com/3fLGfPn.png" alt="logo" />
-      </a>
-  </div>
-  <div class="hamburger" (click)="toggleMenu()">&#9776;</div>
+<!-- Top mobile bar -->
+<div class="mobile-header">
+  <a routerLink="/" class="mobile-logo" (click)="navigateToTop()">
+    <img src="https://i.imgur.com/3fLGfPn.png" alt="Neetechs logo" />
+    <span>NEETECHS</span>
+  </a>
 
+  <button
+    type="button"
+    class="mobile-hamburger"
+    (click)="toggleMenu()"
+    aria-label="Toggle navigation"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </div>
-<app-mobile-sidebar-header [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-mobile-sidebar-header>
+
+<!-- Slide-out overlay + panel -->
+<div
+  id="sideNav"
+  class="side-nav"
+  [class.open]="menuOpen"
+  (click)="toggleMenu()"
+>
+  <div class="side-nav-panel" (click)="$event.stopPropagation()">
+    <!-- Header: logo + close -->
+    <div class="header-sideNav">
+      <a routerLink="/" (click)="navigateToTop()" class="logo-sideNav">
+        <img src="https://i.imgur.com/GX04TlK.png" alt="Neetechs Logo" />
+        <h3>Neetechs</h3>
+      </a>
+      <button
+        type="button"
+        class="closebtn-sideNav"
+        aria-label="Close navigation"
+        (click)="toggleMenu()"
+      >
+        &times;
+      </button>
+    </div>
+
+    <!-- Nav links -->
+    <ul>
+      <li *ngFor="let item of menu_data; let i = index">
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          (click)="navigateToTop()"
+        >
+          {{ item?.title }}
+        </a>
+      </li>
+    </ul>
+<div class="account-label">Account</div>
+
+    <!-- Account actions -->
+    <div class="account-block">
+      <button
+        type="button"
+        class="btn-outline"
+        (click)="goToAuth('signIn')"
+      >
+        Login
+      </button>
+      <button
+        type="button"
+        class="btn-primary"
+        (click)="goToAuth('signup')"
+      >
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>

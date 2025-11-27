@@ -1,156 +1,34 @@
-export const menu_data: any[] = [
+export interface NavItem {
+  id: number;
+  link: string;
+  title: string;
+  mega_menu?: boolean;
+}
+
+// الهيدر الأساسي (المنيو اللي في النص)
+const BASE_MENU: NavItem[] = [
   {
     id: 1,
-    link: '/tutorials',
-    title: 'Tutorials',
-    mega_menu: false,
-  },
-  // {
-  //   id: 99,
-  //   link: '/shop',
-  //   title: 'Shop',
-  //   mega_menu: false,
-  // },
-  // {
-  //   id: 100,
-  //   link: '/shop/cart',
-  //   title: 'Cart',
-  //   mega_menu: false,
-  // },
-  // {
-  //   id: 101,
-  //   link: '/shop/checkout',
-  //   title: 'Checkout',
-  //   mega_menu: false,
-  // },
-  {
-    id: 2,
     link: '/tools',
     title: 'Tools',
     mega_menu: false,
   },
-  // {
-  //   id: 3,
-  //   link: '/portfolio',
-  //   title: 'Portfolio',
-  //   mega_menu: false,
-  // },
   {
-    id: 4,
+    id: 2,
     link: '/services',
     title: 'Services',
     mega_menu: false,
   },
   {
-    id: 5,
-    link: '/pricing',
-    title: 'Pricing',
+    id: 3,
+    link: '/company',      // صفحة مدموجة: About + Contact
+    title: 'Company',      // تقدر تغيّرها لـ "About & Contact" لو تحب
     mega_menu: false,
   },
-
-  {
-    id: 6,
-    link: '/about',
-    title: 'About Us',
-    mega_menu: false,
-  },
-  {
-    id: 7,
-    link: '/contact',
-    title: 'Contact Us',
-    mega_menu: false,
-  },
-  // {
-  //   id: 4,
-  //   link: '/faq',
-  //   title: 'FAQ',
-  //   mega_menu: false,
-  // },
-
-  // {
-  //   id: 7,
-  //   link: '/blog-news',
-  //   title: 'Blog and News',
-  //   mega_menu: false,
-  // },
-
 ];
 
-// mobile menu data
-export const mobile_menu: any[] = [
-  {
-    id: 1,
-    link: '/tutorials',
-    title: 'Tutorials',
-    mega_menu: false,
-  },
-  // {
-  //   id: 99,
-  //   link: '/shop',
-  //   title: 'Shop',
-  //   mega_menu: false,
-  // },
-  // {
-  //   id: 100,
-  //   link: '/shop/cart',
-  //   title: 'Cart',
-  //   mega_menu: false,
-  // },
-  // {
-  //   id: 101,
-  //   link: '/shop/checkout',
-  //   title: 'Checkout',
-  //   mega_menu: false,
-  // },
-  {
-    id: 2,
-    link: '/tools',
-    title: 'Tools',
-    mega_menu: false,
-  },
-  // {
-  //   id: 3,
-  //   link: '/portfolio',
-  //   title: 'Portfolio',
-  //   mega_menu: false,
-  // },
-  {
-    id: 4,
-    link: '/services',
-    title: 'Services',
-    mega_menu: false,
-  },
-  {
-    id: 5,
-    link: '/pricing',
-    title: 'Pricing',
-    mega_menu: false,
-  },
+// desktop menu
+export const menu_data: NavItem[] = BASE_MENU;
 
-  {
-    id: 6,
-    link: '/about',
-    title: 'About Us',
-    mega_menu: false,
-  },
-  {
-    id: 7,
-    link: '/contact',
-    title: 'Contact Us',
-    mega_menu: false,
-  },
-  // {
-  //   id: 4,
-  //   link: '/faq',
-  //   title: 'FAQ',
-  //   mega_menu: false,
-  // },
-
-  // {
-  //   id: 7,
-  //   link: '/blog-news',
-  //   title: 'Blog and News',
-  //   mega_menu: false,
-  // },
-
-];
+// mobile menu (نفس العناصر عشان ما يصير اختلاف)
+export const mobile_menu: NavItem[] = BASE_MENU;

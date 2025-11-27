@@ -1,0 +1,67 @@
+@use '../../../../styles._variables.scss' as *;
+
+/* Main mobile header bar */
+.tp-header-sticky-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid $neutral-color-medium-light;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+/* Logo */
+.logo img {
+  max-width: 56px;
+  height: auto;
+  display: block;
+}
+
+/* Hamburger */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.hamburger:hover {
+  background-color: $neutral-color-light;
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+}
+
+/* When menu is open, hide hamburger */
+.menu-open .hamburger {
+  display: none;
+}
+
+/* Container override */
+.container {
+  margin: 0 auto !important;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

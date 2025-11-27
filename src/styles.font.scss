@@ -1,8 +1,13 @@
 @use './styles._variables.scss' as *;
 
 a {
-  color: $tertiary-color; // Was: #F8A242
+  color: $font-color-link; // using your link color token
   text-decoration: none;
+
+  &:hover {
+    color: $font-color-link-hover;
+    text-decoration: underline;
+  }
 }
 
 a.disabled {
@@ -12,6 +17,7 @@ a.disabled {
   color: $neutral-color-medium; // Was: #BAB4B0
 }
 
+/* Headings */
 h1 {
   color: $secondary-color; // Was: #FBD5BD
   font-family: 'Poppins', sans-serif;
@@ -29,7 +35,7 @@ h2 {
 }
 
 h3 {
-  color: $highlight-secondary-color; // Was: #CACE35 — closest match from your palette
+  color: $highlight-secondary-color; // Was: #CACE35
   font-family: 'Poppins', sans-serif;
   font-size: 55px;
   line-height: 161.8%;
@@ -37,7 +43,7 @@ h3 {
 }
 
 h4 {
-  color: $highlight-quinary-color; // Was: #FCCAC9 — soft highlight alternative
+  color: $highlight-quinary-color; // Was: #FCCAC9
   font-family: 'Poppins', sans-serif;
   font-size: 34px;
   line-height: 161.8%;
@@ -59,6 +65,15 @@ h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Paragraphs */
+p {
+  font-size: 16px;
+  line-height: 161.8%;
+  margin: 0 0 1rem 0;
+  color: $font-color-paragraph;
+}
+
+/* Inline elements */
 code {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1em;
@@ -83,13 +98,17 @@ span {
 @media (max-width: 800px) {
   h1 { font-size: 55px; }
   h2 { font-size: 34px; }
-  h3 { font-size: 21px; }
-  h4 { font-size: 13px; }
-  h5 { font-size: 8px; }
-  h6 { font-size: 5px; }
-  .small-text { font-size: 3px; }
+  h3 { font-size: 24px; }
+  h4 { font-size: 18px; }
+  h5 { font-size: 16px; }
+  h6 { font-size: 14px; }
+
+  .small-text {
+    font-size: 10px;
+  }
+
   p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 161.8%;
   }
 }
