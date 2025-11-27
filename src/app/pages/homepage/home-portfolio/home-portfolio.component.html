@@ -1,6 +1,25 @@
-<div class="section">
-  <h2>Projects: </h2>
-  <app-generic-slider [items]="projects"></app-generic-slider>
-  <button class="cta-button" (click)="navigateTo('/portfolio')">View Portfolio</button>
+<section class="home-portfolio">
+  <div class="home-portfolio__inner">
+    <div class="home-portfolio__header">
+      <h2 class="home-portfolio__title">Recent Projects</h2>
+      <p class="home-portfolio__subtitle">
+        A snapshot of shipped work across web apps, automation, and AI-driven tools.
+        Explore the full portfolio for detailed case studies.
+      </p>
+    </div>
 
-</div>
+    <div class="home-portfolio__slider">
+      <app-generic-slider [items]="projects"></app-generic-slider>
+    </div>
+
+    <div class="home-portfolio__actions">
+      <button
+        class="home-portfolio__cta"
+        type="button"
+        (click)="navigateTo('/portfolio')"
+      >
+        View full portfolio
+      </button>
+    </div>
+  </div>
+</section>

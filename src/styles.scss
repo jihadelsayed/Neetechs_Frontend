@@ -93,6 +93,20 @@ li a {
   margin-bottom: 0; // optional
   padding: 0;
 }
+.hero-section {
+  padding: $space-7 4vw;
+  font-family: $font-family-base;
+}
+
+.hero-title {
+  font-size: $font-size-3xl;
+  line-height: $line-height-tight;
+}
+
+.hero-card {
+  border-radius: $radius-lg;
+  box-shadow: $shadow-medium;
+}
 
 .row {
   display: flex;

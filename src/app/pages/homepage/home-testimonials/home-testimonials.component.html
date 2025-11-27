@@ -1,18 +1,69 @@
-<div class="testimonials">
-  <h2 class="testimonials__title">Testimonials:</h2>
+<section class="testimonials">
+  <div class="testimonials__inner">
+    <header class="testimonials__header">
+      <h2 class="testimonials__title">Testimonials</h2>
+      <p class="testimonials__subtitle">
+        Teams trust Neetechs for reliable delivery, clean execution, and long-term support.
+        Here’s what a few of them had to say.
+      </p>
+    </header>
 
-  <div class="testimonials__slider">
-    <div class="testimonials__viewport">
-      <div class="testimonials__slides" [style.transform]="getTestimonialsTransform()">
-        <div *ngFor="let testimonial of testimonials" class="testimonials__slide">
-          <p class="testimonials__text">"{{ testimonial.text }}"</p>
-          <p class="testimonials__author"><strong>- {{ testimonial.author }}</strong></p>
+    <div class="testimonials__slider">
+      <div class="testimonials__viewport">
+        <div
+          class="testimonials__slides"
+          [style.transform]="getTestimonialsTransform()"
+        >
+          <article
+            *ngFor="let testimonial of testimonials"
+            class="testimonials__slide"
+          >
+            <div class="testimonials__quote-mark">“</div>
+            <p class="testimonials__text">
+              {{ testimonial.text }}
+            </p>
+            <p class="testimonials__author">
+              {{ testimonial.author }}
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-    <button class="testimonials__nav testimonials__nav--prev" (click)="prevTestimonial()">&#10094;</button>
-    <button class="testimonials__nav testimonials__nav--next" (click)="nextTestimonial()">&#10095;</button>
-  </div>
 
-  <button class="cta-button testimonials__cta" (click)="navigateTo('/contact')">Get Started</button>
-</div>
+      <button
+        type="button"
+        class="testimonials__nav testimonials__nav--prev"
+        (click)="prevTestimonial()"
+        aria-label="Previous testimonial"
+      >
+        &#10094;
+      </button>
+      <button
+        type="button"
+        class="testimonials__nav testimonials__nav--next"
+        (click)="nextTestimonial()"
+        aria-label="Next testimonial"
+      >
+        &#10095;
+      </button>
+
+      <ul class="testimonials__dots" aria-hidden="true">
+        <li
+          *ngFor="let t of testimonials; let i = index"
+          class="testimonials__dot"
+          [class.testimonials__dot--active]="i === currentTestimonialIndex"
+          (click)="goToTestimonial(i)"
+        ></li>
+      </ul>
+    </div>
+
+    <div class="testimonials__actions">
+      <button
+        type="button"
+        class="testimonials__cta"
+        (click)="navigateTo('/contact')"
+      >
+        Get in touch
+      </button>
+    </div>
+  </div>
+</section>

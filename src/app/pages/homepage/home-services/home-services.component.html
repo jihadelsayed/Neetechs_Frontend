@@ -1,30 +1,80 @@
-<div class="services">
-  <h2 class="services__title">Our Services:</h2>
+<section class="services">
+  <h2 class="services__title">
+    Our Services
+  </h2>
+  <p class="services__subtitle">
+    From design to development to technical repair, Neetechs helps you ship reliable,
+    modern solutions end-to-end.
+  </p>
 
-  <div class="services__item">
-    <img class="services__image" src="https://live.staticflickr.com/65535/53786161557_bb5d200c76.jpg" alt="Design Services" loading="lazy">
-    <div class="services__text">
-      <h3 class="services__heading">Design Services</h3>
-      <p class="services__description">We provide top-notch design services including graphic design, UI/UX design, and website design. Our team of creative designers will work with you to create visually appealing and user-friendly designs that meet your specific needs.</p>
-      <button class="cta-button services__cta" (click)="navigateTo('/services')">Get Started</button>
+  <div class="services__list">
+    <div class="services__item">
+      <img
+        class="services__image"
+        src="https://live.staticflickr.com/65535/53786161557_bb5d200c76.jpg"
+        alt="Design Services"
+        loading="lazy"
+      />
+      <div class="services__text">
+        <h3 class="services__heading">Design Services</h3>
+        <p class="services__description">
+          Product design, UI/UX, and brand systems built to feel modern, fast,
+          and easy to use — across web and mobile.
+        </p>
+        <button
+          class="services__cta"
+          type="button"
+          (click)="navigateTo('/services')"
+        >
+          Explore design
+        </button>
+      </div>
+    </div>
+
+    <div class="services__item services__item--reverse">
+      <img
+        class="services__image"
+        src="https://live.staticflickr.com/65535/53787319388_e2fae3a0fa.jpg"
+        alt="Programming Services"
+        loading="lazy"
+      />
+      <div class="services__text">
+        <h3 class="services__heading">Programming & Automation</h3>
+        <p class="services__description">
+          Full-stack apps, APIs, and automation workflows using modern stacks
+          and AI — built for maintainability and scale.
+        </p>
+        <button
+          class="services__cta"
+          type="button"
+          (click)="navigateTo('/services')"
+        >
+          Explore development
+        </button>
+      </div>
+    </div>
+
+    <div class="services__item">
+      <img
+        class="services__image"
+        src="https://live.staticflickr.com/65535/53787422649_81c75ccb23.jpg"
+        alt="Repair Services"
+        loading="lazy"
+      />
+      <div class="services__text">
+        <h3 class="services__heading">Technical Repair & Support</h3>
+        <p class="services__description">
+          Diagnostics and repair for mobile, laptops, and workstations, plus
+          ongoing technical support to keep your systems online.
+        </p>
+        <button
+          class="services__cta"
+          type="button"
+          (click)="navigateTo('/services')"
+        >
+          View repair options
+        </button>
+      </div>
     </div>
   </div>
-
-  <div class="services__item services__item--reverse">
-    <img class="services__image" src="https://live.staticflickr.com/65535/53787319388_e2fae3a0fa.jpg" alt="Programming Services" loading="lazy">
-    <div class="services__text">
-      <h3 class="services__heading">Programming Services</h3>
-      <p class="services__description">Our programming services cover web development, mobile app development, and backend development. We use the latest technologies and frameworks to build robust and scalable applications that deliver exceptional performance.</p>
-      <button class="cta-button services__cta" (click)="navigateTo('/services')">Get Started</button>
-    </div>
-  </div>
-
-  <div class="services__item">
-    <img class="services__image" src="https://live.staticflickr.com/65535/53787422649_81c75ccb23.jpg" alt="Repair Services" loading="lazy">
-    <div class="services__text">
-      <h3 class="services__heading">Technical Repair Services</h3>
-      <p class="services__description">We offer comprehensive repair services for mobile devices, computers, and laptops. Our skilled technicians can diagnose and fix a wide range of hardware and software issues, ensuring your devices are running smoothly.</p>
-      <button class="cta-button services__cta" (click)="navigateTo('/services')">Get Started</button>
-    </div>
-  </div>
-</div>
+</section>

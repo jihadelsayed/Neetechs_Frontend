@@ -1,0 +1,94 @@
+@use "../../../../styles._variables.scss" as *;
+
+.home-portfolio {
+  width: 100%;
+  padding: $space-7 4vw;
+  background:
+    radial-gradient(120% 200% at 100% 0%, rgba(56, 189, 248, 0.14), transparent 55%)
+    #020617;
+  color: $neutral-color-lightest;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    max-width: 640px;
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    line-height: $line-height-tight;
+    margin: 0 0 $space-2;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    color: $neutral-color-medium-light;
+    margin: 0;
+  }
+
+  &__slider {
+    margin-top: $space-3;
+    margin-bottom: $space-4;
+
+    // generic slider should stretch full width but stay inside the section
+    app-generic-slider {
+      display: block;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.7rem 1.6rem;
+    border-radius: $radius-full;
+    border: 1px solid transparent;
+
+    font-size: $font-size-sm;
+    font-weight: 500;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    color: #0b1120;
+    box-shadow: $shadow-soft;
+
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.18s ease,
+      transform 0.12s ease;
+  }
+
+  &__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-strong;
+  }
+
+  &__cta:active {
+    transform: translateY(0);
+    box-shadow: $shadow-medium;
+  }
+
+  @media (max-width: 768px) {
+    padding-inline: 1.5rem;
+
+    &__header {
+      margin-bottom: $space-3;
+    }
+
+    &__actions {
+      justify-content: flex-start;
+    }
+  }
+}

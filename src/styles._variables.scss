@@ -113,3 +113,43 @@ $neutral-color-medium:  #334155;         // Muted text
 $neutral-color-medium-light: #94a3b8;    // Menu links (inactive)
 $neutral-color-light:   #cbd5e1;         // Placeholders, soft text
 $neutral-color-lightest:#f8fafc;         // Pure light text (white-ish)
+
+
+/* === Spacing scale === */
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 40px;
+$space-8: 56px;
+
+/* === Border radius === */
+$radius-xs: 4px;
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+$radius-full: 999px;
+
+/* === Shadows (for cards, drawers, buttons) === */
+$shadow-soft: 0 8px 18px rgba(15, 23, 42, 0.45);
+$shadow-medium: 0 14px 30px rgba(15, 23, 42, 0.65);
+$shadow-strong: 0 22px 45px rgba(15, 23, 42, 0.8);
+
+/* === Typography tokens === */
+$font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
+  sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.375rem;
+$font-size-2xl: 1.75rem;
+$font-size-3xl: 2.25rem;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.7;
