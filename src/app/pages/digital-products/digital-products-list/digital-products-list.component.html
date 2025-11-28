@@ -1,0 +1,55 @@
+<section class="dp-list">
+  <div class="dp-inner">
+    <header class="dp-list-header">
+      <p class="eyebrow">Digital products</p>
+      <h1 class="title">Systems, templates, and packs you can use today.</h1>
+      <p class="subtitle">
+        Each digital product is built to solve a specific problem: studying,
+        building, creating, or applying. Pick one, plug it into your workflow,
+        and move faster.
+      </p>
+    </header>
+
+    <div class="dp-grid">
+      <article
+        class="dp-card"
+        *ngFor="let p of digitalProducts"
+      >
+        <div class="dp-card-image">
+          <img [src]="p.cardImage" [alt]="p.name" />
+        </div>
+
+        <div class="dp-card-body">
+          <div class="dp-card-top">
+            <p class="badge" *ngIf="p.badge">{{ p.badge }}</p>
+            <h2 class="dp-card-title">{{ p.name }}</h2>
+            <p class="dp-card-text">
+              {{ p.shortDescription }}
+            </p>
+          </div>
+
+          <ul class="dp-card-bullets">
+            <li *ngFor="let item of p.bullets | slice: 0:2">
+              {{ item }}
+            </li>
+          </ul>
+
+          <div class="dp-card-footer">
+            <div class="price-block">
+              <span class="price">\${{ p.price }}</span>
+              <span class="price-note">digital download</span>
+            </div>
+
+            <a
+              [routerLink]="['/digital-products', p.slug]"
+              class="btn btn-outline"
+            >
+              View digital product
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+    

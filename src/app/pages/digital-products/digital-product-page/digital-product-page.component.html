@@ -1,0 +1,175 @@
+<section class="dp-page" *ngIf="product as p">
+  <!-- HERO -->
+  <div class="dp-hero">
+    <div class="dp-inner">
+      <div class="dp-hero-main">
+        <p class="dp-eyebrow">
+          Digital product · {{ p.category | titlecase }}
+        </p>
+
+        <h1 class="dp-title">{{ p.name }}</h1>
+
+        <p class="dp-subtitle">
+          {{ p.shortDescription }}
+        </p>
+
+        <ul class="dp-highlights">
+          <li *ngFor="let item of p.bullets">{{ item }}</li>
+        </ul>
+
+        <div class="dp-hero-footer">
+          <div class="dp-price-block">
+            <span class="dp-price">\${{ p.price }}</span>
+            <span class="dp-price-note">one-time · digital download</span>
+          </div>
+
+          <div class="dp-actions">
+            <a
+              *ngIf="p.purchaseUrl"
+              class="btn btn-primary"
+              [href]="p.purchaseUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get this digital product
+            </a>
+
+            <a
+              routerLink="/digital-products"
+              class="btn btn-ghost"
+            >
+              Back to all digital products
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dp-hero-card">
+        <div class="dp-hero-image">
+          <img [src]="p.heroImage" [alt]="p.name" />
+        </div>
+
+        <div class="dp-hero-meta">
+          <span class="dp-badge" *ngIf="p.badge">{{ p.badge }}</span>
+          <span class="dp-meta-line">
+            Digital product · instant access · no subscription
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="dp-section" *ngIf="p.whatsInside?.length">
+    <div class="dp-inner">
+      <div class="dp-section-header">
+        <h2 class="dp-section-title">What’s inside</h2>
+        <p class="dp-section-subtitle">
+          Everything you get when you purchase this digital product.
+        </p>
+      </div>
+
+      <div class="dp-inside-grid">
+        <article
+          class="dp-inside-card"
+          *ngFor="let item of p.whatsInside"
+        >
+          <h3 class="dp-inside-title">{{ item }}</h3>
+          <p class="dp-inside-text">
+            <!-- اكتب وصف عام، أو خليه بسيط للي الآن -->
+            A focused block designed to plug directly into your workflow.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LONG DESCRIPTION / DETAILS -->
+  <section class="dp-section">
+    <div class="dp-inner">
+      <div class="dp-details">
+        <h2 class="dp-section-title">How this digital product helps you</h2>
+        <p class="dp-details-text">
+          {{ p.longDescription }}
+        </p>
+        <p class="dp-details-text">
+          Use it with AI tools, your favorite note-taking app, or your
+          existing workflow. The goal is to save time, reduce confusion, and
+          give you a clear structure you can trust.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ STATIC الآن -->
+  <section class="dp-section dp-faq">
+    <div class="dp-inner">
+      <div class="dp-section-header">
+        <h2 class="dp-section-title">Frequently asked questions</h2>
+      </div>
+
+      <div class="dp-faq-grid">
+        <article class="dp-faq-item">
+          <h3 class="dp-faq-q">How do I receive the digital product?</h3>
+          <p class="dp-faq-a">
+            After checkout you’ll get an instant download link, plus an email
+            with all files and instructions.
+          </p>
+        </article>
+
+        <article class="dp-faq-item">
+          <h3 class="dp-faq-q">Can I update or customize it?</h3>
+          <p class="dp-faq-a">
+            Yes. All templates are fully editable. You can copy, adjust, and
+            adapt them to your style and tools.
+          </p>
+        </article>
+
+        <article class="dp-faq-item">
+          <h3 class="dp-faq-q">Is this a subscription?</h3>
+          <p class="dp-faq-a">
+            No. This is a one-time purchase with lifetime access to the files
+            in their current version.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="dp-bottom-cta">
+    <div class="dp-inner">
+      <div class="dp-bottom-card">
+        <div class="dp-bottom-text">
+          <h2 class="dp-bottom-title">
+            Ready to plug this into your workflow?
+          </h2>
+          <p class="dp-bottom-subtitle">
+            Get instant access to {{ p.name }} and start using it today. No
+            extra tools required.
+          </p>
+        </div>
+
+        <a
+          *ngIf="p.purchaseUrl"
+          class="btn btn-primary"
+          [href]="p.purchaseUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get the digital product
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- في حال ما لقى المنتج -->
+<section class="dp-page" *ngIf="!product">
+  <div class="dp-inner dp-not-found">
+    <h1>Digital product not found.</h1>
+    <a routerLink="/digital-products" class="btn btn-primary">
+      Back to all digital products
+    </a>
+  </div>
+</section>

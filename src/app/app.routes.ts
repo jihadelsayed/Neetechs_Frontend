@@ -86,6 +86,19 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/blog-news/blog/blog.component').then(m => m.BlogComponent),
   },
   {
+  path: 'digital-products',
+  loadComponent: () =>
+    import('./pages/digital-products/digital-products-list/digital-products-list.component')
+      .then(m => m.DigitalProductsListComponent)
+},
+{
+  path: 'digital-products/:slug',
+  loadComponent: () =>
+    import('./pages/digital-products/digital-product-page/digital-product-page.component')
+      .then(m => m.DigitalProductPageComponent)
+},
+
+  {
     path: '**',
     redirectTo: '',
   },
