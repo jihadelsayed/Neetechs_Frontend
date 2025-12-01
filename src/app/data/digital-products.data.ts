@@ -25,8 +25,8 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
     price: 29,
     badge: 'Most popular',
     category: 'study',
-    heroImage: 'assets/images/product-ai-study-hero.png',
-    cardImage: 'assets/images/product-ai-study-card.png',
+    heroImage: 'https://i.imgur.com/iBGfBCE.png',
+    cardImage: 'https://i.imgur.com/iBGfBCE.png',
     bullets: [
       'Ready-to-use AI prompts for assignments and exams',
       'Study planners & semester overview templates',
@@ -48,8 +48,8 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
     price: 19,
     badge: 'For tech creators',
     category: 'creator',
-    heroImage: 'assets/images/product-tech-creator-hero.png',
-    cardImage: 'assets/images/product-tech-creator-card.png',
+    heroImage: 'https://i.imgur.com/uJNRzth.png',
+    cardImage: 'https://i.imgur.com/uJNRzth.png',
     bullets: [
       '50+ content prompts & hooks for tech',
       'Ready scripts for Reels / Shorts',

@@ -1,55 +1,65 @@
-<section class="dp-list">
-  <div class="dp-inner">
-    <header class="dp-list-header">
-      <p class="eyebrow">Digital products</p>
-      <h1 class="title">Systems, templates, and packs you can use today.</h1>
-      <p class="subtitle">
-        Each digital product is built to solve a specific problem: studying,
-        building, creating, or applying. Pick one, plug it into your workflow,
-        and move faster.
-      </p>
-    </header>
+<ng-container *ngIf="digitalProducts$ | async as digitalProducts">
+  <section class="dp-list">
+    <div class="dp-inner">
+      <header class="dp-list-header">
+        <p class="eyebrow">Digital products</p>
+        <h1 class="title">Systems, templates, and packs you can use today.</h1>
+        <p class="subtitle">
+          Each digital product is built to solve a specific problem: studying,
+          building, creating, or applying. Pick one, plug it into your workflow,
+          and move faster.
+        </p>
+      </header>
 
-    <div class="dp-grid">
-      <article
-        class="dp-card"
-        *ngFor="let p of digitalProducts"
-      >
-        <div class="dp-card-image">
-          <img [src]="p.cardImage" [alt]="p.name" />
-        </div>
-
-        <div class="dp-card-body">
-          <div class="dp-card-top">
-            <p class="badge" *ngIf="p.badge">{{ p.badge }}</p>
-            <h2 class="dp-card-title">{{ p.name }}</h2>
-            <p class="dp-card-text">
-              {{ p.shortDescription }}
-            </p>
+      <div class="dp-grid">
+        <article class="dp-card" *ngFor="let p of digitalProducts">
+          <!-- IMAGE -->
+          <div class="dp-card-image">
+            <img [src]="p.thumbnail" [alt]="p.title" />
           </div>
 
-          <ul class="dp-card-bullets">
-            <li *ngFor="let item of p.bullets | slice: 0:2">
-              {{ item }}
-            </li>
-          </ul>
+          <!-- BODY -->
+          <div class="dp-card-body">
+            <div class="dp-card-top">
+              <!-- If you add a 'badge' field later, this will start working -->
+              <p class="badge" *ngIf="p.badge">{{ p.badge }}</p>
 
-          <div class="dp-card-footer">
-            <div class="price-block">
-              <span class="price">\${{ p.price }}</span>
-              <span class="price-note">digital download</span>
+              <h2 class="dp-card-title">{{ p.title }}</h2>
+
+              <p class="dp-card-text">
+                {{ p.short_description }}
+              </p>
             </div>
 
-            <a
-              [routerLink]="['/digital-products', p.slug]"
-              class="btn btn-outline"
-            >
-              View digital product
-            </a>
+            <!-- Bullets (from API: 'bullets': []) -->
+            <ul class="dp-card-bullets" *ngIf="p.bullets?.length">
+              <li *ngFor="let item of p.bullets | slice:0:2">
+                {{ item }}
+              </li>
+            </ul>
+
+            <!-- FOOTER -->
+            <div class="dp-card-footer">
+              <!-- You don't have price in the API yet. 
+                   When you add it, just uncomment this block and map it. -->
+
+              <!--
+              <div class="price-block">
+                <span class="price">\${{ p.price }}</span>
+                <span class="price-note">digital download</span>
+              </div>
+              -->
+
+              <a
+                [routerLink]="['/digital-products', p.slug]"
+                class="btn btn-outline"
+              >
+                View digital product
+              </a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
-    
+  </section>
+</ng-container>

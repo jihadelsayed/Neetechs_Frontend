@@ -12,6 +12,7 @@ export const environment = {
   CHAT_URL: "wss://server.neetechs.com/ws/chat/",
   SERVER_URL_WITH_OUT_SLASH: "",
   FrontEnd_URL: "https://neetechs.com",
+    apiBaseUrl: 'https://server.neetechs.com/api/v1', 
   //LoginURL: "http://localhost:22958/",
   //LoginURL: '',
   //LoginURL: "https://accounts.neetechs.com/",

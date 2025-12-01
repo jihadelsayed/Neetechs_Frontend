@@ -97,7 +97,6 @@ export const routes: Routes = [
     import('./pages/digital-products/digital-product-page/digital-product-page.component')
       .then(m => m.DigitalProductPageComponent)
 },
-
   {
     path: '**',
     redirectTo: '',
