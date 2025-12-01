@@ -87,39 +87,21 @@
   </section>
 
   <!-- FAQ (static text, only references p.title once) -->
-  <section class="dp-section dp-faq">
-    <div class="dp-inner">
-      <div class="dp-section-header">
-        <h2 class="dp-section-title">Frequently asked questions</h2>
-      </div>
-
-      <div class="dp-faq-grid">
-        <article class="dp-faq-item">
-          <h3 class="dp-faq-q">How do I receive the digital product?</h3>
-          <p class="dp-faq-a">
-            After checkout you’ll get an instant download link, plus an email
-            with all files and instructions.
-          </p>
-        </article>
-
-        <article class="dp-faq-item">
-          <h3 class="dp-faq-q">Can I customize it?</h3>
-          <p class="dp-faq-a">
-            Yes. You can reorganize the files, rename them, and plug them into
-            your existing tools and workflows.
-          </p>
-        </article>
-
-        <article class="dp-faq-item">
-          <h3 class="dp-faq-q">Is this a subscription?</h3>
-          <p class="dp-faq-a">
-            No. This is a one-time purchase with access to the current version
-            of {{ p.title }}.
-          </p>
-        </article>
-      </div>
+<section class="dp-section dp-faq" *ngIf="p.faqs?.length">
+  <div class="dp-inner">
+    <div class="dp-section-header">
+      <h2 class="dp-section-title">Frequently asked questions</h2>
     </div>
-  </section>
+
+    <div class="dp-faq-grid">
+      <article class="dp-faq-item" *ngFor="let faq of p.faqs">
+        <h3 class="dp-faq-q">{{ faq.q }}</h3>
+        <p class="dp-faq-a">{{ faq.a }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 
   <!-- BOTTOM CTA -->
   <section class="dp-bottom-cta">

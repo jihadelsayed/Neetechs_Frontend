@@ -13,6 +13,7 @@ export interface DigitalProduct {
   updated_at: string;            // ISO datetime string
   bullets: string[];
   whatsInside: string[];
+  faqs?: { q: string; a: string }[];
 
   // Frontend-only / future stuff (optional)
   badge?: string | null;
