@@ -37,18 +37,19 @@ export class DigitalProductPageComponent implements OnInit {
     });
   }
 
-  onBuy(): void {
-    if (!this.product) return;
-    this.buying = true;
+onBuy(): void {
+  if (!this.product) return;
+  this.buying = true;
 
-    this.digitalProductService.startCheckout(this.product.slug).subscribe({
-      next: (res) => {
-        window.location.href = res.checkout_url;
-      },
-      error: () => {
-        this.buying = false;
-        // TODO: show toast
-      },
-    });
-  }
+  this.digitalProductService.startCheckout(this.product.id).subscribe({
+    next: (res) => {
+      window.location.href = res.checkout_url;
+    },
+    error: () => {
+      this.buying = false;
+      // TODO: toast
+    },
+  });
+}
+
 }

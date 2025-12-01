@@ -19,10 +19,17 @@ export class DigitalProductService {
   }
 
   /** يبدأ شراء المنتج – Django ينادي Stripe ويرجع لك checkout_url أو session_id */
-  startCheckout(slug: string): Observable<{ checkout_url: string }> {
-    return this.http.post<{ checkout_url: string }>(
-      `${this.baseUrl}${slug}/checkout/`, // عدّل حسب endpoint اللي عاملُه في Django
-      {}
-    );
-  }
+// digital-product.service.ts
+startCheckout(productId: number): Observable<{ checkout_url: string }> {
+  return this.http.post<{ checkout_url: string }>(
+    `${environment.apiBaseUrl}/payments/checkout/digital-product/`,
+    { product_id: productId },
+    {
+      // if you’re using cookies / Knox session etc.
+      withCredentials: true,
+    }
+  );
+}
+
+
 }
