@@ -10,21 +10,22 @@
   <!-- Center navigation -->
   <nav class="primary-nav" aria-label="Main navigation">
     <ul class="menu">
-      <li
-        *ngFor="let item of menu_data; let i = index"
-        [ngClass]="{
-          'has-dropdown': item.drop_down,
-          'has-mega-menu': item.mega_menu
-        }"
-      >
-        <a
-          [routerLink]="item.link"
-          routerLinkActive="active"
-          (click)="navigateToTop()"
+     @for (item of menu_data; track item.title; let i = $index) {
+        <li
+          [ngClass]="{
+            'has-dropdown': item.drop_down,
+            'has-mega-menu': item.mega_menu
+          }"
         >
-          {{ item?.title }}
-        </a>
-      </li>
+          <a
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            (click)="navigateToTop()"
+          >
+            {{ item?.title }}
+          </a>
+        </li>
+      }
     </ul>
   </nav>
 

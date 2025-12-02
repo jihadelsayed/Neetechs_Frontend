@@ -3,13 +3,15 @@
   <h1>{{ category?.title }}</h1>
   <p>{{ category?.description }}</p>
   <div class="trends">
-    <div class="trend" *ngFor="let trend of category?.categories">
-      <h4>{{ trend.trend }}</h4>
-      <p>{{ trend.description }}</p>
-      <button [disabled]="trend.disabled" (click)="navigateTo(trend.href)">
-        Learn More
-      </button>
-    </div>
+   @for (trend of category?.categories; track trend.trend) {
+      <div class="trend">
+        <h4>{{ trend.trend }}</h4>
+        <p>{{ trend.description }}</p>
+        <button [disabled]="trend.disabled" (click)="navigateTo(trend.href)">
+          Learn More
+        </button>
+      </div>
+    }
   </div>
 </div>
 }

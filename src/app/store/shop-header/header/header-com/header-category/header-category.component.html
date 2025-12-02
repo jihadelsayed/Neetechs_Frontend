@@ -8,27 +8,30 @@
   @if (isActive) {
     <div class="category-dropdown">
       <ul class="category-list">
-        <li
-          *ngFor="let parent of categoryItems"
-          class="category-item"
-          [class.open]="openCategory === parent.parent"
-          (mouseenter)="showSubCategory(parent.parent)"
-          (mouseleave)="hideSubCategory()"
-        >
-          <button class="category-link" (click)="toggleSubCategory(parent.parent)">
-            <img class="icon" [src]="parent.img" alt="icon" />
-            <strong class="name">{{ parent.parent }}</strong>
-            <span class="arrow">▶</span>
-          </button>
+        @for (parent of categoryItems; track parent.parent) {
+          <li
+            class="category-item"
+            [class.open]="openCategory === parent.parent"
+            (mouseenter)="showSubCategory(parent.parent)"
+            (mouseleave)="hideSubCategory()"
+          >
+            <button class="category-link" (click)="toggleSubCategory(parent.parent)">
+              <img class="icon" [src]="parent.img" alt="icon" />
+              <strong class="name">{{ parent.parent }}</strong>
+              <span class="arrow">▶</span>
+            </button>
 
-          @if (parent.children.length && openCategory === parent.parent) {
-            <ul class="subcategory-popup">
-              <li *ngFor="let sub of parent.children">
-                <a (click)="handleSubCategory(sub)">{{ sub }}</a>
-              </li>
-            </ul>
-          }
-        </li>
+            @if (parent.children.length && openCategory === parent.parent) {
+              <ul class="subcategory-popup">
+                @for (sub of parent.children; track sub) {
+                  <li>
+                    <a (click)="handleSubCategory(sub)">{{ sub }}</a>
+                  </li>
+                }
+              </ul>
+            }
+          </li>
+        }
       </ul>
     </div>
   }

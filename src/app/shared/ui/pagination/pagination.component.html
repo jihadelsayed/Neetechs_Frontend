@@ -10,9 +10,11 @@
               </svg>
             </a>
         </li>
-        <li *ngFor="let page of paginate.pages">
-            <a href="javascript:void(0)" [ngClass]="{ current: paginate.currentPage == page }" (click)="pageSet(page)">{{page}}</a>
-        </li>
+        @for (page of paginate.pages) {
+          <li>
+              <a href="javascript:void(0)" [ngClass]="{ current: paginate.currentPage == page }" (click)="pageSet(page)">{{page}}</a>
+          </li>
+        }
         <li [ngClass]="{ disabled: paginate.currentPage == paginate.totalPages }">
           <a href="javascript:void(0)" class="next page-numbers" (click)="pageSet(paginate.currentPage + 1)">
               <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">

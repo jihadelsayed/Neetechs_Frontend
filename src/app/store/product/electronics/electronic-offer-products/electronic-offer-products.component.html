@@ -32,9 +32,11 @@
         <div class="tp-product-offer-slider fix">
           <div class="tp-product-offer-slider-active swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide" *ngFor="let item of offer_products">
-                <app-product-item-one [product]="item" [offer_style]="true"></app-product-item-one>
-              </div>
+              @for (item of offer_products) {
+                <div class="swiper-slide">
+                  <app-product-item-one [product]="item" [offer_style]="true"></app-product-item-one>
+                </div>
+              }
             </div>
             <div class="tp-deals-slider-dot tp-swiper-dot text-center mt-40"></div>
           </div>

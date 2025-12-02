@@ -1,12 +1,14 @@
 <div class="container">
   <h2>Conversion Tools</h2>
   <div class="grid">
-    <a *ngFor="let t of tools" [routerLink]="['/tools/conversion_tools', t.link.split('/').pop()]">
-      <div class="card">
-        <div class="icon">{{ t.icon }}</div>
-        <div class="name">{{ t.name }}</div>
-        <div class="desc">{{ t.description }}</div>
-      </div>
-    </a>
+    @for (t of tools; track t.name) {
+      <a [routerLink]="['/tools/conversion_tools', t.link.split('/').pop()]">
+        <div class="card">
+          <div class="icon">{{ t.icon }}</div>
+          <div class="name">{{ t.name }}</div>
+          <div class="desc">{{ t.description }}</div>
+        </div>
+      </a>
+    }
   </div>
 </div>

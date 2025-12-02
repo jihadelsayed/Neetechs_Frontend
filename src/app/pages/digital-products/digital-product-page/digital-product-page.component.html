@@ -18,9 +18,11 @@
 
           @if (p.bullets?.length) {
             <ul class="dp-highlights">
-              <li *ngFor="let item of p.bullets">
-                {{ item }}
-              </li>
+              @for (item of p.bullets; track $index) {
+                <li>
+                  {{ item }}
+                </li>
+              }
             </ul>
           }
 
@@ -68,12 +70,14 @@
           </div>
 
           <div class="dp-inside-grid">
-            <article class="dp-inside-card" *ngFor="let item of p.whatsInside">
-              <h3 class="dp-inside-title">{{ item }}</h3>
-              <p class="dp-inside-text">
-                A focused block designed to plug directly into your workflow.
-              </p>
-            </article>
+            @for (item of p.whatsInside; track $index) {
+              <article class="dp-inside-card">
+                <h3 class="dp-inside-title">{{ item }}</h3>
+                <p class="dp-inside-text">
+                  A focused block designed to plug directly into your workflow.
+                </p>
+              </article>
+            }
           </div>
         </div>
       </section>
@@ -100,10 +104,12 @@
           </div>
 
           <div class="dp-faq-grid">
-            <article class="dp-faq-item" *ngFor="let faq of p.faqs">
-              <h3 class="dp-faq-q">{{ faq.q }}</h3>
-              <p class="dp-faq-a">{{ faq.a }}</p>
-            </article>
+            @for (faq of p.faqs; track $index) {
+              <article class="dp-faq-item">
+                <h3 class="dp-faq-q">{{ faq.q }}</h3>
+                <p class="dp-faq-a">{{ faq.a }}</p>
+              </article>
+            }
           </div>
         </div>
       </section>

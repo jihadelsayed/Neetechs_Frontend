@@ -12,53 +12,65 @@
     <section class="services">
       <h2>Our Services</h2>
       <ul>
-        <li *ngFor="let service of category.services">
-          <h3>{{ service.name }}</h3>
-          <p>{{ service.description }}</p>
-        </li>
+        @for (service of category.services; track service.name) {
+          <li>
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+          </li>
+        }
       </ul>
     </section>
   
     <section class="portfolio">
       <h2>Portfolio</h2>
       <div class="portfolio-items">
-        <div *ngFor="let item of category.portfolio" class="portfolio-item">
-          <img [src]="item.image" alt="{{ item.projectName }}">
-          <h3>{{ item.projectName }}</h3>
-          <p><strong>Client:</strong> {{ item.client }}</p>
-          <blockquote>{{ item.testimonial }}</blockquote>
-        </div>
+        @for (item of category.portfolio; track item.projectName) {
+          <div class="portfolio-item">
+            <img [src]="item.image" alt="{{ item.projectName }}">
+            <h3>{{ item.projectName }}</h3>
+            <p><strong>Client:</strong> {{ item.client }}</p>
+            <blockquote>{{ item.testimonial }}</blockquote>
+          </div>
+        }
       </div>
     </section>
   
     <section class="process">
       <h2>Our Process</h2>
       <ol>
-        <li *ngFor="let step of category.process">{{ step }}</li>
+        @for (step of category.process; track $index) {
+          <li>{{ step }}</li>
+        }
       </ol>
     </section>
   
     <section class="technologies">
       <h2>Technologies Used</h2>
       <ul>
-        <li *ngFor="let tech of category.technologies">{{ tech }}</li>
+        @for (tech of category.technologies; track $index) {
+          <li>{{ tech }}</li>
+        }
       </ul>
     </section>
   
     <section class="testimonials">
       <h2>Testimonials</h2>
-      <div *ngFor="let testimonial of category.testimonials" class="testimonial">
-        <p><strong>{{ testimonial.client }}</strong></p>
-        <blockquote>{{ testimonial.feedback }}</blockquote>
-      </div>
+      @for (testimonial of category.testimonials; track testimonial.client) {
+        <div class="testimonial">
+          <p><strong>{{ testimonial.client }}</strong></p>
+          <blockquote>{{ testimonial.feedback }}</blockquote>
+        </div>
+      }
     </section>
   
     <section class="faq">
       <h2>FAQs</h2>
-      <div *ngFor="let faq of category.faq" class="faq-item">
-        <p class="question">{{ faq.question }}</p>
-        <p class="answer">{{ faq.answer }}</p>
-      </div>
+      @for (faq of category.faq; track faq.question) {
+        <div class="faq-item">
+          <p class="question">{{ faq.question }}</p>
+          <p class="answer">{{ faq.answer }}</p>
+        </div>
+      }
     </section>
   
     <div class="call-to-action">

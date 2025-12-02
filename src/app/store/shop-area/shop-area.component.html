@@ -111,18 +111,20 @@
 
             <!-- <div block shown when activeTab === 'grid'">
               <div class="row infinite-container">
-                <div *ngFor="let item of products" class="col-xl-4 col-md-6 col-sm-6 infinite-item">
-                  <app-product-item-two [product]="item" [spacing]="true"></app-product-item-two>
-                </div>
+                @for (item of products) {
+                  <div class="col-xl-4 col-md-6 col-sm-6 infinite-item">
+                    <app-product-item-two [product]="item" [spacing]="true"></app-product-item-two>
+                  </div>
+                }
               </div>
             </div> -->
 
             @if (activeTab === 'list') {
               <div class="row">
                 <div class="col-xl-12">
-                  <ng-container *ngFor="let item of products; let i = index; let last = last">
+                  @for (item of products; let i = $index; let last = $last) {
                     <app-product-list-item [product]="item" [class.last_product]="last"></app-product-list-item>
-                  </ng-container>
+                  }
                 </div>
               </div>
             }

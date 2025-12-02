@@ -24,13 +24,14 @@
     </div>
   }
 
-  <app-tutorial-section
-    *ngFor="let section of tutorial.sections"
-    [section]="section"
-    [stepIndex]="stepIndexes[slugify(section.title)]"
-    (next)="nextStep(slugify(section.title))"
-    [sectionId]="slugify(section.title)">
-  </app-tutorial-section>
+  @for (section of tutorial.sections; track slugify(section.title)) {
+    <app-tutorial-section
+      [section]="section"
+      [stepIndex]="stepIndexes[slugify(section.title)]"
+      (next)="nextStep(slugify(section.title))"
+      [sectionId]="slugify(section.title)">
+    </app-tutorial-section>
+  }
 
   <!-- Completion Toggle -->
   <div class="completion-toggle">

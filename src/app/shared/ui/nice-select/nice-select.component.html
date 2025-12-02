@@ -6,14 +6,15 @@
 >
   <span class="current">{{ current?.text || placeholder }}</span>
   <ul class="list" role="menubar" (click)="stopPropagation($event)">
-    <li
-      *ngFor="let item of options; let index = index"
-      class="option"
-      [ngClass]="(item.value === current?.value ? 'selected focus' : '')"
-      (click)="currentHandler(item, index)"
-      role="menuitem"
-    >
-      {{ item.text }}
-    </li>
+    @for (item of options; let index = $index) {
+      <li
+        class="option"
+        [ngClass]="(item.value === current?.value ? 'selected focus' : '')"
+        (click)="currentHandler(item, index)"
+        role="menuitem"
+      >
+        {{ item.text }}
+      </li>
+    }
   </ul>
 </div>

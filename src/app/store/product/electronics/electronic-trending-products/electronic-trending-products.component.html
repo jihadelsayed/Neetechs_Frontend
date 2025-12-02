@@ -28,32 +28,34 @@
           class="tp-product-tab tp-product-tab-border mb-45 tp-tab d-flex justify-content-md-end"
         >
           <ul class="nav nav-tabs justify-content-sm-end">
-            <li *ngFor="let tab of tabs; let i = index" class="nav-item">
-              <button
-                class="nav-link"
-                [ngClass]="{ active: activeTab === tab }"
-                (click)="handleActiveTab(tab)"
-              >
-                {{ tab }}
-                <span class="tp-product-tab-line">
-                  <svg
-                    width="52"
-                    height="13"
-                    viewBox="0 0 52 13"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 8.97127C11.6061 -5.48521 33 3.99996 51 11.4635"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-miterlimit="3.8637"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </li>
+            @for (tab of tabs; let i = $index) {
+              <li class="nav-item">
+                <button
+                  class="nav-link"
+                  [ngClass]="{ active: activeTab === tab }"
+                  (click)="handleActiveTab(tab)"
+                >
+                  {{ tab }}
+                  <span class="tp-product-tab-line">
+                    <svg
+                      width="52"
+                      height="13"
+                      viewBox="0 0 52 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 8.97127C11.6061 -5.48521 33 3.99996 51 11.4635"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-miterlimit="3.8637"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+            }
           </ul>
         </div>
       </div>
@@ -62,12 +64,13 @@
       <div class="col-xl-12">
         <div class="tp-product-tab-content">
           <div class="row">
-            <div
-              *ngFor="let item of filteredProducts; let i = index"
-              class="col-xl-3 col-lg-3 col-sm-6"
-            >
-              <app-product-item-one [product]="item"></app-product-item-one>
-            </div>
+            @for (item of filteredProducts; let i = $index) {
+              <div
+                class="col-xl-3 col-lg-3 col-sm-6"
+              >
+                <app-product-item-one [product]="item"></app-product-item-one>
+              </div>
+            }
           </div>
         </div>
       </div>

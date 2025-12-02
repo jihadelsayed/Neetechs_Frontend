@@ -8,32 +8,34 @@
 
     @if (cartService.getCartProducts().length > 0) {
       <div class="cart-list">
-        <div *ngFor="let item of cartService.getCartProducts()" class="cart-item">
-          <div class="thumb">
-            <a [routerLink]="['/shop/shop-details', item.id]">
-              <img [src]="item.img" alt="cart-img" width="70" height="60" />
-            </a>
-          </div>
-          <div class="info">
-            <h5>
-              <a [routerLink]="['/shop/shop-details', item.id]">{{ item?.title }}</a>
-            </h5>
-            <div class="price-row">
-              @if (item.discount > 0 && item.orderQuantity) {
-                <span>
-                  {{ ((item.price - (item.price * item.discount) / 100) * item.orderQuantity).toFixed(2) }}
-                </span>
-              }
-              @if (!item.discount && item.orderQuantity) {
-                <span>
-                  {{ getCurrencySymbol() }}{{ (item.price * item.orderQuantity).toFixed(2) }}
-                </span>
-              }
-              <span class="qty">×{{ item.orderQuantity }}</span>
+        @for (item of cartService.getCartProducts()) {
+          <div class="cart-item">
+            <div class="thumb">
+              <a [routerLink]="['/shop/shop-details', item.id]">
+                <img [src]="item.img" alt="cart-img" width="70" height="60" />
+              </a>
             </div>
+            <div class="info">
+              <h5>
+                <a [routerLink]="['/shop/shop-details', item.id]">{{ item?.title }}</a>
+              </h5>
+              <div class="price-row">
+                @if (item.discount > 0 && item.orderQuantity) {
+                  <span>
+                    {{ ((item.price - (item.price * item.discount) / 100) * item.orderQuantity).toFixed(2) }}
+                  </span>
+                }
+                @if (!item.discount && item.orderQuantity) {
+                  <span>
+                    {{ getCurrencySymbol() }}{{ (item.price * item.orderQuantity).toFixed(2) }}
+                  </span>
+                }
+                <span class="qty">×{{ item.orderQuantity }}</span>
+              </div>
+            </div>
+            <a class="remove" (click)="cartService.removeCartProduct(item)">🗑</a>
           </div>
-          <a class="remove" (click)="cartService.removeCartProduct(item)">🗑</a>
-        </div>
+        }
       </div>
     }
 

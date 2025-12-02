@@ -8,23 +8,27 @@
     </div>
 <div class="container">
 
-        <div style="margin: 48px 0px;" *ngFor="let level of getLevels()">
-            <h3>{{ level }}:</h3>
-            <div class="tutorial-container">
+        @for (level of getLevels(); track level) {
+            <div style="margin: 48px 0px;">
+                <h3>{{ level }}:</h3>
+                <div class="tutorial-container">
 
-            <div *ngFor="let tutorial of groupedTutorials[level]"
-                class="card {{tutorial.lvl}}" 
-             [class.disabled]="tutorial.disable" 
-             (click)="!tutorial.disable && navigateTo(tutorial.href)">
-            <h5>{{ tutorial.title }}</h5>
-            <p>{{ tutorial.description }}</p>
-            <span>Duration: {{ tutorial.duration }}</span>
-            <br/>
-          <span><strong>Date:</strong> {{ tutorial.date }}</span>
+                @for (tutorial of groupedTutorials[level]; track tutorial) {
+                    <div
+                        class="card {{tutorial.lvl}}" 
+                     [class.disabled]="tutorial.disable" 
+                     (click)="!tutorial.disable && navigateTo(tutorial.href)">
+                    <h5>{{ tutorial.title }}</h5>
+                    <p>{{ tutorial.description }}</p>
+                    <span>Duration: {{ tutorial.duration }}</span>
+                    <br/>
+                  <span><strong>Date:</strong> {{ tutorial.date }}</span>
+                </div>
+            }
         </div>
-    </div>
 
-      </div>
+          </div>
+        }
     </div>
 
 }

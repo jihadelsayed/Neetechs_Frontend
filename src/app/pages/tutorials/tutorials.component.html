@@ -9,20 +9,24 @@
 @if (tutorialData) {
 
 
-<div class="container-card" *ngFor="let type of getTypes()">
-  <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
-  <h2>{{ type }}</h2>
-  
-  <div class="categories" >
-    <div class="category" *ngFor="let category of groupedCategories[type]">
-      <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
-      <h5>
-        <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
-      </h5>
-      <h6 class="date">{{ category.date }}</h6>
+@for (type of getTypes(); track type) {
+  <div class="container-card">
+    <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
+    <h2>{{ type }}</h2>
+    
+    <div class="categories" >
+      @for (category of groupedCategories[type]; track category.name) {
+        <div class="category">
+          <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
+          <h5>
+            <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
+          </h5>
+          <h6 class="date">{{ category.date }}</h6>
+        </div>
+      }
     </div>
   </div>
-</div>
+}
 }
 
 <div class="container">

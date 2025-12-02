@@ -71,9 +71,11 @@
       <div class="col-xl-8 col-lg-7">
         <div class="tp-product-gadget-wrapper">
           <div class="row">
-            <div class="col-xl-4 col-sm-6" *ngFor="let item of product_gadget">
-              <app-product-item-one [product]="item"></app-product-item-one>
-            </div>
+            @for (item of product_gadget) {
+              <div class="col-xl-4 col-sm-6">
+                <app-product-item-one [product]="item"></app-product-item-one>
+              </div>
+            }
           </div>
         </div>
       </div>

@@ -14,18 +14,19 @@
           class="testimonials__slides"
           [style.transform]="getTestimonialsTransform()"
         >
-          <article
-            *ngFor="let testimonial of testimonials"
-            class="testimonials__slide"
-          >
-            <div class="testimonials__quote-mark">“</div>
-            <p class="testimonials__text">
-              {{ testimonial.text }}
-            </p>
-            <p class="testimonials__author">
-              {{ testimonial.author }}
-            </p>
-          </article>
+          @for (testimonial of testimonials) {
+            <article
+              class="testimonials__slide"
+            >
+              <div class="testimonials__quote-mark">“</div>
+              <p class="testimonials__text">
+                {{ testimonial.text }}
+              </p>
+              <p class="testimonials__author">
+                {{ testimonial.author }}
+              </p>
+            </article>
+          }
         </div>
       </div>
 
@@ -47,12 +48,13 @@
       </button>
 
       <ul class="testimonials__dots" aria-hidden="true">
-        <li
-          *ngFor="let t of testimonials; let i = index"
-          class="testimonials__dot"
-          [class.testimonials__dot--active]="i === currentTestimonialIndex"
-          (click)="goToTestimonial(i)"
-        ></li>
+        @for (t of testimonials; let i = $index) {
+          <li
+            class="testimonials__dot"
+            [class.testimonials__dot--active]="i === currentTestimonialIndex"
+            (click)="goToTestimonial(i)"
+          ></li>
+        }
       </ul>
     </div>
 

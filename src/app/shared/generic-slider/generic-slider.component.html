@@ -1,16 +1,18 @@
 <div class="slider">
     <div class="viewport">
     <div class="slides" [style.transform]="getTransform()">
-        <div *ngFor="let item of items" class="slide fade">
-        <img [src]="item.image" [alt]="item.title || item.name" [ngClass]="{'black': isBlackClass}">
-        <div class="slide-text">
-            <h3>{{ item.title || item.name }}</h3>
-            @if (item.position) {
-              <h4>{{ item.position }}</h4>
-            }
-            <p>{{ item.description }}</p>
-        </div>
-        </div>
+       @for (item of items; track $index) {
+          <div class="slide fade">
+            <img [src]="item.image" [alt]="item.title || item.name" [ngClass]="{'black': isBlackClass}">
+            <div class="slide-text">
+                <h3>{{ item.title || item.name }}</h3>
+                @if (item.position) {
+                  <h4>{{ item.position }}</h4>
+                }
+                <p>{{ item.description }}</p>
+            </div>
+          </div>
+        }
     </div>
     </div>
     <button class="prev" (click)="prevSlide()">&#10094;</button>

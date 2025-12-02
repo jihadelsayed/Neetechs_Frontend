@@ -37,10 +37,12 @@
               <div class="col-xl-10">
                  <table>
                    <tbody>
-                      <tr *ngFor="let info of product.additionalInformation">
-                          <td>{{info.key}}</td>
-                          <td>{{info.value}}</td>
-                      </tr>
+                      @for (info of product.additionalInformation) {
+                        <tr>
+                            <td>{{info.key}}</td>
+                            <td>{{info.value}}</td>
+                        </tr>
+                      }
                    </tbody>
                  </table>
               </div>
@@ -82,7 +84,8 @@
                     <div class="tp-product-details-review-list pr-110">
                       <h3 class="tp-product-details-review-title">Rating & Review</h3>
                       @if (product.reviews && product.reviews.length > 0) {
-                        <div *ngFor="let item of product.reviews; let i = index" class="tp-product-details-review-avater d-flex align-items-start">
+                        @for (item of product.reviews; let i = $index) {
+                          <div class="tp-product-details-review-avater d-flex align-items-start">
                           <div class="tp-product-details-review-avater-thumb">
                             <a href="#">
                               <img [src]="item.user" alt="user">
@@ -103,6 +106,7 @@
                             </div>
                           </div>
                         </div>
+                        }
                       } @else {
                         <h5>No Reviews Found</h5>
                       }

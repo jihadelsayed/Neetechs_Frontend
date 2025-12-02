@@ -1,7 +1,8 @@
 <section class="tp-slider-area p-relative z-index-1">
   <div class="tp-slider-active-3 swiper-container" #swiperContainer>
     <div class="swiper-wrapper">
-      <div *ngFor="let item of slider_data"
+      @for (item of slider_data) {
+      <div
         class="tp-slider-item-3 tp-slider-height-3 p-relative swiper-slide black-bg d-flex align-items-center">
         <div class="tp-slider-thumb-3 include-bg" [style.backgroundImage]="'url(' + item.bg + ')'"></div>
         <div class="container">
@@ -68,6 +69,7 @@
           </div>
         </div>
       </div>
+      }
     </div>
     <!-- dot style -->
     <div class="tp-swiper-dot tp-slider-3-dot d-sm-none"></div>

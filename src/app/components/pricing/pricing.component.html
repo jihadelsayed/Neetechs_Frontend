@@ -6,23 +6,27 @@
   </div>
   @if(pricing){ 
   <div class="container">
-    <div *ngFor="let category of pricing | keyvalue">
-      <h3>{{ category.key }}</h3>
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let service of category.value">
-            <td>{{ service.name }}</td>
-            <td>{{ service.price }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    @for (category of pricing | keyvalue; track category.key) {
+      <div>
+        <h3>{{ category.key }}</h3>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (service of category.value; track service.name) {
+              <tr>
+                <td>{{ service.name }}</td>
+                <td>{{ service.price }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
   </div>
   }
 

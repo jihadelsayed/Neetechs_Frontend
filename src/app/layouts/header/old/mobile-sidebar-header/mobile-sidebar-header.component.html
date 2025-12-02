@@ -9,9 +9,11 @@
         <a href="javascript:void(0)" class="closebtn-sideNav" (click)="toggleMenu()">&times;</a>
     </div>
     <ul>
-        <li *ngFor="let item of menu_data; let i = index">
-            <a [routerLink]="item.link" routerLinkActive="active" (click)="navigateToTop()">{{ item?.title }}</a>
-        </li>
+        @for (item of menu_data; let i = $index) {
+            <li>
+                <a [routerLink]="item.link" routerLinkActive="active" (click)="navigateToTop()">{{ item?.title }}</a>
+            </li>
+        }
     </ul>
     <a class="contact-sideNav" href="tel:0018888849864"> (888) 884-9864 </a>
     <div class="footer-sideNav">

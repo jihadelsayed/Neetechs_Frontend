@@ -11,7 +11,9 @@
 
     <div class="middle">
       <select class="selector" [(ngModel)]="mode">
-        <option *ngFor="let o of tool.jobOption" [value]="o.value">{{ o.text }}</option>
+        @for (o of tool.jobOption; track o.value) {
+          <option [value]="o.value">{{ o.text }}</option>
+        }
       </select>
       <button [disabled]="busy" (click)="run()">{{ tool.button }}</button>
     </div>

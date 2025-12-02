@@ -48,15 +48,16 @@
             <!-- <div class="tp-shop-items-wrapper tp-shop-item-primary">
               <div>
                 <div class="row infinite-container">
-                  <div
-                    *ngFor="let item of products.slice(0, perView)"
-                    class="col-xl-4 col-md-6 col-sm-6 infinite-item"
-                  >
-                    <app-product-item-two
-                      [product]="item"
-                      [spacing]="true"
-                    ></app-product-item-two>
-                  </div>
+                  @for (item of products.slice(0, perView)) {
+                    <div
+                      class="col-xl-4 col-md-6 col-sm-6 infinite-item"
+                    >
+                      <app-product-item-two
+                        [product]="item"
+                        [spacing]="true"
+                      ></app-product-item-two>
+                    </div>
+                  }
                 </div>
               </div>
             </div> -->

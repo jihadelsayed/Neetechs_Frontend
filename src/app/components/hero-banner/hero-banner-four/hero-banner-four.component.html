@@ -1,7 +1,8 @@
 <section class="tp-slider-area p-relative z-index-1 fix">
   <div class="tp-slider-active-4 khaki-bg">
     <div class="swiper-wrapper">
-      <div *ngFor="let item of slider_data" class="tp-slider-item-4 tp-slider-height-4 p-relative khaki-bg d-flex align-items-center swiper-slide">
+      @for (item of slider_data) {
+      <div class="tp-slider-item-4 tp-slider-height-4 p-relative khaki-bg d-flex align-items-center swiper-slide">
          <div class="tp-slider-thumb-4">
             <img [src]="item.img" alt="">
             <div class="tp-slider-thumb-4-shape">
@@ -51,6 +52,7 @@
             </div>
          </div>
       </div>
+    }
     </div>
   </div>
 

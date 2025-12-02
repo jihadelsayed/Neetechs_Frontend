@@ -4,9 +4,11 @@
       {{ languageService.getCurrentLanguage() }}
     </span>
     <ul [class.open]="isActive === 'language'">
-      <li *ngFor="let language of languages">
-        <a (click)="changeLanguage(language)">{{ language }}</a>
-      </li>
+      @for (language of languages) {
+        <li>
+          <a (click)="changeLanguage(language)">{{ language }}</a>
+        </li>
+      }
     </ul>
   </div>
 
@@ -15,9 +17,11 @@
       {{ currencyService.getCurrentCurrency().code }}
     </span>
     <ul [class.open]="isCurrencyActive === 'currency'">
-      <li *ngFor="let currency of currencies">
-        <a (click)="changeCurrency(currency)">{{ currency }}</a>
-      </li>
+      @for (currency of currencies) {
+        <li>
+          <a (click)="changeCurrency(currency)">{{ currency }}</a>
+        </li>
+      }
     </ul>
   </div>
 

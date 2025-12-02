@@ -124,9 +124,11 @@
       {{ languageService.getCurrentLanguage() }} &#9660;
     </span>
     <ul class="dropdown-menu">
-      <li *ngFor="let lang of languages">
-        <a class="dropdown-item" href="#" (click)="changeLanguage(lang)">{{ lang }}</a>
-      </li>
+      @for (lang of languages) {
+        <li>
+          <a class="dropdown-item" href="#" (click)="changeLanguage(lang)">{{ lang }}</a>
+        </li>
+      }
     </ul>
   </div>
   <div class="dropdown" [class.active]="isCurrencyActive">
@@ -134,9 +136,11 @@
       {{ currencyService.getCurrentCurrency().code }} &#9660;
     </span>
     <ul class="dropdown-menu">
-      <li *ngFor="let cur of currencies">
-        <a class="dropdown-item" href="#" (click)="changeCurrency(cur)">{{ cur }}</a>
-      </li>
+      @for (cur of currencies) {
+        <li>
+          <a class="dropdown-item" href="#" (click)="changeCurrency(cur)">{{ cur }}</a>
+        </li>
+      }
     </ul>
   </div>
   <div class="spacer"></div>

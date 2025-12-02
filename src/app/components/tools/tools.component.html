@@ -25,30 +25,33 @@
       class="type-select"
     >
       <option value="">All Types</option>
-      <option *ngFor="let type of uniqueTypes">{{ type }}</option>
+      @for (type of uniqueTypes; track type) {
+        <option>{{ type }}</option>
+      }
     </select>
   </div>
 </div>
 <div class="container">
   <div class="tools">
-    <div
-      *ngFor="let tool of filteredTools"
-      class="tool-card"
-      [ngClass]="{ disableScale: tool.disable }"
-    >
-      <a
-        class="tool"
-        (click)="navigateTo(tool.link)"
-        [ngClass]="{ 'disable-clicks': tool.disable }"
+    @for (tool of filteredTools ; track tool.name) {
+      <div
+        class="tool-card"
+        [ngClass]="{ disableScale: tool.disable }"
       >
-        <h4>{{ tool.icon }}</h4>
-        <!-- <img [src]="tool.image" alt="tool image">   -->
-        <div>
-          <h5>{{ tool.name }}</h5>
-          <p>{{ tool.type }}</p>
-        </div>
-      </a>
-    </div>
+        <a
+          class="tool"
+          (click)="navigateTo(tool.link)"
+          [ngClass]="{ 'disable-clicks': tool.disable }"
+        >
+          <h4>{{ tool.icon }}</h4>
+          <!-- <img [src]="tool.image" alt="tool image">   -->
+          <div>
+            <h5>{{ tool.name }}</h5>
+            <p>{{ tool.type }}</p>
+          </div>
+        </a>
+      </div>
+    }
   </div>
 </div>
 <div class="container">

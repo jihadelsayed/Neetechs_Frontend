@@ -8,9 +8,11 @@
       </svg>
       </a>
     </li>
-    <li *ngFor="let n of pageNumbers" (click)="setPage(n)">
-      <a class="cursor-pointer" [ngClass]="{ current: currentPage === n }">{{ n }}</a>
-    </li>
+    @for (n of pageNumbers) {
+      <li (click)="setPage(n)">
+        <a class="cursor-pointer" [ngClass]="{ current: currentPage === n }">{{ n }}</a>
+      </li>
+    }
     <li (click)="setPage(currentPage + 1)" [ngClass]="{ 'disabled': currentPage === totalPages }">
       <a class="next page-numbers cursor-pointer">
         <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">

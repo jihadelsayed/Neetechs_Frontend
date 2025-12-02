@@ -14,13 +14,13 @@
 @if (section.steps?.length) {
   <div class="math-box">
     <div class="stepper">
-      <div *ngFor="let step of section.steps; let i = index">
+      @for (step of section.steps; track i; let i = $index) {
         @if (i <= stepIndex) {
           <div class="math-box">
             <app-katex [expression]="step.math"></app-katex>
           </div>
         }
-      </div>
+      }
       <button (click)="next.emit()" [disabled]="stepIndex >= section.steps.length - 1">
         ▶️ Next Step
       </button>

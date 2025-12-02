@@ -14,14 +14,14 @@
 
     <div class="category-filter">
       <span>Search by:</span>
-      <ng-container *ngFor="let c of categories; let i = index">
+      @for (c of categories; let i = $index) {
         <a
           (click)="handleProductType(c)"
           [class.active]="c === productType"
         >
           {{ c }}@if (i < categories.length - 1) {<span>,</span>}
         </a>
-      </ng-container>
+      }
     </div>
   </div>
   <div class="overlay-backdrop" (click)="utilsService.handleSearchOpen()"></div>

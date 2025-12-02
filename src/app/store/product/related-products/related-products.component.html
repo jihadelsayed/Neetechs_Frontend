@@ -12,9 +12,11 @@
            <div class="tp-product-related-slider-active swiper-container  mb-10">
               <div class="swiper-wrapper">
 
-                 <div *ngFor="let item of related_products" class="swiper-slide">
-                    <app-product-item-three [product]="item" [primary_style]="true" [style_2]="true" />
-                 </div>
+                 @for (item of related_products) {
+                   <div class="swiper-slide">
+                      <app-product-item-three [product]="item" [primary_style]="true" [style_2]="true" />
+                   </div>
+                 }
 
               </div>
            </div>

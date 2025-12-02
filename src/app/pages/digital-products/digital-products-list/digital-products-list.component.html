@@ -12,7 +12,8 @@
       </header>
 
       <div class="dp-grid">
-        <article class="dp-card" *ngFor="let p of digitalProducts">
+        @for (p of digitalProducts; track p.id) {
+        <article class="dp-card">
           <!-- IMAGE -->
           <div class="dp-card-image">
             <img [src]="p.thumbnail" [alt]="p.title" />
@@ -36,9 +37,11 @@
             <!-- Bullets (from API: 'bullets': []) -->
             @if (p.bullets?.length) {
               <ul class="dp-card-bullets">
-                <li *ngFor="let item of p.bullets | slice:0:2">
-                  {{ item }}
-                </li>
+                @for (item of p.bullets | slice:0:2; track $index) {
+                  <li>
+                    {{ item }}
+                  </li>
+                }
               </ul>
             }
 
@@ -63,6 +66,7 @@
             </div>
           </div>
         </article>
+        }
       </div>
     </div>
   </section>

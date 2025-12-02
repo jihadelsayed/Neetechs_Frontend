@@ -4,20 +4,30 @@
       <h3>{{ Blog.title }}</h3>
     </div>
     <div class="blog-sections">
-      <div class="section" *ngFor="let section of Blog.sections">
-        <h4>{{ section.heading }}</h4>
-        @if (section.content) {
-          <div>
-            <p *ngFor="let content of section.content" [innerHTML]="content"></p>
-          </div>
-        }
-        @if (section.subsections) {
-          <div class="subsection" *ngFor="let subsection of section.subsections">
-            <h5>{{ subsection.subheading }}</h5>
-            <pre ><code *ngFor="let code of subsection.code"><br>{{ code }}</code></pre>
-          </div>
-        }
-      </div>
+     @for (section of Blog.sections; track section.heading) {
+        <div class="section">
+          <h4>{{ section.heading }}</h4>
+          @if (section.content) {
+            <div>
+              @for (content of section.content; track content) {
+                <p [innerHTML]="content"></p>
+              }
+            </div>
+          }
+          @if (section.subsections) {
+           @for (subsection of section.subsections; track subsection.subheading) {
+              <div class="subsection">
+                <h5>{{ subsection.subheading }}</h5>
+                <pre>
+                  @for (code of subsection.code; track code) {
+                    <code><br>{{ code }}</code>
+                  }
+                </pre>
+              </div>
+            }
+          }
+        </div>
+      }
     </div>
   </div>
   }

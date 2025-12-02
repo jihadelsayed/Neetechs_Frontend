@@ -21,14 +21,15 @@
         class="main-image"
         loading="lazy" />
       <div class="gallery">
-        <img
-          *ngFor="let img of product.imageURLs"
-          [src]="img.img"
-          appImageFallback="/assets/images/product-placeholder.png"
-          [alt]="product.title"
-          (click)="selectImage(img.img)"
-          [class.active]="img.img === selectedImage"
-          loading="lazy" />
+        @for (img of product.imageURLs; track img.img) {
+          <img
+            [src]="img.img"
+            appImageFallback="/assets/images/product-placeholder.png"
+            [alt]="product.title"
+            (click)="selectImage(img.img)"
+            [class.active]="img.img === selectedImage"
+            loading="lazy" />
+        }
       </div>
     </div>
     <div class="right">

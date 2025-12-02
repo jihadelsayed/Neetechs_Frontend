@@ -11,9 +11,9 @@
                  </h3>
               </div>
               <div class="tp-product-sm-wrapper mr-20">
-                <ng-container *ngFor="let item of discount_products; let i = index; let last = last">
+                @for (item of discount_products; let i = $index; let last = $last) {
                     <app-product-sm-item [product]="item" [class.last_product]="last"></app-product-sm-item>
-                </ng-container>
+                }
               </div>
            </div>
         </div>
@@ -28,9 +28,9 @@
               </div>
 
               <div class="tp-product-sm-wrapper mr-20">
-                <ng-container *ngFor="let item of featured_products; let i = index; let last = last">
+                @for (item of featured_products; let i = $index; let last = $last) {
                   <app-product-sm-item [product]="item" [class.last_product]="last"></app-product-sm-item>
-                </ng-container>
+                }
               </div>
            </div>
         </div>
@@ -45,9 +45,9 @@
               </div>
 
               <div class="tp-product-sm-wrapper mr-20">
-                <ng-container *ngFor="let item of selling_products; let i = index; let last = last">
+                @for (item of selling_products; let i = $index; let last = $last) {
                   <app-product-sm-item [product]="item" [class.last_product]="last"></app-product-sm-item>
-                </ng-container>
+                }
               </div>
            </div>
         </div>

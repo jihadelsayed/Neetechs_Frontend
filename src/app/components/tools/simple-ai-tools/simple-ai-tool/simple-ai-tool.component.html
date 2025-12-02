@@ -11,7 +11,9 @@
       <label class="toolbar__group">
         <span>Mode</span>
         <select class="select" [(ngModel)]="toolMode" aria-label="Check mode">
-          <option *ngFor="let option of tool.jobOption" [value]="option.value">{{ option.text }}</option>
+          @for (option of tool.jobOption; track option.value) {
+            <option [value]="option.value">{{ option.text }}</option>
+          }
         </select>
       </label>
 

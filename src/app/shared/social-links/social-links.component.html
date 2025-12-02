@@ -1,3 +1,5 @@
-<a *ngFor="let item of social_data" [href]="item.link" target="_blank">
-  <i [class]="item.icon"></i>
-</a>
+@for (item of social_data) {
+  <a [href]="item.link" target="_blank">
+    <i [class]="item.icon"></i>
+  </a>
+}

@@ -20,7 +20,9 @@
   <label>
     Category
     <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
-      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      @for (c of categories) {
+        <option [value]="c">{{ c }}</option>
+      }
     </select>
   </label>
   <label>
@@ -36,26 +38,28 @@
 <div class="container-card">
   @if (pagedProducts.length) {
     <div class="product-grid">
-      <div class="product-card" *ngFor="let product of pagedProducts">
-        <button class="wishlist" (click)="toggleWishlist(product)" [attr.aria-label]="'Wishlist ' + product.title">
-          <svg viewBox="0 0 24 24" [class.active]="isWishlisted(product)">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        </button>
-        <a [routerLink]="['/shop/product', product.slug]">
-          <img
-            [src]="product.img"
-            appImageFallback="/assets/images/product-placeholder.png"
-            [alt]="product.title"
-            loading="lazy"
-          />
-          <h3>{{ product.title }}</h3>
-        </a>
-        <div class="rating">★★★★★</div>
-        <p class="price">${{ product.price }}</p>
-        <button class="button" (click)="addToCart(product)">Add to Cart</button>
-        <button class="quick-view" (click)="openQuickView(product)">Quick View</button>
-      </div>
+      @for (product of pagedProducts; track product.id) {
+        <div class="product-card">
+          <button class="wishlist" (click)="toggleWishlist(product)" [attr.aria-label]="'Wishlist ' + product.title">
+            <svg viewBox="0 0 24 24" [class.active]="isWishlisted(product)">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+          <a [routerLink]="['/shop/product', product.slug]">
+            <img
+              [src]="product.img"
+              appImageFallback="/assets/images/product-placeholder.png"
+              [alt]="product.title"
+              loading="lazy"
+            />
+            <h3>{{ product.title }}</h3>
+          </a>
+          <div class="rating">★★★★★</div>
+          <p class="price">${{ product.price }}</p>
+          <button class="button" (click)="addToCart(product)">Add to Cart</button>
+          <button class="quick-view" (click)="openQuickView(product)">Quick View</button>
+        </div>
+      }
     </div>
   } @else {
     <p>Loading...</p>

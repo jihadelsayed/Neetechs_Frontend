@@ -13,50 +13,58 @@
     <button (click)="toggleCategoryActive()">All Categories</button>
     @if (isCategoryActive) {
       <ul>
-        <li *ngFor="let item of filterCategories()" class="category-item">
-          <div class="category-header">
-            @if (item.img) {
-              <img [src]="item.img" alt="icon" />
+        @for (item of filterCategories()) {
+          <li class="category-item">
+            <div class="category-header">
+              @if (item.img) {
+                <img [src]="item.img" alt="icon" />
+              }
+              <span>{{ item.parent }}</span>
+              @if (item.children) {
+                <button (click)="handleOpenSubCategory(item.parent)">▶</button>
+              }
+            </div>
+            @if (item.children && openCategory === item.parent) {
+              <ul class="sub-category-list">
+                @for (child of item.children) {
+                  <li>
+                    <a class="cursor-pointer">{{ child }}</a>
+                  </li>
+                }
+              </ul>
             }
-            <span>{{ item.parent }}</span>
-            @if (item.children) {
-              <button (click)="handleOpenSubCategory(item.parent)">▶</button>
-            }
-          </div>
-          @if (item.children && openCategory === item.parent) {
-            <ul class="sub-category-list">
-              <li *ngFor="let child of item.children">
-                <a class="cursor-pointer">{{ child }}</a>
-              </li>
-            </ul>
-          }
-        </li>
+          </li>
+        }
       </ul>
     }
   </div>
 
   <div class="menu-section">
-    <ul *ngFor="let menu of mobile_menu">
-      @if (menu.sub_menu) {
-        <li class="menu-item">
-          <div class="menu-title">
-            <span>{{ menu.title }}</span>
-            <button (click)="handleOpenSubMenu(menu.title)">▶</button>
-          </div>
-          @if (isActiveMenu === menu.title) {
-            <ul class="submenu">
-              <li *ngFor="let subMenu of menu.sub_menus">
-                <a [routerLink]="subMenu.link">{{ subMenu.title }}</a>
-              </li>
-            </ul>
-          }
-        </li>
-      } @else {
-        <li>
-          <a [routerLink]="menu.link">{{ menu.title }}</a>
-        </li>
-      }
-    </ul>
+    @for (menu of mobile_menu) {
+      <ul>
+        @if (menu.sub_menu) {
+          <li class="menu-item">
+            <div class="menu-title">
+              <span>{{ menu.title }}</span>
+              <button (click)="handleOpenSubMenu(menu.title)">▶</button>
+            </div>
+            @if (isActiveMenu === menu.title) {
+              <ul class="submenu">
+                @for (subMenu of menu.sub_menus) {
+                  <li>
+                    <a [routerLink]="subMenu.link">{{ subMenu.title }}</a>
+                  </li>
+                }
+              </ul>
+            }
+          </li>
+        } @else {
+          <li>
+            <a [routerLink]="menu.link">{{ menu.title }}</a>
+          </li>
+        }
+      </ul>
+    }
   </div>
 
   <div class="footer-links">

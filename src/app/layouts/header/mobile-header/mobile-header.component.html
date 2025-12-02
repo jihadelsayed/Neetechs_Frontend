@@ -43,15 +43,17 @@
 
     <!-- Nav links -->
     <ul>
-      <li *ngFor="let item of menu_data; let i = index">
-        <a
-          [routerLink]="item.link"
-          routerLinkActive="active"
-          (click)="navigateToTop()"
-        >
-          {{ item?.title }}
-        </a>
-      </li>
+     @for (item of menu_data; track item.title; let i = $index) {
+        <li>
+          <a
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            (click)="navigateToTop()"
+          >
+            {{ item?.title }}
+          </a>
+        </li>
+      }
     </ul>
 <div class="account-label">Account</div>
 

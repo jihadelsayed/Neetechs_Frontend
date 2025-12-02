@@ -2,7 +2,8 @@
   <div class="tp-slider-active tp-slider-variation swiper-container" #swiperContainer
   [ngClass]="[swiperIndex === 2 ? 'is-light' : '']">
      <div class="swiper-wrapper">
-      <div *ngFor="let item of HomeSliderData" class="tp-slider-item tp-slider-height d-flex align-items-center swiper-slide" [ngClass]="[item?.green_bg ? 'green-dark-bg' : item?.is_light ? 'is-light' : '']" [style.background-color]="item.is_light ? '#E3EDF6' : ''">
+      @for (item of HomeSliderData) {
+      <div class="tp-slider-item tp-slider-height d-flex align-items-center swiper-slide" [ngClass]="[item?.green_bg ? 'green-dark-bg' : item?.is_light ? 'is-light' : '']" [style.background-color]="item.is_light ? '#E3EDF6' : ''">
         <div class="tp-slider-shape">
           <img class="tp-slider-shape-1" src="assets/img/slider/shape/slider-shape-1.png" alt="slider-shape">
           <img class="tp-slider-shape-2" src="assets/img/slider/shape/slider-shape-2.png" alt="slider-shape">
@@ -41,6 +42,7 @@
           </div>
        </div>
       </div>
+    }
      </div>
      <div class="tp-slider-arrow tp-swiper-arrow d-none d-lg-block">
         <button (click)="swiperInstance?.slidePrev()" type="button" class="tp-slider-button-prev">

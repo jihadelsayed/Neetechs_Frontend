@@ -1,12 +1,14 @@
 <nav class="toc"  >
   <h4>📚 Contents</h4>
   <ul>
-    <li *ngFor="let section of sections">
-      <a 
-        (click)="onClick(section.title)" 
-        [class.active]="slugify(section.title) === activeSection">
-        {{ section.title }}
-      </a>
-    </li>
+   @for (section of sections; track slugify(section.title)) {
+      <li>
+        <a 
+          (click)="onClick(section.title)" 
+          [class.active]="slugify(section.title) === activeSection">
+          {{ section.title }}
+        </a>
+      </li>
+    }
   </ul>
 </nav>
