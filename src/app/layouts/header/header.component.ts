@@ -7,7 +7,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { UtilsService } from '../../core/utils.service';
 import { IProduct } from '../../types/product-type';
-import { ShopHeaderComponent } from '../../store/shop-header/shop-header.component';
+// import { ShopHeaderComponent } from '../../store/shop-header/shop-header.component';
 import { LayoutService } from '@/services/layout.service';
 import { DesktopHeaderComponent } from './desktop-header/desktop-header.component';
 
@@ -20,7 +20,7 @@ import { DesktopHeaderComponent } from './desktop-header/desktop-header.componen
     FormsModule,
     CommonModule,
     MobileHeaderComponent,
-    ShopHeaderComponent,
+    // ShopHeaderComponent,
     DesktopHeaderComponent,
   ],
 })

@@ -27,7 +27,7 @@
       </div>
     }
     <!-- Success -->
-    @if (!loading && !error && session as s) {
+    @if (!loading && !error && session) {
     <div
       class="cp-card cp-card--success"
     >
@@ -37,7 +37,7 @@
 
       <p class="cp-eyebrow">Payment complete</p>
       <h1 class="cp-title">
-        Your access to {{ s.product_name || 'the digital product' }} is ready.
+        Your access to {{ session.product_name || 'the digital product' }} is ready.
       </h1>
 
       <p class="cp-text">
@@ -46,18 +46,18 @@
       </p>
 
       <div class="cp-actions">
-        @if (s.download_url) {
+        @if (session.download_url) {
           <a
-            [href]="s.download_url"
+            [href]="session.download_url"
             class="btn btn-primary"
           >
             Download files
           </a>
         }
 
-        @if (s.product_slug) {
+        @if (session.product_slug) {
           <a
-            [routerLink]="['/digital-products', s.product_slug]"
+            [routerLink]="['/digital-products', session.product_slug]"
             class="btn btn-ghost"
           >
             View product page
