@@ -19,7 +19,7 @@
           (click)="handleProductType(c)"
           [class.active]="c === productType"
         >
-          {{ c }}<span *ngIf="i < categories.length - 1">,</span>
+          {{ c }}@if (i < categories.length - 1) {<span>,</span>}
         </a>
       </ng-container>
     </div>

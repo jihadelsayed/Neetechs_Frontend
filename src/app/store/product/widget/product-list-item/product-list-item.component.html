@@ -49,20 +49,22 @@
            <span><i class="fa-solid fa-star"></i></span>
         </div>
         <div class="tp-product-price-wrapper-2">
-          <ng-container *ngIf="product.discount > 0; else noDiscount">
+          @if (product.discount > 0) {
             <span class="tp-product-price-2 old-price">{{ getCurrencySymbol() }}{{ product.price }}</span>
             <span class="tp-product-price-2 new-price">
               {{ getCurrencySymbol() }}{{ (product.price - (product.price * product.discount / 100)).toFixed(2) }}
             </span>
-          </ng-container>
-          <ng-template #noDiscount>
+          } @else {
             <span class="tp-product-price-2 new-price">{{ getCurrencySymbol() }}{{ product.price.toFixed(2) }}</span>
-          </ng-template>
+          }
         </div>
         <p>{{ product.description.slice(0, 100) }}...</p>
         <div class="tp-product-list-add-to-cart">
-           <button *ngIf="!isItemInCart(product)" (click)="addToCart(product)" class="tp-product-list-add-to-cart-btn">Add To Cart</button>
-           <a *ngIf="isItemInCart(product)" routerLink="/shop/cart" class="tp-product-list-add-to-cart-btn" [class.active]="isItemInCart(product)">View Cart</a>
+           @if (!isItemInCart(product)) {
+             <button (click)="addToCart(product)" class="tp-product-list-add-to-cart-btn">Add To Cart</button>
+           } @else {
+             <a routerLink="/shop/cart" class="tp-product-list-add-to-cart-btn" [class.active]="isItemInCart(product)">View Cart</a>
+           }
         </div>
      </div>
   </div>

@@ -29,17 +29,20 @@
   <!-- Account -->
   <div class="header-right">
     <!-- Logged out -->
-    <a
-      *ngIf="!isLoggedIn"
-      class="account-pill"
-      (click)="goToAuth('signIn')"
-    >
-      Account
-    </a>
+    @if (!isLoggedIn) {
+      <a
+        class="account-pill"
+        (click)="goToAuth('signIn')"
+      >
+        Account
+      </a>
+    }
 
     <!-- Logged in -->
-    <div *ngIf="isLoggedIn" class="account-avatar" (click)="goToAuth('profile')">
-      <img [src]="userAvatarUrl" alt="Profile" />
-    </div>
+    @if (isLoggedIn) {
+      <div class="account-avatar" (click)="goToAuth('profile')">
+        <img [src]="userAvatarUrl" alt="Profile" />
+      </div>
+    }
   </div>
 </div>

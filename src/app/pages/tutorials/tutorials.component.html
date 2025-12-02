@@ -6,9 +6,9 @@
     <button class="cta-button" (click)="navigateTo('/tutorials')">Explore Tutorials</button>
   </div>
 </div>
-<div *ngIf="tutorialData">
+@if (tutorialData) {
 
-  
+
 <div class="container-card" *ngFor="let type of getTypes()">
   <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
   <h2>{{ type }}</h2>
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-</div>
+}
 
 <div class="container">
   <app-contact-banner></app-contact-banner>

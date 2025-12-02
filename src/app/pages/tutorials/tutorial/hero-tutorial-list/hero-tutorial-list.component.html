@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div *ngIf="tutorialList">
+@if (tutorialList) {
   <div class="container-card" *ngFor="let type of getTypes()">
     <h2>{{ type }}</h2>
     <div class="categories">
@@ -21,4 +21,4 @@
       </div>
     </div>
   </div>
-</div>
+}

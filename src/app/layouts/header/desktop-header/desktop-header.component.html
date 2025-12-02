@@ -36,16 +36,14 @@
       </span>
 
       <ul class="dropdown-menu">
-        <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+        @if (!isLoggedIn) {
           <li>
             <a class="dropdown-item" (click)="goToAuth('signIn')">Login</a>
           </li>
           <li>
             <a class="dropdown-item" (click)="goToAuth('signup')">Sign Up</a>
           </li>
-        </ng-container>
-
-        <ng-template #loggedInMenu>
+        } @else {
           <li>
             <a class="dropdown-item" routerLink="#">My Profile</a>
           </li>
@@ -58,7 +56,7 @@
           <li>
             <a class="dropdown-item" (click)="logout()">Logout</a>
           </li>
-        </ng-template>
+        }
       </ul>
     </div>
   </div>

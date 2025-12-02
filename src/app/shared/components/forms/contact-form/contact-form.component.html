@@ -13,12 +13,13 @@
       <div class="tp-contact-input-title">
         <label for="name">Your Name</label>
       </div>
-      <span
-        *ngIf="name?.hasError('required') && (name?.touched || formSubmitted)"
-        class="text-danger"
-      >
-        Name is required
-      </span>
+      @if (name?.hasError('required') && (name?.touched || formSubmitted)) {
+        <span
+          class="text-danger"
+        >
+          Name is required
+        </span>
+      }
     </div>
     <div class="tp-contact-input-box">
       <div class="tp-contact-input">
@@ -33,16 +34,17 @@
       <div class="tp-contact-input-title">
         <label for="email">Your Email</label>
       </div>
-      <span
-        *ngIf="
-          (email?.hasError('required') && email?.touched) ||
-          (email?.hasError('email') && email?.dirty) ||
-          (formSubmitted && !email?.value)
-        "
-        class="text-danger"
-      >
-        Email is required and must be a valid email address
-      </span>
+      @if (
+        (email?.hasError('required') && email?.touched) ||
+        (email?.hasError('email') && email?.dirty) ||
+        (formSubmitted && !email?.value)
+      ) {
+        <span
+          class="text-danger"
+        >
+          Email is required and must be a valid email address
+        </span>
+      }
     </div>
     <div class="tp-contact-input-box">
       <div class="tp-contact-input">
@@ -57,12 +59,13 @@
       <div class="tp-contact-input-title">
         <label for="phone">Phone number</label>
       </div>
-      <span
-        *ngIf="phone?.hasError('required') && (phone?.touched || formSubmitted)"
-        class="text-danger"
-      >
-        Phone number is required
-      </span>
+      @if (phone?.hasError('required') && (phone?.touched || formSubmitted)) {
+        <span
+          class="text-danger"
+        >
+          Phone number is required
+        </span>
+      }
     </div>
     <div class="tp-contact-input-box">
       <div class="tp-contact-input">
@@ -77,14 +80,15 @@
       <div class="tp-contact-input-title">
         <label for="subject">Subject</label>
       </div>
-      <span
-        *ngIf="
-          subject?.hasError('required') && (subject?.touched || formSubmitted)
-        "
-        class="text-danger"
-      >
-        subject is required
-      </span>
+      @if (
+        subject?.hasError('required') && (subject?.touched || formSubmitted)
+      ) {
+        <span
+          class="text-danger"
+        >
+          subject is required
+        </span>
+      }
     </div>
     <div class="tp-contact-input-box">
       <div class="tp-contact-input">
@@ -98,14 +102,15 @@
       <div class="tp-contact-input-title">
         <label for="description">Your Message</label>
       </div>
-      <span
-        *ngIf="
-          description?.hasError('required') && (description?.touched || formSubmitted)
-        "
-        class="text-danger"
-      >
-        Message is required
-      </span>
+      @if (
+        description?.hasError('required') && (description?.touched || formSubmitted)
+      ) {
+        <span
+          class="text-danger"
+        >
+          Message is required
+        </span>
+      }
     </div>
   </div>
   <div class="tp-contact-suggetions mb-20">

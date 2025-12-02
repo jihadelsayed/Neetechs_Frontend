@@ -2,45 +2,54 @@
   <h4>{{ section.title }}</h4>
   <p>{{ section.content }}</p>
 
-  <pre *ngIf="section.code">
-    <code>{{ section.code }}</code>
-    <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
-  </pre>
+  @if (section.code) {
+    <pre>
+      <code>{{ section.code }}</code>
+      <button class="copy-btn" (click)="copyToClipboard(section.code)">Copy</button>
+    </pre>
+  }
 
   <!-- Math Stepper -->
 <!-- ✅ STEP-BY-STEP Math -->
-<div class="math-box" *ngIf="section.steps?.length">
-  <div class="stepper">
-    <div *ngFor="let step of section.steps; let i = index">
-      <div *ngIf="i <= stepIndex" class="math-box">
-        <app-katex [expression]="step.math"></app-katex>
+@if (section.steps?.length) {
+  <div class="math-box">
+    <div class="stepper">
+      <div *ngFor="let step of section.steps; let i = index">
+        @if (i <= stepIndex) {
+          <div class="math-box">
+            <app-katex [expression]="step.math"></app-katex>
+          </div>
+        }
       </div>
+      <button (click)="next.emit()" [disabled]="stepIndex >= section.steps.length - 1">
+        ▶️ Next Step
+      </button>
     </div>
-    <button (click)="next.emit()" [disabled]="stepIndex >= section.steps.length - 1">
-      ▶️ Next Step
-    </button>
   </div>
-</div>
+}
 
 <!-- ✅ Static Full Math (no stepper) -->
-<div class="math-box" *ngIf="section.math && !section.steps?.length">
-  <app-katex [expression]="section.math"></app-katex>
-</div>
+@if (section.math && !section.steps?.length) {
+  <div class="math-box">
+    <app-katex [expression]="section.math"></app-katex>
+  </div>
+}
 
 
   <!-- Chart -->
-  <ngx-charts-line-chart
-    *ngIf="section.graph"
-    [results]="section.graph"
-    [scheme]="colorScheme"
-    [xAxis]="true"
-    [yAxis]="true"
-    [legend]="true"
-    [showXAxisLabel]="true"
-    [showYAxisLabel]="true"
-    [xAxisLabel]="section.graph.xLabel || 'X'"
-    [yAxisLabel]="section.graph.yLabel || 'Y'"
-    [autoScale]="true"
-    style="width: 100%; height: 400px">
-  </ngx-charts-line-chart>
+  @if (section.graph) {
+    <ngx-charts-line-chart
+      [results]="section.graph"
+      [scheme]="colorScheme"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="section.graph.xLabel || 'X'"
+      [yAxisLabel]="section.graph.yLabel || 'Y'"
+      [autoScale]="true"
+      style="width: 100%; height: 400px">
+    </ngx-charts-line-chart>
+  }
 </div>

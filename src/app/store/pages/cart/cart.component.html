@@ -14,19 +14,21 @@
 <!-- cart area start -->
 <section class="tp-cart-area pb-120">
   <div class="container">
-    <div
-      *ngIf="cartService.getCartProducts().length === 0"
-      class="text-center pt-50"
-    >
-      <h3>No Cart Items Found</h3>
-      <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
-        >Continue Shopping</a
+    @if (cartService.getCartProducts().length === 0) {
+      <div
+        class="text-center pt-50"
       >
-    </div>
-    <div *ngIf="cartService.getCartProducts().length > 0" class="row">
-      <div class="col-xl-9 col-lg-8">
-        <div class="tp-cart-list mb-25 mr-30">
-          <table>
+        <h3>No Cart Items Found</h3>
+        <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
+          >Continue Shopping</a
+        >
+      </div>
+    }
+    @if (cartService.getCartProducts().length > 0) {
+      <div class="row">
+        <div class="col-xl-9 col-lg-8">
+          <div class="tp-cart-list mb-25 mr-30">
+            <table>
             <thead>
               <tr>
                 <th colspan="2" class="tp-cart-header-product">Product</th>
@@ -226,7 +228,7 @@
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 </section>
 

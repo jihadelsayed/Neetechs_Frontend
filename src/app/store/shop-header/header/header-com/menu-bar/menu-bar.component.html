@@ -3,32 +3,36 @@
     <a [routerLink]="item.link">{{ item?.title }}</a>
 
     <!-- Dropdown -->
-    <ul *ngIf="item.drop_down" class="dropdown-menu">
-      <li *ngFor="let drop of item.dropdown_menus">
-        <a [routerLink]="drop.link">{{ drop.title }}</a>
-      </li>
-    </ul>
+    @if (item.drop_down) {
+      <ul class="dropdown-menu">
+        <li *ngFor="let drop of item.dropdown_menus">
+          <a [routerLink]="drop.link">{{ drop.title }}</a>
+        </li>
+      </ul>
+    }
 
     <!-- Mega Menu -->
-    <div *ngIf="item.mega_menu" class="mega-menu">
-      <div class="mega-menu-row">
-        <div *ngFor="let block of item.shop_mega_menus" class="mega-menu-col">
-          <h4>{{ block.title }}</h4>
-          <ul>
-            <li *ngFor="let link of block.list_menus">
-              <a [routerLink]="link.link">{{ link.title }}</a>
-            </li>
-          </ul>
-        </div>
-        <div class="mega-menu-image">
-          <img src="/assets/img/menu/product/menu-product-img-1.jpg" alt="Phones" />
-          <a routerLink="/shop?category=mobile-tablets" class="cta-button">Phones</a>
-        </div>
-        <div class="mega-menu-image">
-          <img src="/assets/img/menu/product/menu-product-img-2.jpg" alt="Headphones" />
-          <a routerLink="/shop?category=headphones" class="cta-button">Headphones</a>
+    @if (item.mega_menu) {
+      <div class="mega-menu">
+        <div class="mega-menu-row">
+          <div *ngFor="let block of item.shop_mega_menus" class="mega-menu-col">
+            <h4>{{ block.title }}</h4>
+            <ul>
+              <li *ngFor="let link of block.list_menus">
+                <a [routerLink]="link.link">{{ link.title }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mega-menu-image">
+            <img src="/assets/img/menu/product/menu-product-img-1.jpg" alt="Phones" />
+            <a routerLink="/shop?category=mobile-tablets" class="cta-button">Phones</a>
+          </div>
+          <div class="mega-menu-image">
+            <img src="/assets/img/menu/product/menu-product-img-2.jpg" alt="Headphones" />
+            <a routerLink="/shop?category=headphones" class="cta-button">Headphones</a>
+          </div>
         </div>
       </div>
-    </div>
+    }
   </li>
 </ul>

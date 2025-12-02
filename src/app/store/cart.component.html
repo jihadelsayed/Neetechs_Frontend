@@ -4,41 +4,42 @@
   <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
 </nav>
 
-<div class="container-card" *ngIf="items.length; else empty">
-  <table class="cart-table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>Total</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items">
-        <td>
-          <a [routerLink]="['/shop/product', item.slug]">{{ item?.title }}</a>
-        </td>
-        <td>${{ item.price }}</td>
-        <td>
-          <button (click)="decrement(item)">-</button>
-          {{ item.orderQuantity || 1 }}
-          <button (click)="increment(item)">+</button>
-        </td>
-        <td>${{ (item.price * (item.orderQuantity || 1)).toFixed(2) }}</td>
-        <td><button (click)="remove(item)">Remove</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="total">Grand Total: ${{ total.total.toFixed(2) }}</p>
-  <div class="actions">
-    <a routerLink="/shop" class="button secondary">Continue Shopping</a>
-    <button class="button" (click)="goToCheckout()">Checkout</button>
+@if (items.length) {
+  <div class="container-card">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>
+            <a [routerLink]="['/shop/product', item.slug]">{{ item?.title }}</a>
+          </td>
+          <td>${{ item.price }}</td>
+          <td>
+            <button (click)="decrement(item)">-</button>
+            {{ item.orderQuantity || 1 }}
+            <button (click)="increment(item)">+</button>
+          </td>
+          <td>${{ (item.price * (item.orderQuantity || 1)).toFixed(2) }}</td>
+          <td><button (click)="remove(item)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="total">Grand Total: ${{ total.total.toFixed(2) }}</p>
+    <div class="actions">
+      <a routerLink="/shop" class="button secondary">Continue Shopping</a>
+      <button class="button" (click)="goToCheckout()">Checkout</button>
+    </div>
   </div>
-</div>
-<ng-template #empty>
+} @else {
   <div class="container-card">
     <p>Your cart is empty.</p>
   </div>
-</ng-template>
+}

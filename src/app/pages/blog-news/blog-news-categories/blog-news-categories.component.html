@@ -1,4 +1,5 @@
-<div class="container-card" *ngIf="category">
+@if (category) {
+<div class="container-card">
   <h1>{{ category?.title }}</h1>
   <p>{{ category?.description }}</p>
   <div class="trends">
@@ -11,3 +12,4 @@
     </div>
   </div>
 </div>
+}

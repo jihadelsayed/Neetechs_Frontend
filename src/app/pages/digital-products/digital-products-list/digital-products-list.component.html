@@ -1,4 +1,4 @@
-<ng-container *ngIf="digitalProducts$ | async as digitalProducts">
+@if (digitalProducts$ | async; as digitalProducts) {
   <section class="dp-list">
     <div class="dp-inner">
       <header class="dp-list-header">
@@ -22,7 +22,9 @@
           <div class="dp-card-body">
             <div class="dp-card-top">
               <!-- If you add a 'badge' field later, this will start working -->
-              <p class="badge" *ngIf="p.badge">{{ p.badge }}</p>
+              @if (p.badge) {
+                <p class="badge">{{ p.badge }}</p>
+              }
 
               <h2 class="dp-card-title">{{ p.title }}</h2>
 
@@ -32,11 +34,13 @@
             </div>
 
             <!-- Bullets (from API: 'bullets': []) -->
-            <ul class="dp-card-bullets" *ngIf="p.bullets?.length">
-              <li *ngFor="let item of p.bullets | slice:0:2">
-                {{ item }}
-              </li>
-            </ul>
+            @if (p.bullets?.length) {
+              <ul class="dp-card-bullets">
+                <li *ngFor="let item of p.bullets | slice:0:2">
+                  {{ item }}
+                </li>
+              </ul>
+            }
 
             <!-- FOOTER -->
             <div class="dp-card-footer">
@@ -62,4 +66,4 @@
       </div>
     </div>
   </section>
-</ng-container>
+}

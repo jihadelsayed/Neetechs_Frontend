@@ -12,12 +12,13 @@
       <div class="tp-login-input-title">
         <label for="name">Your Name</label>
       </div>
-      <span
-        *ngIf="name?.hasError('required') && (name?.touched || formSubmitted)"
-        class="text-danger"
-      >
-        Name is required
-      </span>
+      @if (name?.hasError('required') && (name?.touched || formSubmitted)) {
+        <span
+          class="text-danger"
+        >
+          Name is required
+        </span>
+      }
     </div>
 
     <div class="tp-login-input-box">
@@ -32,16 +33,17 @@
       <div class="tp-login-input-title">
         <label for="email">Your Email</label>
       </div>
-      <span
-        *ngIf="
-          (email?.hasError('required') && email?.touched) ||
-          (email?.hasError('email') && email?.dirty) ||
-          (formSubmitted && !email?.value)
-        "
-        class="text-danger"
-      >
-        Email is required and must be a valid email address
-      </span>
+      @if (
+        (email?.hasError('required') && email?.touched) ||
+        (email?.hasError('email') && email?.dirty) ||
+        (formSubmitted && !email?.value)
+      ) {
+        <span
+          class="text-danger"
+        >
+          Email is required and must be a valid email address
+        </span>
+      }
     </div>
 
     <div class="tp-login-input-box">
@@ -55,12 +57,12 @@
           />
         </div>
         <div class="tp-login-input-eye" id="password-show-toggle">
-          <span
-            (click)="handleShowPass()"
-            *ngIf="isShowPass"
-            id="open-eye"
-            class="open-eye"
-          >
+          @if (isShowPass) {
+            <span
+              (click)="handleShowPass()"
+              id="open-eye"
+              class="open-eye"
+            >
             <svg
               width="18"
               height="14"
@@ -84,12 +86,13 @@
               />
             </svg>
           </span>
-          <span
-            (click)="handleShowPass()"
-            *ngIf="!isShowPass"
-            id="close-eye"
-            class="open-close"
-          >
+          }
+          @if (!isShowPass) {
+            <span
+              (click)="handleShowPass()"
+              id="close-eye"
+              class="open-close"
+            >
             <svg
               width="19"
               height="18"
@@ -125,17 +128,19 @@
               />
             </svg>
           </span>
+          }
         </div>
         <div class="tp-login-input-title">
           <label for="tp_password">Password</label>
         </div>
       </div>
-      <span
-        *ngIf="(password?.hasError('required') && password?.touched) || (password?.errors?.['minlength'] && password?.dirty) || (formSubmitted && !password?.value)"
-        class="text-danger"
-      >
-        Password is required and must be a 6 character
-      </span>
+      @if ((password?.hasError('required') && password?.touched) || (password?.errors?.['minlength'] && password?.dirty) || (formSubmitted && !password?.value)) {
+        <span
+          class="text-danger"
+        >
+          Password is required and must be a 6 character
+        </span>
+      }
     </div>
   </div>
   <div

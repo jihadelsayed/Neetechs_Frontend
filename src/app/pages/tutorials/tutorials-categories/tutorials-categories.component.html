@@ -1,4 +1,5 @@
-<div *ngIf="category">
+@if (category) {
+  
     <div class="tutorial-hero-category">
         <img [src]="category.image" alt="{{ category.name }}">
         <h1>{{ category.name }}</h1>
@@ -26,4 +27,4 @@
       </div>
     </div>
 
-</div>
+}

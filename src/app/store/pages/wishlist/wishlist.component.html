@@ -10,19 +10,21 @@
 <!-- wishlist area start -->
 <section class="tp-cart-area pb-120">
   <div class="container">
-    <div
-      *ngIf="wishlistService.getWishlistProducts().length === 0"
-      class="text-center pt-50"
-    >
-      <h3>No Wishlist Items Found</h3>
-      <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
-        >Continue Shopping</a
+    @if (wishlistService.getWishlistProducts().length === 0) {
+      <div
+        class="text-center pt-50"
       >
-    </div>
-    <div *ngIf="wishlistService.getWishlistProducts().length > 0" class="row">
-      <div class="col-xl-12">
-        <div class="tp-cart-list mb-45 mr-30">
-          <table>
+        <h3>No Wishlist Items Found</h3>
+        <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
+          >Continue Shopping</a
+        >
+      </div>
+    }
+    @if (wishlistService.getWishlistProducts().length > 0) {
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="tp-cart-list mb-45 mr-30">
+            <table>
             <thead>
               <tr>
                 <th colspan="2" class="tp-cart-header-product">Product</th>
@@ -90,19 +92,20 @@
             </tbody>
           </table>
         </div>
-        <div class="tp-cart-bottom">
-          <div class="row align-items-end">
-            <div class="col-xl-6 col-md-4">
-              <div class="tp-cart-update">
-                <a routerLink="/shop/cart" class="tp-cart-update-btn"
-                  >Go To Cart</a
-                >
+          <div class="tp-cart-bottom">
+            <div class="row align-items-end">
+              <div class="col-xl-6 col-md-4">
+                <div class="tp-cart-update">
+                  <a routerLink="/shop/cart" class="tp-cart-update-btn"
+                    >Go To Cart</a
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 </section>
 

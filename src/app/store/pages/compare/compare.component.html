@@ -10,19 +10,21 @@
 <!-- compare area start -->
 <section class="tp-compare-area pb-120">
   <div class="container">
-    <div
-      *ngIf="compareService.getCompareProducts().length === 0"
-      class="text-center pt-50"
-    >
-      <h3>No Compare Items Found</h3>
-      <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
-        >Continue Shopping</a
+    @if (compareService.getCompareProducts().length === 0) {
+      <div
+        class="text-center pt-50"
       >
-    </div>
-    <div *ngIf="compareService.getCompareProducts().length > 0" class="row">
-      <div class="col-xl-12">
-        <div class="tp-compare-table table-responsive text-center">
-          <table class="table">
+        <h3>No Compare Items Found</h3>
+        <a routerLink="/shop" class="tp-cart-checkout-btn mt-20"
+          >Continue Shopping</a
+        >
+      </div>
+    }
+    @if (compareService.getCompareProducts().length > 0) {
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="tp-compare-table table-responsive text-center">
+            <table class="table">
             <tbody>
               <tr>
                 <th>Product</th>
@@ -50,20 +52,23 @@
               <tr>
                 <th>Price</th>
                 <td *ngFor="let item of compareService.getCompareProducts()">
-                  <div class="tp-compare-price" *ngIf="item.discount > 0">
-                    <span>{{ getCurrencySymbol() }}{{ item.price.toFixed(2) }}</span>
-                    <span class="old-price"
-                      >{{ getCurrencySymbol() }}{{
-                        (
-                          item.price -
-                          (item.price * item.discount) / 100
-                        ).toFixed(2)
-                      }}</span
-                    >
-                  </div>
-                  <div class="tp-compare-price" *ngIf="item.discount <= 0">
-                    <span>{{ getCurrencySymbol() }}{{ item.price.toFixed(2) }}</span>
-                  </div>
+                  @if (item.discount > 0) {
+                    <div class="tp-compare-price">
+                      <span>{{ getCurrencySymbol() }}{{ item.price.toFixed(2) }}</span>
+                      <span class="old-price"
+                        >{{ getCurrencySymbol() }}{{
+                          (
+                            item.price -
+                            (item.price * item.discount) / 100
+                          ).toFixed(2)
+                        }}</span
+                      >
+                    </div>
+                  } @else {
+                    <div class="tp-compare-price">
+                      <span>{{ getCurrencySymbol() }}{{ item.price.toFixed(2) }}</span>
+                    </div>
+                  }
                 </td>
               </tr>
 
@@ -109,7 +114,7 @@
           </table>
         </div>
       </div>
-    </div>
+    }
   </div>
 </section>
 <!-- compare area end -->

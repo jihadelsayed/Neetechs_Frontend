@@ -1,12 +1,13 @@
 <header class="site-header">
   <div class="tp-header-area" >
 
-    <app-desktop-header
-      *ngIf="!showShopHeader"
-      [class.sticky]="headerSticky">
-    </app-desktop-header>
+    @if (!showShopHeader) {
+      <app-desktop-header
+        [class.sticky]="headerSticky">
+      </app-desktop-header>
+    }
 
-    <!-- <app-shop-header *ngIf="showShopHeader"></app-shop-header> -->
+    <!-- <app-shop-header would render when showShopHeader is true> -->
   </div>
 
   <app-mobile-header

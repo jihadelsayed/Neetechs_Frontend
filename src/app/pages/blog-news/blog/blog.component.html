@@ -1,20 +1,24 @@
-<div class="container-card" *ngIf="Blog">
+@if (Blog) {
+<div class="container-card">
     <div class="blog-header">
       <h3>{{ Blog.title }}</h3>
     </div>
     <div class="blog-sections">
       <div class="section" *ngFor="let section of Blog.sections">
         <h4>{{ section.heading }}</h4>
-        <div *ngIf="section.content">
-          <p *ngFor="let content of section.content" [innerHTML]="content"></p>
-        </div>
-        <div *ngIf="section.subsections">
+        @if (section.content) {
+          <div>
+            <p *ngFor="let content of section.content" [innerHTML]="content"></p>
+          </div>
+        }
+        @if (section.subsections) {
           <div class="subsection" *ngFor="let subsection of section.subsections">
             <h5>{{ subsection.subheading }}</h5>
             <pre ><code *ngFor="let code of subsection.code"><br>{{ code }}</code></pre>
           </div>
-        </div>
+        }
       </div>
     </div>
   </div>
+  }
   

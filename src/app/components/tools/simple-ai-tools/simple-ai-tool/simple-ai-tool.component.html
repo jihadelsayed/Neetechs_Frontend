@@ -1,59 +1,64 @@
-<div class="tool-wrap" *ngIf="tool">
-  <!-- Hero -->
-  <div class="hero">
-    <h1 class="hero__title">{{ tool.title }}</h1>
-    <p class="hero__subtitle">Fast grammar, spelling, and style fixes powered by your selected model.</p>
+@if (tool) {
+  <div class="tool-wrap">
+    <!-- Hero -->
+    <div class="hero">
+      <h1 class="hero__title">{{ tool.title }}</h1>
+      <p class="hero__subtitle">Fast grammar, spelling, and style fixes powered by your selected model.</p>
+    </div>
+
+    <!-- Controls -->
+    <section class="toolbar">
+      <label class="toolbar__group">
+        <span>Mode</span>
+        <select class="select" [(ngModel)]="toolMode" aria-label="Check mode">
+          <option *ngFor="let option of tool.jobOption" [value]="option.value">{{ option.text }}</option>
+        </select>
+      </label>
+
+      <div class="toolbar__group">
+        <button class="btn btn--primary" (click)="executeTool()" [disabled]="!inputText || isLoading">
+          @if (!isLoading) {
+            <span>{{ tool.button }}</span>
+          } @else {
+            <span class="spinner" aria-label="Loading"></span>
+          }
+        </button>
+        <button class="btn btn--ghost" (click)="apiKeyModal.showModal = true">API Key & Model</button>
+      </div>
+    </section>
+
+    <!-- Main grid -->
+    <section class="grid">
+      <!-- Input -->
+      <article class="card">
+        <h2 class="card__title">{{ tool.input }}</h2>
+        <textarea
+          [(ngModel)]="inputText"
+          class="textarea"
+          placeholder="Type your text here..."
+          rows="12"
+          aria-label="Input Text"
+        ></textarea>
+        <div class="hint">Tip: paste up to a few paragraphs for best results.</div>
+      </article>
+
+      <!-- Output -->
+      <article class="card card--result">
+        <h2 class="card__title">{{ tool.output }}</h2>
+        <pre class="code"><code>{{ result || 'Results will appear here.' }}</code></pre>
+        <button class="btn btn--copy" (click)="copyToClipboard(result)" [disabled]="!result">Copy</button>
+      </article>
+    </section>
+
+    <!-- Help / CTA -->
+    <section class="help">
+      <div class="help__content">
+        <h3>{{ tool['heroText'] }}</h3>
+        <a class="help__link" [href]="tool.heroLink" target="_blank" rel="noopener">{{ tool.heroLinkName }}</a>
+      </div>
+    </section>
   </div>
-
-  <!-- Controls -->
-  <section class="toolbar">
-    <label class="toolbar__group">
-      <span>Mode</span>
-      <select class="select" [(ngModel)]="toolMode" aria-label="Check mode">
-        <option *ngFor="let option of tool.jobOption" [value]="option.value">{{ option.text }}</option>
-      </select>
-    </label>
-
-    <div class="toolbar__group">
-      <button class="btn btn--primary" (click)="executeTool()" [disabled]="!inputText || isLoading">
-        <span *ngIf="!isLoading">{{ tool.button }}</span>
-        <span class="spinner" *ngIf="isLoading" aria-label="Loading"></span>
-      </button>
-      <button class="btn btn--ghost" (click)="apiKeyModal.showModal = true">API Key & Model</button>
-    </div>
-  </section>
-
-  <!-- Main grid -->
-  <section class="grid">
-    <!-- Input -->
-    <article class="card">
-      <h2 class="card__title">{{ tool.input }}</h2>
-      <textarea
-        [(ngModel)]="inputText"
-        class="textarea"
-        placeholder="Type your text here..."
-        rows="12"
-        aria-label="Input Text"
-      ></textarea>
-      <div class="hint">Tip: paste up to a few paragraphs for best results.</div>
-    </article>
-
-    <!-- Output -->
-    <article class="card card--result">
-      <h2 class="card__title">{{ tool.output }}</h2>
-      <pre class="code"><code>{{ result || 'Results will appear here.' }}</code></pre>
-      <button class="btn btn--copy" (click)="copyToClipboard(result)" [disabled]="!result">Copy</button>
-    </article>
-  </section>
-
-  <!-- Help / CTA -->
-  <section class="help">
-    <div class="help__content">
-      <h3>{{ tool['heroText'] }}</h3>
-      <a class="help__link" [href]="tool.heroLink" target="_blank" rel="noopener">{{ tool.heroLinkName }}</a>
-    </div>
-  </section>
-</div>
+}
 
 <!-- Footer banner + API modal -->
 <div class="footer-wrap">
@@ -61,12 +66,14 @@
 </div>
 <app-api-key-modal (keySaved)="onApiKeySaved($event)"></app-api-key-modal>
 <!-- Error Modal -->
-<div class="modal" *ngIf="errorOpen" (click)="errorOpen=false" aria-modal="true" role="dialog">
-  <div class="modal__content" (click)="$event.stopPropagation()">
-    <h3>Request Error</h3>
-    <pre class="modal__pre">{{ errorMsg }}</pre>
-    <div class="modal__actions">
-      <button class="btn btn--ghost" (click)="errorOpen=false">Close</button>
+@if (errorOpen) {
+  <div class="modal" (click)="errorOpen=false" aria-modal="true" role="dialog">
+    <div class="modal__content" (click)="$event.stopPropagation()">
+      <h3>Request Error</h3>
+      <pre class="modal__pre">{{ errorMsg }}</pre>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" (click)="errorOpen=false">Close</button>
+      </div>
     </div>
   </div>
-</div> 
+} 

@@ -13,14 +13,16 @@
   <h3>{{ tutorial["title"] }}</h3>
   <p class="reading-time">📘 {{ getEstimatedReadingTime() }}</p>
 
-  <div *ngIf="tutorial.link" class="video-container">
-    <iframe
-      [src]="tutorial.link | safe"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+  @if (tutorial.link) {
+    <div class="video-container">
+      <iframe
+        [src]="tutorial.link | safe"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  }
 
   <app-tutorial-section
     *ngFor="let section of tutorial.sections"

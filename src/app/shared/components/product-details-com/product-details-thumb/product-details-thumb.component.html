@@ -22,11 +22,13 @@
       style="background-color: #f5f6f8"
     >
       <img [src]="productService.activeImg" alt="prd-image" />
-      <div *ngIf="product.videoId" class="tp-product-details-thumb-video">
-        <a (click)="utilsService.playVideo('B0WuqoXkJkY')" class="tp-product-details-thumb-video-btn cursor-pointer popup-video">
-          <i class="fas fa-play"></i>
-        </a>
-      </div>
+      @if (product.videoId) {
+        <div class="tp-product-details-thumb-video">
+          <a (click)="utilsService.playVideo('B0WuqoXkJkY')" class="tp-product-details-thumb-video-btn cursor-pointer popup-video">
+            <i class="fas fa-play"></i>
+          </a>
+        </div>
+      }
     </div>
   </div>
 </div>

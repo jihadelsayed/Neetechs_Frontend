@@ -5,27 +5,31 @@
     <span class="caret" [class.rotate]="isActive">▼</span>
   </button>
 
-  <div class="category-dropdown" *ngIf="isActive">
-    <ul class="category-list">
-      <li
-        *ngFor="let parent of categoryItems"
-        class="category-item"
-        [class.open]="openCategory === parent.parent"
-        (mouseenter)="showSubCategory(parent.parent)"
-        (mouseleave)="hideSubCategory()"
-      >
-        <button class="category-link" (click)="toggleSubCategory(parent.parent)">
-          <img class="icon" [src]="parent.img" alt="icon" />
-          <strong class="name">{{ parent.parent }}</strong>
-          <span class="arrow">▶</span>
-        </button>
+  @if (isActive) {
+    <div class="category-dropdown">
+      <ul class="category-list">
+        <li
+          *ngFor="let parent of categoryItems"
+          class="category-item"
+          [class.open]="openCategory === parent.parent"
+          (mouseenter)="showSubCategory(parent.parent)"
+          (mouseleave)="hideSubCategory()"
+        >
+          <button class="category-link" (click)="toggleSubCategory(parent.parent)">
+            <img class="icon" [src]="parent.img" alt="icon" />
+            <strong class="name">{{ parent.parent }}</strong>
+            <span class="arrow">▶</span>
+          </button>
 
-        <ul class="subcategory-popup" *ngIf="parent.children?.length && openCategory === parent.parent">
-          <li *ngFor="let sub of parent.children">
-            <a (click)="handleSubCategory(sub)">{{ sub }}</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+          @if (parent.children.length && openCategory === parent.parent) {
+            <ul class="subcategory-popup">
+              <li *ngFor="let sub of parent.children">
+                <a (click)="handleSubCategory(sub)">{{ sub }}</a>
+              </li>
+            </ul>
+          }
+        </li>
+      </ul>
+    </div>
+  }
 </div>

@@ -1,17 +1,19 @@
 <!-- HERO + CATEGORY LIST VIEW -->
-<app-hero-tutorial-list
-  *ngIf="!tutorial?.sections?.length" 
-  [groupedCategories]="groupedCategories" 
-  [tutorialList]="tutorialList">
-</app-hero-tutorial-list>
+@if (!tutorial?.sections?.length) {
+  <app-hero-tutorial-list
+    [groupedCategories]="groupedCategories"
+    [tutorialList]="tutorialList">
+  </app-hero-tutorial-list>
+}
 
 <!-- TUTORIAL DETAIL VIEW -->
-<app-tutorial-wrapper
-  *ngIf="tutorial?.sections?.length"
-  [tutorial]="tutorial"
-  [stepIndexes]="stepIndexes"
-  [activeSection]="activeSection"
-  [previousTutorial]="previousTutorial"
-  [nextTutorial]="nextTutorial"
-  (startQuiz)="startQuiz($event)">
-</app-tutorial-wrapper>
+@if (tutorial?.sections?.length) {
+  <app-tutorial-wrapper
+    [tutorial]="tutorial"
+    [stepIndexes]="stepIndexes"
+    [activeSection]="activeSection"
+    [previousTutorial]="previousTutorial"
+    [nextTutorial]="nextTutorial"
+    (startQuiz)="startQuiz($event)">
+  </app-tutorial-wrapper>
+}

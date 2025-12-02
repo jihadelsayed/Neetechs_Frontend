@@ -62,17 +62,20 @@
             </div> -->
           </div>
           <div class="text-center">
-            <button
-              *ngIf="perView < products.length"
-              (click)="handlePerView()"
-              type="button"
-              class="btn-loadmore tp-btn tp-btn-border tp-btn-border-primary"
-            >
-              Load More Products
-            </button>
-            <p *ngIf="perView >= products.length" class="btn-loadmore-text">
-              End Of Products
-            </p>
+            @if (perView < products.length) {
+              <button
+                (click)="handlePerView()"
+                type="button"
+                class="btn-loadmore tp-btn tp-btn-border tp-btn-border-primary"
+              >
+                Load More Products
+              </button>
+            }
+            @if (perView >= products.length) {
+              <p class="btn-loadmore-text">
+                End Of Products
+              </p>
+            }
           </div>
         </div>
       </div>

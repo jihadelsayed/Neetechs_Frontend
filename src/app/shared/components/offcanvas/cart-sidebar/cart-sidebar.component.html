@@ -6,47 +6,57 @@
       <button class="close-btn" (click)="cartService.handleOpenCartSidebar()">✖</button>
     </div>
 
-    <div *ngIf="cartService.getCartProducts().length > 0" class="cart-list">
-      <div *ngFor="let item of cartService.getCartProducts()" class="cart-item">
-        <div class="thumb">
-          <a [routerLink]="['/shop/shop-details', item.id]">
-            <img [src]="item.img" alt="cart-img" width="70" height="60" />
-          </a>
-        </div>
-        <div class="info">
-          <h5>
-            <a [routerLink]="['/shop/shop-details', item.id]">{{ item?.title }}</a>
-          </h5>
-          <div class="price-row">
-            <span *ngIf="item.discount > 0 && item.orderQuantity">
-              {{ ((item.price - (item.price * item.discount) / 100) * item.orderQuantity).toFixed(2) }}
-            </span>
-            <span *ngIf="!item.discount && item.orderQuantity">
-              {{ getCurrencySymbol() }}{{ (item.price * item.orderQuantity).toFixed(2) }}
-            </span>
-            <span class="qty">×{{ item.orderQuantity }}</span>
+    @if (cartService.getCartProducts().length > 0) {
+      <div class="cart-list">
+        <div *ngFor="let item of cartService.getCartProducts()" class="cart-item">
+          <div class="thumb">
+            <a [routerLink]="['/shop/shop-details', item.id]">
+              <img [src]="item.img" alt="cart-img" width="70" height="60" />
+            </a>
           </div>
+          <div class="info">
+            <h5>
+              <a [routerLink]="['/shop/shop-details', item.id]">{{ item?.title }}</a>
+            </h5>
+            <div class="price-row">
+              @if (item.discount > 0 && item.orderQuantity) {
+                <span>
+                  {{ ((item.price - (item.price * item.discount) / 100) * item.orderQuantity).toFixed(2) }}
+                </span>
+              }
+              @if (!item.discount && item.orderQuantity) {
+                <span>
+                  {{ getCurrencySymbol() }}{{ (item.price * item.orderQuantity).toFixed(2) }}
+                </span>
+              }
+              <span class="qty">×{{ item.orderQuantity }}</span>
+            </div>
+          </div>
+          <a class="remove" (click)="cartService.removeCartProduct(item)">🗑</a>
         </div>
-        <a class="remove" (click)="cartService.removeCartProduct(item)">🗑</a>
       </div>
-    </div>
+    }
 
-    <div *ngIf="cartService.getCartProducts().length === 0" class="empty-cart">
-      <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
-      <p>Your Cart is empty</p>
-      <a routerLink="/shop" class="btn">Go to Shop</a>
-    </div>
+    @if (cartService.getCartProducts().length === 0) {
+      <div class="empty-cart">
+        <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
+        <p>Your Cart is empty</p>
+        <a routerLink="/shop" class="btn">Go to Shop</a>
+      </div>
+    }
 
-    <div *ngIf="cartService.getCartProducts().length > 0" class="cart-footer">
-      <div class="subtotal">
-        <h4>Subtotal:</h4>
-        <span>{{ getCurrencySymbol() }}{{ cartService.totalPriceQuantity().total.toFixed(2) }}</span>
+    @if (cartService.getCartProducts().length > 0) {
+      <div class="cart-footer">
+        <div class="subtotal">
+          <h4>Subtotal:</h4>
+          <span>{{ getCurrencySymbol() }}{{ cartService.totalPriceQuantity().total.toFixed(2) }}</span>
+        </div>
+        <div class="actions">
+          <a routerLink="/shop/cart" (click)="cartService.handleOpenCartSidebar()" class="btn full">View Cart</a>
+          <a routerLink="/shop/checkout" (click)="cartService.handleOpenCartSidebar()" class="btn outline full">Checkout</a>
+        </div>
       </div>
-      <div class="actions">
-        <a routerLink="/shop/cart" (click)="cartService.handleOpenCartSidebar()" class="btn full">View Cart</a>
-        <a routerLink="/shop/checkout" (click)="cartService.handleOpenCartSidebar()" class="btn outline full">Checkout</a>
-      </div>
-    </div>
+    }
   </div>
 </div>
 

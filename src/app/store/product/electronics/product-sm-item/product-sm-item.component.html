@@ -27,15 +27,14 @@
      </div>
      <div class="tp-product-price-wrapper">
         <!-- <span class="tp-product-price">{{ getCurrencySymbol() }}{{product.price.toFixed(2)}}</span> -->
-        <ng-container *ngIf="product.discount > 0; else noDiscount">
+        @if (product.discount > 0) {
           <span class="tp-product-price old-price">{{ getCurrencySymbol() }}{{ product.price }}</span>
           <span class="tp-product-price new-price">
             {{ getCurrencySymbol() }}{{ (product.price - (product.price * product.discount / 100)).toFixed(2) }}
           </span>
-        </ng-container>
-        <ng-template #noDiscount>
+        } @else {
           <span class="tp-product-price new-price">{{ getCurrencySymbol() }}{{ product.price.toFixed(2) }}</span>
-        </ng-template>
+        }
      </div>
   </div>
 </div>

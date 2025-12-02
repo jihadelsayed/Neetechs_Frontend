@@ -81,13 +81,16 @@
               </div>
             </div>
             <div class="tp-coupon-date">
-              <button
-                *ngIf="index !== i"
-                (click)="copyCouponCode(item.couponCode, i)"
-              >
-                <span>{{ item.couponCode }}</span>
-              </button>
-              <span *ngIf="index === i" class="copied">Copied!</span>
+              @if (index !== i) {
+                <button
+                  (click)="copyCouponCode(item.couponCode, i)"
+                >
+                  <span>{{ item.couponCode }}</span>
+                </button>
+              }
+              @if (index === i) {
+                <span class="copied">Copied!</span>
+              }
             </div>
           </div>
         </div>

@@ -7,8 +7,11 @@
       class="tp-shop-widget-brand-item"
     >
       <a (click)="handleBrandRoute(item.name)" class="cursor-pointer">
-        <img *ngIf="item.logo" [src]="item.logo" alt="logo" />
-        <span *ngIf="!item.logo">{{ item.name }}</span>
+        @if (item.logo) {
+          <img [src]="item.logo" alt="logo" />
+        } @else {
+          <span>{{ item.name }}</span>
+        }
       </a>
     </div>
   </div>

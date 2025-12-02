@@ -81,7 +81,7 @@
                     <!-- reviews -->
                     <div class="tp-product-details-review-list pr-110">
                       <h3 class="tp-product-details-review-title">Rating & Review</h3>
-                      <ng-container *ngIf="product.reviews && product.reviews.length > 0; else noReviews">
+                      @if (product.reviews && product.reviews.length > 0) {
                         <div *ngFor="let item of product.reviews; let i = index" class="tp-product-details-review-avater d-flex align-items-start">
                           <div class="tp-product-details-review-avater-thumb">
                             <a href="#">
@@ -103,10 +103,9 @@
                             </div>
                           </div>
                         </div>
-                      </ng-container>
-                      <ng-template #noReviews>
+                      } @else {
                         <h5>No Reviews Found</h5>
-                      </ng-template>
+                      }
                     </div>
                  </div>
               </div> <!-- end col -->

@@ -1,150 +1,158 @@
 <!-- MAIN PRODUCT PAGE -->
-<section
-  class="dp-page"
-  *ngIf="!loading && product as p; else loadingOrNotFound"
->
-  <!-- HERO -->
-  <div class="dp-hero">
-    <div class="dp-inner">
-      <div class="dp-hero-main">
-        <p class="dp-eyebrow">Digital product</p>
+@if (!loading) {
+  @if (product; as p) {
+  <section
+    class="dp-page"
+  >
+    <!-- HERO -->
+    <div class="dp-hero">
+      <div class="dp-inner">
+        <div class="dp-hero-main">
+          <p class="dp-eyebrow">Digital product</p>
 
-        <h1 class="dp-title">{{ p.title }}</h1>
+          <h1 class="dp-title">{{ p.title }}</h1>
 
-        <p class="dp-subtitle">
-          {{ p.short_description }}
-        </p>
+          <p class="dp-subtitle">
+            {{ p.short_description }}
+          </p>
 
-        <ul class="dp-highlights" *ngIf="p.bullets?.length">
-          <li *ngFor="let item of p.bullets">
-            {{ item }}
-          </li>
-        </ul>
+          @if (p.bullets?.length) {
+            <ul class="dp-highlights">
+              <li *ngFor="let item of p.bullets">
+                {{ item }}
+              </li>
+            </ul>
+          }
 
-        <div class="dp-hero-footer">
-          <div class="dp-actions">
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="onBuy()"
-              [disabled]="buying"
-            >
-              {{ buying ? 'Redirecting…' : 'Get this digital product' }}
-            </button>
+          <div class="dp-hero-footer">
+            <div class="dp-actions">
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="onBuy()"
+                [disabled]="buying"
+              >
+                {{ buying ? 'Redirecting…' : 'Get this digital product' }}
+              </button>
 
-            <a routerLink="/digital-products" class="btn btn-ghost">
-              Back to all digital products
-            </a>
+              <a routerLink="/digital-products" class="btn btn-ghost">
+                Back to all digital products
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dp-hero-card">
+          <div class="dp-hero-image">
+            <img [src]="p.thumbnail" [alt]="p.title" />
+          </div>
+
+          <div class="dp-hero-meta">
+            <span class="dp-meta-line">
+              Digital download · instant access · no subscription
+            </span>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="dp-hero-card">
-        <div class="dp-hero-image">
-          <img [src]="p.thumbnail" [alt]="p.title" />
+    <!-- WHAT'S INSIDE -->
+    @if (p.whatsInside?.length) {
+      <section class="dp-section">
+        <div class="dp-inner">
+          <div class="dp-section-header">
+            <h2 class="dp-section-title">What’s inside</h2>
+            <p class="dp-section-subtitle">
+              Everything you get when you purchase this digital product.
+            </p>
+          </div>
+
+          <div class="dp-inside-grid">
+            <article class="dp-inside-card" *ngFor="let item of p.whatsInside">
+              <h3 class="dp-inside-title">{{ item }}</h3>
+              <p class="dp-inside-text">
+                A focused block designed to plug directly into your workflow.
+              </p>
+            </article>
+          </div>
         </div>
+      </section>
+    }
 
-        <div class="dp-hero-meta">
-          <span class="dp-meta-line">
-            Digital download · instant access · no subscription
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT'S INSIDE -->
-  <section class="dp-section" *ngIf="p.whatsInside?.length">
-    <div class="dp-inner">
-      <div class="dp-section-header">
-        <h2 class="dp-section-title">What’s inside</h2>
-        <p class="dp-section-subtitle">
-          Everything you get when you purchase this digital product.
-        </p>
-      </div>
-
-      <div class="dp-inside-grid">
-        <article class="dp-inside-card" *ngFor="let item of p.whatsInside">
-          <h3 class="dp-inside-title">{{ item }}</h3>
-          <p class="dp-inside-text">
-            A focused block designed to plug directly into your workflow.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- DETAILS -->
-  <section class="dp-section">
-    <div class="dp-inner">
-      <div class="dp-details">
-        <h2 class="dp-section-title">How this digital product helps you</h2>
-        <p class="dp-details-text">
-          {{ p.description }}
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ (static text, only references p.title once) -->
-<section class="dp-section dp-faq" *ngIf="p.faqs?.length">
-  <div class="dp-inner">
-    <div class="dp-section-header">
-      <h2 class="dp-section-title">Frequently asked questions</h2>
-    </div>
-
-    <div class="dp-faq-grid">
-      <article class="dp-faq-item" *ngFor="let faq of p.faqs">
-        <h3 class="dp-faq-q">{{ faq.q }}</h3>
-        <p class="dp-faq-a">{{ faq.a }}</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-  <!-- BOTTOM CTA -->
-  <section class="dp-bottom-cta">
-    <div class="dp-inner">
-      <div class="dp-bottom-card">
-        <div class="dp-bottom-text">
-          <h2 class="dp-bottom-title">
-            Ready to plug this into your workflow?
-          </h2>
-          <p class="dp-bottom-subtitle">
-            Get instant access to {{ p.title }} and start using it today.
+    <!-- DETAILS -->
+    <section class="dp-section">
+      <div class="dp-inner">
+        <div class="dp-details">
+          <h2 class="dp-section-title">How this digital product helps you</h2>
+          <p class="dp-details-text">
+            {{ p.description }}
           </p>
         </div>
-
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="onBuy()"
-          [disabled]="buying"
-        >
-          {{ buying ? 'Redirecting…' : 'Get this digital product' }}
-        </button>
       </div>
-    </div>
-  </section>
-</section>
+    </section>
 
-<!-- LOADING / NOT FOUND STATES -->
-<ng-template #loadingOrNotFound>
-  <section class="dp-page" *ngIf="loading; else notFound">
-    <div class="dp-inner dp-not-found">
-      <h1>Loading digital product…</h1>
-    </div>
-  </section>
-</ng-template>
+    <!-- FAQ (static text, only references p.title once) -->
+    @if (p.faqs?.length) {
+      <section class="dp-section dp-faq">
+        <div class="dp-inner">
+          <div class="dp-section-header">
+            <h2 class="dp-section-title">Frequently asked questions</h2>
+          </div>
 
-<ng-template #notFound>
-  <section class="dp-page">
-    <div class="dp-inner dp-not-found">
-      <h1>Digital product not found.</h1>
-      <a routerLink="/digital-products" class="btn btn-primary">
-        Back to all digital products
-      </a>
-    </div>
+          <div class="dp-faq-grid">
+            <article class="dp-faq-item" *ngFor="let faq of p.faqs">
+              <h3 class="dp-faq-q">{{ faq.q }}</h3>
+              <p class="dp-faq-a">{{ faq.a }}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    }
+
+
+    <!-- BOTTOM CTA -->
+    <section class="dp-bottom-cta">
+      <div class="dp-inner">
+        <div class="dp-bottom-card">
+          <div class="dp-bottom-text">
+            <h2 class="dp-bottom-title">
+              Ready to plug this into your workflow?
+            </h2>
+            <p class="dp-bottom-subtitle">
+              Get instant access to {{ p.title }} and start using it today.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onBuy()"
+            [disabled]="buying"
+          >
+            {{ buying ? 'Redirecting…' : 'Get this digital product' }}
+          </button>
+        </div>
+      </div>
+    </section>
   </section>
-</ng-template>
+  }
+} @else {
+  <!-- LOADING / NOT FOUND STATES -->
+  <!-- LOADING / NOT FOUND STATES -->
+  @if (loading) {
+    <section class="dp-page">
+      <div class="dp-inner dp-not-found">
+        <h1>Loading digital product…</h1>
+      </div>
+    </section>
+  } @else {
+    <section class="dp-page">
+      <div class="dp-inner dp-not-found">
+        <h1>Digital product not found.</h1>
+        <a routerLink="/digital-products" class="btn btn-primary">
+          Back to all digital products
+        </a>
+      </div>
+    </section>
+  }
+}

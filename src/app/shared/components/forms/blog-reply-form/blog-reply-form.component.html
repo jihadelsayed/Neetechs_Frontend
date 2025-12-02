@@ -14,12 +14,13 @@
         <div class="tp-postbox-details-input-title">
           <label for="name">Your Name</label>
         </div>
-        <span
-          *ngIf="name?.hasError('required') && (name?.touched || formSubmitted)"
-          class="text-danger"
-        >
-          Name is required
-        </span>
+        @if (name?.hasError('required') && (name?.touched || formSubmitted)) {
+          <span
+            class="text-danger"
+          >
+            Name is required
+          </span>
+        }
       </div>
 
       <div class="tp-postbox-details-input-box">
@@ -35,16 +36,17 @@
         <div class="tp-postbox-details-input-title">
           <label for="email">Your Email</label>
         </div>
-        <span
-          *ngIf="
-            (email?.hasError('required') && email?.touched) ||
-            (email?.hasError('email') && email?.dirty) ||
-            (formSubmitted && !email?.value)
-          "
-          class="text-danger"
-        >
-          Email is required and must be a valid email address
-        </span>
+        @if (
+          (email?.hasError('required') && email?.touched) ||
+          (email?.hasError('email') && email?.dirty) ||
+          (formSubmitted && !email?.value)
+        ) {
+          <span
+            class="text-danger"
+          >
+            Email is required and must be a valid email address
+          </span>
+        }
       </div>
 
       <div class="tp-postbox-details-input-box">
@@ -58,14 +60,15 @@
         <div class="tp-postbox-details-input-title">
           <label for="msg">Your Message</label>
         </div>
-        <span
-          *ngIf="
-            message?.hasError('required') && (message?.touched || formSubmitted)
-          "
-          class="text-danger"
-        >
-          Message is required
-        </span>
+        @if (
+          message?.hasError('required') && (message?.touched || formSubmitted)
+        ) {
+          <span
+            class="text-danger"
+          >
+            Message is required
+          </span>
+        }
       </div>
     </div>
     <div class="tp-postbox-details-suggetions mb-20">

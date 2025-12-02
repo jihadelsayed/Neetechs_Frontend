@@ -1,35 +1,35 @@
 <section class="checkout-page">
   <div class="cp-inner">
     <!-- Loading -->
-     @if(loading){
-    <div class="cp-card" >
-      <p class="cp-eyebrow">Checking your payment…</p>
-      <h1 class="cp-title">Verifying your checkout session.</h1>
-      <p class="cp-text">
-        Please wait a moment while we confirm your payment details.
-      </p>
-    </div>
-}
-    <!-- Error -->
-     @if(!loading && error){
-    <div class="cp-card cp-card--cancel">
-      <p class="cp-eyebrow">Something went wrong</p>
-      <h1 class="cp-title">We couldn’t verify your payment.</h1>
-      <p class="cp-text">
-        The session link is invalid or has already been used. If you think
-        this is a mistake, contact us at <strong>info&#64;neetechs.com</strong>.
-      </p>
-      <div class="cp-actions">
-        <a routerLink="/digital-products" class="btn btn-primary">
-          Back to digital products
-        </a>
+    @if (loading) {
+      <div class="cp-card" >
+        <p class="cp-eyebrow">Checking your payment…</p>
+        <h1 class="cp-title">Verifying your checkout session.</h1>
+        <p class="cp-text">
+          Please wait a moment while we confirm your payment details.
+        </p>
       </div>
-    </div>
-}
+    }
+    <!-- Error -->
+    @if (!loading && error) {
+      <div class="cp-card cp-card--cancel">
+        <p class="cp-eyebrow">Something went wrong</p>
+        <h1 class="cp-title">We couldn’t verify your payment.</h1>
+        <p class="cp-text">
+          The session link is invalid or has already been used. If you think
+          this is a mistake, contact us at <strong>info&#64;neetechs.com</strong>.
+        </p>
+        <div class="cp-actions">
+          <a routerLink="/digital-products" class="btn btn-primary">
+            Back to digital products
+          </a>
+        </div>
+      </div>
+    }
     <!-- Success -->
+    @if (!loading && !error && session as s) {
     <div
       class="cp-card cp-card--success"
-      *ngIf="!loading && !error && session as s"
     >
       <div class="cp-status-icon">
         <span class="cp-checkmark">✓</span>
@@ -46,21 +46,23 @@
       </p>
 
       <div class="cp-actions">
-        <a
-          *ngIf="s.download_url"
-          [href]="s.download_url"
-          class="btn btn-primary"
-        >
-          Download files
-        </a>
+        @if (s.download_url) {
+          <a
+            [href]="s.download_url"
+            class="btn btn-primary"
+          >
+            Download files
+          </a>
+        }
 
-        <a
-          *ngIf="s.product_slug"
-          [routerLink]="['/digital-products', s.product_slug]"
-          class="btn btn-ghost"
-        >
-          View product page
-        </a>
+        @if (s.product_slug) {
+          <a
+            [routerLink]="['/digital-products', s.product_slug]"
+            class="btn btn-ghost"
+          >
+            View product page
+          </a>
+        }
 
         <a routerLink="/" class="btn btn-ghost">
           Go to homepage
@@ -72,5 +74,6 @@
         “Neetechs digital product”.
       </p>
     </div>
+    }
   </div>
 </section>

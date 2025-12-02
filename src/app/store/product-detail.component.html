@@ -1,7 +1,9 @@
-<nav class="breadcrumbs" *ngIf="product">
-  <a routerLink="/">Home</a> &gt; <a routerLink="/shop">Shop</a> &gt;
-  <span>{{ product.title }}</span>
-</nav>
+@if (product) {
+  <nav class="breadcrumbs">
+    <a routerLink="/">Home</a> &gt; <a routerLink="/shop">Shop</a> &gt;
+    <span>{{ product.title }}</span>
+  </nav>
+}
 
 <nav class="store-nav">
   <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Shop</a>
@@ -9,33 +11,35 @@
   <a routerLink="/shop/checkout" routerLinkActive="active">Checkout</a>
 </nav>
 
-<div class="container-card" *ngIf="product">
-  <div class="left">
-    <img
-      [src]="selectedImage"
-      appImageFallback="/assets/images/product-placeholder.png"
-      [alt]="product.title"
-      class="main-image"
-      loading="lazy" />
-    <div class="gallery">
+@if (product) {
+  <div class="container-card">
+    <div class="left">
       <img
-        *ngFor="let img of product.imageURLs"
-        [src]="img.img"
+        [src]="selectedImage"
         appImageFallback="/assets/images/product-placeholder.png"
         [alt]="product.title"
-        (click)="selectImage(img.img)"
-        [class.active]="img.img === selectedImage"
+        class="main-image"
         loading="lazy" />
+      <div class="gallery">
+        <img
+          *ngFor="let img of product.imageURLs"
+          [src]="img.img"
+          appImageFallback="/assets/images/product-placeholder.png"
+          [alt]="product.title"
+          (click)="selectImage(img.img)"
+          [class.active]="img.img === selectedImage"
+          loading="lazy" />
+      </div>
+    </div>
+    <div class="right">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description }}</p>
+      <p class="price">${{ product.price }}</p>
+      <button class="button" (click)="addToCart(product)">Add to Cart</button>
     </div>
   </div>
-  <div class="right">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    <p class="price">${{ product.price }}</p>
-    <button class="button" (click)="addToCart(product)">Add to Cart</button>
+} @else {
+  <div class="container-card">
+    <p>Product not found.</p>
   </div>
-</div>
-<div class="container-card" *ngIf="!product">
-  <p>Product not found.</p>
-</div>
-
+}
