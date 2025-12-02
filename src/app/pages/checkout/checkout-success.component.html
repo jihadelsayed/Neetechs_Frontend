@@ -1,16 +1,18 @@
 <section class="checkout-page">
   <div class="cp-inner">
     <!-- Loading -->
-    <div class="cp-card" *ngIf="loading">
+     @if(loading){
+    <div class="cp-card" >
       <p class="cp-eyebrow">Checking your payment…</p>
       <h1 class="cp-title">Verifying your checkout session.</h1>
       <p class="cp-text">
         Please wait a moment while we confirm your payment details.
       </p>
     </div>
-
+}
     <!-- Error -->
-    <div class="cp-card cp-card--cancel" *ngIf="!loading && error">
+     @if(!loading && error){
+    <div class="cp-card cp-card--cancel">
       <p class="cp-eyebrow">Something went wrong</p>
       <h1 class="cp-title">We couldn’t verify your payment.</h1>
       <p class="cp-text">
@@ -23,7 +25,7 @@
         </a>
       </div>
     </div>
-
+}
     <!-- Success -->
     <div
       class="cp-card cp-card--success"

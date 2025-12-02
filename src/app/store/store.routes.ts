@@ -19,9 +19,9 @@ export const storeRoutes: Routes = [
     loadComponent: () =>
       import('./wishlist.component').then(m => m.WishlistComponent),
   },
-  {
-    path: 'checkout',
-    loadComponent: () => import('./checkout.component').then(m => m.CheckoutComponent)
-    //,canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'checkout',
+  //   loadComponent: () => import('./checkout.component').then(m => m.CheckoutComponent)
+  //   //,canActivate: [AuthGuard]
+  // },
 ];

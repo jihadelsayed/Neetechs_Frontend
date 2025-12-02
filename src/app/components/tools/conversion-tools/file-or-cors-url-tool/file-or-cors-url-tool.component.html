@@ -1,4 +1,5 @@
-<div class="container" *ngIf="tool">
+@if(tool){
+<div class="container"  >
   <h2>{{ tool.title }}</h2>
 
   <div class="main">
@@ -17,17 +18,22 @@
 
     <div class="result-text">
       <h4>{{ tool.output }}</h4>
-      <div *ngIf="downloadUrl; else nores">
+      @if(downloadUrl){
+      <div  >
         <a [href]="downloadUrl" [download]="downloadName">⬇️ Download {{ downloadName }}</a>
       </div>
+      }
       <ng-template #nores><code>—</code></ng-template>
-
-      <pre *ngIf="logs.length">{{ logs.join('\n') }}</pre>
+      @if(logs.length){
+      <pre>{{ logs.join('\n') }}</pre>
+      }
     </div>
   </div>
-
-  <div class="container helpContainer" *ngIf="tool.heroText">
+@if(tool.heroText){
+  <div class="container helpContainer"  >
     <h4>{{ tool.heroText }}</h4>
     <a [href]="tool.heroLink" target="_blank">{{ tool.heroLinkName || tool.heroLink }}</a>
   </div>
+  }
 </div>
+}

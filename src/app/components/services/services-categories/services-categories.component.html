@@ -1,4 +1,5 @@
-<div *ngIf="category">
+@if(category){
+<div >
 
 
   <div class="hero-banner" [ngStyle]="{'background-image': 'url(' + category.image + ')'}">
@@ -66,3 +67,4 @@
     </div>
   </div>
 </div>
+}
