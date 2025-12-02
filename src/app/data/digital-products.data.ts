@@ -1,5 +1,5 @@
 // src/app/data/digital-products.data.ts
-export interface DigitalProduct {
+export interface StaticDigitalProduct {
   slug: string;                     // used in URL
   name: string;
   shortDescription: string;
@@ -14,7 +14,7 @@ export interface DigitalProduct {
   purchaseUrl?: string;
 }
 
-export const DIGITAL_PRODUCTS: DigitalProduct[] = [
+export const DIGITAL_PRODUCTS: StaticDigitalProduct [] = [
   {
     slug: 'ai-study-system',
     name: 'AI Study System for University Students',

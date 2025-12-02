@@ -1,0 +1,15 @@
+@import './checkout-success.component.scss';
+
+.cp-card--cancel {
+  border-color: rgba(255, 71, 87, 0.65);
+}
+
+.cp-status-icon--cancel {
+  background: rgba(255, 71, 87, 0.12);
+  border-color: rgba(255, 71, 87, 0.8);
+}
+
+.cp-x {
+  font-size: 1.4rem;
+  color: #ff4757;
+}

@@ -1,0 +1,125 @@
+.checkout-page {
+  min-height: calc(100vh - 80px);
+  background: #050816;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.cp-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem;
+}
+
+.cp-card {
+  border-radius: 24px;
+  padding: 2rem 1.8rem;
+  background: radial-gradient(circle at top left, #273453 0, #090f1c 60%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  text-align: left;
+}
+
+.cp-card--success {
+  border-color: rgba(46, 213, 115, 0.55);
+}
+
+.cp-status-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(46, 213, 115, 0.1);
+  border: 1px solid rgba(46, 213, 115, 0.65);
+  margin-bottom: 1rem;
+}
+
+.cp-checkmark {
+  font-size: 1.6rem;
+  color: #2ed573;
+}
+
+.cp-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.4rem;
+}
+
+.cp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.cp-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 1.2rem;
+}
+
+.cp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.cp-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* buttons reuse same pattern as dp page */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s ease-out;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f7931a, #f9b441);
+  color: #050816;
+  box-shadow: 0 12px 30px rgba(249, 147, 26, 0.5);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 16px 40px rgba(249, 147, 26, 0.7);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: rgba(9, 13, 28, 0.96);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-ghost:hover {
+  background: rgba(15, 21, 40, 0.98);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+@media (max-width: 640px) {
+  .cp-inner {
+    padding: 2rem 1.25rem;
+  }
+
+  .cp-card {
+    padding: 1.6rem 1.4rem;
+  }
+}

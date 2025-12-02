@@ -1,0 +1,74 @@
+<section class="checkout-page">
+  <div class="cp-inner">
+    <!-- Loading -->
+    <div class="cp-card" *ngIf="loading">
+      <p class="cp-eyebrow">Checking your payment…</p>
+      <h1 class="cp-title">Verifying your checkout session.</h1>
+      <p class="cp-text">
+        Please wait a moment while we confirm your payment details.
+      </p>
+    </div>
+
+    <!-- Error -->
+    <div class="cp-card cp-card--cancel" *ngIf="!loading && error">
+      <p class="cp-eyebrow">Something went wrong</p>
+      <h1 class="cp-title">We couldn’t verify your payment.</h1>
+      <p class="cp-text">
+        The session link is invalid or has already been used. If you think
+        this is a mistake, contact us at <strong>info@neetechs.com</strong>.
+      </p>
+      <div class="cp-actions">
+        <a routerLink="/digital-products" class="btn btn-primary">
+          Back to digital products
+        </a>
+      </div>
+    </div>
+
+    <!-- Success -->
+    <div
+      class="cp-card cp-card--success"
+      *ngIf="!loading && !error && session as s"
+    >
+      <div class="cp-status-icon">
+        <span class="cp-checkmark">✓</span>
+      </div>
+
+      <p class="cp-eyebrow">Payment complete</p>
+      <h1 class="cp-title">
+        Your access to {{ s.product_name || 'the digital product' }} is ready.
+      </h1>
+
+      <p class="cp-text">
+        Your payment was successful. We’ve sent you an email with your
+        download link and instructions.
+      </p>
+
+      <div class="cp-actions">
+        <a
+          *ngIf="s.download_url"
+          [href]="s.download_url"
+          class="btn btn-primary"
+        >
+          Download files
+        </a>
+
+        <a
+          *ngIf="s.product_slug"
+          [routerLink]="['/digital-products', s.product_slug]"
+          class="btn btn-ghost"
+        >
+          View product page
+        </a>
+
+        <a routerLink="/" class="btn btn-ghost">
+          Go to homepage
+        </a>
+      </div>
+
+      <p class="cp-note">
+        Didn’t receive the email? Check your spam folder or search for
+        “Neetechs digital product”.
+      </p>
+    </div>
+  </div>
+</section>

@@ -103,6 +103,19 @@ export const routes: Routes = [
     ],
   },
   {
+  path: 'checkout/success',
+  loadComponent: () =>
+    import('./pages/checkout/checkout-success.component')
+      .then(m => m.CheckoutSuccessComponent),
+},
+{
+  path: 'checkout/cancel',
+  loadComponent: () =>
+    import('./pages/checkout/checkout-cancel.component')
+      .then(m => m.CheckoutCancelComponent),
+},
+
+  {
     path: '**',
     redirectTo: '',
   },
