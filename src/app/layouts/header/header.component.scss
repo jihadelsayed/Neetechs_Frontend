@@ -12,31 +12,27 @@
   padding: 0;
 }
 
-/* host for desktop header */
+/* desktop header host */
 app-desktop-header {
   display: block;
-  margin: 0;
-  padding: 0;
 }
 
-/* sticky wrapper – only handles positioning/blur */
+/* sticky state for desktop header wrapper */
 app-desktop-header.sticky {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 1100;
+
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
-
-  /* no background here – the inner .desktop-header handles visuals */
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-  transition:
-    border-color 0.18s ease;
+
+  transition: border-color 0.18s ease;
 }
 
-/* mobile header host */
+/* sticky state for mobile header host */
 app-mobile-header.sticky {
   position: fixed;
   top: 0;
@@ -46,4 +42,3 @@ app-mobile-header.sticky {
 
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
-
