@@ -1,4 +1,5 @@
-@import './checkout-success.component.scss';
+@use 'checkout-success.component.scss' as *;
+
 
 .cp-card--cancel {
   border-color: rgba(255, 71, 87, 0.65);

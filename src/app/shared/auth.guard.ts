@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const isAuthenticated =
-      typeof localStorage !== 'undefined' && localStorage.getItem('token') !== null;
+      typeof localStorage !== 'undefined' && localStorage.getItem('userToken') !== null;
 
     if (isAuthenticated) {
       return true;

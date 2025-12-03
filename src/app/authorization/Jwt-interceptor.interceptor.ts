@@ -30,16 +30,33 @@ export class JwtInterceptor implements HttpInterceptor {
         }
 
         if (error.status === 401) {
-          // Only act for your own domain
-          localStorage.removeItem('userToken');
-
-          // Avoid redirecting during local dev
-          const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-          if (!isLocal) {
-            const host = location.hostname;
-            const rootDomain = host.substring(host.lastIndexOf('.', host.lastIndexOf('.') - 1) + 1) || 'neetechs.com';
-            location.replace(`https://accounts.${rootDomain}`);
-          }
+          // Clear all auth keys and cookies on unauthorized responses.  This
+          // ensures the session is wiped consistently across portals.
+          const keys = [
+            'userToken',
+            'UserInfo',
+            'userInfo',
+            'token',
+            'roles',
+            'apiKey',
+            'darkMode',
+            'accessToken'
+          ];
+          keys.forEach((k) => {
+            try {
+              localStorage.removeItem(k);
+            } catch {
+              /* ignore */
+            }
+          });
+          document.cookie =
+            'userToken=; domain=.neetechs.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+          document.cookie =
+            'UserInfo=; domain=.neetechs.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+          // Redirect to main site home page (neetechs.com)
+          const hostParts = location.hostname.split('.');
+          const baseDomain = hostParts.slice(-2).join('.');
+          location.replace(`https://${baseDomain}/`);
         }
 
         return throwError(() => error);
