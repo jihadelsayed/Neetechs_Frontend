@@ -1,0 +1,11 @@
+@if(isBrowser){
+<iframe   [src]="frameSrc" id="iframeAccount" style="display:none;"></iframe>
+
+}
+@if(showLoginModal){
+<app-login-prompt
+   (confirm)="handleLoginPromptConfirm()"
+  (cancel)="handleLoginPromptCancel()"
+></app-login-prompt>
+}
+
