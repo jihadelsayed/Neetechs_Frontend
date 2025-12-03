@@ -25,7 +25,7 @@
         <span>Product</span>
         <span>Total</span>
       </li>
-      @for (item of cartService.getCartProducts()) {
+      @for (item of cartService.getCartProducts(); track item.id) {
         <li>
           <span>{{ item?.title }} x {{ item.orderQuantity }}</span>
           <span>
