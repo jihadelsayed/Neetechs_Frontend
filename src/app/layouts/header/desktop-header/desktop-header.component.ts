@@ -62,8 +62,9 @@ export class DesktopHeaderComponent {
     const langSlug = langMap[lang] || 'en';
 
     // send user to accounts portal with return_url back to current page
-    const returnUrl = encodeURIComponent(window.location.href);
-    const url = `https://accounts.neetechs.com/${langSlug}/${mode}?return_url=${returnUrl}`;
+const authPath = mode === 'signIn' ? 'login' : 'signup';
+const url = `https://accounts.neetechs.com/${langSlug}/${authPath}?return_url=${encodeURIComponent(window.location.href)}`;
+
 
     window.location.href = url;
   }

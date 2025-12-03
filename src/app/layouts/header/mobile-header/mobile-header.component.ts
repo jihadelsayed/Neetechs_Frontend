@@ -59,8 +59,9 @@ export class MobileHeaderComponent {
     };
     const langSlug = langMap[lang] || 'en';
 
-    const returnUrl = encodeURIComponent(window.location.href);
-    const url = `https://accounts.neetechs.com/${langSlug}/${mode}?return_url=${returnUrl}`;
+  const authPath = mode === 'signIn' ? 'login' : 'signup';
+  const url = `https://accounts.neetechs.com/${langSlug}/${authPath}?return_url=${encodeURIComponent(window.location.href)}`;
+
 
     window.location.href = url;
   }
