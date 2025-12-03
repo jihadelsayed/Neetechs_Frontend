@@ -1,9 +1,13 @@
-// desktop-header.component.ts
+// src/app/layouts/header/desktop-header/desktop-header.component.ts
 
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { PLATFORM_ID } from '@angular/core';
+
 import { menu_data } from '../menu-data';
+import { LanguageService } from '../../../core/language.service';
+import { LogoutService } from '@/services/logout.service';
 
 @Component({
   selector: 'app-desktop-header',
@@ -18,7 +22,19 @@ export class DesktopHeaderComponent {
   isLoggedIn = false;
   isSettingsActive = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private languageService: LanguageService,
+    private logoutService: LogoutService,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      // unified auth key from Phase 1
+      const token = localStorage.getItem('userToken');
+      this.isLoggedIn = !!token;
+    }
+  }
 
   navigateToTop() {
     window.scrollTo(0, 0);
@@ -30,21 +46,30 @@ export class DesktopHeaderComponent {
 
   goToAuth(mode: 'signIn' | 'signup') {
     this.isSettingsActive = false;
-    this.router.navigate(['/auth'], { queryParams: { mode } });
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const lang = this.languageService.getCurrentLanguage().toLowerCase();
+
+    const langMap: { [key: string]: string } = {
+      english: 'en',
+      swedish: 'sv',
+      عربي: 'ar',
+    };
+
+    const langSlug = langMap[lang] || 'en';
+
+    // send user to accounts portal with return_url back to current page
+    const returnUrl = encodeURIComponent(window.location.href);
+    const url = `https://accounts.neetechs.com/${langSlug}/${mode}?return_url=${returnUrl}`;
+
+    window.location.href = url;
   }
 
   logout() {
-    localStorage.removeItem('userInfo');
-    this.isLoggedIn = false;
     this.isSettingsActive = false;
-    this.router.navigate(['/']);
-  }
-
-  ngOnInit() {
-    const userInfoString =
-      typeof localStorage !== 'undefined'
-        ? localStorage.getItem('userInfo')
-        : null;
-    this.isLoggedIn = !!userInfoString;
+    this.logoutService.logout(); // centralized logout: clears LS + cookies + redirects
   }
 }

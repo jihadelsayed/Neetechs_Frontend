@@ -43,7 +43,7 @@
 
     <!-- Nav links -->
     <ul>
-     @for (item of menu_data; track item.title; let i = $index) {
+      @for (item of menu_data; track item.title; let i = $index) {
         <li>
           <a
             [routerLink]="item.link"
@@ -55,24 +55,42 @@
         </li>
       }
     </ul>
-<div class="account-label">Account</div>
+
+    <div class="account-label">Account</div>
 
     <!-- Account actions -->
     <div class="account-block">
-      <button
-        type="button"
-        class="btn-outline"
-        (click)="goToAuth('signIn')"
-      >
-        Login
-      </button>
-      <button
-        type="button"
-        class="btn-primary"
-        (click)="goToAuth('signup')"
-      >
-        Sign Up
-      </button>
+      @if (!isLoggedIn) {
+        <button
+          type="button"
+          class="btn-outline"
+          (click)="goToAuth('signIn')"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          class="btn-primary"
+          (click)="goToAuth('signup')"
+        >
+          Sign Up
+        </button>
+      } @else {
+        <button
+          type="button"
+          class="btn-outline"
+          (click)="goToMyAccount()"
+        >
+          My Account
+        </button>
+        <button
+          type="button"
+          class="btn-primary"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+      }
     </div>
   </div>
 </div>
