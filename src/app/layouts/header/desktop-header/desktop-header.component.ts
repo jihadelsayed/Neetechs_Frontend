@@ -25,7 +25,7 @@ export class DesktopHeaderComponent {
   constructor(
     private languageService: LanguageService,
     private logoutService: LogoutService,
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -62,11 +62,14 @@ export class DesktopHeaderComponent {
     const langSlug = langMap[lang] || 'en';
 
     // send user to accounts portal with return_url back to current page
-const authPath = mode === 'signIn' ? 'login' : 'signup';
-const url = `https://accounts.neetechs.com/${langSlug}/${authPath}?return_url=${encodeURIComponent(window.location.href)}`;
+  const authPath = mode === 'signIn' ? 'login' : 'signup';
+  const returnUrl = encodeURIComponent(window.location.href);
 
+  const url =
+    `https://accounts.neetechs.com/${langSlug}/${authPath}` +
+    `?return_url=${returnUrl}`;
 
-    window.location.href = url;
+  window.location.href = url;
   }
 
   logout() {

@@ -60,10 +60,13 @@ export class MobileHeaderComponent {
     const langSlug = langMap[lang] || 'en';
 
   const authPath = mode === 'signIn' ? 'login' : 'signup';
-  const url = `https://accounts.neetechs.com/${langSlug}/${authPath}?return_url=${encodeURIComponent(window.location.href)}`;
+  const returnUrl = encodeURIComponent(window.location.href);
 
+  const url =
+    `https://accounts.neetechs.com/${langSlug}/${authPath}` +
+    `?return_url=${returnUrl}`;
 
-    window.location.href = url;
+  window.location.href = url;
   }
 
   goToMyAccount() {
