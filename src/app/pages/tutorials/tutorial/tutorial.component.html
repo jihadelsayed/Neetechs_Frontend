@@ -1,19 +1,20 @@
-<!-- HERO + CATEGORY LIST VIEW -->
-@if (!tutorial?.sections?.length) {
-  <app-hero-tutorial-list
-    [groupedCategories]="groupedCategories"
-    [tutorialList]="tutorialList">
-  </app-hero-tutorial-list>
-}
+<!-- tutorial.component.html -->
+<main class="tutorial-page">
+  @if (!tutorial?.sections?.length) {
+    <app-hero-tutorial-list
+      [groupedCategories]="groupedCategories"
+      [tutorialList]="tutorialList">
+    </app-hero-tutorial-list>
+  }
 
-<!-- TUTORIAL DETAIL VIEW -->
-@if (tutorial?.sections?.length) {
-  <app-tutorial-wrapper
-    [tutorial]="tutorial"
-    [stepIndexes]="stepIndexes"
-    [activeSection]="activeSection"
-    [previousTutorial]="previousTutorial"
-    [nextTutorial]="nextTutorial"
-    (startQuiz)="startQuiz($event)">
-  </app-tutorial-wrapper>
-}
+  @if (tutorial?.sections?.length) {
+    <app-tutorial-wrapper
+      [tutorial]="tutorial"
+      [stepIndexes]="stepIndexes"
+      [activeSection]="activeSection"
+      [previousTutorial]="previousTutorial"
+      [nextTutorial]="nextTutorial"
+      (startQuiz)="startQuiz($event)">
+    </app-tutorial-wrapper>
+  }
+</main>

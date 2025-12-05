@@ -1,34 +1,95 @@
+<div class="tutorial-page">
+  <!-- HERO -->
+  <section class="hero-banner">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title">Our Tutorials</h1>
+        <p class="hero-subtitle">
+          Explore our tutorials to enhance your tech skills, covering web
+          development, scripting, algorithms, and more. Learn in a structured,
+          exam-style format that actually sticks.
+        </p>
 
-<div class="hero-banner">
-  <div class="hero-content">
-    <h1>Our Tutorials</h1>
-    <p>Explore our tutorials to enhance your tech skills, covering web development, mobile app creation, and technical repairs. Start learning today!</p>
-    <button class="cta-button" (click)="navigateTo('/tutorials')">Explore Tutorials</button>
-  </div>
-</div>
-@if (tutorialData) {
+        <button class="hero-cta" (click)="navigateTo('/tutorials')">
+          Explore Tutorials
+        </button>
+      </div>
+    </div>
+  </section>
 
+  <!-- TUTORIAL CATEGORIES -->
+  @if (tutorialData && getTypes().length) {
+    <section class="tutorial-list">
+      @for (type of getTypes(); track type) {
+        <div class="category-section">
+          <div class="section-header">
+            <h2 class="section-title">{{ type }}</h2>
 
-@for (type of getTypes(); track type) {
-  <div class="container-card">
-    <!-- <img src="{{ tutorialData.image }}" alt="Tutorials Banner" class="banner"> -->
-    <h2>{{ type }}</h2>
-    
-    <div class="categories" >
-      @for (category of groupedCategories[type]; track category.name) {
-        <div class="category">
-          <img [src]="category.image" alt="{{ category.name }} Icon" class="category-image">
-          <h5>
-            <a [href]="category.href" [class.disabled]="category.disable">{{ category.name }}</a>
-          </h5>
-          <h6 class="date">{{ category.date }}</h6>
+            <p class="section-subtitle">
+              @if (groupedCategories[type]?.length === 1) {
+                {{ groupedCategories[type]?.length }} track in this path.
+              } @else {
+                {{ groupedCategories[type]?.length }} tracks in this path.
+              }
+            </p>
+          </div>
+
+          <div class="categories-grid">
+            @for (category of groupedCategories[type]; track category.name) {
+              <article class="category-card">
+                <div class="card-top">
+                  <div class="card-icon">
+                    <img
+                      [src]="category.image"
+                      [alt]="category.name + ' icon'"
+                      class="category-image"
+                    />
+                  </div>
+
+                  <div class="card-main">
+                    <h3 class="category-name">
+                      <a
+                        [href]="category.href"
+                        [class.disabled]="category.disable"
+                      >
+                        {{ category.name }}
+                      </a>
+                    </h3>
+
+                    <p class="category-meta">
+                      @if (category.level) {
+                        <span class="pill">{{ category.level }}</span>
+                      }
+                      @if (category.length) {
+                        <span class="pill">{{ category.length }}</span>
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card-footer">
+                  <span class="date-label">
+                    {{ category.date || 'Coming soon' }}
+                  </span>
+
+                  <a
+                    class="card-link"
+                    [class.disabled]="category.disable"
+                    [href]="category.href"
+                  >
+                    View lessons →
+                  </a>
+                </div>
+              </article>
+            }
+          </div>
         </div>
       }
-    </div>
-  </div>
-}
-}
+    </section>
+  }
 
-<div class="container">
-  <app-contact-banner></app-contact-banner>
+  <!-- CONTACT / CTA BANNER -->
+  <section class="tutorial-footer">
+    <app-contact-banner></app-contact-banner>
+  </section>
 </div>

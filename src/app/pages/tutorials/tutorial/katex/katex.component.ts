@@ -1,26 +1,52 @@
-import { Component, Input, AfterViewInit, ElementRef,ViewEncapsulation  } from '@angular/core';
+import { 
+  Component, 
+  Input, 
+  AfterViewInit, 
+  OnChanges, 
+  SimpleChanges, 
+  ElementRef, 
+  ViewEncapsulation,
+  ChangeDetectionStrategy 
+} from '@angular/core';
 import katex from 'katex';
 
 @Component({
   selector: 'app-katex',
   standalone: true,
-  imports: [],
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: './katex.component.html',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './katex.component.html',
   styleUrl: './katex.component.scss'
 })
-export class KatexComponent implements AfterViewInit {
+export class KatexComponent implements AfterViewInit, OnChanges {
   @Input() expression: string = '';
 
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
-    const container = this.el.nativeElement.querySelector('.math-render');
-    if (container && this.expression) {
-      container.innerHTML = katex.renderToString(this.expression, {
-        throwOnError: false,
-        displayMode: true
-      });
+    this.renderMath();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['expression'] && !changes['expression'].firstChange) {
+      this.renderMath();
     }
+  }
+
+  private renderMath(): void {
+    const container: HTMLElement | null =
+      this.el.nativeElement.querySelector('.math-render');
+
+    if (!container) return;
+
+    if (!this.expression) {
+      container.innerHTML = '';
+      return;
+    }
+
+    container.innerHTML = katex.renderToString(this.expression, {
+      throwOnError: false,
+      displayMode: true
+    });
   }
 }

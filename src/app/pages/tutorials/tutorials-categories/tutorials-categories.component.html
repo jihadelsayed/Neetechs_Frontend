@@ -1,34 +1,186 @@
 @if (category) {
-  
-    <div class="tutorial-hero-category">
-        <img [src]="category.image" alt="{{ category.name }}">
-        <h1>{{ category.name }}</h1>
-        <p>{{ category.description }}</p>
-        <p>{{ category.date }}</p>
-    </div>
-<div class="container">
+  <div class="category-page">
 
-        @for (level of getLevels(); track level) {
-            <div style="margin: 48px 0px;">
-                <h3>{{ level }}:</h3>
-                <div class="tutorial-container">
+    <!-- Breadcrumb + Hero -->
+    <header class="category-header">
+      <nav class="breadcrumbs">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <a routerLink="/tutorials">Tutorials</a>
+        <span>/</span>
+        <span class="current">{{ category.name }}</span>
+      </nav>
 
-                @for (tutorial of groupedTutorials[level]; track tutorial) {
-                    <div
-                        class="card {{tutorial.lvl}}" 
-                     [class.disabled]="tutorial.disable" 
-                     (click)="!tutorial.disable && navigateTo(tutorial.href)">
-                    <h5>{{ tutorial.title }}</h5>
-                    <p>{{ tutorial.description }}</p>
-                    <span>Duration: {{ tutorial.duration }}</span>
-                    <br/>
-                  <span><strong>Date:</strong> {{ tutorial.date }}</span>
-                </div>
-            }
+      <div class="hero">
+        <div class="hero-img-wrapper" *ngIf="category.image">
+          <img [src]="category.image" [alt]="category.name" />
         </div>
 
-          </div>
-        }
-    </div>
+        <div class="hero-content">
+          <h1>{{ category.name }}</h1>
 
+          @if (category.tagline || category.description) {
+            <p class="hero-subtitle">
+              {{ category.tagline || category.description }}
+            </p>
+          }
+
+          <div class="hero-meta">
+            <span class="hero-chip">
+              {{ totalTutorials }} lessons
+            </span>
+
+            @if (category.date) {
+              <span class="hero-chip">
+                Updated {{ category.date }}
+              </span>
+            }
+
+            <span class="hero-chip progress-chip">
+              {{ completedCount }} / {{ totalTutorials }} completed
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout: sidebar + main -->
+    <div class="category-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="category-sidebar">
+        <div class="sidebar-section">
+          <h3>Levels</h3>
+
+          <ul class="level-list">
+            <li
+              class="level-item all"
+              [class.active]="!activeLevel"
+              (click)="setActiveLevel(null)"
+            >
+              <span class="level-name">All levels</span>
+              <span class="level-count">{{ totalTutorials }}</span>
+            </li>
+
+            @for (level of levels; track level) {
+              <li
+                class="level-item"
+                [class.active]="activeLevel === level"
+                (click)="setActiveLevel(level)"
+              >
+                <span
+                  class="level-dot"
+                  [ngClass]="levelClass(level)"
+                ></span>
+                <span class="level-name">{{ level }}</span>
+                <span class="level-count">
+                  {{ groupedTutorials[level]?.length || 0 }}
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Progress</h3>
+          <p class="sidebar-progress-label">
+            {{ completedCount }} / {{ totalTutorials }} tutorials completed
+          </p>
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              [style.width.%]="completionPercent"
+            ></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="category-main">
+
+        @for (level of levels; track level) {
+          <section
+            class="level-group"
+            [class.level-hidden]="activeLevel && activeLevel !== level"
+            [attr.id]="slugify(level)"
+          >
+            <div class="level-heading">
+              <span
+                class="level-badge"
+                [ngClass]="levelClass(level)"
+              >
+                {{ level }}
+              </span>
+
+              <span class="level-count-text">
+                {{ groupedTutorials[level]?.length || 0 }} lessons
+              </span>
+            </div>
+
+            <div class="tutorial-grid">
+              @for (tutorial of groupedTutorials[level]; track tutorial.title) {
+                <article
+                  class="tutorial-card"
+                  [ngClass]="[
+                    tutorial.lvl,
+                    tutorial.disable ? 'disabled' : '',
+                    isCompleted(tutorial) ? 'completed' : ''
+                  ]"
+                  (click)="onTutorialClick(tutorial)"
+                >
+                  <div class="card-header">
+                    <h2>{{ tutorial.title }}</h2>
+
+                    @if (tutorial.duration) {
+                      <span class="card-duration">
+                        {{ tutorial.duration }}
+                      </span>
+                    }
+                  </div>
+
+                  @if (tutorial.description) {
+                    <p class="card-description">
+                      {{ tutorial.description }}
+                    </p>
+                  }
+
+                  <div class="card-meta">
+                    @if (tutorial.date) {
+                      <span class="card-date">
+                        Date: {{ tutorial.date }}
+                      </span>
+                    }
+
+                    @if (tutorial.tag) {
+                      <span class="card-tag">
+                        {{ tutorial.tag }}
+                      </span>
+                    }
+                  </div>
+
+                  <!-- Per-tutorial progress toggle -->
+                  <button
+                    type="button"
+                    class="card-progress-toggle"
+                    (click)="toggleCompleted(tutorial, $event)"
+                  >
+                    <span
+                      class="checkbox"
+                      [class.checkbox-checked]="isCompleted(tutorial)"
+                    >
+                      <span class="checkbox-inner"></span>
+                    </span>
+                    <span class="label">
+                      {{ isCompleted(tutorial) ? 'Completed' : 'Mark as complete' }}
+                    </span>
+                  </button>
+                </article>
+              }
+            </div>
+          </section>
+        }
+      </main>
+    </div>
+  </div>
 }

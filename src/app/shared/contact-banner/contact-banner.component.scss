@@ -1,4 +1,4 @@
-@use "../../../styles._variables.scss" as *;
+@use 'styles._variables' as *;
 .contact-banner {
   background: linear-gradient(135deg, $secondary-color, $neutral-color-darkest);
   padding: 4rem 1rem;

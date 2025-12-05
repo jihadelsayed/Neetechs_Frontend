@@ -1,56 +1,64 @@
-<!-- TOC toggle for mobile -->
-<div class="tutorial-wrapper"
->
-<!-- Table of Contents -->
-<app-tutorial-toc
-  [sections]="tutorial.sections"
-  [activeSection]="activeSection"
-   (sectionClicked)="scrollToSection($event)"
-></app-tutorial-toc>
+<!-- tutorial-wrapper.component.html -->
+<div class="tutorial-wrapper">
+  <!-- Left: TOC -->
+  <aside class="tutorial-wrapper__toc">
+    <app-tutorial-toc
+      [sections]="tutorial.sections"
+      [activeSection]="activeSection"
+      (sectionClicked)="scrollToSection($event)">
+    </app-tutorial-toc>
+  </aside>
 
-<!-- Main Tutorial Content -->
-<div class="container">
-  <h3>{{ tutorial["title"] }}</h3>
-  <p class="reading-time">📘 {{ getEstimatedReadingTime() }}</p>
+  <!-- Right: Content -->
+  <section class="tutorial-wrapper__content">
+    <header class="tutorial-header">
+      <h1 class="tutorial-title">
+        {{ tutorial['title'] }}
+      </h1>
+      <p class="tutorial-meta">📘 {{ getEstimatedReadingTime() }}</p>
+    </header>
 
-  @if (tutorial.link) {
-    <div class="video-container">
-      <iframe
-        [src]="tutorial.link | safe"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    @if (tutorial.link) {
+      <div class="video-container">
+        <iframe
+          [src]="tutorial.link | safe"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    }
+
+    @for (section of tutorial.sections; track slugify(section.title)) {
+      <app-tutorial-section
+        class="tutorial-section"
+        [section]="section"
+        [stepIndex]="stepIndexes[slugify(section.title)]"
+        (next)="nextStep(slugify(section.title))"
+        [sectionId]="slugify(section.title)">
+      </app-tutorial-section>
+    }
+
+    <!-- Mark as complete -->
+    <div class="completion-toggle">
+      <label>
+        <input
+          type="checkbox"
+          [checked]="isCompleted()"
+          (change)="toggleCompletion()" />
+         Mark as Complete
+      </label>
     </div>
-  }
 
-  @for (section of tutorial.sections; track slugify(section.title)) {
-    <app-tutorial-section
-      [section]="section"
-      [stepIndex]="stepIndexes[slugify(section.title)]"
-      (next)="nextStep(slugify(section.title))"
-      [sectionId]="slugify(section.title)">
-    </app-tutorial-section>
-  }
+    <!-- Prev / Next / Quiz -->
+    <app-tutorial-navigation
+      [previousTutorial]="previousTutorial"
+      [nextTutorial]="nextTutorial"
+      [tutorial]="tutorial"
+      (startQuiz)="startQuiz.emit(tutorial)">
+    </app-tutorial-navigation>
 
-  <!-- Completion Toggle -->
-  <div class="completion-toggle">
-    <label>
-      <input type="checkbox" [checked]="isCompleted()" (change)="toggleCompletion()" />
-      ✅ Mark as Complete
-    </label>
-  </div>
-
-  <!-- Prev / Next / Quiz -->
-  <app-tutorial-navigation
-    [previousTutorial]="previousTutorial"
-    [nextTutorial]="nextTutorial"
-    [tutorial]="tutorial"
-    (startQuiz)="this.startQuiz.emit(tutorial);
-">
-  </app-tutorial-navigation>
-
-  <!-- Ads -->
-  <app-tutorial-ads></app-tutorial-ads>
-</div>
+    <!-- Ads -->
+    <app-tutorial-ads></app-tutorial-ads>
+  </section>
 </div>

@@ -1,72 +1,114 @@
+// tutorial-wrapper.component.scss
+@use 'styles._variables' as *;
 .tutorial-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  gap: 48px;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  position: relative; // ensure stickiness context
-
+  gap: $space-6;
+  max-width: 1200px;
+  margin: 0 auto $space-8;
+  padding: $space-6 0;
   @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 32px;
   }
 }
-app-tutorial-toc {
+
+.tutorial-wrapper__toc {
+  flex: 0 0 240px;
   position: sticky;
-  top: 35%;
-  transform: translateY(-50%);
-  align-self: flex-start;
-  max-height: 90vh;
-  overflow-y: auto;
-  min-width: 220px;
-  max-width: 260px;
-   padding: 16px;
+  top: 120px;
+
+  @media (max-width: 1024px) {
+    position: static;
+    width: 100%;
+  }
+}
+
+.tutorial-wrapper__content {
+  flex: 1 1 auto;
+  background: $neutral-color-darker; // #111827
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+  padding: $space-6;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.tutorial-header {
+  margin-bottom: $space-5;
+}
+
+.tutorial-title {
+  font-size: $font-size-3xl;
+  line-height: $line-height-tight;
+  color: #f9fafb;
+  margin-bottom: $space-2;
+}
+
+.tutorial-meta {
+  font-size: $font-size-sm;
+  color: $neutral-color-light;
+}
+
+/* Video */
+.video-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto $space-5;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: $radius-md;
+  border: none;
+}
+
+/* Wrap each section */
+.tutorial-section {
+  margin-bottom: $space-5;
+}
+
+/* Mark as complete */
+
+.completion-toggle {
+  margin-top: $space-4;
+  display: flex;
+  justify-content: flex-start;
+  font-size: $font-size-sm;
+  color: $neutral-color-light;
+
+  label {
+ display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+    // ❌ remove white-space: nowrap; let it wrap on small screens
+    white-space: normal;
+    flex-wrap: wrap; 
   }
 
+  /* Use normal browser checkbox, with brand accent */
+  input[type='checkbox'] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: $tertiary-color;
+    appearance: auto;
+    -webkit-appearance: checkbox;
+    cursor: pointer;
+  }
 
-.container {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  background-color: #ffffff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  padding: 32px;
-  border-radius: 8px;
-  width: 100%;
-}.section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #fff;
-  border-radius: 8px;
-  border: 0px;
-  border-bottom: 1px solid #eee;
-  width: 100%;
-  overflow-x: hidden;
-}
-.math-box {
-  background: #fff8ef;
-  border: 1px solid #fcd9b6;
-  border-left: 4px solid #f7931a;
-  padding: 24px;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-  width: 100%;
-  box-sizing: border-box;
-  animation: fadeIn 0.25s ease-in-out;
+  /* 🔥 Nuke any old fancy checkbox pseudo-elements */
+  label::before,
+  label::after {
+    content: none !important;
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-app-tutorial-navigation{
-    width: 100%;
+app-tutorial-navigation {
+  width: 100%;
+  margin-top: $space-5;
 }

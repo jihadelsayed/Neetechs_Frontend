@@ -1,24 +1,34 @@
+// tutorial-navigation.component.scss
+@use 'styles._variables' as *;
+
 .nav-buttons {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 48px;
+  margin-top: $space-6;
+  gap: $space-3;
+  flex-wrap: wrap;
 
   a {
-    padding: 12px 24px;
-    background: #f7931a;
-    color: white;
-    border-radius: 6px;
+    padding: 6px 12px;
+    background: $tertiary-color;
+    color: #020617;
+    border-radius: $radius-sm;
     text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s ease-in-out;
+    font-weight: 600;
+    font-size: $font-size-xs;
+    transition: background 0.18s ease-in-out, transform 0.1s ease-in-out;
+    white-space: nowrap;
 
     &:hover {
-      background: #d97800;
+      background: $quaternary-color;
+      transform: translateY(-1px);
     }
 
     &.disabled {
-      background: #ccc;
+      background: #111827;
+      color: $neutral-color-medium;
+      border: 1px solid rgba(75, 85, 99, 0.7);
       pointer-events: none;
     }
   }
@@ -27,20 +37,31 @@
 .quiz-section {
   display: flex;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: $space-6;
 
   .quiz-btn {
     padding: 12px 24px;
-    font-size: 16px;
-    background-color: #f7931a;
-    color: #fff;
+    font-size: $font-size-md;
+    background-color: $tertiary-color;
+    color: #020617;
     border: none;
-    border-radius: 8px;
+    border-radius: $radius-md;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    font-weight: 600;
+    transition: background 0.18s ease-in-out, transform 0.1s ease-in-out;
 
     &:hover {
-      background-color: #e07a00;
+      background-color: $quaternary-color;
+      transform: translateY(-1px);
+    }
+  }
+}
+@media (min-width: 480px) {
+  .nav-buttons {
+    a {
+      padding: 12px 24px;
+      font-size: $font-size-sm;
+
     }
   }
 }

@@ -1,4 +1,4 @@
-@use "../../../styles._variables.scss" as *;
+@use 'styles._variables' as *;
 .hero-banner {
   background-image: url("https://imgur.com/1eri1JA.png");
   background-size: cover;

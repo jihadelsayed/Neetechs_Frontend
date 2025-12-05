@@ -1,28 +1,35 @@
 @if (previousTutorial || nextTutorial) {
   <div class="nav-buttons">
     @if (previousTutorial) {
-      <a class="prev" [routerLink]="['/'].concat(previousTutorial.href.split('/'))">
-        ← {{ previousTutorial.title }}
+      <a
+        class="prev"
+        [routerLink]="['/'].concat(previousTutorial.href.split('/'))"
+        [title]="previousTutorial.title"
+      >
+        ← Previous lesson
       </a>
     } @else {
       <a class="prev disabled">
-        ← No Previous Tutorial
+        ← No previous lesson
       </a>
     }
 
-    @if (!nextTutorial) {
-      <a class="next disabled">
-        No Next Tutorial →
+    @if (nextTutorial) {
+      <a
+        class="next"
+        [routerLink]="['/'].concat(nextTutorial.href.split('/'))"
+        [title]="nextTutorial.title"
+      >
+        Next lesson →
       </a>
     } @else {
-      <a class="next" [routerLink]="['/'].concat(nextTutorial.href.split('/'))">
-        {{ nextTutorial.title }} →
+      <a class="next disabled">
+        No next lesson →
       </a>
     }
   </div>
 }
 
-<!-- Quiz Button -->
 @if (tutorial?.quiz) {
   <div class="quiz-section">
     <hr />

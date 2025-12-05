@@ -1,85 +1,92 @@
+// hero-tutorial-list.component.scss
+@use 'styles._variables' as *;
+
 .hero-banner {
-  background-color: #fff8ef;
-  padding: 64px 24px;
+  background-color: #0b1120;
+  padding: $space-7 4vw;
   text-align: center;
-  border-radius: 12px;
-  margin-bottom: 48px;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+  border-radius: $radius-lg;
+  margin-bottom: $space-7;
+  box-shadow: $shadow-soft;
+  border: 1px solid rgba(148, 163, 184, 0.18);
 
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    color: #333;
+    font-size: $font-size-3xl;
+    margin-bottom: $space-3;
+    color: #f9fafb;
   }
 
   p {
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto 24px;
+    font-size: $font-size-md;
+    color: #9ca3af;
+    max-width: 640px;
+    margin: 0 auto $space-4;
   }
 
   .cta-button {
-    background-color: #f7931a;
-    color: white;
-    font-weight: bold;
-    padding: 12px 24px;
+    background-color: $tertiary-color;
+    color: #020617;
+    font-weight: 600;
+    padding: 10px 22px;
     border: none;
-    border-radius: 6px;
+    border-radius: $radius-sm;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    transition: background 0.18s ease-in-out, transform 0.1s ease-in-out;
 
     &:hover {
-      background-color: #d97800;
+      background-color: $quaternary-color;
+      transform: translateY(-1px);
     }
   }
 }
 
 .container-card {
-  margin-bottom: 64px;
+  margin-bottom: $space-7;
 
   h2 {
-    font-size: 1.75rem;
-    margin-bottom: 16px;
-    color: #222;
+    font-size: $font-size-2xl;
+    margin-bottom: $space-3;
+    color: #e5e7eb;
   }
 
   .categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: $space-4;
     justify-content: center;
   }
 
   .category {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-    padding: 16px;
+    background: #020617;
+    border-radius: $radius-md;
+    box-shadow: $shadow-soft;
+    padding: $space-4;
     width: 220px;
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
+    border: 1px solid rgba(148, 163, 184, 0.18);
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: $shadow-medium;
     }
 
     .category-image {
       width: 48px;
       height: 48px;
-      margin-bottom: 12px;
+      margin-bottom: $space-3;
     }
 
     h5 {
-      margin: 8px 0;
-      font-size: 1rem;
+      margin: $space-2 0;
+      font-size: $font-size-md;
 
       a {
-        color: #f7931a;
+        color: $tertiary-color;
         text-decoration: none;
 
         &.disabled {
-          color: #ccc;
+          color: $neutral-color-medium;
           pointer-events: none;
         }
 
@@ -90,8 +97,15 @@
     }
 
     .date {
-      font-size: 0.85rem;
-      color: gray;
+      font-size: $font-size-xs;
+      color: $neutral-color-medium-dark;
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .container-card {
+    width: 100%;
+    padding: 0;
   }
 }

@@ -45,13 +45,13 @@
             ],
             "outputPath": "dist/neetechs",
             "index": "src/index.html",
-            "browser": "src/main.ts", 
-            "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
-            ],
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src"]
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -74,9 +74,7 @@
               "src/styles.font.scss",
               "src/styles.form.scss",
               "src/styles.toast.scss",
-  "node_modules/katex/dist/katex.min.css"
-              
-
+              "node_modules/katex/dist/katex.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -87,55 +85,34 @@
           },
           "configurations": {
             "es": {
-              "localize": [
-                "es"
-              ]
+              "localize": ["es"]
             },
             "en": {
-              "localize": [
-                "en"
-              ]
+              "localize": ["en"]
             },
             "pt": {
-              "localize": [
-                "pt"
-              ]
+              "localize": ["pt"]
             },
             "ar": {
-              "localize": [
-                "ar"
-              ]
+              "localize": ["ar"]
             },
             "de": {
-              "localize": [
-                "de"
-              ]
+              "localize": ["de"]
             },
             "ru": {
-              "localize": [
-                "ru"
-              ]
+              "localize": ["ru"]
             },
             "sv": {
-              "localize": [
-                "sv"
-              ]
+              "localize": ["sv"]
             },
             "zh": {
-              "localize": [
-                "zh"
-              ]
+              "localize": ["zh"]
             },
             "fr": {
-              "localize": [
-                "fr"
-              ]
+              "localize": ["fr"]
             },
-            "public": {
-            },
+            "public": {},
             "production": {
-               
-                
               "budgets": [
                 {
                   "type": "initial",
@@ -215,10 +192,27 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "main": "src/test.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "localize": [
+              "ar",
+              "es",
+              "pt",
+              "ar",
+              "de",
+              "ru",
+              "sv",
+              "zh",
+              "fr",
+              "en"
+            ],
+            "outputPath": "dist/neetechs",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js", "@angular/localize/init"],
+            "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src"]
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -229,6 +223,11 @@
                 "glob": "manifest.webmanifest",
                 "input": "src",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/"
               }
             ],
             "styles": [
@@ -236,18 +235,20 @@
               "src/styles.font.scss",
               "src/styles.form.scss",
               "src/styles.toast.scss",
-  "node_modules/katex/dist/katex.min.css"
+              "node_modules/katex/dist/katex.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
