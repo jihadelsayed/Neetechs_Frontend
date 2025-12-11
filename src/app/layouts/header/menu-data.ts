@@ -15,10 +15,16 @@ const BASE_MENU: NavItem[] = [
   },
   {
     id: 2,
-    link: '/services',
-    title: 'Services',
+    link: '/digital-products',
+    title: 'Products',
     mega_menu: false,
   },
+  //   {
+  //   id: 2,
+  //   link: '/tutorials',
+  //   title: 'Tutorials',
+  //   mega_menu: false,
+  // },
   {
     id: 3,
     link: '/company',      // صفحة مدموجة: About + Contact
