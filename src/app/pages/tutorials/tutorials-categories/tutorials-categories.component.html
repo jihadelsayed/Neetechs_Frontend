@@ -12,9 +12,11 @@
       </nav>
 
       <div class="hero">
-        <div class="hero-img-wrapper" *ngIf="category.image">
-          <img [src]="category.image" [alt]="category.name" />
-        </div>
+          @if (category.image) {
+    <div class="hero-img-wrapper">
+      <img [src]="category.image" [alt]="category.name" />
+    </div>
+  }
 
         <div class="hero-content">
           <h1>{{ category.name }}</h1>
@@ -74,7 +76,8 @@
                 ></span>
                 <span class="level-name">{{ level }}</span>
                 <span class="level-count">
-                  {{ groupedTutorials[level]?.length || 0 }}
+                  {{ (groupedTutorials[level] || []).length || 0 }}
+
                 </span>
               </li>
             }
@@ -114,7 +117,8 @@
               </span>
 
               <span class="level-count-text">
-                {{ groupedTutorials[level]?.length || 0 }} lessons
+                {{ (groupedTutorials[level] || []).length || 0 }} lessons
+
               </span>
             </div>
 
@@ -122,13 +126,18 @@
               @for (tutorial of groupedTutorials[level]; track tutorial.title) {
                 <article
                   class="tutorial-card"
-                  [ngClass]="[
-                    tutorial.lvl,
-                    tutorial.disable ? 'disabled' : '',
-                    isCompleted(tutorial) ? 'completed' : ''
-                  ]"
+                    [ngClass]="[
+    tutorial.lvl,
+    isDisabled(tutorial) ? 'disabled' : '',
+    isCompleted(tutorial) ? 'completed' : ''
+  ]"
                   (click)="onTutorialClick(tutorial)"
                 >
+                      @if (tutorial.image) {
+        <div class="card-thumb">
+          <img [src]="tutorial.image" [alt]="tutorial.title" />
+        </div>
+      }
                   <div class="card-header">
                     <h2>{{ tutorial.title }}</h2>
 

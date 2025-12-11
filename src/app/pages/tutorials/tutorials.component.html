@@ -26,10 +26,10 @@
             <h2 class="section-title">{{ type }}</h2>
 
             <p class="section-subtitle">
-              @if (groupedCategories[type]?.length === 1) {
-                {{ groupedCategories[type]?.length }} track in this path.
+              @if ((groupedCategories[type] || []).length === 1) {
+{{ (groupedCategories[type] || []).length }} track in this path.
               } @else {
-                {{ groupedCategories[type]?.length }} tracks in this path.
+{{ (groupedCategories[type] || []).length }} tracks in this path.
               }
             </p>
           </div>

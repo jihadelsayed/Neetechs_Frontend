@@ -1,4 +1,3 @@
-<!-- tutorial-wrapper.component.html -->
 <div class="tutorial-wrapper">
   <!-- Left: TOC -->
   <aside class="tutorial-wrapper__toc">
@@ -12,16 +11,25 @@
   <!-- Right: Content -->
   <section class="tutorial-wrapper__content">
     <header class="tutorial-header">
+      @if (tutorial.image) {
+        <div class="tutorial-cover">
+          <img [src]="tutorial.image" [alt]="tutorial.title" />
+        </div>
+      }
+
       <h1 class="tutorial-title">
-        {{ tutorial['title'] }}
+        {{ tutorial.title }}
       </h1>
-      <p class="tutorial-meta">📘 {{ getEstimatedReadingTime() }}</p>
+
+      <p class="tutorial-meta">
+        📘 {{ getEstimatedReadingTime() }}
+      </p>
     </header>
 
-    @if (tutorial.link) {
+    @if (getVideoEmbedUrl()) {
       <div class="video-container">
         <iframe
-          [src]="tutorial.link | safe"
+          [src]="getVideoEmbedUrl() | safe"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
@@ -46,7 +54,7 @@
           type="checkbox"
           [checked]="isCompleted()"
           (change)="toggleCompletion()" />
-         Mark as Complete
+        Mark as Complete
       </label>
     </div>
 

@@ -1,8 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialsCategoriesService } from './tutorials-categories.service';
+import { Title, Meta } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+
+interface TutorialListItem {
+  id: number;
+  title: string;
+  lvl: string;
+  date?: string;
+  href?: string;
+  description?: string;
+  duration?: string;
+  disable?: boolean | string;
+  tag?: string;
+  image?: string;
+}
+
+interface TutorialCategory {
+  id: string;
+  name: string;
+  date?: string;
+  href: string;
+  description?: string;
+  tagline?: string;
+  image?: string;
+  tutorials: TutorialListItem[];
+}
 
 @Component({
   selector: 'app-tutorials-categories',
@@ -13,17 +39,23 @@ import { TutorialsCategoriesService } from './tutorials-categories.service';
   providers: [TutorialsCategoriesService],
 })
 export class TutorialsCategoriesComponent {
-  category: any;
-  groupedTutorials: Record<string, any[]> = {};
+
   levels: string[] = [];
   activeLevel: string | null = null;
 
   private completedIds = new Set<string>();
+  category: TutorialCategory | null = null;
+  groupedTutorials: Record<string, TutorialListItem[]> = {};
+
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private tutorialsCategoriesService: TutorialsCategoriesService
+    private tutorialsCategoriesService: TutorialsCategoriesService,
+      private title: Title,
+  private meta: Meta,
+    @Inject(DOCUMENT) private document: Document
+
   ) {}
 
   ngOnInit(): void {
@@ -40,9 +72,69 @@ export class TutorialsCategoriesComponent {
       (data) => {
         this.category = data;
         this.groupTutorialsByLevel();
+      this.setSeoForCategory();
       }
     );
   }
+private setSeoForCategory(): void {
+  if (!this.category) return;
+
+  const baseTitle = this.category.name || 'Tutorials';
+  const pageTitle = `${baseTitle} Tutorials | Neetechs`;
+
+  const description =
+    this.category.description ||
+    `Learn ${this.category.name} step-by-step with structured tutorials on Neetechs.`;
+
+  const path = this.category.href || `tutorials/${this.slugify(baseTitle)}`;
+  const url = `https://neetechs.com/en/${path}`;
+
+  // Make sure image is absolute for OG/Twitter
+  const rawImage = this.category.image as string | undefined;
+  const imageUrl = rawImage
+    ? (rawImage.startsWith('http')
+        ? rawImage
+        : `https://neetechs.com${rawImage}`)
+    : 'https://neetechs.com/assets/og/default-category.png';
+
+  /* === BASIC SEO === */
+  this.title.setTitle(pageTitle);
+
+  this.meta.updateTag({
+    name: 'description',
+    content: description
+  });
+
+  this.meta.updateTag({
+    name: 'robots',
+    content: 'index,follow'
+  });
+
+  /* === CANONICAL === */
+  let link: HTMLLinkElement | null = this.document.querySelector(
+    "link[rel='canonical']"
+  );
+  if (!link) {
+    link = this.document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.document.head.appendChild(link);
+  }
+  link.setAttribute('href', url);
+
+  /* === OPEN GRAPH === */
+  this.meta.updateTag({ property: 'og:title', content: pageTitle });
+  this.meta.updateTag({ property: 'og:description', content: description });
+  this.meta.updateTag({ property: 'og:type', content: 'website' });
+  this.meta.updateTag({ property: 'og:url', content: url });
+  this.meta.updateTag({ property: 'og:image', content: imageUrl });
+
+  /* === TWITTER === */
+  this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+  this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
+  this.meta.updateTag({ name: 'twitter:description', content: description });
+  this.meta.updateTag({ name: 'twitter:image', content: imageUrl });
+}
+
 
   private groupTutorialsByLevel(): void {
     this.groupedTutorials = {};
@@ -64,13 +156,17 @@ export class TutorialsCategoriesComponent {
   navigateTo(url: string): void {
     this.router.navigate([url]);
   }
+isDisabled(tutorial: any): boolean {
+  return tutorial.disable === true || tutorial.disable === 'true';
+}
 
-  onTutorialClick(tutorial: any): void {
-    if (tutorial.disable) return;
-    if (tutorial.href) {
-      this.router.navigate([tutorial.href]);
-    }
+onTutorialClick(tutorial: any): void {
+  if (this.isDisabled(tutorial)) return;
+  if (tutorial.href) {
+    this.router.navigate([tutorial.href]);
   }
+}
+
 
   setActiveLevel(level: string | null): void {
     this.activeLevel = level;
@@ -117,12 +213,15 @@ export class TutorialsCategoriesComponent {
     }
   }
 
-  get totalTutorials(): number {
-    return this.levels.reduce(
-      (sum, lvl) => sum + (this.groupedTutorials[lvl]?.length || 0),
-      0
-    );
-  }
+get totalTutorials(): number {
+  return this.levels.reduce(
+    (sum, lvl) =>
+      sum +
+      (this.groupedTutorials[lvl]?.filter(t => !this.isDisabled(t)).length || 0),
+    0
+  );
+}
+
 
   get completedCount(): number {
     return this.completedIds.size;
