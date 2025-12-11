@@ -21,6 +21,12 @@ const BASE_MENU: NavItem[] = [
   },
   //   {
   //   id: 2,
+  //   link: '/services',
+  //   title: 'Services',
+  //   mega_menu: false,
+  // },
+  //   {
+  //   id: 2,
   //   link: '/tutorials',
   //   title: 'Tutorials',
   //   mega_menu: false,
