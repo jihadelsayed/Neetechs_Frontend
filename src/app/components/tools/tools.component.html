@@ -1,59 +1,79 @@
-<div class="hero">
-  <img
-    src="https://imgur.com/01izsjk.png"
-    alt="Hero Image"
-    class="hero-image"
-    loading="lazy"
-  />
-  <h1 class="display_none">Tools</h1>
-  <!-- <div class="hero-text">
-<h1>About Neetechs</h1> 
-  <p>Innovating the Future with AI and Machine Learning</p>
-  </div> -->
-  <button class="cta-button" (click)="navigateTo('/tools')">Explore Tools</button>
-  <div class="filter-bar">
-    <input
-      type="text"
-      placeholder="Search tools..."
-      [(ngModel)]="searchTerm"
-      (input)="filterTools()"
-      class="search-input"
+<div class="tools-page">
+  <!-- HERO -->
+  <section class="tools-hero">
+    <img
+      src="https://imgur.com/01izsjk.png"
+      alt="Neetechs tools hero"
+      class="tools-hero__image"
+      loading="lazy"
     />
-    <select
-      [(ngModel)]="selectedType"
-      (change)="filterTools()"
-      class="type-select"
-    >
-      <option value="">All Types</option>
-      @for (type of uniqueTypes; track type) {
-        <option>{{ type }}</option>
-      }
-    </select>
-  </div>
-</div>
-<div class="container">
-  <div class="tools">
-    @for (tool of filteredTools ; track tool.name) {
-      <div
-        class="tool-card"
-        [ngClass]="{ disableScale: tool.disable }"
-      >
-        <a
-          class="tool"
-          (click)="navigateTo(tool.link)"
-          [ngClass]="{ 'disable-clicks': tool.disable }"
+
+    <div class="tools-hero__overlay">
+      <p class="eyebrow">Neetechs • Tools Directory</p>
+      <h1>Explore AI tools that plug into your workflow.</h1>
+      <p class="subtitle">
+        Simple utilities, AI-powered assistants, and technical helpers to speed up your work.
+      </p>
+
+      <div class="filter-bar">
+        <input
+          type="text"
+          placeholder="Search tools..."
+          [(ngModel)]="searchTerm"
+          (input)="filterTools()"
+          class="search-input"
+        />
+
+        <select
+          [(ngModel)]="selectedType"
+          (change)="filterTools()"
+          class="type-select"
         >
-          <h4>{{ tool.icon }}</h4>
-          <!-- <img [src]="tool.image" alt="tool image">   -->
-          <div>
-            <h5>{{ tool.name }}</h5>
-            <p>{{ tool.type }}</p>
-          </div>
-        </a>
+          <option value="">All Types</option>
+          @for (type of uniqueTypes; track type) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
       </div>
-    }
-  </div>
-</div>
-<div class="container">
-  <app-contact-banner></app-contact-banner>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="tools-section">
+    <header class="tools-section__header">
+      <h2>Browse all tools</h2>
+      <p>
+        Pick a tool, try it in seconds, and drop the output straight into your projects.
+      </p>
+    </header>
+
+    <div class="tools-grid">
+      @for (tool of filteredTools; track tool.name) {
+        <article
+          class="tool-card"
+          [ngClass]="{ 'tool-card--disabled': tool.disable }"
+        >
+          <button
+            class="tool-card__inner"
+            type="button"
+            (click)="!tool.disable && navigateTo(tool.link)"
+            [disabled]="tool.disable"
+          >
+            <div class="tool-card__icon">
+              <span>{{ tool.icon }}</span>
+            </div>
+            <div class="tool-card__content">
+              <h3 class="tool-card__title">{{ tool.name }}</h3>
+              <p class="tool-card__type">{{ tool.type }}</p>
+            </div>
+          </button>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- CONTACT BANNER -->
+  <section class="tools-contact">
+    <app-contact-banner></app-contact-banner>
+  </section>
 </div>

@@ -1,41 +1,92 @@
-@if(tool){
-<div class="container"  >
-  <h2>{{ tool.title }}</h2>
+@if (tool) {
+  <div class="tool-wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero__title">{{ tool.title }}</h1>
+      <p class="hero__subtitle">
+        {{ tool.heroSubtitle || 'Convert video to audio using a local file or CORS-enabled URL.' }}
+      </p>
+    </section>
 
-  <div class="main">
-    <div class="left">
-      <h4>{{ tool.input }}</h4>
-      <input type="file" accept="video/*" (change)="onFile($event)" />
-      <input type="url" [(ngModel)]="url" placeholder="https://... (must allow CORS)" />
-    </div>
+    <!-- Toolbar -->
+    <section class="toolbar">
+      <label class="toolbar__group">
+        <span>Mode</span>
+        <select class="select" [(ngModel)]="mode">
+          @for (o of tool.jobOption; track o.value) {
+            <option [value]="o.value">{{ o.text }}</option>
+          }
+        </select>
+      </label>
 
-    <div class="middle">
-      <select class="selector" [(ngModel)]="mode">
-        @for (o of tool.jobOption; track o.value) {
-          <option [value]="o.value">{{ o.text }}</option>
-        }
-      </select>
-      <button [disabled]="busy" (click)="run()">{{ tool.button }}</button>
-    </div>
-
-    <div class="result-text">
-      <h4>{{ tool.output }}</h4>
-      @if(downloadUrl){
-      <div  >
-        <a [href]="downloadUrl" [download]="downloadName">⬇️ Download {{ downloadName }}</a>
+      <div class="toolbar__group">
+        <button class="btn btn--primary" (click)="run()" [disabled]="busy">
+          @if (!busy) { <span>{{ tool.button }}</span> }
+          @else { <span class="spinner" aria-label="Working"></span> }
+        </button>
       </div>
-      }
-      <ng-template #nores><code>—</code></ng-template>
-      @if(logs.length){
-      <pre>{{ logs.join('\n') }}</pre>
-      }
-    </div>
+    </section>
+
+    <!-- Main grid -->
+    <section class="grid">
+      <!-- Input side -->
+      <article class="card">
+        <h2 class="card__title">{{ tool.input }}</h2>
+        <div class="file-inputs">
+          <label class="file-upload">
+            <span>Select video file</span>
+            <input type="file" accept="video/*" (change)="onFile($event)" />
+          </label>
+
+          <div class="or">or</div>
+
+          <input
+            type="url"
+            [(ngModel)]="url"
+            class="textarea"
+            placeholder="https://... (must allow CORS)"
+          />
+        </div>
+        <div class="hint">
+          Use a small clip while testing. Remote URLs must be CORS-enabled for the browser to
+          fetch them.
+        </div>
+      </article>
+
+      <!-- Output side -->
+      <article class="card card--result">
+        <h2 class="card__title">{{ tool.output }}</h2>
+
+        @if (downloadUrl) {
+          <p>
+            <a [href]="downloadUrl" [download]="downloadName" class="download-link">
+              ⬇ Download {{ downloadName }}
+            </a>
+          </p>
+        } @else {
+          <p class="hint">No file yet. Run a conversion to get an MP3 link.</p>
+        }
+
+        @if (errMsg) {
+          <p class="error">{{ errMsg }}</p>
+        }
+
+        @if (logs.length) {
+          <pre class="code">{{ logs.join('\n') }}</pre>
+        }
+      </article>
+    </section>
+
+    <!-- Help -->
+    @if (tool.heroText) {
+      <section class="help">
+        <div class="help__content">
+          <h3>{{ tool.heroText }}</h3>
+          <a class="help__link" [href]="tool.heroLink" target="_blank" rel="noopener">
+            {{ tool.heroLinkName || tool.heroLink }}
+          </a>
+        </div>
+      </section>
+    }
   </div>
-@if(tool.heroText){
-  <div class="container helpContainer"  >
-    <h4>{{ tool.heroText }}</h4>
-    <a [href]="tool.heroLink" target="_blank">{{ tool.heroLinkName || tool.heroLink }}</a>
-  </div>
-  }
-</div>
 }

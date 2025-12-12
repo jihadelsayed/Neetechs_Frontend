@@ -1,41 +1,69 @@
 @if (tool) {
-  <div class="container">
-    <h2>{{ tool.title }}</h2>
-    <div class="main">
-      <div>
-        <h4>{{ tool.input }}</h4>
-        <textarea
-          [(ngModel)]="inputText"
-          placeholder="Type your text here..."
-          rows="5"
-          cols="50"
-        ></textarea>
-      </div>
-      <div class="middle">
-        <!-- Added the select element here -->
-        <select class="selector" [(ngModel)]="toolMode">
-         @for (option of tool.jobOption; track option.value) {
-            <option [value]="option.value">{{ option.text }}</option>
+  <div class="tool-wrap">
+    
+    <!-- Hero -->
+    <div class="hero">
+      <h1 class="hero__title">{{ tool.title }}</h1>
+      <p class="hero__subtitle">{{ tool.subtitle }}</p>
+    </div>
+
+    <!-- Mode Selector + Run Button -->
+    <section class="toolbar">
+      <label class="toolbar__group">
+        <span>Mode</span>
+        <select class="select" [(ngModel)]="toolMode">
+          @for (o of tool.jobOption; track o.value) {
+            <option [value]="o.value">{{ o.text }}</option>
           }
         </select>
-        <button (click)="executeTool()">{{ tool.button }}</button>
+      </label>
+
+      <div class="toolbar__group">
+        <button class="btn btn--primary" (click)="executeTool()">
+          {{ tool.button }}
+        </button>
       </div>
-      <div class="result-text">
-        <h4>{{ tool.output }}</h4>
-        <pre><code>{{ result }}</code>
-        
-          <button class="copy-btn" (click)="copyToClipboard(result)">Copy</button>
-        </pre>
+    </section>
+
+    <!-- Input & Output -->
+    <section class="grid">
+      
+      <!-- Input -->
+      <article class="card">
+        <h2 class="card__title">Input Text</h2>
+        <textarea
+          [(ngModel)]="inputText"
+          class="textarea"
+          placeholder="Type your text here..."
+          rows="10">
+        </textarea>
+      </article>
+
+      <!-- Output -->
+      <article class="card card--result">
+        <h2 class="card__title">Translated Text</h2>
+        <pre class="code"><code>{{ result || 'Result will appear here.' }}</code></pre>
+        <button class="btn btn--copy" (click)="copyToClipboard(result)" [disabled]="!result">Copy</button>
+      </article>
+
+    </section>
+
+    <!-- Help Section -->
+    <section class="help">
+      <div class="help__content">
+        <h3>Help us improve this tool!</h3>
+        <a class="help__link"
+           href="https://github.com/jihadelsayed/Neetechs/blob/main/JSON/Tools/emoji_translator/emoji_translator.json"
+           target="_blank">
+          Add more vocabulary to our GitHub repository →
+        </a>
       </div>
-    </div>
-    <div class="container helpContainer">
-      <h4>{{ tool['heroText'] }}</h4>
-      <a [href]="tool.heroLink">{{ tool.heroLinkName }}</a>
-    </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="footer-wrap">
+    <app-contact-banner></app-contact-banner>
   </div>
 }
-
-
-<div class="container">
-  <app-contact-banner></app-contact-banner>
-</div>

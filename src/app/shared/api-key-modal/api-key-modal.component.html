@@ -1,72 +1,102 @@
 @if (showModal) {
-  <div class="modal">
-    <div class="modal-content">
-      <span class="close" (click)="closeModal()">&times;</span>
+  <div class="api-modal">
+    <div class="api-modal__backdrop"></div>
 
-      <h4>Enter your OpenAI API Key</h4>
+    <div class="api-modal__panel">
+      <button class="api-modal__close" type="button" (click)="closeModal()">
+        &times;
+      </button>
 
-      <label for="apiKey">API Key</label>
-      <div class="key-row">
-        <input
-          [type]="showKey ? 'text' : 'password'"
-          id="apiKey"
-          [(ngModel)]="apiKey"
-          name="apiKey"
-          placeholder="sk-..."
-          required
-        />
-        <button type="button" (click)="showKey = !showKey">
-          {{ showKey ? 'Hide' : 'Show' }}
-        </button>
-      </div>
+      <!-- Header -->
+      <header class="api-modal__header">
+        <h2>Enter your OpenAI API Key</h2>
+        <p>Stored locally in this browser so you can use Neetechs tools with your own account.</p>
+      </header>
 
-      <hr />
+      <!-- API Key -->
+      <section class="api-modal__section">
+        <label for="apiKey" class="api-modal__label">API Key</label>
 
-      <h4>Choose a Model</h4>
-
-      <label>
-        <input
-          type="radio"
-          name="modelChoice"
-          value="preset"
-          [(ngModel)]="modelChoice"
-        />
-        Use a preset
-      </label>
-
-      @if (modelChoice === 'preset') {
-        <div class="preset">
-          <select [(ngModel)]="presetModel">
-            <option value="gpt-5">GPT-5 (best quality)</option>
-            <option value="gpt-5-mini">GPT-5 mini (fast & cheap)</option>
-            <option value="gpt-5-nano">GPT-5 nano (cheapest)</option>
-            <option value="gpt-4o-mini">GPT-4o mini (legacy)</option>
-          </select>
-          <small>Switch anytime later in Settings.</small>
-        </div>
-      }
-
-      <label class="mt">
-        <input
-          type="radio"
-          name="modelChoice"
-          value="custom"
-          [(ngModel)]="modelChoice"
-        />
-        Use custom model id
-      </label>
-
-      @if (modelChoice === 'custom') {
-        <div class="custom">
+        <div class="api-modal__field-row">
           <input
-            type="text"
-            [(ngModel)]="customModel"
-            placeholder="e.g. gpt-5-chat-latest or org/fine-tuned-model"
+            [type]="showKey ? 'text' : 'password'"
+            id="apiKey"
+            [(ngModel)]="apiKey"
+            name="apiKey"
+            placeholder="sk-..."
+            required
           />
+          <button
+            type="button"
+            class="btn btn--ghost"
+            (click)="showKey = !showKey"
+          >
+            {{ showKey ? 'Hide' : 'Show' }}
+          </button>
         </div>
-      }
+      </section>
 
-      <button class="primary mt" (click)="saveApiKey()">Save</button>
+      <hr class="api-modal__divider" />
+
+      <!-- Model choice -->
+      <section class="api-modal__section">
+        <h3>Choose a Model</h3>
+
+        <label class="api-modal__radio-row">
+          <input
+            type="radio"
+            name="modelChoice"
+            value="preset"
+            [(ngModel)]="modelChoice"
+          />
+          <span>
+            <strong>Use a preset</strong>
+            <small>Good defaults for most tools. You can switch later.</small>
+          </span>
+        </label>
+
+        @if (modelChoice === 'preset') {
+          <div class="api-modal__preset">
+            <select [(ngModel)]="presetModel">
+              <option value="gpt-5">GPT-5 (best quality)</option>
+              <option value="gpt-5-mini">GPT-5 mini (fast &amp; cheap)</option>
+              <option value="gpt-5-nano">GPT-5 nano (cheapest)</option>
+              <option value="gpt-4o-mini">GPT-4o mini (legacy)</option>
+            </select>
+            <small>Switch anytime later in Settings.</small>
+          </div>
+        }
+
+        <label class="api-modal__radio-row api-modal__radio-row--mt">
+          <input
+            type="radio"
+            name="modelChoice"
+            value="custom"
+            [(ngModel)]="modelChoice"
+          />
+          <span>
+            <strong>Use custom model id</strong>
+            <small>For org-level or fine-tuned models.</small>
+          </span>
+        </label>
+
+        @if (modelChoice === 'custom') {
+          <div class="api-modal__custom">
+            <input
+              type="text"
+              [(ngModel)]="customModel"
+              placeholder="e.g. gpt-5-chat-latest or org/fine-tuned-model"
+            />
+          </div>
+        }
+      </section>
+
+      <!-- Footer actions -->
+      <footer class="api-modal__footer">
+        <button class="btn btn--primary" type="button" (click)="saveApiKey()">
+          Save
+        </button>
+      </footer>
     </div>
   </div>
 }
