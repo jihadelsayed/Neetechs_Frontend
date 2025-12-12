@@ -1,7 +1,113 @@
-<app-company-info></app-company-info>
-<div class="container">
+<div class="about-page">
+  <!-- Hero / company info -->
+  <section class="about-hero">
+    <app-company-info></app-company-info>
+  </section>
+
+  <!-- Mission / vision / story -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <p class="eyebrow">Neetechs • Development Studio</p>
+      <h2>We build systems that people actually use.</h2>
+      <p class="subtitle">
+        Practical toolkits, AI systems, and workflows for students, builders, and creators.
+        No fluff, just tools you can plug straight into your day.
+      </p>
+    </div>
+
     <app-mission-vision></app-mission-vision>
-    <app-team-members></app-team-members>
-    <app-contact-banner></app-contact-banner>
-      
+  </section>
+
+  <!-- Trust badges -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <p class="eyebrow">Why people trust Neetechs</p>
+      <h2>Start small, ship fast, keep the momentum.</h2>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <span class="trust-icon">📚</span>
+        <h3>Built for real learners</h3>
+        <p>
+          Designed for students, self-taught devs, and creators who want progress,
+          not theory overload.
+        </p>
+      </div>
+
+      <div class="trust-card">
+        <span class="trust-icon">⚙️</span>
+        <h3>Systems, not random tips</h3>
+        <p>
+          Each product is a workflow, checklist, or template you can drop into your
+          existing stack in under a day.
+        </p>
+      </div>
+
+      <div class="trust-card">
+        <span class="trust-icon">♾️</span>
+        <h3>Lifetime access & updates</h3>
+        <p>
+          Buy once, get lifetime access and improvements as we iterate and refine
+          the systems.
+        </p>
+      </div>
+
+      <div class="trust-card">
+        <span class="trust-icon">🚀</span>
+        <h3>Shipped by builders</h3>
+        <p>
+          Neetechs is run by engineers and makers actively using the same tools to
+          run their own projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="about-section">
+    <div class="testimonial">
+      <div class="testimonial-header">
+        <p class="eyebrow">What creators say</p>
+        <h2>“Neetechs helped me stop reinventing the wheel.”</h2>
+      </div>
+
+      <p class="testimonial-quote">
+        “Instead of spending weeks building my own systems, I plugged in Neetechs
+        templates and finally had a clear workflow for studying, planning content,
+        and shipping projects. It feels like having a senior teammate, not just a
+        PDF.”
+      </p>
+
+      <div class="testimonial-meta">
+        <div class="avatar-circle">S</div>
+        <div>
+          <p class="name">Sara A.</p>
+          <p class="role">CS student & content creator</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (no contact banner here) -->
+  <section class="about-section about-cta">
+    <div class="about-cta-inner">
+      <div class="about-cta-copy">
+        <p class="eyebrow">Start with one product</p>
+        <h2>Pick one toolkit, plug it in, and build from there.</h2>
+        <p class="subtitle">
+          You don’t need a full suite of tools. One good system that actually fits
+          your life is enough to start compounding progress.
+        </p>
+        <div class="about-cta-actions">
+          <a routerLink="/digital-products" class="btn btn-primary">
+            Shop digital products
+          </a>
+          <a routerLink="/tutorials" class="btn btn-ghost">
+            View free tutorials
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

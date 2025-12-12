@@ -1,10 +1,16 @@
-@for (section of sections; track section; let i = $index) {
-  <div class="section">
-      <h3>{{ section.title }}</h3>
-      <div class="subSection" [ngClass]="{'flex-reverse': isOdd(i)}">
-        <img [src]="section.content.image.src" [alt]="section.content.image.alt" />
+<section class="mv-wrapper">
+  @for (section of sections; track section; let i = $index) {
+    <div class="mv-section" [ngClass]="{ 'flex-reverse': isOdd(i) }">
+      <div class="mv-text">
+        <h3>{{ section.title }}</h3>
         <p>{{ section.content.text }}</p>
       </div>
+      <div class="mv-media">
+        <img
+          [src]="section.content.image.src"
+          [alt]="section.content.image.alt"
+        />
+      </div>
     </div>
-}
-  
+  }
+</section>

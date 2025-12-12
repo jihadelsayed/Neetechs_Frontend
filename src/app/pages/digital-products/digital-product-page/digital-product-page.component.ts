@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; // 👈 add this
 import { DigitalProductService } from '../../../services/digital-product.service';
 import { DigitalProduct } from '../../../models/digital-product.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-digital-product-page',
-  imports: [CommonModule, RouterModule], // 👈 include RouterModule
+  imports: [CommonModule, RouterModule, RouterLink], // 👈 include RouterModule and RouterLink
   templateUrl: './digital-product-page.component.html',
   styleUrls: ['./digital-product-page.component.scss'],
 })

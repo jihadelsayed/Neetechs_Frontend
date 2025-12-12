@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { MissionVisionComponent } from "./mission-vision/mission-vision.component";
-import { TeamMembersComponent } from "./team-members/team-members.component";
 import { CompanyInfoComponent } from "./company-info/company-info.component";
-import { ContactBannerComponent } from "../../shared/contact-banner/contact-banner.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-about-us',
-    imports: [MissionVisionComponent, TeamMembersComponent, CompanyInfoComponent, ContactBannerComponent],
+    imports: [MissionVisionComponent, CompanyInfoComponent, RouterLink],
     templateUrl: './about-us.component.html',
     styleUrl: './about-us.component.scss'
 })

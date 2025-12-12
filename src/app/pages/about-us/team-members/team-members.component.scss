@@ -1,4 +1,31 @@
+@use 'styles._variables' as *;
 
-.team-member {
-    margin-bottom: 20px;
+.team-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    max-width: 960px;
+  margin: 0 auto;
+}
+
+.team-header h2 {
+  font-size: 1.6rem;
+  color: #f9fafb;
+  margin-bottom: 6px;
+}
+
+.team-header p {
+  font-size: 0.96rem;
+  color: #9ca3af;
+  max-width: 520px;
+}
+
+.team-card {
+  padding: 20px 20px 18px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 55%),
+    rgba(10, 16, 32, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.95);
 }

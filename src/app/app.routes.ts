@@ -17,10 +17,6 @@ export const routes: Routes = [
       .then(m => m.CheckoutCancelComponent),
 },
   {
-    path: 'services',
-    loadChildren: () => import('./services/services.routes').then(m => m.servicesRoutes),
-  },
-  {
     path: 'tutorials',
     loadChildren: () => import('./tutorials/tutorials.routes').then(m => m.tutorialsRoutes),
   },

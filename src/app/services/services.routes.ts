@@ -1,44 +1,121 @@
 import { Routes } from '@angular/router';
 
-export const servicesRoutes: Routes = [
+export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('../components/services/services.component').then(m => m.ServicesComponent),
+    loadChildren: () => import('../home/home.routes').then(m => m.homeRoutes),
   },
   {
-    path: 'graphic-design',
-    loadComponent: () => import('../components/services/design-services/graphic-design/graphic-design.component').then(m => m.GraphicDesignComponent),
+    path: 'checkout/success',
+    loadComponent: () =>
+      import('../pages/checkout/checkout-success.component')
+        .then(m => m.CheckoutSuccessComponent),
   },
   {
-    path: 'ui-ux-design',
-    loadComponent: () => import('../components/services/design-services/ui-ux-design/ui-ux-design.component').then(m => m.UiUxDesignComponent),
+    path: 'checkout/cancel',
+    loadComponent: () =>
+      import('../pages/checkout/checkout-cancel.component')
+        .then(m => m.CheckoutCancelComponent),
+  },
+  // services route removed
+
+  {
+    path: 'tutorials',
+    loadChildren: () => import('../tutorials/tutorials.routes').then(m => m.tutorialsRoutes),
   },
   {
-    path: 'web-development',
-    loadComponent: () => import('../components/services/programming-services/web-development/web-development.component').then(m => m.WebDevelopmentComponent),
+    path: 'tools',
+    loadChildren: () => import('../components/tools/tools.routes').then(m => m.toolsRoutes),
+  },
+
+  {
+    path: 'pricing',
+    loadComponent: () => import('../components/pricing/pricing.component').then(m => m.PricingComponent),
   },
   {
-    path: 'mobile-app-development',
-    loadComponent: () => import('../components/services/programming-services/mobile-app-development/mobile-app-development.component').then(m => m.MobileAppDevelopmentComponent),
+    path: 'portfolio',
+    loadComponent: () => import('../components/portfolio/portfolio.component').then(m => m.PortfolioComponent),
   },
   {
-    path: 'backend-development',
-    loadComponent: () => import('../components/services/programming-services/backend-development/backend-development.component').then(m => m.BackendDevelopmentComponent),
+    path: 'sitemap',
+    loadComponent: () => import('../components/sitemap/sitemap.component').then(m => m.SitemapComponent),
   },
   {
-    path: 'mobile-device-repair',
-    loadComponent: () => import('../components/services/technical-repair-services/mobile-device-repair/mobile-device-repair.component').then(m => m.MobileDeviceRepairComponent),
+    path: 'about',
+    loadComponent: () => import('../pages/about-us/about-us.component').then(m => m.AboutUsComponent),
   },
   {
-    path: 'computer-laptop-repair',
-    loadComponent: () => import('../components/services/technical-repair-services/computer-laptop-repair/computer-laptop-repair.component').then(m => m.ComputerLaptopRepairComponent),
+    path: 'company',
+    loadComponent: () => import('../pages/company/company.component').then(m => m.CompanyComponent),
   },
   {
-    path: 'maintenance-upgrades',
-    loadComponent: () => import('../components/services/technical-repair-services/maintenance-upgrades/maintenance-upgrades.component').then(m => m.MaintenanceUpgradesComponent),
+    path: 'contact',
+    loadComponent: () => import('../pages/contact-us/contact-us.component').then(m => m.ContactUsComponent),
   },
   {
-    path: ':categoriesId',
-    loadComponent: () => import('../components/services/services-categories/services-categories.component').then(m => m.ServicesCategoriesComponent),
+    path: 'privacy-policy',
+    loadComponent: () => import('../components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
+  },
+  {
+    path: 'terms-of-service',
+    loadComponent: () => import('../pages/terms-of-service/terms-of-service.component').then(m => m.TermsOfServiceComponent),
+  },
+  {
+    path: 'coupon',
+    loadComponent: () => import('../pages/coupon/coupon.component').then(m => m.CouponComponent),
+  },
+  {
+    path: 'faq',
+    loadComponent: () => import('../pages/faq/faq.component').then(m => m.FaqComponent),
+  },
+  {
+    path: 'cookies-policy',
+    loadComponent: () => import('../pages/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent),
+  },
+  {
+    path: 'job-application',
+    loadComponent: () => import('../pages/job-application/job-application.component').then(m => m.JobApplicationComponent),
+  },
+  {
+    path: 'user-guides',
+    loadComponent: () => import('../pages/user-guides/user-guides.component').then(m => m.UserGuidesComponent),
+  },
+  {
+    path: 'careers',
+    loadComponent: () => import('../pages/careers/careers.component').then(m => m.CareersComponent),
+  },
+  {
+    path: 'blog',
+    loadComponent: () => import('../pages/blog-news/blog-news.component').then(m => m.BlogNewsComponent),
+  },
+  {
+    path: 'blog/:categoriesId',
+    loadComponent: () => import('../pages/blog-news/blog-news-categories/blog-news-categories.component').then(m => m.BlogNewsCategoriesComponent),
+  },
+  {
+    path: 'blog/:categoriesId/:blogId',
+    loadComponent: () => import('../pages/blog-news/blog/blog.component').then(m => m.BlogComponent),
+  },
+  {
+    path: 'digital-products',
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('../pages/digital-products/digital-products-list/digital-products-list.component')
+            .then(m => m.DigitalProductsListComponent),
+      },
+      {
+        path: ':slug',
+        loadComponent: () =>
+          import('../pages/digital-products/digital-product-page/digital-product-page.component')
+            .then(m => m.DigitalProductPageComponent),
+      },
+    ],
+  },
+
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];

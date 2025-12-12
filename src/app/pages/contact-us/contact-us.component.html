@@ -1,71 +1,90 @@
-<div class="contact-header">
-    <h2>Keep In Touch with Us</h2>
-    <p>Hem • Contact</p>
+<div class="contact-page">
+  <div class="contact-header">
+    <p class="eyebrow">Contact</p>
+    <h2>Keep in touch with Neetechs</h2>
+    <p class="subtitle">
+      Questions, partnership ideas, or product support — drop a message and we’ll get back to you.
+    </p>
   </div>
 
-<section class="contact-section">
-
+  <section class="contact-section">
     <!-- Left Form -->
     <div class="contact-form-wrapper">
-      <h2>Sent A Message</h2>
+      <h3>Send us a message</h3>
       <form class="contact-form">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" placeholder="Shahnewaz Sakil" />
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" placeholder="example@neetechs.com" />
-
-        <label for="phone">Phone number</label>
-        <input type="text" id="phone" placeholder="+46 739466551" />
-
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" placeholder="Write your subject" />
-
-        <label for="message">Your Message</label>
-        <textarea id="message" placeholder="Write your message here..."></textarea>
- 
-        <div class="remember">
-          <input type="checkbox" id="remember">
-          <label for="remember">Save my name, email, and website in this browser for the next time I comment.</label>
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" placeholder="Sayed Jihad Al Sayed" />
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" placeholder="you@neetechs.com" />
+          </div>
         </div>
 
-        <button type="submit">Send Message</button>
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="text" id="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="What do you need help with?" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Your message</label>
+          <textarea
+            id="message"
+            placeholder="Tell us a bit about your question or project..."
+          ></textarea>
+        </div>
+
+        <label class="remember">
+          <input type="checkbox" />
+          <span>Save my details for next time.</span>
+        </label>
+
+        <button type="submit" class="btn-primary">
+          Send message
+        </button>
       </form>
     </div>
 
     <!-- Right Info -->
     <div class="contact-info">
-      <div class="contact-info-item">
-        <img src="assets/img/contact/contact-icon-1.png" alt="Email Icon">
-        <div>
-          <strong>Email</strong>
-          info&#64;neetechs.com
-          <br>
-          <strong>Phone</strong>
-          (888) 884-9864
-        </div>
+      <div class="contact-info-card">
+        <h4>Contact</h4>
+        <p>
+          <span class="label">Email</span>
+          <span>info&#64;neetechs.com</span>
+        </p>
+        <p>
+          <span class="label">Phone</span>
+          <span>(888) 884-9864</span>
+        </p>
       </div>
 
-      <div class="contact-info-item">
-        <img src="assets/img/contact/contact-icon-2.png" alt="Location Icon">
-        <div>
-          <strong>Address</strong>
-          642 19th Ave S<br>
-          Birmingham, AL 35205
-        </div>
+      <div class="contact-info-card">
+        <h4>Location</h4>
+        <p>
+          642 19th Ave S<br />
+          Birmingham, AL 35205<br />
+          United States
+        </p>
       </div>
 
-      <div class="contact-info-item">
-        <img src="assets/img/contact/contact-icon-3.png" alt="Social Icon">
-        <div>
-          <strong>Find on social media</strong>
-          <div class="social-icons">
-            <a href="#">F</a>
-            <a href="#">T</a>
-            <a href="#">in</a>
-          </div>
+      <div class="contact-info-card">
+        <h4>Find us online</h4>
+        <div class="social-icons">
+          <a href="https://facebook.com/neetechs0" target="_blank" rel="noreferrer">Fb</a>
+          <a href="https://x.com/neetechs" target="_blank" rel="noreferrer">X</a>
+          <a href="https://linkedin.com/company/neetechs" target="_blank" rel="noreferrer">in</a>
+          <a href="https://youtube.com/@neetechs" target="_blank" rel="noreferrer">YT</a>
         </div>
       </div>
     </div>
-
   </section>
+</div>
